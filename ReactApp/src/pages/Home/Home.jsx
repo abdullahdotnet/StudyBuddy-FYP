@@ -12,7 +12,7 @@ function Home() {
         setData([{title: error, id: 0}])
       }
     }
-    loadPosts()
+    // loadPosts()
   }, [])
   return (
     <div>
