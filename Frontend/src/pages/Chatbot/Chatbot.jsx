@@ -1,30 +1,56 @@
 import React, { useState, useRef, useEffect } from 'react';
 // import { FaPaperPlane } from 'react-icons/fa';
+import { postData } from '../../services/apiService';
 
-const dummyResponses = {
-  "hello": "Hi there! How can I help you today?",
-  "how are you": "I'm just a bot, but I'm doing great! How about you?",
-  "i am good": "That's great to hear! How can I assist you today?",
-  "i am working on chatbot creation": "That's awesome! I'm a chatbot too! 😄",
-  "bye": "Goodbye! Have a great day!"
-};
+// const dummyResponses = {
+//   "hello": "Hi there! How can I help you today?",
+//   "how are you": "I'm just a bot, but I'm doing great! How about you?",
+//   "i am good": "That's great to hear! How can I assist you today?",
+//   "i am working on chatbot creation": "That's awesome! I'm a chatbot too! 😄",
+//   "bye": "Goodbye! Have a great day!"
+// };
 
 const Chatbot = () => {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
-  const messagesEndRef = useRef(null);
+  const [messages, setMessages] = useState([]);  // handling chat messages
+  const [input, setInput] = useState('');   // handling user input
+  const [response, setResponse] = useState('');   // handling rerendering errors
+  const messagesEndRef = useRef(null);    // for scrolling to the bottom of the chat
 
-  const handleSend = () => {
+  // Extracting the result part from the response
+  const formatResponse = (response) => {
+    const resultStart = response.indexOf('Result:') + 'Result:'.length;
+    const resultEnd = response.indexOf('\n\n', resultStart);
+    // Extract and return the result part, trimming any extra whitespace
+    return response.substring(resultStart, resultEnd).trim();
+  };
+
+  const handleSend = async () => {
     if (input.trim() === '') return;
+    // Calling the API to get the response
+    const getResponse = async () => {
+      const { data, error } = await postData('/api/chatbot/', { query: input });
+      if (error) {
+        setResponse("Some error has happened so the response is not available");
+        return error;
+      } else {
+        setResponse(data);
+        return data.response;
+      }
+    };
+
 
     const newMessages = [...messages, { type: 'user', text: input }];
     setMessages(newMessages);
 
-    const response = dummyResponses[input.toLowerCase()] || "Sorry, I don't understand that.";
-    setMessages([...newMessages, { type: 'bot', text: response }]);
+    // getting the response and formatting it
+    const apiResponse = await getResponse();
+    const formattedResponse = formatResponse(apiResponse) || dummyResponses[input.toLowerCase()] || "I'm sorry, I don't understand that";
+
+    setMessages([...newMessages, { type: 'bot', text: formattedResponse }]);
     setInput('');
   };
 
+  // To scroll to the bottom of the chat
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
