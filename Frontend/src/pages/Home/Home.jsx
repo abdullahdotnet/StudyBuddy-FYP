@@ -1,11 +1,14 @@
 import React from 'react'
 import HeroSection from '../../components/HomePage/HeroSection'
-import HomeImages from '../../components/HomePage/HomeImages'
+import Features from '../../components/HomePage/Features'
+import AboutUs from '../../components/HomePage/AboutUs'
 
 const Home = () => {
   return (
     <div>
       <HeroSection />
+      <Features />
+      <AboutUs />
     </div>
   )
 }
