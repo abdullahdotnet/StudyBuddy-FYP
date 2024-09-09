@@ -4,6 +4,7 @@ import Dashboard from '../pages/Dashboard/Dashboard';
 import Chatbot from '../pages/Chatbot/Chatbot';
 import NoNavbarLayout from '../layouts/NoNavbarLayout';
 import Home from '../pages/Home/Home';
+import Avatar from '../pages/Avatar/Avatar';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -12,6 +13,7 @@ const router = createBrowserRouter(
             <Route path='' element={<Home />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="chatbot" element={<Chatbot />} />
+            <Route path="/avatar" element={<Avatar />} />
         </Route>
 
 
