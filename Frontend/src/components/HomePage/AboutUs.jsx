@@ -2,12 +2,12 @@ import React from 'react';
 
 const AboutUs = () => {
   return (
-    <section className="relative bg-orange-100 py-16 px-8 rounded-bottom-custom">
-      <h2 className="text-4xl font-bold text-center mb-10">ABOUT US</h2>
+    <section className="relative bg-[#FFCBA4] py-16 px-8 mb-3">
+      <h2 className="text-5xl font-bold text-center mb-10">ABOUT US</h2>
 
-      <div className="flex flex-col lg:flex-row justify-between items-center lg:space-x-8">
+      <div className="flex flex-col lg:flex-row items-center lg:space-x-8 poppins-font">
         {/* Left Side - Image */}
-        <div className="w-full lg:w-1/2 relative">
+        <div className="w-full lg:w-5/12 relative">
           <div className="overflow-hidden rounded-r-full">
             <img
               src="/src/assets/images/students01.avif"
@@ -39,7 +39,7 @@ const AboutUs = () => {
 
       {/* Button */}
       <div className="text-center mt-10">
-        <button className="bg-gradient-to-r from-green-100 to-pink-100 px-6 py-3 rounded-full text-black font-semibold shadow-md">
+        <button className="bg-[#E0FBF3] px-6 py-3 rounded-full text-black font-bold shadow-md">
           More Information
         </button>
       </div>

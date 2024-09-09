@@ -6,8 +6,8 @@ const HeroSection = () => {
   // Array of image sources
   const images = [
     '/src/assets/images/students01.avif',
-    '/src/assets/images/students02.jpeg',
-    '/src/assets/images/students03.jpeg'
+    '/src/assets/images/students06.jpg',
+    '/src/assets/images/students04.jpg'
   ];
 
   // Automatically rotate the images every 7 seconds
@@ -37,11 +37,11 @@ const HeroSection = () => {
   return (
     <section className="flex flex-col md:flex-row items-center justify-between p-8 bg-white h-screen">
       {/* Left side: Text and button */}
-      <div className="flex flex-col items-start space-y-6 md:w-1/2">
-        <h1 className="text-4xl font-bold text-gray-900">Genius Buddy</h1>
-        <p className="text-lg text-gray-500">Your AI buddy for studies.</p>
-        <button className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-green-100 via-pink-100 to-pink-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-          <span className="text-gray-800 font-semibold">Get Started</span>
+      <div className="flex flex-col space-y-3 md:w-1/2 items-center">
+        <h1 className="rosario-font text-5xl font-bold text-gray-900 ">Genius Buddy</h1>
+        <p className="text-lg text-black">Your AI buddy for studies.</p>
+        <button className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-[#05eaa530] via-[#ff703c1c] to-[#ff703c3f] rounded-full shadow-lg hover:shadow-xl transition-shadow">
+          <span className="text-gray-800 font-semibold roboto-font">Get Started</span>
           <img src="src/assets/icons/rightarrow.svg" alt="arrow" className="w-5 h-5" />
         </button>
       </div>
