@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rosario-font{
+    font-family: 'Rosario', sans-serif;
+}
+
+.roboto-font{
+    font-family: 'Roboto', sans-serif;
+}
+
+.poppins-font{
+    font-family: 'Poppins', sans-serif;
+}
