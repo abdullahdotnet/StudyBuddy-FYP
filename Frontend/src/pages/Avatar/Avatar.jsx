@@ -1,5 +1,5 @@
 import React from 'react';
-import AvatarViewer from 'E:/University/Final Year Project/StudyBuddy-FYP/Frontend/src/components/AvatarViewer/AvatarViewer.jsx'; // Adjust the path as needed
+import AvatarViewer from '../../components/AvatarViewer/AvatarViewer.jsx';
 
 function Avatar() {
   return (

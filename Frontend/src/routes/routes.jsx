@@ -1,5 +1,6 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Main_Layout from '../layouts/MainLayout';
+import DashboardNav from '../layouts/DashboardNavbar';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Chatbot from '../pages/Chatbot/Chatbot';
 import NoNavbarLayout from '../layouts/NoNavbarLayout';
@@ -11,15 +12,17 @@ const router = createBrowserRouter(
         <>
         <Route path="/" element={<Main_Layout />} >
             <Route path='' element={<Home />} />
-            <Route path="dashboard" element={<Dashboard />} />
             <Route path="chatbot" element={<Chatbot />} />
             <Route path="/avatar" element={<Avatar />} />
         </Route>
 
+        <Route path="/" element={<DashboardNav />} >
+            <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
 
         <Route path='/' element={<NoNavbarLayout />} >
             <Route path="*" element={<h1>Page Not found</h1>} />
-        </Route> 
+        </Route>
         </>
     )
 )
