@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import StudentPic from '../../assets/images/students06.jpg'
 
 const DashboardNavbar = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -27,9 +28,9 @@ const DashboardNavbar = () => {
                     {/* Right side profile with dropdown */}
                     <div className="relative">
                         <img
-                            src="/path-to-profile-picture.jpg"  // Update this with the actual path to the user profile image
+                            src={StudentPic}  // Update this with the actual path to the user profile image
                             alt="Profile"
-                            className="w-10 h-10 rounded-full cursor-pointer"
+                            className="w-12 h-11 rounded-full cursor-pointer"
                             onClick={toggleDropdown}
                             aria-expanded={dropdownOpen}
                             aria-haspopup="true"
