@@ -1,5 +1,5 @@
 import React from 'react';
-import AvatarViewer from '../../components/AvatarViewer/AvatarViewer.jsx';
+import AvatarViewer from '/src/components/AvatarViewer/AvatarViewer.jsx';
 
 function Avatar() {
   return (
