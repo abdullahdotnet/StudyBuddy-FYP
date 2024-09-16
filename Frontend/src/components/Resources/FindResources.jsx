@@ -24,39 +24,40 @@ const FindResources = () => {
         </button>
       </div>
 
-  {/* Filters Section Updated */}
-  <div className="flex justify-end mb-6 space-x-4">
-        <label className="flex items-center space-x-2 bg-orange-200 p-3 rounded-lg">
-          <input 
-            type="checkbox" 
-            className="form-checkbox h-5 w-5 text-blue-600" 
-            defaultChecked 
-          />
-          <span className="text-lg">Articles</span>
-          {/* Dynamic input for article count */}
-          <input 
-            type="number" 
-            value={articleCount} 
-            onChange={(e) => setArticleCount(e.target.value)} 
-            className="w-12 text-lg font-bold bg-transparent border-none ml-2"
-          />
-        </label>
-        <label className="flex items-center space-x-2 bg-orange-200 p-3 rounded-lg">
-          <input 
-            type="checkbox" 
-            className="form-checkbox h-5 w-5 text-blue-600" 
-            defaultChecked 
-          />
-          <span className="text-lg">Videos</span>
-          {/* Dynamic input for video count */}
-          <input 
-            type="number" 
-            value={videoCount} 
-            onChange={(e) => setVideoCount(e.target.value)} 
-            className="w-12 text-lg font-bold bg-transparent border-none ml-2"
-          />
-        </label>
-      </div>
+{/* Filters Section */}
+<div className="flex flex-col space-y-4 ml-[1112px]">
+  <label className="flex items-center bg-orange-200 p-2 rounded-md">
+    <input 
+      type="checkbox" 
+      className="form-checkbox h-4 w-4 text-blue-600 mr-2" 
+      defaultChecked 
+    />
+    <span className="text-sm">Articles</span>
+    {/* Dynamic input for article count placed directly after text */}
+    <input 
+      type="number" 
+      value={articleCount} 
+      onChange={(e) => setArticleCount(e.target.value)} 
+      className="w-10 text-sm font-bold bg-transparent border-none ml-2"
+    />
+  </label>
+
+  <label className="flex items-center bg-orange-200 p-2 rounded-md">
+    <input 
+      type="checkbox" 
+      className="form-checkbox h-4 w-4 text-blue-600 mr-2" 
+      defaultChecked 
+    />
+    <span className="text-sm">Videos</span>
+    {/* Dynamic input for video count placed directly after text */}
+    <input 
+      type="number" 
+      value={videoCount} 
+      onChange={(e) => setVideoCount(e.target.value)} 
+      className="w-10 text-sm font-bold bg-transparent border-none ml-2"
+    />
+  </label>
+</div>
 
       {/* Articles Section */}
       <div className="mb-10">
