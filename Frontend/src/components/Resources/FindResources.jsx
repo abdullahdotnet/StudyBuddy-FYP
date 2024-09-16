@@ -1,6 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 const FindResources = () => {
+
+  // State for number of articles and videos
+  const [articleCount, setArticleCount] = useState(2);
+  const [videoCount, setVideoCount] = useState(2);
   return (
 
     <div className="p-6 ml-60"> {/* Padding and margin left for space for sidebar */}
@@ -20,15 +24,37 @@ const FindResources = () => {
         </button>
       </div>
 
-      {/* Filters */}
-      <div className="flex justify-end mb-6 space-x-4">
-        <label className="flex items-center space-x-2">
-          <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" defaultChecked />
-          <span>Articles</span>
+  {/* Filters Section Updated */}
+  <div className="flex justify-end mb-6 space-x-4">
+        <label className="flex items-center space-x-2 bg-orange-200 p-3 rounded-lg">
+          <input 
+            type="checkbox" 
+            className="form-checkbox h-5 w-5 text-blue-600" 
+            defaultChecked 
+          />
+          <span className="text-lg">Articles</span>
+          {/* Dynamic input for article count */}
+          <input 
+            type="number" 
+            value={articleCount} 
+            onChange={(e) => setArticleCount(e.target.value)} 
+            className="w-12 text-lg font-bold bg-transparent border-none ml-2"
+          />
         </label>
-        <label className="flex items-center space-x-2">
-          <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600" defaultChecked />
-          <span>Videos</span>
+        <label className="flex items-center space-x-2 bg-orange-200 p-3 rounded-lg">
+          <input 
+            type="checkbox" 
+            className="form-checkbox h-5 w-5 text-blue-600" 
+            defaultChecked 
+          />
+          <span className="text-lg">Videos</span>
+          {/* Dynamic input for video count */}
+          <input 
+            type="number" 
+            value={videoCount} 
+            onChange={(e) => setVideoCount(e.target.value)} 
+            className="w-12 text-lg font-bold bg-transparent border-none ml-2"
+          />
         </label>
       </div>
 
