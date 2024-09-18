@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutUs = () => {
   return (
-    <section className="relative bg-[#FFCBA4] py-16 px-8 mb-3">
+    <section className="relative bg-[#FFCBA4] py-16 px-8 mb-3"  id='about-section'>
       <h2 className="text-5xl font-bold text-center mb-10">ABOUT US</h2>
 
       <div className="flex flex-col lg:flex-row items-center lg:space-x-8 poppins-font">
