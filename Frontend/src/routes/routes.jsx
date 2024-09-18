@@ -15,18 +15,18 @@ const router = createBrowserRouter(
         <>
         <Route path="/" element={<Main_Layout />} >
             <Route path='' element={<Home />} />
-            <Route path="chatbot" element={<Chatbot />} />
-            <Route path="/avatar" element={<Avatar />} />
         </Route>
 
         <Route path="/" element={<DashboardNav />} >
+            <Route path="chatbot" element={<Chatbot />} />
+            <Route path="/avatar" element={<Avatar />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path='/extension' element={<Extension />} />
+            <Route path="*" element={<h1>Page Not found</h1>} />
         </Route>
         
         <Route path='/' element={<NoNavbarLayout />} >
-            <Route path="*" element={<h1>Page Not found</h1>} />
         </Route>
         </>
     )
