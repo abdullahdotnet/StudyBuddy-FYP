@@ -7,6 +7,7 @@ import NoNavbarLayout from '../layouts/NoNavbarLayout';
 import Home from '../pages/Home/Home';
 import Avatar from '../pages/Avatar/Avatar';
 import Resources from '../pages/Resources/Resources';
+import Extension from '../pages/Extension/Extension';
 
 
 const router = createBrowserRouter(
@@ -16,13 +17,14 @@ const router = createBrowserRouter(
             <Route path='' element={<Home />} />
             <Route path="chatbot" element={<Chatbot />} />
             <Route path="/avatar" element={<Avatar />} />
-            <Route path="/resources" element={<Resources />} />
         </Route>
 
         <Route path="/" element={<DashboardNav />} >
+            <Route path="/resources" element={<Resources />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path='/extension' element={<Extension />} />
         </Route>
-
+        
         <Route path='/' element={<NoNavbarLayout />} >
             <Route path="*" element={<h1>Page Not found</h1>} />
         </Route>
