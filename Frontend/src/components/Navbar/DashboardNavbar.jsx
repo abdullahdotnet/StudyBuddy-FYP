@@ -18,11 +18,11 @@ const DashboardNavbar = () => {
                     </div>
                     {/* Left side links */}
                     <div className="hidden md:flex space-x-6">
-                        <Link to="/dashboard" className="text-gray-800 hover:text-gray-600">Home</Link>
-                        <Link to="/faqs" className="text-gray-800 hover:text-gray-600">FAQs</Link>
-                        <Link to="/notifications" className="text-gray-800 hover:text-gray-600">Notifications</Link>
-                        <Link to="/contact" className="text-gray-800 hover:text-gray-600">Contact</Link>
-                        <Link to="/about-us" className="text-gray-800 hover:text-gray-600">About Us</Link>
+                        <Link to="/home" className="text-gray-800 hover:text-customDarkOrange">Home</Link>
+                        <Link to="/faqs" className="text-gray-800 hover:text-customDarkOrange">FAQs</Link>
+                        <Link to="/notifications" className="text-gray-800 hover:text-customDarkOrange">Notifications</Link>
+                        <Link to="/contact" className="text-gray-800 hover:text-customDarkOrange">Contact</Link>
+                        <Link to="/about-us" className="text-gray-800 hover:text-customDarkOrange">About Us</Link>
                     </div>
 
                     {/* Right side profile with dropdown */}

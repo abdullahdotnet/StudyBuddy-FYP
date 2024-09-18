@@ -9,10 +9,10 @@ const Navbar = () => {
             Genius Buddy
           </div>
           <ul className="hidden md:flex space-x-6">
-            <li><a href="#features" className="text-gray-700 hover:text-gray-900">Features</a></li>
-            <li><a href="#about" className="text-gray-700 hover:text-gray-900">About Us</a></li>
-            <li><a href="#contact" className="text-gray-700 hover:text-gray-900">Contact</a></li>
-            <li><a href="#faq" className="text-gray-700 hover:text-gray-900">FAQ/s</a></li>
+            <li><a href="#features-section" className="text-gray-700 hover:text-customDarkOrange">Features</a></li>
+            <li><a href="#about-section" className="text-gray-700 hover:text-customDarkOrange">About Us</a></li>
+            <li><a href="#contact-section" className="text-gray-700 hover:text-customDarkOrange">Contact</a></li>
+            <li><a href="#faq-section" className="text-gray-700 hover:text-customDarkOrange">FAQ/s</a></li>
           </ul>
           <div className="hidden md:flex space-x-4">
             <button className="border border-green-500 text-green-500 py-2 px-4 rounded hover:bg-green-100">

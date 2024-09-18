@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
+  // Function to navigate to the dashboard
+  const navigate = useNavigate();
+  const navigateToDashboard = () => {
+    navigate('/dashboard');
+  };
+
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Array of image sources
@@ -35,12 +43,14 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between p-8 bg-white h-screen">
+    <section className="flex flex-col md:flex-row items-center justify-between p-11 bg-white h-full">
       {/* Left side: Text and button */}
       <div className="flex flex-col space-y-3 md:w-1/2 items-center">
         <h1 className="rosario-font text-5xl font-bold text-gray-900 ">Genius Buddy</h1>
         <p className="text-lg text-black">Your AI buddy for studies.</p>
-        <button className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-[#05eaa530] via-[#ff703c1c] to-[#ff703c3f] rounded-full shadow-lg hover:shadow-xl transition-shadow">
+        <button className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-[#05eaa530] via-[#ff703c1c] to-[#ff703c3f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
+        onClick={navigateToDashboard}
+        >
           <span className="text-gray-800 font-semibold roboto-font">Get Started</span>
           <img src="src/assets/icons/rightarrow.svg" alt="arrow" className="w-5 h-5" />
         </button>

@@ -7,6 +7,7 @@ import DocIcon from '../../assets/icons/Document.svg';
 import ConvIcon from '../../assets/icons/Conv.png';
 import openArrow from '../../assets/icons/rightarrow.svg';
 import closeArrow from '../../assets/icons/leftarrow.png';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -22,30 +23,42 @@ const Sidebar = () => {
         <div className="p-4">
           {/* Navigation Items */}
           <ul>
+            <Link to="/dashboard">
             <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
               <img src={HomeIcon} alt="Dashboard" className="mr-4" />
               {isOpen && <span>Dashboard</span>}
             </li>
+            </Link>
+            <Link to="/chatbot">
             <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
               <img src={ConvIcon} alt="Chat" className="mr-4 w-9" />
               {isOpen && <span>Chat</span>}
             </li>
+            </Link>
+            <Link to="/resources">
             <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
               <img src={DocIcon} alt="Resources" className="mr-4" />
               {isOpen && <span>Resources</span>}
             </li>
+            </Link>
+            <Link to="/todo">
             <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
               <img src={ChatIcon} alt="To Do" className="mr-4" />
               {isOpen && <span>To Do</span>}
             </li>
+            </Link>
+            <Link to="/extension">
             <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
               <img src={CategoryIcon} alt="Extension" className="mr-4" />
               {isOpen && <span>Extension</span>}
             </li>
+            </Link>
+            <Link to="/books">
             <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
               <img src={BagIcon} alt="Books" className="mr-4" />
               {isOpen && <span>Books</span>}
             </li>
+            </Link>
           </ul>
         </div>
       </div>
