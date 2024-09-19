@@ -166,3 +166,4 @@ cython_debug/
 
 # VS code
 .vscode
+credentials.*
