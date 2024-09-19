@@ -1,83 +1,58 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+import { YoutubeAPIKey } from '../../../credentials';
+import './Extras.css';
 
 const Extras = () => {
-  const [videoUrl, setVideoUrl] = useState('');
-  const [screenshotUrl, setScreenshotUrl] = useState(null);
-  const [statusMessage, setStatusMessage] = useState('');
-  const iframeRef = useRef(null);
-  const canvasRef = useRef(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [videos, setVideos] = useState([]);
+  const apiKey = YoutubeAPIKey; // Replace with your YouTube API key
+  const apiUrl = 'https://www.googleapis.com/youtube/v3/search';
 
-  // Modify YouTube URL to embed format
-  const getEmbedUrl = (url) => {
-    const videoId = url.split('v=')[1];
-    return `https://www.youtube.com/embed/${videoId}`;
-  };
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    if (!searchTerm) return;
 
-  // Capture screenshot function (currently not working with iframe, to be replaced)
-  const captureScreenshot = () => {
-    setStatusMessage('Screenshot capturing is not supported for YouTube iframes.');
+    const params = {
+      part: 'id,snippet',
+      q: searchTerm,
+      maxResults: 4,
+      type: 'video',
+      key: apiKey
+    };
+
+    const response = await fetch(`${apiUrl}?${new URLSearchParams(params).toString()}`);
+    const data = await response.json();
+    setVideos(data.items);
   };
 
   return (
-    <div className="container mt-5">
-      <h1>YouTube Timestamp Screenshot</h1>
-
-      {/* Video URL Input */}
-      <div className="mb-3">
+    <div className="extras-container">
+      <div className="search-container">
         <input
-          className="form-control"
           type="text"
-          placeholder="Enter YouTube video URL"
-          value={videoUrl}
-          onChange={(e) => setVideoUrl(e.target.value)}
+          id="search-input"
+          placeholder="Search YouTube..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
+        <button id="search-btn" onClick={handleSearch}>Search</button>
       </div>
-
-      {/* Display YouTube Video using iframe */}
-      {videoUrl && (
-        <div className="mb-3 text-center">
-          <iframe
-            ref={iframeRef}
-            src={getEmbedUrl(videoUrl)}
-            style={{ width: '100%', height: '360px' }}
-            frameBorder="0"
-            allowFullScreen
-            title="YouTube Video"
-          ></iframe>
-        </div>
-      )}
-
-      {/* Button to Capture Screenshot */}
-      {videoUrl && (
-        <div className="text-center">
-          <button className="btn btn-primary" onClick={captureScreenshot}>
-            Capture Screenshot
-          </button>
-        </div>
-      )}
-
-      {/* Display Status Message */}
-      {statusMessage && (
-        <div className="alert alert-warning mt-3 text-center">
-          {statusMessage}
-        </div>
-      )}
-
-      {/* Display Captured Screenshot */}
-      {screenshotUrl && (
-        <div className="text-center mt-3">
-          <a href={screenshotUrl} download="screenshot.png">
-            <img
-              src={screenshotUrl}
-              alt="Screenshot"
-              style={{ maxWidth: '100%', display: 'block', margin: '0 auto' }}
-            />
-          </a>
-        </div>
-      )}
-
-      {/* Hidden Canvas for Capturing the Screenshot */}
-      <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
+      <div className="results-container">
+        {videos.map((video) => (
+          <div key={video.id.videoId} className="video-card">
+            <div className="video-container">
+              <iframe
+                className="video-iframe"
+                src={`https://www.youtube.com/embed/${video.id.videoId}`}
+                // frameBorder={0}
+                allowFullScreen={true}
+                allow="fullscreen"
+              />
+            </div>
+            <p className="video-title">{video.snippet.title}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
