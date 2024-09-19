@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
 import { YoutubeAPIKey } from '../../../credentials';
 import './Extras.css';
 
 const Extras = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [videos, setVideos] = useState([]);
-  const apiKey = YoutubeAPIKey; // Replace with your YouTube API key
+  const apiKey = YoutubeAPIKey;
   const apiUrl = 'https://www.googleapis.com/youtube/v3/search';
+  const navigate = useNavigate(); // Hook to programmatically navigate
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -25,6 +27,10 @@ const Extras = () => {
     setVideos(data.items);
   };
 
+  const handleVideoClick = (videoId) => {
+    navigate(`/extra2/${videoId}`); // Navigate to Extra2 with videoId as a route param
+  };
+
   return (
     <div className="extras-container">
       <div className="search-container">
@@ -39,12 +45,11 @@ const Extras = () => {
       </div>
       <div className="results-container">
         {videos.map((video) => (
-          <div key={video.id.videoId} className="video-card">
+          <div key={video.id.videoId} className="video-card" onClick={() => handleVideoClick(video.id.videoId)}>
             <div className="video-container">
               <iframe
                 className="video-iframe"
-                src={`https://www.youtube.com/embed/${video.id.videoId}`}
-                // frameBorder={0}
+                src={`https://www.youtube.com/embed/${video.id.videoId}?modestbranding=1&rel=0&showinfo=0`}
                 allowFullScreen={true}
                 allow="fullscreen"
               />
