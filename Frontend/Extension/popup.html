@@ -1,18 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>YouTube Screenshot</title>
+  <title>YouTube Screenshot & Note</title>
   <style>
     body {
-      width: 200px;
+      width: 300px;
       font-family: Arial, sans-serif;
+    }
+    .screenshot-note {
+      margin-bottom: 15px;
+    }
+    .screenshot {
+      max-width: 100%;
+      height: auto;
+    }
+    .note {
+      font-size: 14px;
+    }
+    .timestamp {
+      font-size: 12px;
+      color: gray;
     }
   </style>
 </head>
 <body>
-  <h3>YouTube Screenshot</h3>
-  <!-- <input type="number" id="timeInput" placeholder="Time (in seconds)"> -->
-  <button id="screenshotBtn">Take Screenshot</button>
+  <h3>YouTube Screenshot & Note</h3>
+  <button id="screenshotBtn">Take Screenshot</button><br><br>
+  <input type="text" id="noteInput" placeholder="Add a note">
+  <button id="addNoteBtn">Add Note</button>
+  
+  <h4>Screenshots & Notes</h4>
+  <div id="screenshotNoteContainer"></div> <!-- This will display the screenshots and notes -->
+
   <script src="popup.js"></script>
 </body>
 </html>
