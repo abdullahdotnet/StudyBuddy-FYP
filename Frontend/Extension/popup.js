@@ -127,28 +127,35 @@ function saveAsPDF() {
   const savedScreenshots = JSON.parse(localStorage.getItem('screenshots')) || [];
   const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
 
-  savedScreenshots.forEach((screenshot, index) => {
-    doc.text(`Screenshot ${index + 1} - Time: ${screenshot.time.toFixed(2)} seconds`, 10, y);
-    y += 10;
+  let promises = [];
 
-    // Add the screenshot to the PDF
-    convertImageToDataUrl(screenshot.screenshotUrl, (dataUrl) => {
-      doc.addImage(dataUrl, 'JPEG', 10, y, 180, 100); // Adjust size and position as needed
-      y += 110;
-      if (index === savedScreenshots.length - 1) {
-        doc.save('notes_screenshots.pdf'); // Save the PDF when done
-      }
+  // Adding Screenshots to the PDF
+  savedScreenshots.forEach((screenshot, index) => {
+    const promise = new Promise((resolve) => {
+      doc.text(`Screenshot ${index + 1} - Time: ${screenshot.time.toFixed(2)} seconds`, 10, y);
+      y += 10;
+
+      // Convert image URL to base64 and add to PDF
+      convertImageToDataUrl(screenshot.screenshotUrl, (dataUrl) => {
+        doc.addImage(dataUrl, 'JPEG', 10, y, 180, 100); // Adjust size and position as needed
+        y += 110;
+        resolve();
+      });
     });
+
+    promises.push(promise);
   });
 
+  // Adding Notes to the PDF
   savedNotes.forEach((note, index) => {
     doc.text(`Note ${index + 1}: ${note.note}`, 10, y);
     y += 10;
   });
 
-  if (savedNotes.length > 0) {
-    doc.save('notes_screenshots.pdf'); // Save if only notes are present
-  }
+  // Once all screenshots are processed, save the PDF
+  Promise.all(promises).then(() => {
+    doc.save('notes_screenshots.pdf'); // Save the PDF when done
+  });
 }
 
 // Utility function to convert image URL to Data URL

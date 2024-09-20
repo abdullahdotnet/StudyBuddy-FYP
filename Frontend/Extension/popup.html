@@ -25,10 +25,13 @@
     }
   </style>
   <!-- Add jsPDF from CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="libs/jspdf.umd.min.js"></script>
+
 </head>
 <body>
   <h3>YouTube Screenshot & Note</h3>
+  <button id="clearBtn">Clear All</button>
+  <button id="saveBtn">Save as PDF</button>
   <button id="screenshotBtn">Take Screenshot</button><br><br>
   <input type="text" id="noteInput" placeholder="Add a note">
   <button id="addNoteBtn">Add Note</button>
@@ -36,8 +39,7 @@
   <h4>Screenshots & Notes</h4>
   <div id="screenshotNoteContainer"></div> <!-- This will display the screenshots and notes -->
 
-  <button id="clearBtn">Clear All</button>
-  <button id="saveBtn">Save as PDF</button>
+
 
   <script src="popup.js"></script>
 </body>

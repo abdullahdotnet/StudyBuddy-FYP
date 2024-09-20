@@ -61,7 +61,7 @@ function takeScreenshotAtCurrentTime(screenshotNotes) {
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
   const screenshotUrl = canvas.toDataURL('image/png');
-  console.log(screenshotUrl,time)
+  // console.log(screenshotUrl,time)
   // Store the screenshot and time
   screenshotNotes.push({
     screenshotUrl: screenshotUrl,
