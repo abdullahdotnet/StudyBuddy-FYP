@@ -1,0 +1,17 @@
+django
+djangorestframework
+django-cors-headers
+djangorestframework-simplejwt
+mysqlclient
+mysql-connector-python
+pillow
+python-dotenv
+langchain
+langchain-community
+google-generativeai
+chromadb
+langchain-chroma
+langchain-groq
+sentence-transformers
+youtube-transcript-api
+reportlab
