@@ -17,6 +17,8 @@ langchain-community = "*"
 google-generativeai = "*"
 chromadb = "*"
 langchain-chroma = "*"
+langchain-groq = "*"
+sentence-transformers = "*"
 
 [dev-packages]
 
