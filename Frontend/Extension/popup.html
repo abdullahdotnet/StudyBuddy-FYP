@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YouTube Screenshot & Note</title>
   <style>
     body {
@@ -22,6 +24,8 @@
       color: gray;
     }
   </style>
+  <!-- Add jsPDF from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
   <h3>YouTube Screenshot & Note</h3>
@@ -31,6 +35,9 @@
   
   <h4>Screenshots & Notes</h4>
   <div id="screenshotNoteContainer"></div> <!-- This will display the screenshots and notes -->
+
+  <button id="clearBtn">Clear All</button>
+  <button id="saveBtn">Save as PDF</button>
 
   <script src="popup.js"></script>
 </body>
