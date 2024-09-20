@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "0834ef27-fcc9-4efa-ace1-028b183a571d",
+		"name": "Genius Buddy APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28069398",
+		"_collection_link": "https://red-meteor-237053.postman.co/workspace/Media-Operations-APIs~cb665bdb-2675-45e2-8197-1031b5c8292e/collection/28069398-0834ef27-fcc9-4efa-ace1-028b183a571d?action=share&source=collection_link&creator=28069398"
+	},
+	"item": [
+		{
+			"name": "Chatbot API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"what are large language models?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/chatbot/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"chatbot",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "YouTube Image Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "postman-cloud:///1ef04528-0240-4b90-a735-69e66ae10ef9"
+						},
+						{
+							"key": "description",
+							"value": "Test Image",
+							"type": "text"
+						},
+						{
+							"key": "timestamp",
+							"value": "2024-09-20T15",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/upload/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"upload",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "YT Video Summary",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"youtube_url\": \"https://www.youtube.com/watch?v=hGCECK02cOQ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/yt-summary/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"yt-summary",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

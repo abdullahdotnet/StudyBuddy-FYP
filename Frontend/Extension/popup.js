@@ -1,45 +1,74 @@
 document.getElementById('screenshotBtn').addEventListener('click', async () => {
-  const time = document.getElementById('timeInput').value;
-  
-  if (time) {
-    // Send a message to the background script
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      chrome.scripting.executeScript({
-        target: { tabId: tabs[0].id },
-        func: takeScreenshotAtTime,
-        args: [time]
-      });
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.runtime.sendMessage({ action: 'takeScreenshot', tabId: tabs[0].id }, (response) => {
+      if (response.error) {
+        console.error(response.error);
+        alert(response.error); // Show error alert if screenshot fails
+      } else {
+        addScreenshotToPopup(response.screenshotUrl, response.time);
+      }
     });
-  } else {
-    alert('Please enter a valid time.');
-  }
+  });
 });
 
-function takeScreenshotAtTime(time) {
-  const video = document.querySelector('video');
-  if (!video) {
-    alert('No video element found on this page.');
+document.getElementById('addNoteBtn').addEventListener('click', async () => {
+  const note = document.getElementById('noteInput').value;
+
+  if (!note) {
+    alert('Please enter a note.');
     return;
   }
 
-  // Set the video to the desired time
-  video.currentTime = time;
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.runtime.sendMessage({ action: 'addNote', note: note, tabId: tabs[0].id }, (response) => {
+      if (response.error) {
+        console.error(response.error);
+        alert(response.error); // Show error alert if adding note fails
+      } else {
+        addNoteToPopup(response.note, response.time);
+      }
+    });
+  });
 
-  // Wait until the video reaches the specified time
-  video.addEventListener('seeked', function handler() {
-    // Create a canvas to draw the video frame
-    const canvas = document.createElement('canvas');
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
+  document.getElementById('noteInput').value = ''; // Clear input field after adding the note
+});
 
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+// Function to add a screenshot to the popup in real-time
+function addScreenshotToPopup(screenshotUrl, time) {
+  const screenshotNoteContainer = document.getElementById('screenshotNoteContainer');
 
-    // Convert canvas to a data URL and open it in a new tab
-    const screenshotUrl = canvas.toDataURL('image/png');
-    const newTab = window.open();
-    newTab.document.body.innerHTML = `<img src="${screenshotUrl}">`;
+  const div = document.createElement('div');
+  div.classList.add('screenshot-note');
 
-    video.removeEventListener('seeked', handler);
-  }, { once: true });
+  const img = document.createElement('img');
+  img.src = screenshotUrl;
+  img.classList.add('screenshot');
+  div.appendChild(img);
+
+  const timestamp = document.createElement('p');
+  timestamp.classList.add('timestamp');
+  timestamp.textContent = `Time: ${time.toFixed(2)} seconds`;
+  div.appendChild(timestamp);
+
+  screenshotNoteContainer.appendChild(div);
+}
+
+// Function to add a note to the popup in real-time
+function addNoteToPopup(note, time) {
+  const screenshotNoteContainer = document.getElementById('screenshotNoteContainer');
+
+  const div = document.createElement('div');
+  div.classList.add('screenshot-note');
+
+  const noteElement = document.createElement('p');
+  noteElement.classList.add('note');
+  noteElement.textContent = note;
+  div.appendChild(noteElement);
+
+  const timestamp = document.createElement('p');
+  timestamp.classList.add('timestamp');
+  timestamp.textContent = `Time: ${time.toFixed(2)} seconds`;
+  div.appendChild(timestamp);
+
+  screenshotNoteContainer.appendChild(div);
 }
