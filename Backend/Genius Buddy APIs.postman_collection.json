@@ -8,6 +8,39 @@
 	},
 	"item": [
 		{
+			"name": "Chatbot API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"what are large language models?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/chatbot/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"chatbot",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "YouTube Image Data",
 			"request": {
 				"method": "POST",
@@ -45,6 +78,39 @@
 					"path": [
 						"api",
 						"upload",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "YT Video Summary",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"youtube_url\": \"https://www.youtube.com/watch?v=hGCECK02cOQ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/yt-summary/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"yt-summary",
 						""
 					]
 				}
