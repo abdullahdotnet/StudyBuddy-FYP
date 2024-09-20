@@ -6,12 +6,12 @@ from rest_framework.response import Response
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain.chains import RetrievalQA
-from langchain.text_splitter import CharacterTextSplitter
 from langchain.prompts import PromptTemplate
 from langchain_groq import ChatGroq
 
 from .template import TEMPLATE_TEXT
 from .serializers import ChatInputSerializer
+
 
 class ChatbotAPIView(APIView):
 
@@ -36,12 +36,11 @@ class ChatbotAPIView(APIView):
     def setup_llama(self):
 
         try:
-            # Fetch Groq API key from environment variable
             groq_api_key = os.getenv('GROQ_API_KEY')
             if not groq_api_key:
-                raise ValueError("GROQ_API_KEY is not set in environment variables")
+                raise ValueError(
+                    "GROQ_API_KEY is not set in environment variables")
 
-            # Set the API key in the environment for Groq
             os.environ["GROQ_API_KEY"] = groq_api_key
 
             self.llm = ChatGroq(
@@ -54,8 +53,7 @@ class ChatbotAPIView(APIView):
 
     def process_qa_retrieval_chain(self, query):
         response = self.qa_chain.invoke({'query': query})
-        result_str = f'Query: {response["query"]}\n\n'
-        result_str += f'Result: {response["result"]}\n\n'
+        result_str = f'{response["result"]}\n\n'
         relevant_docs = response['source_documents']
 
         for i in range(len(relevant_docs)):
@@ -71,6 +69,6 @@ class ChatbotAPIView(APIView):
         if serializer.is_valid():
             query = serializer.validated_data['query']
             result = self.process_qa_retrieval_chain(query)
-            return Response({'response': result}, status=status.HTTP_200_OK)
+            return Response({'query': query, 'response': result}, status=status.HTTP_200_OK)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
