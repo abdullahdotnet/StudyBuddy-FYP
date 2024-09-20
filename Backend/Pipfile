@@ -19,6 +19,8 @@ chromadb = "*"
 langchain-chroma = "*"
 langchain-groq = "*"
 sentence-transformers = "*"
+youtube-transcript-api = "*"
+reportlab = "*"
 
 [dev-packages]
 
