@@ -126,6 +126,7 @@ async function saveAsPDF() {
     const videoTitle = tabs[0].title;
     const videoUrl = tabs[0].url;
     let y = 10; // Start position in the PDF for text
+    const pageHeight = 270; // Define the page height threshold for better page breaks
 
     // Add the video title at the top and make it clickable
     doc.setFontSize(14);
@@ -153,26 +154,38 @@ async function saveAsPDF() {
     // Process each item (note or screenshot) in the combined content using async/await
     for (const [index, item] of combinedContent.entries()) {
       if (item.type === 'note') {
-        // Adding a note to the PDF
-        doc.text(`Note ${index + 1}: ${item.data.note}`, 10, y);
+        const noteText = `Note ${index + 1}: ${item.data.note}`;
+        const noteLines = doc.splitTextToSize(noteText, 180); // Split the note text to fit within the page width
+        
+        // Check if the note fits in the remaining space, else add a new page
+        if (y + noteLines.length * 10 + 10 > pageHeight) {
+          doc.addPage();
+          y = 10; // Reset y for the new page
+        }
+        
+        // Adding the note to the PDF
+        doc.text(noteLines, 10, y);
+        y += noteLines.length * 10;
 
-        // Add clickable timestamp link for the note
+        // Add clickable timestamp link for the note at the end
         doc.setTextColor(0, 0, 255);
-        doc.textWithLink(`${item.data.time.toFixed(2)} seconds`, 65, y, {
+        doc.textWithLink(`${item.data.time.toFixed(2)} seconds`, 10, y, {
           url: `${videoUrl}&t=${Math.floor(item.data.time)}s`
         });
         doc.setTextColor(0, 0, 0); // Reset text color
-
         y += 10;
 
       } else if (item.type === 'screenshot') {
-        // Add text and clickable timestamp for the screenshot
-        doc.text(`Screenshot ${index + 1} - `, 10, y);
-        doc.setTextColor(0, 0, 255);
-        doc.textWithLink(`${item.data.time.toFixed(2)} seconds`, 65, y, {
-          url: `${videoUrl}&t=${Math.floor(item.data.time)}s`
-        });
-        doc.setTextColor(0, 0, 0); // Reset text color
+        const screenshotText = `Screenshot ${index + 1}`;
+        
+        // Check if the screenshot and timestamp fit in the remaining space, else add a new page
+        if (y + 110 + 10 > pageHeight) { // 110 for the image and 10 for the timestamp
+          doc.addPage();
+          y = 10; // Reset y for the new page
+        }
+        
+        // Add screenshot text and clickable timestamp after the image
+        doc.text(screenshotText, 10, y);
         y += 10;
 
         // Convert the screenshot image URL to base64 and await until it's added to the PDF
@@ -181,18 +194,21 @@ async function saveAsPDF() {
             doc.addImage(dataUrl, 'JPEG', 10, y, 180, 100); // Adjust size and position as needed
             y += 110;
 
-            // If y exceeds the page height, add a new page
-            if (y > 270) {  // Adjust this value for better page breaks
-              doc.addPage();
-              y = 10; // Reset y for the new page
-            }
+            // Add clickable timestamp link for the screenshot at the end
+            doc.setTextColor(0, 0, 255);
+            doc.textWithLink(`${item.data.time.toFixed(2)} seconds`, 10, y, {
+              url: `${videoUrl}&t=${Math.floor(item.data.time)}s`
+            });
+            doc.setTextColor(0, 0, 0); // Reset text color
+            y += 10;
+
             resolve();
           });
         });
       }
 
-      // If y exceeds the page height, add a new page
-      if (y > 270) {  // Adjust this value for better page breaks
+      // Add a new page if necessary
+      if (y > pageHeight) {
         doc.addPage();
         y = 10; // Reset y for the new page
       }
