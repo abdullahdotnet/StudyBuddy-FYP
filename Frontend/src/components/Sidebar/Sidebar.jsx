@@ -59,6 +59,12 @@ const Sidebar = () => {
               {isOpen && <span>Books</span>}
             </li>
             </Link>
+            <Link to='/extras'>
+            <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
+              <img src={BagIcon} alt="Extras" className="mr-4" />
+              {isOpen && <span>Extras</span>}
+            </li>            
+            </Link>
           </ul>
         </div>
       </div>

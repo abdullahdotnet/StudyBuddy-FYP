@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Screenshot & Note</title>
+  <style>
+    body {
+      width: 300px;
+      font-family: Arial, sans-serif;
+    }
+    .screenshot-note {
+      margin-bottom: 15px;
+    }
+    .screenshot {
+      max-width: 100%;
+      height: auto;
+    }
+    .note {
+      font-size: 14px;
+    }
+    .timestamp {
+      font-size: 12px;
+      color: gray;
+    }
+  </style>
+  <!-- Add jsPDF from CDN -->
+  <script src="libs/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <h3>YouTube Screenshot & Note</h3>
+  <button id="clearBtn">Clear All</button>
+  <button id="saveBtn">Save as PDF</button>
+  <button id="screenshotBtn">Take Screenshot</button><br><br>
+
+  <input type="text" id="noteInput" placeholder="Add a note">
+  <button id="addNoteBtn">Add Note</button>
+
+  <h4>Screenshots & Notes</h4>
+  <div id="screenshotNoteContainer"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

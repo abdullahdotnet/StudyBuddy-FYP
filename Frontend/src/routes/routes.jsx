@@ -8,6 +8,8 @@ import Home from '../pages/Home/Home';
 import Avatar from '../pages/Avatar/Avatar';
 import Resources from '../pages/Resources/Resources';
 import Extension from '../pages/Extension/Extension';
+import Extras from '../pages/Extras/Extras';
+import Extra2 from '../pages/Extras/Extras2';
 
 
 const router = createBrowserRouter(
@@ -23,9 +25,11 @@ const router = createBrowserRouter(
             <Route path="/resources" element={<Resources />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path='/extension' element={<Extension />} />
+            <Route path='/extras' element={<Extras />} />
+            <Route path="/extra2/:videoId" element={<Extra2 />} />
             <Route path="*" element={<h1>Page Not found</h1>} />
         </Route>
-        
+
         <Route path='/' element={<NoNavbarLayout />} >
         </Route>
         </>
