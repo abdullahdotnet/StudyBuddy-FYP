@@ -118,11 +118,11 @@ function clearAllScreenshotsAndNotes() {
 }
 
 // Save screenshots and notes as PDF using jsPDF
-function saveAsPDF() {
+async function saveAsPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
   
-  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+  chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
     const videoTitle = tabs[0].title;
     const videoUrl = tabs[0].url;
     let y = 10; // Start position in the PDF for text
@@ -150,10 +150,8 @@ function saveAsPDF() {
     // Sort combined content by timestamp
     combinedContent.sort((a, b) => a.data.time - b.data.time);
 
-    let promises = [];
-
-    // Process each item (note or screenshot) in the combined content
-    combinedContent.forEach((item, index) => {
+    // Process each item (note or screenshot) in the combined content using async/await
+    for (const [index, item] of combinedContent.entries()) {
       if (item.type === 'note') {
         // Adding a note to the PDF
         doc.text(`Note ${index + 1}: ${item.data.note}`, 10, y);
@@ -168,21 +166,18 @@ function saveAsPDF() {
         y += 10;
 
       } else if (item.type === 'screenshot') {
-        const promise = new Promise((resolve) => {
-          doc.text(`Screenshot ${index + 1} - `, 10, y);
+        // Add text and clickable timestamp for the screenshot
+        doc.text(`Screenshot ${index + 1} - `, 10, y);
+        doc.setTextColor(0, 0, 255);
+        doc.textWithLink(`${item.data.time.toFixed(2)} seconds`, 65, y, {
+          url: `${videoUrl}&t=${Math.floor(item.data.time)}s`
+        });
+        doc.setTextColor(0, 0, 0); // Reset text color
+        y += 10;
 
-          // Add clickable timestamp link for the screenshot
-          doc.setTextColor(0, 0, 255);
-          doc.textWithLink(`${item.data.time.toFixed(2)} seconds`, 65, y, {
-            url: `${videoUrl}&t=${Math.floor(item.data.time)}s`
-          });
-          doc.setTextColor(0, 0, 0); // Reset text color
-
-          y += 10;
-
-          // Convert image URL to base64 and add to PDF
+        // Convert the screenshot image URL to base64 and await until it's added to the PDF
+        await new Promise((resolve) => {
           convertImageToDataUrl(item.data.screenshotUrl, (dataUrl) => {
-            // Add image and adjust position if necessary
             doc.addImage(dataUrl, 'JPEG', 10, y, 180, 100); // Adjust size and position as needed
             y += 110;
 
@@ -194,8 +189,6 @@ function saveAsPDF() {
             resolve();
           });
         });
-
-        promises.push(promise);
       }
 
       // If y exceeds the page height, add a new page
@@ -203,16 +196,14 @@ function saveAsPDF() {
         doc.addPage();
         y = 10; // Reset y for the new page
       }
-    });
+    }
 
     // Once all screenshots are processed, save the PDF
-    Promise.all(promises).then(() => {
-      // Save the PDF with the video title as the filename
-      const fileName = `${videoTitle}.pdf`;
-      doc.save(fileName);
-    });
+    const fileName = `${videoTitle}.pdf`;
+    doc.save(fileName);
   });
 }
+
 
 
 // Utility function to convert image URL to Data URL
