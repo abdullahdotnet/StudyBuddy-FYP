@@ -29,17 +29,18 @@ class YoutubeSummaryView(APIView):
             )
 
         try:
-            transcription = transcribe(youtube_url)
+            transcription, video_id = transcribe(youtube_url)
             summarization = self._get_summarization(transcription)
-
-            path = './media/pdfs/file.pdf'
+            print(summarization)
+            path = f'./media/pdfs/{video_id}.pdf'
             pdf = generate_pdf(youtube_url, summarization, filename=path)
 
             return JsonResponse(
                 {
-                    "message": "YouTube summary generated successfully.",
-                    "pdf_url": path,
-                    "youtube_url": youtube_url,
+                    'message': 'YouTube summary generated successfully.',
+                    'pdf_path': f'/Backend/media/pdfs/{video_id}.pdf',
+                    'youtube_url': youtube_url,
+                    'summary': summarization,
                 },
                 status=status.HTTP_200_OK
             )

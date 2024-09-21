@@ -44,6 +44,20 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === 'saveToPDFSummary') {
+      // Use jsPDF or any other library to generate the PDF
+      const doc = new jsPDF();
+
+      // Add the summary to the PDF
+      doc.text("Video URL: " + message.url, 10, 10);
+      doc.text("Summary: " + message.summary, 10, 30);
+
+      // Save the PDF
+      doc.save('summary.pdf');
+  }
+});
+
 // Function to take a screenshot at the current video time and return it to the popup
 function takeScreenshotAtCurrentTime(screenshotNotes) {
   const video = document.querySelector('video');

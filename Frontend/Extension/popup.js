@@ -40,6 +40,52 @@ document.getElementById('addNoteBtn').addEventListener('click', async () => {
 document.getElementById('clearBtn').addEventListener('click', clearAllScreenshotsAndNotes);
 document.getElementById('saveBtn').addEventListener('click', saveAsPDF);
 
+
+document.getElementById('summaryBtn').addEventListener('click', async () => {
+  // Get the current active tab
+  chrome.tabs.query({ active: true, currentWindow: true }, async function(tabs) {
+      let activeTab = tabs[0];
+      let youtubeUrl = activeTab.url;
+
+      
+      // Check if the current tab is a YouTube video
+      if (youtubeUrl.includes("youtube.com/watch")) {
+          try {
+              // Send POST request to API
+              const response = await fetch('http://127.0.0.1:8000/api/yt-summary/', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ youtube_url: youtubeUrl })
+              });
+
+
+
+             
+              // Get the summary from the response
+              const data = await response.json();
+              // alert(data)
+              // Display the summary in the popup
+              document.getElementById('summaryResult').innerText = data.summary;
+
+              // Optionally save the summary as a PDF (if you're generating PDF in the background)
+              chrome.runtime.sendMessage({
+                  action: 'saveToPDFSummary',
+                  summary: data.summary,
+                  url: youtubeUrl
+              });
+
+          } catch (error) {
+              console.error('Error fetching summary:', error);
+              document.getElementById('summaryResult').innerText = 'Failed to fetch summary.';
+          }
+      } else {
+          document.getElementById('summaryResult').innerText = 'This is not a YouTube video page.';
+      }
+  });
+});
+
 // Function to add a screenshot to the popup in real-time
 function addScreenshotToPopup(screenshotUrl, time) {
   const screenshotNoteContainer = document.getElementById('screenshotNoteContainer');
