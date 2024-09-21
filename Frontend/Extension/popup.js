@@ -46,52 +46,58 @@ function saveSummaryToLocalStorage(summary) {
 }
 
 document.getElementById('summaryBtn').addEventListener('click', async () => {
+  const summaryBtn = document.getElementById('summaryBtn');
+  const summaryResult = document.getElementById('summaryResult');
+
+  // Change button to loading state
+  summaryBtn.disabled = true;
+  summaryBtn.textContent = 'Loading...'; // Update button text to "Loading..."
+  summaryResult.innerHTML = ''; // Clear any previous summary result
+
   // Get the current active tab
   chrome.tabs.query({ active: true, currentWindow: true }, async function(tabs) {
-      let activeTab = tabs[0];
-      let youtubeUrl = activeTab.url;
+    let activeTab = tabs[0];
+    let youtubeUrl = activeTab.url;
 
-      
-      // Check if the current tab is a YouTube video
-      if (youtubeUrl.includes("youtube.com/watch")) {
-          try {
-              // Send POST request to API
-              const response = await fetch('http://127.0.0.1:8000/api/yt-summary/', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({ youtube_url: youtubeUrl })
-              });
+    // Check if the current tab is a YouTube video
+    if (youtubeUrl.includes("youtube.com/watch")) {
+      try {
+        // Send POST request to API
+        const response = await fetch('http://127.0.0.1:8000/api/yt-summary/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ youtube_url: youtubeUrl })
+        });
 
-              // Save summary to localStorage
-             
+        // Get the summary from the response
+        const data = await response.json();
+        saveSummaryToLocalStorage(data.summary);
 
-              // Get the summary from the response
-              const data = await response.json();
-              saveSummaryToLocalStorage(data.summary);
-              // alert(data)
-              // Display the summary in the popup
-              document.getElementById('summaryResult').innerText = data.summary;
-              // Save the summary to local storage
-              localStorage.setItem('youtubeSummary', data.summary);
+        // Display the summary in the popup as HTML
+        summaryResult.innerHTML = data.summary;
 
-              // Optionally save the summary as a PDF (if you're generating PDF in the background)
-              // chrome.runtime.sendMessage({
-              //     action: 'saveToPDFSummary',
-              //     summary: data.summary,
-              //     url: youtubeUrl
-              // });
+        // Save the summary to localStorage
+        localStorage.setItem('youtubeSummary', data.summary);
 
-          } catch (error) {
-              console.error('Error fetching summary:', error);
-              document.getElementById('summaryResult').innerText = 'Failed to fetch summary.';
-          }
-      } else {
-          document.getElementById('summaryResult').innerText = 'This is not a YouTube video page.';
+      } catch (error) {
+        console.error('Error fetching summary:', error);
+        summaryResult.innerText = 'Failed to fetch summary.';
+      } finally {
+        // Restore button state after the request is complete
+        summaryBtn.disabled = false;
+        summaryBtn.textContent = 'Summary'; // Reset button text to original
       }
+    } else {
+      summaryResult.innerText = 'This is not a YouTube video page.';
+      // Restore button state if not a YouTube video
+      summaryBtn.disabled = false;
+      summaryBtn.textContent = 'Get Summary';
+    }
   });
 });
+
 
 // Function to add a screenshot to the popup in real-time
 function addScreenshotToPopup(screenshotUrl, time) {
@@ -170,10 +176,12 @@ function restoreScreenshotsAndNotes() {
 function clearAllScreenshotsAndNotes() {
   // Clear the popup
   document.getElementById('screenshotNoteContainer').innerHTML = '';
+  document.getElementById('summaryResult').innerHTML = ''; // Clear the summary from the UI
   
   // Clear from localStorage
   localStorage.removeItem('screenshots');
   localStorage.removeItem('notes');
+  localStorage.removeItem('summary'); // Clear the summary from localStorage
 }
 
 // Save screenshots and notes as PDF using jsPDF
