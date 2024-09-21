@@ -2,7 +2,7 @@ import re
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from youtube_transcript_api import YouTubeTranscriptApi
-from reportlab.platypus import SimpleDocTemplate, Paragraph
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 
 
@@ -22,7 +22,6 @@ def transcribe(youtube_url):
 def convert_markup(text):
     text = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', text)
     return text
-
 
 def generate_pdf(yt_url, summarization, filename):
     try:
@@ -48,7 +47,7 @@ def generate_pdf(yt_url, summarization, filename):
                 f"YouTube Link: <a href='{yt_url}'>{yt_url}</a>", custom_style
             )
         )
-        content.append("")
+        content.append(Spacer(1, 12))
 
         for line in summarization.split('\n\n'):
             formatted_line = convert_markup(line)
