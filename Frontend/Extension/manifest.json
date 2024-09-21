@@ -8,11 +8,14 @@
     "scripting",
     "tabs"
   ],
+
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
       "16": "./camera-white.png"
-    }
+    },
+    "default_popup_width": 400,  
+  "default_popup_height": 600
   },
   "host_permissions": [
     "https://www.youtube.com/*"
@@ -25,5 +28,9 @@
       "resources": ["libs/jspdf.umd.min.js"],
       "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "options_ui": {
+    "open_in_tab": true
+  }
+
 }
