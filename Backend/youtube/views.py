@@ -40,6 +40,7 @@ class YoutubeSummaryView(APIView):
                     'message': 'YouTube summary generated successfully.',
                     'pdf_path': f'/Backend/media/pdfs/{video_id}.pdf',
                     'youtube_url': youtube_url,
+                    'summarization': summarization,
                 },
                 status=status.HTTP_200_OK
             )
