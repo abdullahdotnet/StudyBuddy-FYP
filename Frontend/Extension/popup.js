@@ -47,7 +47,7 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
       let activeTab = tabs[0];
       let youtubeUrl = activeTab.url;
 
-
+      
       // Check if the current tab is a YouTube video
       if (youtubeUrl.includes("youtube.com/watch")) {
           try {
@@ -61,19 +61,20 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
               });
 
 
+
              
               // Get the summary from the response
               const data = await response.json();
-
+              // alert(data)
               // Display the summary in the popup
               document.getElementById('summaryResult').innerText = data.summary;
 
               // Optionally save the summary as a PDF (if you're generating PDF in the background)
-              // chrome.runtime.sendMessage({
-              //     action: 'saveToPDF',
-              //     summary: data.summary,
-              //     url: youtubeUrl
-              // });
+              chrome.runtime.sendMessage({
+                  action: 'saveToPDFSummary',
+                  summary: data.summary,
+                  url: youtubeUrl
+              });
 
           } catch (error) {
               console.error('Error fetching summary:', error);

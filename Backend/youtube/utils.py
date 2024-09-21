@@ -7,6 +7,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 
 
 def transcribe(youtube_url):
+    print(youtube_url)
     video_id = youtube_url.split("v=")[1]
 
     try:
