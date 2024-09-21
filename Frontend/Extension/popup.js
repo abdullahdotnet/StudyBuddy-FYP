@@ -70,11 +70,11 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
               document.getElementById('summaryResult').innerText = data.summary;
 
               // Optionally save the summary as a PDF (if you're generating PDF in the background)
-              // chrome.runtime.sendMessage({
-              //     action: 'saveToPDF',
-              //     summary: data.summary,
-              //     url: youtubeUrl
-              // });
+              chrome.runtime.sendMessage({
+                  action: 'saveToPDFSummary',
+                  summary: data.summary,
+                  url: youtubeUrl
+              });
 
           } catch (error) {
               console.error('Error fetching summary:', error);
