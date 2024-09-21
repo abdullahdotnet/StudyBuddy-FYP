@@ -31,7 +31,7 @@ class YoutubeSummaryView(APIView):
         try:
             transcription, video_id = transcribe(youtube_url)
             summarization = self._get_summarization(transcription)
-
+            print(summarization)
             path = f'./media/pdfs/{video_id}.pdf'
             pdf = generate_pdf(youtube_url, summarization, filename=path)
 
@@ -40,7 +40,7 @@ class YoutubeSummaryView(APIView):
                     'message': 'YouTube summary generated successfully.',
                     'pdf_path': f'/Backend/media/pdfs/{video_id}.pdf',
                     'youtube_url': youtube_url,
-                    'summarization': summarization,
+                    'summary': summarization,
                 },
                 status=status.HTTP_200_OK
             )

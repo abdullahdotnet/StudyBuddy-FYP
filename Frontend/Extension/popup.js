@@ -47,7 +47,7 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
       let activeTab = tabs[0];
       let youtubeUrl = activeTab.url;
 
-
+      
       // Check if the current tab is a YouTube video
       if (youtubeUrl.includes("youtube.com/watch")) {
           try {
@@ -61,10 +61,11 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
               });
 
 
+
              
               // Get the summary from the response
               const data = await response.json();
-
+              // alert(data)
               // Display the summary in the popup
               document.getElementById('summaryResult').innerText = data.summary;
 
