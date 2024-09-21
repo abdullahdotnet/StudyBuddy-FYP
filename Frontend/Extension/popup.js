@@ -65,10 +65,11 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
               });
 
               // Save summary to localStorage
-              saveSummaryToLocalStorage(data.summary);
+             
 
               // Get the summary from the response
               const data = await response.json();
+              saveSummaryToLocalStorage(data.summary);
               // alert(data)
               // Display the summary in the popup
               document.getElementById('summaryResult').innerText = data.summary;
