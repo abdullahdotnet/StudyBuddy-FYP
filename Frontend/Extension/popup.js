@@ -41,6 +41,10 @@ document.getElementById('clearBtn').addEventListener('click', clearAllScreenshot
 document.getElementById('saveBtn').addEventListener('click', saveAsPDF);
 
 
+function saveSummaryToLocalStorage(summary) {
+  localStorage.setItem('summary', summary);
+}
+
 document.getElementById('summaryBtn').addEventListener('click', async () => {
   // Get the current active tab
   chrome.tabs.query({ active: true, currentWindow: true }, async function(tabs) {
@@ -60,21 +64,23 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
                   body: JSON.stringify({ youtube_url: youtubeUrl })
               });
 
+              // Save summary to localStorage
+              saveSummaryToLocalStorage(data.summary);
 
-
-             
               // Get the summary from the response
               const data = await response.json();
               // alert(data)
               // Display the summary in the popup
               document.getElementById('summaryResult').innerText = data.summary;
+              // Save the summary to local storage
+              localStorage.setItem('youtubeSummary', data.summary);
 
               // Optionally save the summary as a PDF (if you're generating PDF in the background)
-              chrome.runtime.sendMessage({
-                  action: 'saveToPDFSummary',
-                  summary: data.summary,
-                  url: youtubeUrl
-              });
+              // chrome.runtime.sendMessage({
+              //     action: 'saveToPDFSummary',
+              //     summary: data.summary,
+              //     url: youtubeUrl
+              // });
 
           } catch (error) {
               console.error('Error fetching summary:', error);
@@ -143,6 +149,7 @@ function saveNoteToLocalStorage(note, time) {
 function restoreScreenshotsAndNotes() {
   const savedScreenshots = JSON.parse(localStorage.getItem('screenshots')) || [];
   const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+  const savedSummary = localStorage.getItem('summary') || '';
 
   savedScreenshots.forEach((screenshot) => {
     addScreenshotToPopup(screenshot.screenshotUrl, screenshot.time);
@@ -151,13 +158,18 @@ function restoreScreenshotsAndNotes() {
   savedNotes.forEach((note) => {
     addNoteToPopup(note.note, note.time);
   });
+
+  // Restore the summary if it exists
+  if (savedSummary) {
+    document.getElementById('summaryResult').innerText = savedSummary;
+  }
 }
 
 // Clear all screenshots and notes
 function clearAllScreenshotsAndNotes() {
   // Clear the popup
   document.getElementById('screenshotNoteContainer').innerHTML = '';
-
+  
   // Clear from localStorage
   localStorage.removeItem('screenshots');
   localStorage.removeItem('notes');
@@ -167,7 +179,7 @@ function clearAllScreenshotsAndNotes() {
 async function saveAsPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
-  
+
   chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
     const videoTitle = tabs[0].title;
     const videoUrl = tabs[0].url;
@@ -182,6 +194,7 @@ async function saveAsPDF() {
 
     const savedScreenshots = JSON.parse(localStorage.getItem('screenshots')) || [];
     const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+    const savedSummary = localStorage.getItem('summary') || '';
 
     // Combine screenshots and notes into a single array and sort by timestamp
     const combinedContent = [];
@@ -194,78 +207,72 @@ async function saveAsPDF() {
       combinedContent.push({ type: 'note', data: note });
     });
 
-    // Sort combined content by timestamp
     combinedContent.sort((a, b) => a.data.time - b.data.time);
 
-    // Process each item (note or screenshot) in the combined content using async/await
+    // Process each item (note or screenshot) in the combined content
     for (const [index, item] of combinedContent.entries()) {
       if (item.type === 'note') {
         const noteText = `Note ${index + 1}: ${item.data.note}`;
-        const noteLines = doc.splitTextToSize(noteText, 180); // Split the note text to fit within the page width
-        
-        // Check if the note fits in the remaining space, else add a new page
+        const noteLines = doc.splitTextToSize(noteText, 180);
+
         if (y + noteLines.length * 10 + 10 > pageHeight) {
           doc.addPage();
-          y = 10; // Reset y for the new page
+          y = 10;
         }
-        
-        // Adding the note to the PDF
+
         doc.text(noteLines, 10, y);
         y += noteLines.length * 10;
 
-        // Add clickable timestamp link for the note at the end
         doc.setTextColor(0, 0, 255);
         doc.textWithLink(`${item.data.time.toFixed(2)} seconds`, 10, y, {
-          url: `${videoUrl}&t=${Math.floor(item.data.time)}s`
+          url: `${videoUrl}&t=${Math.floor(item.data.time)}s`,
         });
-        doc.setTextColor(0, 0, 0); // Reset text color
+        doc.setTextColor(0, 0, 0);
         y += 10;
 
       } else if (item.type === 'screenshot') {
         const screenshotText = `Screenshot ${index + 1}`;
         
-        // Check if the screenshot and timestamp fit in the remaining space, else add a new page
-        if (y + 110 + 10 > pageHeight) { // 110 for the image and 10 for the timestamp
+        if (y + 110 + 10 > pageHeight) {
           doc.addPage();
-          y = 10; // Reset y for the new page
+          y = 10;
         }
-        
-        // Add screenshot text and clickable timestamp after the image
+
         doc.text(screenshotText, 10, y);
         y += 10;
 
-        // Convert the screenshot image URL to base64 and await until it's added to the PDF
         await new Promise((resolve) => {
           convertImageToDataUrl(item.data.screenshotUrl, (dataUrl) => {
-            doc.addImage(dataUrl, 'JPEG', 10, y, 180, 100); // Adjust size and position as needed
+            doc.addImage(dataUrl, 'JPEG', 10, y, 180, 100);
             y += 110;
 
-            // Add clickable timestamp link for the screenshot at the end
             doc.setTextColor(0, 0, 255);
             doc.textWithLink(`${item.data.time.toFixed(2)} seconds`, 10, y, {
-              url: `${videoUrl}&t=${Math.floor(item.data.time)}s`
+              url: `${videoUrl}&t=${Math.floor(item.data.time)}s`,
             });
-            doc.setTextColor(0, 0, 0); // Reset text color
+            doc.setTextColor(0, 0, 0);
             y += 10;
 
             resolve();
           });
         });
       }
-
-      // Add a new page if necessary
-      if (y > pageHeight) {
-        doc.addPage();
-        y = 10; // Reset y for the new page
-      }
     }
 
-    // Once all screenshots are processed, save the PDF
+    // Add the summary at the end of the PDF
+    if (savedSummary) {
+      doc.addPage();
+      doc.setFontSize(12);
+      doc.text('Video Summary:', 10, 10);
+      const summaryLines = doc.splitTextToSize(savedSummary, 180);
+      doc.text(summaryLines, 10, 20);
+    }
+
+    // Save the PDF
     const fileName = `${videoTitle}.pdf`;
     doc.save(fileName);
   });
 }
-
 
 
 // Utility function to convert image URL to Data URL

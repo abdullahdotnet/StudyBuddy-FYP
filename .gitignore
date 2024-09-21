@@ -167,3 +167,6 @@ cython_debug/
 # VS code
 .vscode
 credentials.*
+
+# Ignoring generated youtube videos
+Backend/media/pdfs/
