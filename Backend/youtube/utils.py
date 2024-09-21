@@ -12,7 +12,7 @@ def transcribe(youtube_url):
     try:
         transcript = YouTubeTranscriptApi.get_transcript(video_id)
         transcript_text = " ".join([t["text"] for t in transcript])
-        return transcript_text
+        return transcript_text, video_id
 
     except Exception as e:
         print(f"Error: {e}")
@@ -22,6 +22,7 @@ def transcribe(youtube_url):
 def convert_markup(text):
     text = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', text)
     return text
+
 
 def generate_pdf(yt_url, summarization, filename):
     try:
