@@ -5,13 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YouTube Screenshot & Note</title>
   <style>
-    body {
-  width: 320px;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #f4f4f9;
+
+
+
+#screenshotNoteContainer::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+}
+
+#screenshotNoteContainer::-webkit-scrollbar-track {
+  background: #f4f4f9; /* Background of the track (empty space) */
+  border-radius: 20px;
+}
+
+#screenshotNoteContainer::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* Color of the scrollbar thumb */
+  border-radius: 20px; /* Rounded corners */
+  border: 2px solid #f4f4f9; /* Adds padding around the thumb */
+}
+
+#screenshotNoteContainer::-webkit-scrollbar-thumb:hover {
+  background-color: #ddd; /* Darker shade when hovered */
+  border-radius: 20px;
+}
+
+/* For Firefox */
+#screenshotNoteContainer {
+  scrollbar-width: thin; /* Sets a thinner scrollbar */
+  scrollbar-color: #ddd #f4f4f9; /* Thumb color and track color */
+  
+}
+
+#body::-webkit-scrollbar {
+  width: 8px;
+}
+
+html, body {
+  background: transparent !important; /* Ensure outer container is transparent */
   margin: 0;
-  padding: 20px;
-  color: #333;
+  padding: 0;
+}
+    body {
+      overflow: hidden; /* Ensure no overflow breaks the rounded corners */
+      width: 320px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      border-radius: 15px; /* Smooth rounded corners */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+  
 }
 
 h3 {
@@ -39,20 +84,24 @@ button {
 } */
 
 #clearBtn {
-  background-color: #dc3545;
+  background-color: #007bff;
 }
 
 #clearBtn:hover {
-  background-color: #c82333;
+  background-color: #007bff;
 }
 
 #saveBtn {
-  background-color: #28a745;
+  background-color: #007bff;
 }
 
 #saveBtn:hover {
-  background-color: #218838;
+  background-color: #007bff;
 }
+#summaryBtn {
+  background-color: #007bff;
+}
+
 
 .input-container {
   display: flex;
@@ -69,7 +118,7 @@ input[type="text"] {
   outline: none;
 }
 
-#addNoteBtn, #screenshotBtn {
+#addNoteBtn, #screenshotBtn,#summaryBtn {
   padding: 10px 15px;
   font-size: 14px;
   /* background-color: #007bff; */
@@ -149,7 +198,10 @@ img {
   <script src="libs/jspdf.umd.min.js"></script>
 </head>
 <body>
+  
   <h3>YouTube Screenshot & Note</h3>
+  
+  <button id="summaryBtn">Get Summary</button>
   <button id="clearBtn">Clear All</button>
   <button id="saveBtn">Save as PDF</button>
 
@@ -165,6 +217,7 @@ img {
 
   <h4>Screenshots & Notes</h4>
   <div id="screenshotNoteContainer"></div>
+  <div id="summaryResult"></div>
 
   <script src="popup.js"></script>
 </body>
