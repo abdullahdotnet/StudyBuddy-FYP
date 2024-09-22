@@ -5,7 +5,7 @@ document.getElementById('screenshotBtn').addEventListener('click', async () => {
     chrome.runtime.sendMessage({ action: 'takeScreenshot', tabId: tabs[0].id }, (response) => {
       if (response.error) {
         console.error(response.error);
-        alert(response.error); // Show error alert if screenshot fails
+        alert(response.error); 
       } else {
         addScreenshotToPopup(response.screenshotUrl, response.time);
         saveScreenshotToLocalStorage(response.screenshotUrl, response.time);
@@ -26,7 +26,7 @@ document.getElementById('addNoteBtn').addEventListener('click', async () => {
     chrome.runtime.sendMessage({ action: 'addNote', note: note, tabId: tabs[0].id }, (response) => {
       if (response.error) {
         console.error(response.error);
-        alert(response.error); // Show error alert if adding note fails
+        alert(response.error); 
       } else {
         addNoteToPopup(response.note, response.time);
         saveNoteToLocalStorage(response.note, response.time);
@@ -34,7 +34,7 @@ document.getElementById('addNoteBtn').addEventListener('click', async () => {
     });
   });
 
-  document.getElementById('noteInput').value = ''; // Clear input field after adding the note
+  document.getElementById('noteInput').value = ''; 
 });
 
 document.getElementById('clearBtn').addEventListener('click', clearAllScreenshotsAndNotes);
@@ -43,6 +43,19 @@ document.getElementById('saveBtn').addEventListener('click', saveAsPDF);
 
 function saveSummaryToLocalStorage(summary) {
   localStorage.setItem('summary', summary);
+}
+
+function formatSummaryToHTML(summaryText) {
+  let formattedSummary = summaryText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+  formattedSummary = formattedSummary.replace(/\n/g, '<br>');
+
+  formattedSummary = formattedSummary.replace(/-\s(.*?)<br>/g, '<li>$1</li>'); 
+  formattedSummary = formattedSummary.replace(/<br>\*\*Key Themes:\*\*<br>/g, '<br><strong>Key Themes:</strong><ul>');
+  formattedSummary = formattedSummary.replace(/<\/li><br>/g, '</li>'); 
+  formattedSummary += '</ul>';  
+
+  return formattedSummary;
 }
 
 document.getElementById('summaryBtn').addEventListener('click', async () => {
@@ -76,7 +89,7 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
         saveSummaryToLocalStorage(data.summary);
 
         // Display the summary in the popup as HTML
-        summaryResult.innerHTML = data.summary;
+        summaryResult.innerHTML = formatSummaryToHTML(data.summary);
 
         // Save the summary to localStorage
         localStorage.setItem('youtubeSummary', data.summary);
@@ -172,6 +185,8 @@ function restoreScreenshotsAndNotes() {
   }
 }
 
+
+
 // Clear all screenshots and notes
 function clearAllScreenshotsAndNotes() {
   // Clear the popup
@@ -183,6 +198,8 @@ function clearAllScreenshotsAndNotes() {
   localStorage.removeItem('notes');
   localStorage.removeItem('summary'); // Clear the summary from localStorage
 }
+
+
 
 // Save screenshots and notes as PDF using jsPDF
 async function saveAsPDF() {
@@ -271,9 +288,12 @@ async function saveAsPDF() {
     // Add the summary at the end of the PDF
     if (savedSummary) {
       doc.addPage();
-      doc.setFontSize(12);
+      doc.setFontSize(16);
       doc.text('Video Summary:', 10, 10);
+
       const summaryLines = doc.splitTextToSize(savedSummary, 180);
+
+      doc.setFontSize(12);
       doc.text(summaryLines, 10, 20);
     }
 
