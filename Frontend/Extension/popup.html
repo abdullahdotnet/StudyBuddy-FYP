@@ -31,6 +31,32 @@
       scrollbar-color: #ddd #f4f4f9; /* Thumb color and track color */
     }
 
+    #summaryResult::-webkit-scrollbar {
+      width: 8px; /* Set the width of the scrollbar */
+    }
+
+    #summaryResult::-webkit-scrollbar-track {
+      background: #f4f4f9; /* Background of the track (empty space) */
+      border-radius: 20px;
+    }
+
+    #summaryResult::-webkit-scrollbar-thumb {
+      background-color: #007bff; /* Color of the scrollbar thumb */
+      border-radius: 20px; /* Rounded corners */
+      border: 2px solid #f4f4f9; /* Adds padding around the thumb */
+    }
+
+    #summaryResult::-webkit-scrollbar-thumb:hover {
+      background-color: #ddd; /* Darker shade when hovered */
+      border-radius: 20px;
+    }
+
+    /* For Firefox */
+    #summaryResult {
+      scrollbar-width: thin; /* Sets a thinner scrollbar */
+      scrollbar-color: #ddd #f4f4f9; /* Thumb color and track color */
+    }
+
     #body::-webkit-scrollbar {
       width: 8px;
     }
@@ -162,6 +188,16 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
+    #summaryResult {
+      margin-top: 20px;
+      max-height: 400px;
+      overflow-y: auto;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
     .screenshot-note {
       margin-bottom: 15px;
       border-bottom: 1px solid #ddd;
@@ -216,7 +252,8 @@
 
   <h4>Screenshots & Notes</h4>
   <div id="screenshotNoteContainer"></div>
-  <div id="summaryResult"></div>
+  <div id="summaryResult" style="white-space: pre-wrap;"></div>
+
 
   <script src="popup.js"></script>
 </body>
