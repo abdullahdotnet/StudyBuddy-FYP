@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'chatbot.apps.ChatbotConfig',
     'youtube.apps.YoutubeConfig',
+    'account',
+
 ]
 
 MIDDLEWARE = [
@@ -140,7 +142,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# AUTH_USER_MODEL = 'account.User'
+AUTH_USER_MODEL = 'account.User'
 
 # CORS Configuration
 # https://pypi.org/project/django-cors-headers/
