@@ -104,3 +104,4 @@ function logNoteWithTime(screenshotNotes,note) {
 
   return { note: note, time: time };
 }
+
