@@ -7,7 +7,6 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // Simulated login function
   const handleLogin = async (e) => {
     e.preventDefault();
     if (!username || !password) {
@@ -15,7 +14,6 @@ const Login = () => {
     }
 
     try {
-      // Simulated API call
       const url = "http://127.0.0.1:5000/login"; // change this to your API URL
       const response = await fetch(url, {
         method: "POST",
@@ -28,16 +26,17 @@ const Login = () => {
         },
       });
 
-      const data = await response.json();
-      if (data.success) {
-        handleSuccess(data.message);
-        // Redirect to dashboard
-        window.location.href = "/dashboard";
-      } else {
-        handleError(data.message);
-      }
+      const data = await response.json(); // Change this to your response data structure
+        if (data.success) {              
+            handleSuccess(data.message);
+            // Redirect to dashboard
+            window.location.href = "/dashboard";
+        } else {
+            handleError(data.message);
+        }
+      
     } catch (error) {
-      // If there is an error
+
       console.log(error);
       handleError("An error occurred. Please try again");
     }

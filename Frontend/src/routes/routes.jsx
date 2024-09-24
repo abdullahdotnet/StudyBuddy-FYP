@@ -19,7 +19,6 @@ import Login from "../pages/Login/Login";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/login" element={<Login />} />
       <Route path="/" element={<Main_Layout />}>
         <Route path="" element={<Home />} />
       </Route>
@@ -35,7 +34,9 @@ const router = createBrowserRouter(
         <Route path="*" element={<h1>Page Not found</h1>} />
       </Route>
 
-      <Route path="/" element={<NoNavbarLayout />}></Route>
+      <Route path="/" element={<NoNavbarLayout />}>
+        <Route path="/login" element={<Login />} />
+      </Route>
     </>
   )
 );
