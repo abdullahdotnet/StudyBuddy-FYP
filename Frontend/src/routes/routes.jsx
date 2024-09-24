@@ -15,6 +15,7 @@ import Extension from "../pages/Extension/Extension";
 import Extras from "../pages/Extras/Extras";
 import Extra2 from "../pages/Extras/Extras2";
 import Login from "../pages/Login/Login";
+import Signup from "../pages/Signup/Signup";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
 
       <Route path="/" element={<NoNavbarLayout />}>
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Route>
     </>
   )
