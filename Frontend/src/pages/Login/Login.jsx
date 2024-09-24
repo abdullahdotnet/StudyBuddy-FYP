@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { handleError, handleSuccess } from "./Utils";
+import { handleError, handleSuccess } from "../../services/Utils";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -107,7 +107,7 @@ const Login = () => {
       {/* Image Section */}
       <div className="w-full max-w-md h-96 flex justify-center items-center">
         <img
-          src="/src/pages/Login/login.png"
+          src="/src/assets/images/login.png"
           alt="Login Illustration"
           className="rounded-lg max-w-full h-full object-cover"
         />
