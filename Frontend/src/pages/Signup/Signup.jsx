@@ -1,21 +1,30 @@
 import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { handleError, handleSuccess } from "../../services/Utils";
+import { useNavigate } from 'react-router-dom';
+
 
 const Signup = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [classGrade, setClassGrade] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
+  const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
 
     // Validation checks
-    if (!username || !password || !confirmPassword || !fullName || !classGrade || !dateOfBirth) {
+    if (
+      !email ||
+      !password ||
+      !confirmPassword ||
+      !fullName ||
+      !classGrade ||
+      !dateOfBirth
+    ) {
       return handleError("Please fill in all fields");
     }
     if (password !== confirmPassword) {
@@ -23,27 +32,36 @@ const Signup = () => {
     }
 
     try {
-      const url = "http://127.0.0.1:5000/signup"; // Change this to your signup API URL
+      const url = "http://127.0.0.1:8000/api/user/register/"; // Change this to your signup API URL
       const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify({
-          username,
+          email,
+          name: fullName,
           password,
-          fullName,
-          classGrade,
-          dateOfBirth,
+          password2: confirmPassword,
+          classlevel: classGrade,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
 
-      const data = await response.json();
-      if (data.success) {
-        handleSuccess(data.message);
-        window.location.href = "/dashboard"; // Redirect to dashboard
+      if (response.ok) {
+        const { msg } = await response.json();
+        handleSuccess(msg);
+        setTimeout(() => {
+          navigate('/login');
+        }, 1500); // wait for 1.5 seconds
       } else {
-        handleError(data.message);
+        const errorData = await response.json();
+        const errorMessage = errorData.errors.email[0];
+      
+        if (errorMessage) {
+          handleError(errorMessage); // Display the error message to the user
+        } else {
+          handleError('An unknown error occurred. Please try again.');
+        }
       }
     } catch (error) {
       console.log(error);
@@ -52,7 +70,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-around items-center min-h-screen p-8 bg-[#f7f3ef]">
+    <div className="flex flex-col md:flex-row justify-around items-center min-h-screen p-8 bg-white">
       {/* Image Section */}
       <div className="w-full max-w-md h-96 flex justify-center items-center">
         <img
@@ -89,11 +107,11 @@ const Signup = () => {
               Email
             </label>
             <input
-              type="text"
+              type="email"
               id="email"
               placeholder="email@gmail.com"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f4cbb3] focus:border-transparent"
             />
           </div>
@@ -149,7 +167,10 @@ const Signup = () => {
 
           {/* Confirm Password Input */}
           <div className="mb-6">
-            <label htmlFor="confirmPassword" className="block text-gray-700 mb-2">
+            <label
+              htmlFor="confirmPassword"
+              className="block text-gray-700 mb-2"
+            >
               Confirm Password
             </label>
             <input

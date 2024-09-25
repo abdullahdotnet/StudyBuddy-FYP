@@ -2,23 +2,44 @@ import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { handleError, handleSuccess } from "../../services/Utils";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
+  const getuserdata = async () => {
+    const accessToken = sessionStorage.getItem("accessToken");
+    try {
+      const url = "http://localhost:8000/api/user/profile";
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        sessionStorage.setItem("username", data.name);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const handleLogin = async (e) => {
     e.preventDefault();
-    if (!username || !password) {
+    if (!email || !password) {
       return handleError("Please fill in all fields");
     }
 
     try {
-      const url = "http://127.0.0.1:5000/login"; // change this to your API URL
+      const url = "http://127.0.0.1:8000/api/user/login/"; // change this to your API URL
       const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify({
-          username,
+          email,
           password,
         }),
         headers: {
@@ -26,23 +47,32 @@ const Login = () => {
         },
       });
 
-      const data = await response.json(); // Change this to your response data structure
-        if (data.success) {              
-            handleSuccess(data.message);
-            // Redirect to dashboard
-            window.location.href = "/dashboard";
-        } else {
-            handleError(data.message);
-        }
-      
-    } catch (error) {
+      if (response.ok) {
+        const data = await response.json();
+        // Set session storage
+        sessionStorage.setItem("accessToken", data.token.access);
+        handleSuccess(data.msg);
+        setTimeout(() => {
+          navigate("/dashboard");
+        }, 1500); // wait for 1.5 seconds
+        getuserdata();
+      } else {
+        const errorData = await response.json();
+        const errorMessage = errorData.errors.non_field_errors[0];
 
+        if (errorMessage) {
+          handleError(errorMessage); // Display the error message to the user
+        } else {
+          handleError("An unknown error occurred. Please try again.");
+        }
+      }
+    } catch (error) {
       console.log(error);
       handleError("An error occurred. Please try again");
     }
   };
   return (
-    <div className="flex flex-col md:flex-row justify-around items-center min-h-screen p-8 bg-[#f7f3ef]">
+    <div className="flex flex-col md:flex-row justify-around items-center min-h-screen p-8 bg-white">
       {/* Login Form */}
       <div className="w-full max-w-md mr-8 mb-8 md:mb-0">
         <h2 className="text-3xl font-bold mb-6 text-gray-800">
@@ -55,11 +85,11 @@ const Login = () => {
               Email
             </label>
             <input
-              type="text"
+              type="email"
               id="email"
               placeholder="email@gmail.com"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f4cbb3] focus:border-transparent"
             />
           </div>
