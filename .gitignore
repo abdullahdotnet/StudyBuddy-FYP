@@ -169,4 +169,5 @@ cython_debug/
 credentials.*
 
 # Ignoring generated youtube videos
+
 Backend/media/pdfs/
