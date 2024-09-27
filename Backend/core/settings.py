@@ -27,8 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-c&h%o@dnxbu(kh^rso$m6qnf9_)nr(=(qx_3aw!dq__l4otp34'
 
-# Google API keys
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+# Groq API Key
+GROQ_API_KEY = os.getenv('GROQ_API_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'chatbot.apps.ChatbotConfig',
     'youtube.apps.YoutubeConfig',
-    'account',
+    'account.apps.AccountConfig',
 
 ]
 
@@ -174,9 +174,9 @@ SIMPLE_JWT = {
 }
 
 # Email Configuration
-EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 EMAIL_USE_TLS = True
