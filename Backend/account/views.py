@@ -4,9 +4,7 @@ from rest_framework.response import Response
 from django.contrib.auth import authenticate
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
-
 from .renderers import UserRenderer
-from .utils import send_email_to_client
 from .serializers import (
     UserLoginSerializer,
     UserProfileSerializer,
@@ -23,12 +21,6 @@ def get_tokens_for_user(user):
         'refresh': str(refresh),
         'access': str(refresh.access_token),
     }
-
-
-class EmailSend(APIView):
-    def post(self, request):
-        send_email_to_client()
-        return Response({'msg': 'Email Send Successful'}, status=status.HTTP_200_OK)
 
 
 class UserRegistrationView(APIView):
@@ -55,6 +47,7 @@ class UserLoginView(APIView):
             email = serializer.data.get('email')
             password = serializer.data.get('password')
             user = authenticate(email=email, password=password)
+
             if user is not None:
                 token = get_tokens_for_user(user)
                 return Response(
@@ -62,13 +55,12 @@ class UserLoginView(APIView):
                     status=status.HTTP_200_OK
                 )
 
-            else:
-                return Response(
-                    {'errors': {
-                        'non_field_errors': ['Email or Password is Invalid']
-                    }},
-                    status=status.HTTP_404_NOT_FOUND
-                )
+        return Response(
+            {'errors': {
+                'non_field_errors': ['Email or Password is Invalid']
+            }},
+            status=status.HTTP_404_NOT_FOUND
+        )
 
 
 class UserProfileView(APIView):
@@ -112,7 +104,8 @@ class UserPasswordResetView(APIView):
 
     def post(self, request, uid, token, format=None):
         serializer = UserPasswordResetSerializer(
-            data=request.data, context={'uid': uid, 'token': token})
+            data=request.data, context={'uid': uid, 'token': token}
+        )
         serializer.is_valid(raise_exception=True)
         return Response(
             {'msg': 'Password Reset Successfully'},
