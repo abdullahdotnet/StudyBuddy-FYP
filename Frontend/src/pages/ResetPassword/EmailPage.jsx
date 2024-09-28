@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
+import { ToastContainer } from "react-toastify";
+import { handleError, handleSuccess } from "../../services/Utils";
+
 
 const ResetPasswordEmail = () => {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError(null);
-    setSuccess(false);
 
     try {
       const response = await fetch('http://127.0.0.1:8000/api/user/reset-password/', {
@@ -24,13 +23,13 @@ const ResetPasswordEmail = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setSuccess(true);
+        handleSuccess('Check your email for the reset link.');
       } else {
-        setError('This email is not registered.');
+        handleError('This email is not registered.');
       }
     } catch (error) {
       console.error('Error:', error);
-      setError('An error occurred. Please try again later.');
+      handleError('An error occurred. Please try again later.');
     } finally {
       setLoading(false);
     }
@@ -65,9 +64,10 @@ const ResetPasswordEmail = () => {
           </button>
 
           {/* Conditional Message Display */}
-          {error && <p className="text-red-500 mt-4">{error}</p>}
-          {success && <p className="text-green-500 mt-4">Check your email for the reset link.</p>}
+          {/* {error && <p className="text-red-500 mt-4">{error}</p>}
+          {success && <p className="text-green-500 mt-4">Check your email for the reset link.</p>} */}
         </form>
+        <ToastContainer />
       </div>
 
       {/* Image Section */}

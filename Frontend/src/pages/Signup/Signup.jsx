@@ -11,10 +11,12 @@ const Signup = () => {
   const [fullName, setFullName] = useState("");
   const [classGrade, setClassGrade] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     // Validation checks
     if (
@@ -188,7 +190,7 @@ const Signup = () => {
             type="submit"
             className="w-full bg-[#f4cbb3] hover:bg-[#f0b490] text-white py-3 rounded-md text-lg focus:outline-none transition duration-300"
           >
-            Sign Up
+            {loading ? "Signing Up..." : "Sign Up"}
           </button>
         </form>
         <ToastContainer />
