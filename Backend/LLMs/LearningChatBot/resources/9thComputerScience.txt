@@ -1,0 +1,4166 @@
+COMPUTER SCIENCE & IT
+
+
+
+
+
+PUNJAB CURRICULUM AND TEXTBOOK BOARD, LAHORE
+
+All rights reserved with the Punjab Curriculum and Textbook Board, Lahore.
+
+No part of this book can be copied, translated, reproduced or used for preparation of test papers, guide books, key notes, helping books, etc.
+
+
+Contents
+
+Problem Solving Binary System
+
+Networks
+
+Data and Privacy
+
+Designing Website
+
+
+Answers Glossary Index Author Editor Dr. Muhammad Atif Chattha Amjad Riaz Associate Professor Msc. IT Project Management (Sweden) Department of Computer Sciences & IT Consultant Software Architect The University of Lahore Director Horizon Concepts Limited
+
+United Kingdom
+
+Artist Supervision Aisha Waheed © Ms. Nisar Qamar © Mr. Mazhar Hayat Layout Setting Director Manuscripts HOD (Pure Sciences)
+
+© Jahanzaib Khan
+
+Hafiz Inam-ul-Haq SS (Computer Science)
+
+Prepared by Publisher: Malik House Pnter Publishers & Printers, Lahore rinter. Edition Impression Date of Printing No. of Copies
+
+ale le March 2019
+
+Table of Contents
+
+
+A) eo) (-meym @e)aiesai cs
+
+Unit1 Problem Solving iL 1.1 Problem Solving Steps 2 ‘Babys Defining a Problem 2 Le Understanding a Problem 3 Ile: Planning a Solution 4 1.1.4 Defining Candid Solutions . eS Selecting the Best Solution 6 1.2 Flowcharts 6 eal Definition 6 E22 Importance of Flowcharts in Problem Solving 7 ees Determining Requirements for a Flowchart 7 1.2.4 Flowchart Symbols 7 12:5 Examples of Flowcharts 8 1.3 Algorithm 15 Ie Saal Definition tS) 1.3.2 Role of Algorithms in Problem Solving 16 INSre: Formulation of an Algorithm iy 1.3.4 Examples of Algorithms i, TeshsS Efficiency of Algorithms au 13.6 Difference between an Algorithm and a Flowchart 23 1.4 Test Data 24 1.4.1 Importance of Testing 2 1.4.2 Types of Test Data 25 1.5 Verification and Validation 26 ile Verification 26 152 Validation 26 1.6 Identification and Correction of Errors 27 1.6.1 Trace Table 28 6.2 Using Invalid Data for Testing 29 Summary 29
+
+Exercise 30
+
+
+Computer Science — 9
+
+Unit 2 2.1 Dalle Zl 23 2.2 22a 222 DD 2.3 23.1 2.3.2 Page hes 2.4 2.5 25.1 ZZ 2.9;5 2.5.4 2.5.5
+
+Unit 3 3.1 Bilal 31.2 3.2 3.2.1 Ba 3.3 Sraell 3.4 3.4.1
+
+Binary System
+
+Introduction to Number Systems Decimal
+
+Binary
+
+Hexadecimal
+
+Number System Conversion
+
+Decimal to Binary and Binary to Decimal Decimal to Hexadecimal and Hexadecimal to Decimal Hexadecimal to Binary and Binary to Hexadecimal Memory and Data Storage
+
+Memory
+
+Data Representation in Computer Memory Storage Device
+
+Measurement of Size of Computer Memory Boolean Algebra
+
+Boolean Proposition
+
+Truth Values
+
+Logical Operators (AND, OR, NOT)
+
+Truth Table
+
+Laws of Boolean Algebra
+
+Summary
+
+Exercise
+
+Networks
+
+Computer Network
+
+Need of a Computer Network
+
+Client Server
+
+Physical Structure of Networks
+
+Types of connection
+
+Network topologies
+
+Basics of Data Communication Components of a Communication System
+
+Computer Network Models
+
+Protocols in TCP/IP Suit
+
+34
+
+35
+
+39
+
+43 44
+
+50 51
+
+54
+
+57
+
+60
+
+62
+
+
+34 34 34
+
+55 36 37
+
+39 70 43
+
+44 44 AS AG A7
+
+55 bf
+
+=a,
+
+58
+
+60
+
+64
+
+
+WF) 0) (-Mey mm @e)ahc-n
+
+
+3.5 The Need for Addressing 65
+
+3.5.1 Importance of Addressing in Data Communication 65
+
+552 Mapping between Telephone Addressing and Network Addressing 65
+
+3.6 Sending HTTP Requests and Receiving HTTP Responses over the Internet 66
+
+3.64 Understand IP Addressing 67
+
+3.7 Routing 68
+
+oyadl Understand a Router 68
+
+3.7.2 Routing in the Internet 68
+
+3.73 Routing Process 69 Summary 70 Exercise 71
+
+Unit4 Data and Privacy
+
+4.1 Ethical Issues Related to Security 74
+
+4.1.1 Understanding Ethical Issues Related to Data Security 74 4.1.2 Safeguarding Privacy of Others Tks) 4.2 Importance of Data Privacy 79
+
+4.2.1 Privacy Concerns that Arise Through the Mass Collection of Data 73 422 Analyzing the Personal Privacy and Security Concerns that Arise with any of Computational 20
+
+Systems
+
+4.3 Simple Encryption 81
+
+4.3.1 Importance of Encryption for Everyday Life on the Internet 82 4.3.2 Caesar Cipher 83 4.3.2.1 Importance of Encryption for Everyday Life on the Internet 82 4.3.2.2 Vigenere Cipher 84 4.3.3 Using Vigenere Cipher Widget 86 4.3.4 Encrypted with Random Substitution using Frequency Analysis 87 4.3.5 Weaknesses and Security Flaws of Substitution Ciphers 88 4.4 Encryption with Keys and Passwords 89
+
+44.1 Relationship between Cryptographic Keys and Passwords 89 4.4.2 Characteristics of a Good Password 89 4.5 Cybercrime 90
+
+4.5.1 Characteristics of a Phishing Attack 92
+
+4.5.1 DoS (Denial of Service) Attack 93
+
+
+
+Computer Science — 9
+
+Summary 95 Exercise 96
+
+Unit5 Designing Website
+
+5.1 Introduction to HTML 100 2a) Definition 100 oe Creating First Webpage and Displaying it 101 Sills} Identifying the Tags used to Markup HTML Elements 101 5.1.4 Attributes in HTML Tags 102 Sy Main Sections in a Webpage, HTML, HEAD and BODY 102
+
+5.2 Text Formatting 103 5.21 Content Formatting in HTML 104 32.3 Identify the Text Formatting Tags 105
+
+5.3 Creating Lists 105 oreo al Types of Lists 105 5.4 Images and Backgrounds 107
+
+5.5 Define a Hyperlink 109 spon Create a hyperlink to a webpage 109 D2 Define an anchor 109 5.5.3 Create an anchor to hyperlink within a webpage 109 5.5.4 Create a graphical hyperlink 110
+
+5.6 Creating Tables 110
+
+Summary 111
+
+Exercise 112
+
+Answers to exercises 117
+
+Glossary 118
+
+Index 119
+
+
+1 Problem Solving
+
+Short Introduction
+
+Problem solving is the process of solving complex problems. This unit introduces the methodologies to WyateK=)acue-lale mmo) ge)e)(=laam-lale mye) \\(-mimlam-lam=liceaah'i-maar-lalalelm
+
+
+Students’ Learning Outcomes
+
+1. Problem Solving Steps @ Defining a problem @ Understanding a problem @ Planning a solution @ Defining candid solutions @ Selecting the best solution
+
+2. Flowcharts @ Defining a flowchart @ Explaining the importance of a flowchart for problem solving @ Determining the requirements for a flowchart @ Using flowchart symbols @ Drawing flowcharts for sample problems
+
+3. Algorithm
+
+@ Defining an algorithm Describing role of algorithm in problem solving Formulating an algorithm Writing algorithms for sample problems Understanding efficiency of algorithms Differentiating between algorithms and flowcharts
+
+4. Test data @ Understanding the concept of test data @ Describing importance of testing @ Understanding types of test cases
+
+5. Verification and validation @ Understanding the concept of verification @ Understanding the concept of validation
+
+6. Identification and correction of errors @ Using trace table for testing @ Using invalid test data for testing
+
+
+Computer Science — 9
+
+
+1.1 Problem Solving Steps
+
+In order to solve a problem, it is important to follow a systematic approach. In the following we discuss different steps that we can follow to solve a problem systematically.
+
+1.1.1 Defining a Problem
+
+A well-defined problem is the one that does not contain ambiguities. All the conditions are clearly specified and it has a clear goal. It is easy to understand and solve.
+
+Given a problem statement, first we need to see whether the problem is defined well or not. If the problem is not defined well then we can use one of the following strategies to define the problem.
+
+Gain Background Knowledge: We try to know the situation and circumstances in which the problem is happening. In this way, we can identify the given state. It also helps to know what a good solution will look like. How we shall be able to measure the solution.
+
+Use Guesses: We try to guess the unknown information through appropriate guesses. These guesses may be bases upon our past experiences.
+
+Draw a Picture: If the problem is not well-defined, we can draw a picture and fill the undefined information. Figure 1-1 shows pictorial representation of a problem.
+
+FOdTTSSGTOdo ded ecedes Can you solve this?
+
+
+Do you know?
+
+Albert Einstein said, “If I were given one ao hour to save the planet, I would spend 59 minutes defining the problem and one
+
+minute resolving it”.
+
+
+Remember!
+
+Pictures speak louder than words.
+
+
+Figure 1-1 Problem shown in a picture form
+
+
+Unit 1 — Problem Solving
+
+
+1.1.2 Understanding a Problem
+
+It is important to understand the problem before jumping into the solution of the problem. For example, a riddle or a puzzle can be answered only after clear understanding. A clear understanding of a problem makes it easier to solve and helps to save money, time and resources. Understanding of a problem usually includes identification of the 5 Ws (what, who, when, where, and why). Problem analysis is the :
+
+
+process to figure out these 5 Ws from a r Problem problem statement. Problem analysis ' Analysis helps to understand a given problem. _
+
+These are the basic elements which lead Solution
+
+towards the solution of a given problem. For example, consider the following Pins 26 Feancecublem as aultion problem statement: “Suppose your class teacher assigns you a task to prepare a list of students in your school whose names start with letter ‘A’. The list is required in order to prepare an alphabetical directory of all school
+
+students and there is only one week to complete the task.”
+
+We can analyse this problem by identifying 5Ws in the problem statement as given below:
+
+e What: List of students’ names starting with letter ‘A’. e Who: Students.
+
+e Why: To prepare the directory of students.
+
+e When: Within a week.
+
+e Where: School.
+
+Figure 1-2 shows the metaphorical representation of problem where the red light presents a problem, the yellow light represents its analysis and the green light presents the solution. It shows that problem analysis makes us closer to
+
+a solution.
+
+
+Computer Science — 9
+
+Activity 1.1
+
+Students are put in groups of two or three, and each group is provided two different lists of students' names.
+
+One list contains the marks of students in mathematics subject while the other list is for physics subject. Each group is supposed to prepare the following lists.
+
+a) Top5%students in mathematics. b) Top 5% students in physics. c) Students having more than 90% marks in both subjects.
+
+Identify 5 Ws for this problem.
+
+
+1.1.3 Planning a Solution
+
+After analyzing a problem, we formulate a plan that may lead us towards the solution of a problem. This phase includes finding the right strategy for problem solving. Some of the strategies are:
+
+
+e Divide and Conquer: This strategy divides a complex problem into
+
+smaller problems. Figure 1-3 Planning for success
+
+e Guess, Check and Improve: The designer guesses a solution to a problem and then checks the correctness of the solution. If the solution is not according to expectations, then he/she refines the solution. The refinement is an iterative process.
+
+e Act it Out: In this strategy the designer defines the list of “to-do” tasks. Afterwards he/she performs the task.
+
+e Prototype (Draw): This technique draws a pictorial representation of the solution. It is not the final solution. However, it may help a designer to understand the important components of the solution.
+
+The selection of a strategy depends upon the problem. It is quite important that one strategy maybe more suitable to implement a solution than the other one. Very
+
+specifically, the selection of the strategy depends upon the nature of a problem.
+
+
+Unit 1 — Problem Solving
+
+
+1.1.4 Defining Candid Solutions
+
+The word candid’ refers’ to something spontaneous and unplanned. For example, if you are asked to find number of students in your school who can play cricket. You can estimate by finding cricket
+
+players in your class and then
+
+
+multiplying it by the total number Figure 1-4 Multiple solutions of a problem
+
+of classes in your school. Your
+
+answer in this way is the candid solution. To find exact number of cricket players, you have to opt some other way, like visiting each class or getting data from teachers. One can think of a candid solution anytime. A candid solution can help to save time. In Figure 1-4, there are different ways shown to reach a certain place (which can be reached either by going across the wall or by going sideways) and the one you think can work, is the candid solution. It
+
+is not necessary that the candid solution is the actual solution of a problem.
+
+Activity 1.2
+
+Your task Is to find average height of your class fellows. Give a candid answer and also the
+
+method to find the exact solution.
+
+One method is to use a measuring tape. Mark the height on the tape and then read the exact measurement from the tape. After recording the height of every student, you can
+
+calculate the average height of all the students in your classroom.
+
+Or you can even find out the candid height of a student through some object of known
+
+height, like a book. Let's say that the height of your textbook is 8cm. You can mark the
+
+height of the book on a wall. Using the book several times, you can make a scale with
+
+intervals of 8cm. Then, by standing next to the wall you can get a candid solution to the
+
+student's height.
+
+
+Computer Science — 9
+
+
+1.1.5 Selecting the Best Solution Sometimes we find more than one solutions
+
+of a problem and select the best one amongst them. For example, assume that names of all the students in your school are available on a website and you are asked to search a
+
+
+particular name. You can solve this search problem by either of the following methods: Figure 1-5 Levels of a solution
+
+1. Look at each name on the website one by one until the name is found or the list is over. 2. Take printouts and search the required name. 3. Copy names, put them in Excel sheet and sort there in alphabetical order. Searching in a sorted list is comparatively easy. 4. Just press Ctrl+F, when the list is available in a web browser. You can type the name to search automatically. There can be other solutions as well. Now we can identify a solution that has less number of steps or that seems more effective based on some criteria.
+
+1.2 Flowcharts
+
+Flowcharts are helpful to know about the steps used to solve a
+
+
+problem. In the following, we discuss the concept of flowcharts in detail.
+
+1.2.1 Definition
+
+A flowchart is a graphical presentation of the steps to solve
+
+Take shoes and socks
+
+Wear socks Wear shoes
+
+
+a problem. We use symbols for each step, and these symbols are connected with the help of arrows to show the flow of processing.
+
+
+Figure 1-6 shows a flowchart for the simple problem of wearing shoes with socks. It shows that not only the steps - | are important but also the order to complete a process. A Figure 1-6
+
+Sample flowchart
+
+
+Unit 1 — Problem Solving
+
+
+flowchart is used to visually communicate the steps in a process.
+
+1.2.2 Importance of Flowcharts in Problem Solving In problem solving, flowcharts can be used to plan a solution. If a flowchart is
+
+already there, we can quickly understand the way a problem Is solved. It is more effective to visualize a solution graphically than a text. A graphical representation also makes it effective to verify whether a solution is correct or not. It is also a good way to communicate the solution of a problem to other people.
+
+1.2.3 Determining Requirements for a Flowchart In a flowchart we use input, output, decision making and processing. These
+
+concepts are described in the following: Input means taking data from a user, processing it and give some output as shown in Figure 1-7. For a flowchart the requirements are to know about:
+
+e Inputs: Input means taking data from the user. It is important to know, how many and what type of inputs are required.
+
+e Processing: A flowchart also contains processing steps. The processing steps are used for performing calculations and storing the results of calculations. These may _ include’ increasing/decreasing a_ value, adding/multiplying/dividing two values etc.
+
+Output
+
+
+Figure 1-7 Flow from input to output
+
+e Decision Making: To determine whether a statement is true or false, and taking appropriate steps accordingly, is called decision making.
+
+e Outputs: Outputs are used to display information and usually this information exhibits the processed results.
+
+1.2.4 Flowchart Symbols
+
+Flowcharts explain a process clearly through symbols and text. They use special shapes to represent different types of actions or steps in a process.
+
+7
+
+
+Computer Science — 9
+
+
+Lines and arrows show the flow of the steps. Table 1-1 shows some of the most widely used symbols in flowcharts.
+
+Symbol Name Description
+
+; It is used to determine the flow of steps ina —_—_—___—_> Flow line flowchart. Qo It indicates start and end of a flowchart.
+
+oo It represents operations to change values. It shows a conditional operation that determines Decision which one of the two paths to take. The operation is commonly a yes/no question or a true/false test. It indicates the input of data from user or Input/Output , displaying results to user. If a flowchart doesn't fit on a page, then we use Connector connector to connect parts of a flowchart on different pages.
+
+Table 1-1
+
+
+1.2.5 Examples of Flowcharts In this section we study problem solving using flowcharts. In a flowchart, input
+
+means to get data from some input device and store in computer memory. A data in memory Is given some particular name. We access data with respect to its given name to perform some computation from which results are obtained. The results are stored in computer memory and we print (display) the results on some output device.
+
+
+Unit 1 — Problem Solving
+
+
+1. To convert Celsius to Fahrenheit temperature.
+
+This flowchart shows that after
+
+Start, a computer user provides - . START
+
+Fahrenheit = {(celsius X 9) + 5} +32
+
+some numeric data which is stored
+
+
+in computer memory with the name celsius. In the next step, the result is computed by applying the formula to convert the given Celsius temperature to Fahrenheit
+
+
+temperature. The result is stored with name Fahrenheit. The value stored with name Fahrenheit is then displayed by using some output device. Next, the flowchart
+
+is ended.
+
+2. To find 3. Tofindthe volume 4. To find plain the acceleration of a of cube. interest on an moving object with amount. given mass and the force applied.
+
+Volume = edge x edge x edge
+
+
+
+Plain interest = amount xX (rate / 100) x year
+
+
+
+
+Computer Science — 9
+
+5. To find the sum, product and 6. To find the area of a average of five given numbers. parallelogram.
+
+START START
+
+
+
+
+
+Sum = nO + nl1+n2+n3 + n4 Product =n0 <nl x nZ < ne = na Avg = (n0 xX nl X n2 xX n3 xX n4) +5
+
+Area = base x height
+
+Conditional Flow in Flowcharts: In the following flowcharts, we study that a flow between steps can depend upon a certain condition. If the condition is true then the flow is different from when the condition is false. A condition is
+
+always evaluated as either true or false. aaa
+
+7. To determine whether a given number is odd or even.
+
+In the above flowchart, after the start step a numeric value is taken from a user and stored in computer memory with name n. Then this value is divided by 2 and remainder is stored in memory with name Rem. To calculate the remainder, mod function is applied. We perform a conditional operation to check whether n is completely divisible by 2 or not. This is done by comparing the value of Rem with 0. If Rem is 0, the conditional operation gives a true
+
+
+
+Unit 1 — Problem Solving
+
+value. It means that n is even because it is completely divisible by 2. On the
+
+other hand if Rem is not 0, the conditional operation gives a false value. It means that n is odd.
+
+
+8. To display the larger one out of the three given unequal numbers.
+
+
+Following flowchart shows another solution to find a maximum value among three numbers a, b and c.
+
+
+Computer Science — 9
+
+Activity 1.3
+
+Investigate both the approaches presented to find a maximum value among three numbers
+
+and compare them. Which approach has advantage(s) over the other? Write your findings and discuss with your class teacher.
+
+
+9. To assign grade to a subject based on total marks and obtained marks.
+
+START
+
+
+
+
+Percentage = (obtained marks + total marks) x 100 NO_-7 oa * 61 Grade A AX LU, = he
+
+
+
+Unit 1 — Problem Solving
+
+10.To determine name of a week day from a given number where weekdays are assumed from Monday to Sunday and their respective
+
+numbers from 1 to 7.
+
+Activity 1.4
+
+In the above flowchart, a user is Supposed to provide the input value from 1 to 7, but it is possible that the input value is less than 1 or more than 7. We need to take care of such values and display appropriate messages, like “Your value Is less than 1” or “Your value is more than 7”. Modify the above flowchart with respect to proper error messages.
+
+
+Computer Science — 9
+
+
+Repeating Steps in Flowcharts: In all of the above flowcharts, the flow is from top to bottom but it is also possible that the flow may go to a previous step, especially when we need to repeat some steps.
+
+In the following, we show some flowcharts containing steps that are repeated.
+
+
+11.To input 5 values one
+
+
+by one and determine
+
+if the given value is
+
+odd or even.
+
+
+
+The above algorithm uses a Count to keep counting the number of inputs given by a user. So, we initially give it the value O and increase it by 1 after every input. After printing even or odd we compare it with 5. If the Count reaches to 5, we stop the flow or otherwise transfer it to input another value.
+
+
+Unit 1 — Problem Solving
+
+
+12.To find a sequence of odd numbers starting from a given number till some limit.
+
+
+Increase n by 1
+
+
+Increase n by 2
+
+1.3 Algorithm Studying algorithms is a fundamental part of computer science. In this section, we discuss the concept of algorithms in detail.
+
+1.3.1 Definition
+
+An algorithm is a set of steps to solve a problem. It is written in a natural language, so it is easily understandable by humans. For example, to solve the problem of preparing tea, we can follow the following steps.
+
+a) Start. b) Take a kettle.
+
+
+Computer Science — 9
+
+
+c) Pour water in it.
+
+d) Put the kettle on fire.
+
+e) Add sugar and milk.
+
+f) Wait till it boils.
+
+g) Remove the kettle from fire. h) End.
+
+The above set of steps can be called an algorithm for tea preparation.
+
+We can also solve certain problems with the help of a computer. For that purpose, we first formulate an algorithm for the problem and then translate that algorithm into a set of instructions for the computer. Usually an algorithm takes an input and then after processing produces some output as shown in
+
+Figure 1-6.
+
+Do you know?
+
+
+The word “algorithm” comes from the name of Arabic writer Muhammad ibn Musa al-Khwarizmi.
+
+1.3.2 Role of Algorithms in Problem Solving
+
+An algorithm has a vital role in problem solving as it provides a step-by-step guide to the problem solver. It is a complete description of the solution. Usually a computer programmer first writes an algorithm and then translates it into the code of some programming language. Sometimes, the designer of the program first makes a flowchart to solve a problem and then encodes the flowchart into an algorithm. Figure 1-8 shows the role of algorithm in problem
+
+solving.
+
+
+
+
+
+
+Problem Flowchart Algorithm Computer program
+
+Figure 1-8 Role of Algorithm
+
+
+Unit 1 — Problem Solving
+
+
+1.3.3 Formulation of an Algorithm There are different notations (keywords) to write an algorithm. We use the
+
+notations presented in Table 1-2 to write an algorithm.
+
+Notation — Meaning ss—SsS
+
+It is the starting point of an algorithm. Every algorithm must have one ia starting (entry) point. some name.
+
+It is used to give name to data in computer memory. It is also used to
+
+update the value of existing data.
+
+It is used to check the condition. For example, the condition like if (a<b). A condition is evaluated as true or false. In case the condition is true then ; the statements related with if part are executed otherwise the mre statements of else part are executed. Usage: Suppose a=5 and b=7,
+
+if(a<5) Set c to10 else Set c to 20.
+
+Writing else part is optional.
+
+ae It is used to transfer control to a certain step of an algorithm. It is usually oto required in loops.
+
+It is used to display values. It is the termination point of an algorithm.
+
+Table 1.2 Notations for writing an algorithm
+
+
+1.3.4 Examples of Algorithms 1. To find the sum, product and average of five given numbers. Step 1. = Start Step 2. Input numbers, n0, 1, n2,n3,n4 Step 3. Setsumton0+nl1+n2+7n3 + n4. Step 4. Set product to n0 x n1 x n2 x n3 x n4
+
+n0+n14+n2+n3+n4 5
+
+Step 6. Output sum, product, average Step 7. End
+
+Step 5. Set average to
+
+
+Computer Science — 9
+
+
+In this algorithm, Step 1 shows starting of the algorithm. Step 2 shows that a user provides 5 numeric values and they are stored in computer memory with the names n0,n1,n2,n3 and n4. Step 3 shows summation of all the input values and storing the result in computer memory with name sum. Similarly, Step 4 is used to compute multiplication of all the numbers and store the result with name product. In Step 5, formula to calculate average of five numbers is applied and the result is stored with name average. The Step 6 shows the results of the steps 3, 4 and 5, respectively. The Step 7 shows end of the algorithm.
+
+Activity 1.6
+
+1° Number = 2"? Number 3 Number
+
+The Figure shows a simple example of calculating average of three numbers, 25, 45
+
+and 65. Write an algorithm with these fixed
+
+; Add values —> 25+45+ 65 = 135 values to calculate and display average values.
+
+Note that in this case no input is required froma | pjvide result by
+
+user. No. of values =a teas ee
+
+
+Example of calculating Average 2. To find acceleration of a moving object with given mass and the applied force.
+
+Step 1. Start Step 2. Input numbers, mass, force
+
+Step 3. Set acceleration to a mass Step 4. Output acceleration
+
+Step 5. End
+
+
+Figure 1-9 More Force with Same Mass Increases Acceleration
+
+18
+
+
+Unit 1 — Problem Solving
+
+
+3. To find the volume of a cube. Step 1. = Start
+
+Step 2. Input number, side
+
+Step 3. Set volume to side x side x side. Step 4. Output volume
+
+Step 5. End
+
+Activity 1.7
+
+Change the above algorithm for finding volume of a Cylinder and Sphere. The formula for the volume of a Sphere is = x mr? where r is radius. The formula for the volume of cylinder is zr*h where r is radius and h is height.
+
+
+4. To find the area of a parallelogram. Step 1. — Start
+
+Step 2. Input numbers, base, height Step 3. Set area to base xX height Step 4. Output area
+
+Step 5. End
+
+Activity 1.8
+
+Change the above algorithm for finding the area of a triangle, rhombus, or trapezium.
+
+
+5. To display the larger one out of the three given numbers. Step 1. = Start
+
+Step 2. Input numbers, n0, 1, n2 Step 3. Set large to n0
+
+Step 4. ifn1 > large Set large to n1 Step 5. ifn2 > large Set large to n2 Step 6. Output large
+
+Step 7. End
+
+In this algorithm, Step 1 shows starting of the algorithm. Step 2 shows that
+
+a user provides 3 numeric values and they are stored in computer memory
+
+with the names n0,n1 and n2. In this algorithm, initially we assume that
+
+
+
+Computer Science — 9
+
+7.
+
+the largest value is n0 and we compare it with the other two values. So, Step 3 shows that data of n0 is stored in computer memory with a name large. Step 4 describes that if the value of n1 is greater than large then the value of large is updated and its new value is the value of n1. In case n1 is less than or equal to large then Step 4 will not affect the value of large. Similarly, Step 5 may change the value of large provided that n2 is greater than large. Step 6 displays the resultant value of large.
+
+To assign grade to a subject based on the achieved marks. Step 1. = Start
+
+Step 2. Input numbers, obtained_marks, total_marks x 100
+
+Step 3. Set percentage to ==meamarks
+
+total_marks
+
+Step 4. if percentage > 80 Set grade to A+ else if percentage > 70 Set grade toA else if percentage > 60 Set grade to B else if percentage > 50 Set grade to C else if percentage > 40 Set grade to D else if percentage > 33 Set grade to E else Set grade to F.
+
+Step 5. Output grade
+
+Step 6. End
+
+To find the interest on an amount. Step 1. = Start
+
+Step 2. Input numbers, amount, rate, years
+
+Step 3. Set plain_interest to (amount x a) x years
+
+
+
+Unit 1 — Problem Solving
+
+Step 4. Output plain_interest Step 5. End
+
+8. To convert Celsius to Fahrenheit temperature and vice versa. Step 1. = Start Step 2. Input number, celsius
+
+celsius x9
+
+Step 3. Set fahrenheit to —.— + 32
+
+Step 4. Output fahrenheit Step 5. Input number, fahrenheit Step 6. Set celsius to (fahrenheit — 32) x :
+
+Step 7. Output celsius Step 8. End
+
+9. Find even numbers in integers ranging from nl to n2 (where n2 is greater than n1). Step 1. = Start
+
+Step 2. Input numbers, n1,n2
+
+Step 3. if(m1 < n2){
+
+Step 4. if (n1 mod 2 equal 0) Output n1 Step 5. Set nl toni+1
+
+Step 6. go to Step 3
+
+} Step 7. End
+
+1.3.5 Efficiency of Algorithms
+
+There can be more than one algorithms to solve the same problem. Which one is better, depends upon the efficiency of the available solution algorithms. Efficiency of an algorithm is measured on the basis of two metrics,
+
+1- Number of steps: An algorithm is considered more efficient if it takes less number of steps to reach the results. 2- Space used in computer memory: We have observed in algorithms
+
+that some data is stored in computer memory which Is latter used to
+
+
+Computer Science — 9
+
+
+give results. An algorithm using less space in computer memory is considered more efficient with respect to memory space.
+
+It is quite possible that one algorithm takes less space in memory and has more number of steps whereas the other algorithm takes more memory and has less number of steps. In this case there is a trade-off between number of steps and the consumed memory. The designer can take decision according to the requirements.
+
+Example Let's suppose we have two algorithms to solve a certain problem. One algorithm has N steps whereas the other algorithm has N? steps. In this case the former algorithm is considered more efficient than the latter one. Example We need to compute the following.
+
+1+24+34+44+54-::+99
+
+How can we find its answer?
+
+Different minds can find different solutions to solve this problem. One solution is to start adding numbers from beginning and keep adding till the end. Other solution is to start making pairs as (1+ 99), (2+ 98), (34+ 97), (4+ 96), (5 + 95) ... (49,51) where each pair gives answer 100. We count the number of pairs and multiply that count with 100 and then in the result we add 50 as it is
+
+nowhere in any pair.
+
+Another solution is to use formula ee where n Is the last term. So, the solution
+
+99(99+1)
+
+
+is just to solve
+
+This example shows different approaches to solve one problem and if these
+
+approaches are used in computer then accordingly there may be different
+
+memory usage and number of steps.
+
+
+Unit 1 — Problem Solving
+
+Do you know?
+
+There are 64 squares on a chess board. If we place wheat upon each square such that one grain is placed on the first square, two on the second, four on the third, and so on (doubling the number of grains at each square), then there will be 18,446,744,073,709,551,615 grains of wheat on the chessboard at the finish.
+
+Activity 1.9
+
+Compare the algorithm 9 presented in Section 1.3.4 with the following one and try to find which one is efficient. Note that both are solving the same problem. In order to answer this question, assume two values for nl and n2 and start count the number of steps used in both algorithms.
+
+Step 1. Start
+
+Step 2. Input numbers, n1,n2
+
+Step 3. if n1 is odd, set n1 ton1+1
+
+Step 4. Output n1
+
+Step 5. Set n1 ton1+ 2
+
+Step 6. ifn1 < n2 go to Step 4
+
+Step 7. End
+
+
+1.3.6 Difference between an Algorithm and a Flowchart Difference between an algorithm and a flowchart is just like the difference
+
+between a story and a movie. As we have studied that a flowchart is a graphical representation of the process to solve a problem but an algorithm
+
+writes the same steps in a human understandable language.
+
+Advantages of a Flowchart e Easy to draw. e Easy to understand problem solving. e Easy to identify errors (if any). e Easy to observe flow from one step to the other.
+
+Disadvantages of a Flowchart e More time Is required to draw a flowchart. e Modifying a flowchart is not very easy every time.
+
+
+
+Computer Science — 9 e Itis not suitable for very large problems.
+
+Advantages of an Algorithm e Easy to write. e Techniques to write an algorithm are easy to understand. e To solve a large problem, algorithms are helpful.
+
+Disadvantages of an Algorithm e Modifying an existing algorithm is not very easy every time. e Showing the flow from one step to the other is not very easy. e Usage of goto makes it difficult to identify errors.
+
+1.4 Test Data
+
+After solving a problem, we need to test whether the solution is correct or not, and for testing, we need “Test Data”. For example, if we want to test the algorithm (discussed earlier) to find the largest among three given numbers n0,n1, and n2, then we need three values. These values can be positive, negative or zero, eg. (n0=5,n1 = 15,n2 = 3),(n0 = 27,n1 = —6,n2 = 35 ),(n0 = 24,n1 = 0,n2 = 11), etc. So, for thinking about testing, we also need to think about test data.
+
+Activity 1.10
+
+Assume that you are given an automatic attendance system for testing. In this system, a camera observes each student entering in the classroom. The camera is connected to a computer which contains the database of pictures of all the students. The solution compares each student with the pictures in database and mark the attendance is picture is found there.
+
+You are asked to provide test data for the system. Write your points in a way that can help the solution provider to check and improve quality of the solution. You can think about different dresses in different weathers, identical
+
+twins, different haircuts or any other points
+
+where one can look different in front of camera.
+
+
+Unit 1 — Problem Solving
+
+
+1.4.1 Importance of Testing Testing is essential to point out the defects and errors made during finding a
+
+solution to some problem. It helps in improving a solution. If one solves a problem and someone else uses that solution for commercial purposes, then the commercial activities depend upon the correctness of that solution. For example, if we develop a solution for finance management and some bank starts using it then any error in that solution may result in a financial loss. So, testing is important for a solution.
+
+Do you know?
+
+The space shuttle Challenger STS-51L spaceflight ended in a tragedy on Jan. 28, 1986 only 73 seconds after liftoff.
+
+
+A car is delivered to a customer after testing. Upon launching a new car, it is usually tested with a robot driver who hits the car with a wall. It is used to test whether the air bags and other security systems are functioning or not. Moreover, it also allows the car designers to suggest further security measures to reduce the damage. This test can help to make a car safe. So, testing helps to improve quality.
+
+1.4.2 Types of Test Data
+
+Creation of proper and sufficient test data is one of the key activities to improve quality of a solution. Each type of solution requires different data.
+
+Types of Test Data include:
+
+e Valid test data: It is the test data that complies with the input requirements of the algorithm. If an algorithm is supposed to take a numeric value between 1 and 100 as input, then any value between 1 and 100 is a valid test data.
+
+e Invalid test data: It is the data that does not comply with the input requirements of the algorithm. It is necessary to make sure that the solution correctly works for invalid values, shows the relevant
+
+messages notifying the user that the provided input values are
+
+
+Computer Science — 9
+
+
+Improper.
+
+e Boundary test data values: A solution is tested on extreme values. For example, to calculate interest we can consider principal amount as O or a very huge amount.
+
+e Wrong data formats: It is wise to check how the system reacts on entering data in an inappropriate format. For example, giving an alphabet as inout when a numeric value Is expected.
+
+e Absent data; It is also important to investigate that the solution still works if less number of inputs are given than expected. For example, if a system asks to enter driving license number, then every one cannot provide this information. It is important to see how the system reacts
+
+in such situations.
+
+1.5 Verification and Validation
+
+1.5.1 Verification
+
+Verification means to test if the solution is actually solving the same problem for which it was designed. For example, if you are asked to give a solution for calculating compound interest then verification means to know that it is giving results for compound interest not for the plain interest.
+
+1.5.2 Validation
+
+Validation means to test whether the solution is correct or not. For example, if you are asked to give a solution for calculating compound interest then validation means to know whether it is finding the correct compound interest or not. If a solution is verified, then it is validated with the help of test data as
+
+discussed in previous section.
+
+Example 1
+
+Let's assume that you go to a pizza shop and order a chicken pizza. You state your requirement that it should be less spicy. You also expect that it would taste good. When the pizza arrives, you can observe that it is a chicken pizza.
+
+This is called verification. Now, when you eat the pizza, you can check whether
+
+
+
+Unit 1 — Problem Solving
+
+it is less spicy or not, it tastes good or not. This is called validation.
+
+Example 2
+
+Let's assume that you are asked to write an algorithm that takes as input a list of numbers. The algorithm should display the list arranged in ascending order. After writing the algorithm you submit it to your teacher. Your teacher provides a list of numbers to the algorithm. If your algorithm displays a list of numbers then it is verified. Instead if your algorithm displays an answer in yes or no, or displays something else, then it is not verified. If your algorithm is verified, your teacher moves to the next step of validation. He checks whether the list of numbers displayed are actually in ascending order or not. If the list is in ascending order and no element is missing then your solution is also validated.
+
+1.6 Identification and Correction of Errors If an algorithm is failed during verification, then it is important to identify the root cause of failure and then to correct it. Sometimes the error is logical. It means the solution is working but not giving required results.
+
+For example, to recruit students for our school volleyball team, we need students having height between 144 cm and 164 cm. To count qualified students, we develop the following algorithm.
+
+Step 1. = Start
+
+Step 2. Set count to 0
+
+Step 3. Set all_heights to [154, 140, 155, 164, 144, 166, 160, 143]
+
+Step 4. For each height in the list all_heights
+
+Step 5. If height > 144 and height < 164 then Set count to count + 1
+
+Step 6. Output count
+
+Step 7. Stop
+
+The above algorithm works but does not count all students. There is a deliberate error on Step 5. The symbol > has been used instead of > before the number 144. So, the students having height 144cm will not be counted.
+
+This is a logical error. We can identify this type of errors using a trace table as
+
+
+Computer Science — 9
+
+
+discussed below.
+
+1.6.1 Trace Table
+
+A trace table is a technique used to test algorithms, in order to make sure that no logical errors occur while the algorithm is being processed. The table usually takes the form of a multi-column, multi-row table; with each column showing names of data, and each row showing values of the data at each step. Table 1-3 shows a trace table for the algorithm presented in Section 1.6. The blank means there is no change and -- means that a value is not concerned. In the following table Step 1 has no effect on data. Step 2 Is assigning 0 to count and in Step 3, list all heights is introduced. In Step 4, there is no change in both count and all_ heights but the data 154 is stored in height. It is compared in Step 5 and the value in count is updated if data is in given range. Steps 4 and 5 are repeated for each value as shown in Table 1-3.
+
+all_heights Step 1 Step 2 Step 3 Step 4 Step 5 Step 4 Step 5 Step 4 Step 5 Step 4 Step 5 Step 4 Step 5 Step 4 Step 5 Step 4 Step 5 Step 4 Step 5 Step 6 Step 7
+
+[154, 140, 155, 164, 144, 166, 160, 143]
+
+- he a Wn Ul (-) aS
+
+O) IS
+
+Ov
+
+ke
+
+
+a" IS IS
+
+Table 1-3
+
+
+Unit 1 — Problem Solving
+
+
+1.6.2 Using Invalid Data for Testing
+
+Testing an algorithm using invalid data ensures that the algorithm can gracefully handle unexpected data inputs. If an algorithm requires your age in number of days but you give date of birth as input then the algorithm may not work properly. The purpose of testing using invalid test data is to detect such situations. In this case error messages are shown as output. Moreover, this kind of testing helps you to improve the quality of solution.
+
+Activity 1.11
+
+Write all the above discussed algorithms keeping in mind the invalid test data inputs. Class teacher may divide class in few groups and assign them one or more algorithm(s). Students are supposed to discuss and rewrite algorithms so that upon invalid inputs, appropriate messages are displayed.
+
+SUMMARY
+
+A problem is a matter or situation needs to be dealt with and overcome. Analysing a problem helps to solve that problem quickly.
+
+A problem may have more than one solution but the best one is the solution comprising less number of steps or the solution is achieved in less amount of time
+
+An algorithm is a set of rules used for solving problems.
+
+An algorithm takes some input, processes It, and gives result.
+
+Algorithms are helpful in decision making
+
+Flowcharts consist of symbols used for graphical presentation of an algorithm.
+
+Commonly used symbols for a flowchart are: input/output, decision, arrow, start
+
+and stop.
+
+Validation means to test if the solution is according to given problem. Verification means whether the solution is giving the required results or not. A trace table is a technique used to test algorithms.
+
+
+Computer Science — 9
+
+
+az EXERCISE
+
+i,t 1,
+
+
+Answer the following questions. In a farm there are some cows and birds. If there are total 35 heads and 110 legs then how many cows and birds are there?
+
+
+i ) / HY
+
+$3 759
+
+Define problem analysis. Explain your answer along with an example.
+
+
+
+7 ad
+
+Define an algorithm and argue on its role and importance in problem solving.
+
+Suppose a problem has multiple algorithms. How would you choose the most efficient one? Explain with examples.
+
+How do you determine requirements for a flowchart?
+
+Explain types of test data.
+
+Describe a trace table.
+
+Choose the correct option.
+
+Which solutions are not reached through proper algorithms or work planning?
+
+(1) Prepared solution (il) Candid solution
+
+(iil) strategized solution (iv) best solution
+
+is a graphical representation of an algorithm. (1) Matrix (il) Graph (iil) Flowchart (iv) — solution
+
+
+
+Unit 1 — Problem Solving
+
+3. Which symbol in the flowchart is used to either start or end the
+
+flowchart? (1) Terminal (iI) Connector (iil) Process (iv) decision 4. means to test if the required solution is there. (1) Verification (il) Algorithm (iii) Validation (iv) Flowchart 5. In a error, the solution is working but not giving required results. (1) Random error (il) logical error (ii!) syntax error (iv) Runtime error
+
+1.3 Fill in the blanks.
+
+1. Before problem solving, we need to first a problem. 2. An algorithm produces a defined set of a: A flowchart utilizes various and to map out the
+
+order of steps. In flowcharts symbol <> is used to show a
+
+is used to test the solutions.
+
+AAS
+
+Draw the flowcharts for the following problems.
+
+Input two numbers ni and n2. Determine whether ni divides n2 or not. Input a year and determine whether it is a leap year or not.
+
+Input a number and calculate its factorial.
+
+Find LCM (Lease Common Multiple) of two numbers.
+
+4. oe 1. ie Z; oF 4. 2:
+
+Input a number and display its factors.
+
+
+Design a flowchart to calculate fine amount for Pakistan motorway. Fine is imposed according to the following coding scheme. Input a code and display the respective output.
+
+Penalty C8)
+
+Driving when disqualified 1000 Upto 6 Months
+
+Obtaining or Applying for a driving licence without disclosing particulars of 500-1000 Upto 6 Months endorsement
+
+Offence Imprisonment
+
+Offence relating to construction of vehicle | 500-1000 Upto 6 Months Offence relating to permits 1000-2000 | Upto 6 Months
+
+. Oo/ ; Overloading of goods 15 % in excess of 1000-5000 | Upto 1Month permissible limits.
+
+. Os, | Overloading of passengers 30 % in excess of 1000-5000 | Upto 1Month permissible limits
+
+For more codes, visit http://nhmp.gov.pk
+
+
+Make the flowchart more comprehensive by adding more codes. Make your algorithm on a chart. Display your chart in your school or community for further awareness on traffic related crimes and their penalties.
+
+Respective teachers can request school administration to arrange a traffic awareness
+
+campaign for the community. Students can display their charts as part of the campaign.
+
+Bibliographic Notes https://en.wikipedia.org/wiki/Flowchart
+
+Unit 2) Binary System
+
+Short Introduction ee A computer understands the language of 1s and Os only, called & _— machine language. The number system that only contains 1s
+
+and Os is called binary number system. The usage of acomputer (94 & includes internet surfing, playing games, watching movies,
+
+making documents etc. How are all such activities converted to
+
+1s and Os? This is discussed in this unit with respect to binary
+
+conversion and storage of binary values in computer memory.
+
+
+Students’ Learning Outcomes 1. Introduction of number systems @ Describe following number systems with Examples m Binary m Decimal m Hexadecimal
+
+2. Number System Conversion @ Convert binary to decimal and decimal to binary number system @ Convert decimal to hexadecimal and hexadecimal to decimal number system @ Convert binary to hexadecimal and hexadecimal to binary number system
+
+3. Memory and data storage @ What is memory? @ Understand how data is represented in a computer memory (with reference of bits and bytes) @ Storage device @ Difference between memory and storage devices
+
+4. Measurement of size of computer memory. @ Define following Terms m Bit m Byte m@ Kilobyte m Megabyte m Gigabyte m Terabyte m Petabyte
+
+5. Boolean algebra Explain: @ A Boolean proposition @ = Truth values @ Logical operators (AND, OR, NOT) @ Truth tables @ Laws of Boolean algebra
+
+= Commutative m Associative m Distributive m Identity Logical expressions
+
+
+Computer Science — 9
+
+
+2.1 Introduction to Number Systems
+
+A number system is the system for representation of numeric data. We all are familiar with decimal number system where each number consists of digits from 0 to 9. In a computer system, other number systems are also used. We discuss few number systems in the following sections.
+
+
+2.1.1 Decimal Decimal Numbers The number system we use in our daily life is the Se ee ey tee decimal number system. The decimal number aR | system has base 10 as it uses ten digits [0-9]. go Each position represents a specific power of base nae
+
+10 as shown in Figure 2-1. Figure 2-1
+
+Examples: o 892 =8x107+9x10!4+2x 10° Oo 1247 =1x1074+2x107+4x10!4+7~x 10° a 53=5x10!'+3x 109
+
+Do you know?
+
+
+Decimal number system is also called Hindu-Arabic, or Arabic, number system, in mathematics.
+
+2.1.2 Binary
+
+Binary number system has base 2 as all the numbers in this system consist of only two digits i.e. 0 and 1. Digital computers use this system to store data. Your name is in the form of alphabets, but for a computer each alphabet has some binary value.
+
+Example: The binary value of the letter ‘A’ is 01000001 and its decimal value Is 65.
+
+2.1.3 Hexadecimal
+
+DECIMAL NUMBER SYSTEM Hexadecimal system has total 16 numbers, L.e., ecenenidificrenesmibols 0,1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, where 0, 1, 2, 3,4, 5, 6, 7, 8,9
+
+A=10, B=11, C=12, D=13, E=14 and F=15 (as Uses sixteen different symbols
+
+shown in Figure 2-2). 0, i Z 3; 4, 5; 6, diy 8, 3 AY BG) BE r Example: 3F2B
+
+Figure 2-2
+
+
+
+Unit 2 — Binary System
+
+2.2. Number System Conversion We can convert a number from one number system to another and vice versa. In the following, we discuss conversions among different number systems.
+
+2.2.1 Decimal to Binary and Binary to Decimal e Decimal to Binary To convert a decimal number to binary, we divide the number by 2 and take quotient and remainder. We continue dividing the quotient by 2 until we get quotient 0. We write out all the remainders in reverse order to obtain the value in binary.
+
+Example: Convert 156,, (156 in decimal) to binary Table 2-1 shows the method to solve this problem. Remainders are taken from bottom to top to present the binary number. So, 1561) = 10011100,.
+
+
+Activity 2.1
+
+How many marks did you obtain in the final examination of 8th class? Convert that figure to binary and discuss the result with your class fellows.
+
+
+e Binary to Decimal The conversion of a number from binary number system to decimal number system is explained below with the help of an example.
+
+Example: Convert (1000001). to decimal =1x2°4+0x2°+0~x2*+0x22?+0x27+0x2!4+1 x2? = 6444+0+0+4+0+04+0+41 = (65)10
+
+The above conversion Is done by the following steps.
+
+Step 1. Write down the binary number which is (1000001)2 in this example. Step 2. List the powers of two from right to left starting with 0. In this example, the power of 2 starts from O and ends at 6.
+
+
+Computer Science — 9
+
+
+Step 3. Multiply 2's corresponding powers to each binary value. In the above example there are 7 binary values.
+
+Step 4. Compute each value.
+
+Step 5. Add all the values.
+
+Step 6. Write the answer along with its base subscript.
+
+Activity 2.2
+
+Exchange your marks in binary form with your friends and convert them in decimal to know about their expectations in the board examination of 9th class. Double check with your class fellows that how much your calculations are accurate.
+
+Activity 2.3
+
+Binary Hexadecimal Decimal
+
+Table 2-2
+
+Activity 2.4
+
+Many online convertors for number systems are available. Try to find and use them. You can ask your class teacher to help in searching.
+
+
+2.2.2 Decimal to Hexadecimal and Hexadecimal to Decimal e Decimal to Hexadecimal
+
+As we have studied that hexadecimal number system has base 16, so for
+
+
+
+Unit 2 — Binary System
+
+conversion of a number from decimal to hexadecimal, we divide the number by 16 and take both quotient and remainder. We continue dividing the quotient by 16 until the quotient becomes 0.
+
+Example:
+
+Convert (69610), to Hexadecimal
+
+Table 2-3 shows the method to solve this problem. We can observe from the table that remainder A is representation of 10, remainder E is representation of 14, and remainder F is representation of 15. Remainders are taken from bottom to top to present the hexadecimal number. So, (69610)19 = (LOFEA) 46. ee
+
+
+e Hexadecimal to Decimal The method for this conversion is same as converting from binary to decimal except the base value. Since hexadecimal has base 16, the "place values" correspond to the powers of 16. To convert to decimal, multiply each place value by the corresponding power of 16. Start this process by writing the powers of sixteen next to the digits of a hexadecimal number.
+
+Example: Convert (C921)i¢ to decimal =Cx16°+9x167+2x16'+1x 16° =12x16°+9x167+2x16'+1~x 16° = 12x 4096+9x256+2x16+1x1 = 49152 + 23044 32+1 = (51489),,
+
+Activity 2.5
+
+Try to calculate that the binary of C92116 which is 11001001001000012.
+
+
+2.2.3 Hexadecimal to Binary and Binary to Hexadecimal
+
+e Hexadecimal to Binary To convert a hexadecimal number to binary, simply convert each hexadecimal digit to four digits binary value. To find the four digits binary
+
+value, see the Table 2-4.
+
+
+
+Computer Science — 9
+
+Example: Hexadecimal Binary
+
+0000
+
+Convert (A23),, (A23 in hexadecimal) to 2} 0000 __
+
+bin
+
+ary. 0010
+
+In this number, there are three hexadecimal
+
+dig L.
+
+its. Binary of each digit is given as:
+
+| 0110 For A, the binary value is 1010
+
+For 2, the biaty value s 0010 For 3, the binary value is 0011 10
+
+1011
+
+By combining all the binary values, we get 1010 0010 0011.
+
+So,
+
+(A23)16 = (101000100011),
+
+Table 2-4
+
+
+Example: Convert (70€558),. (70C558 in hexadecimal) to binary.
+
+In t
+
+his number, there are six hexadecimal digits and binary of each is given in
+
+different colours as:
+
+IV.
+
+V.
+
+Vi.
+
+For 7, the binary value is 0111 For 0, the binary value is 0000 For C, the binary value is 1100 For 5, the binary value is 0101 For 5, the binary value is 0101 For 8, the binary value is 1000
+
+By combining all the binary values, we get 0111 0000 1100 0101 0101 1000.
+
+So,
+
+
+(70C558),, = (011100001100010101011000),
+
+Binary to Hexadecimal This conversion is also very easy with the help of Table 2-4. In the given
+
+binary number, we start making groups of four digits from right to left and replace every group with a hexadecimal digit.
+
+
+Unit 2 — Binary System
+
+Example: Convert (11000001), to hexadecimal: The four digit binary groups in this binary number are given below where
+
+each group has four binary digits. 1100 0001
+
+i. For 1100, the hexadecimal is C il. For 0001 the hexadecimal is 1
+
+So, (11000001), = (C1)i¢
+
+While making groups from right to left, if the left group has less than 4 binary digits then we simply add Os on the left. For example, 1010011 has groups 101 0011 and by adding one 0 on the left, it becomes 0101 0011.
+
+Example: Convert (110101111), to hexadecimal The groups in this binary number are given below where each group has maximum four binary digits. 11010 1111 The left most group in blue colour has only 1 binary digit and by adding Os, we get: 0001 1010 1111 We replace each group with the respective hexadecimal and get: LAF. So, (110101111), = (1AF)1¢
+
+2.3 Memory and Data Storage 2.3.1 Memory
+
+Computer memory is any physical device capable of storing data. Primarily there are following two types of memory.
+
+1- Volatile Memory 2- Non-Volatile Memory
+
+Both types of computer memories are shown in Figure 2-4. In the following,
+
+we discuss these two types in detail.
+
+
+
+Computer Science — 9
+
+e Volatile Memory (Primary Storage) A device which holds data as long as it has power supply connected to it, is called Volatile Memory. Its best example is Random Access Memory (RAM), which holds memory only as long as it is connected to power source. As soon as the power supply is disconnected, all the data in RAM is cleared.
+
+e Non-Volatile Memory (Secondary Storage) A device which can hold data even if it is not connected to any power source, is called Non Volatile Memory. The typical examples for Non Volatile Memory are hard drives, flash drives and memory cards installed in cell phones. Even if you turn off your PC, the data in your hard drive or flash drive stays intact.
+
+
+VOLATILE MEMORY VS NON-VOLATILE MEMORY
+
+
+
+Figure 2-3 volatile vs non-volatile memory
+
+2.3.2 Data Representation in Computer Memory Digital computers store data in binary form. It means that whether it Is a text,
+
+picture, movie or some application, it is stored in computer's memory in the form of Os and Is. All the characters on your keyboard has an associated code in binary. This code is called ASCII code of the character. ASCII stands for American Standard Code for Information Interchange. It is a de-facto standard for representation of data inside computer's memory. Table 2-5 presents the ASCII table which shows the code against each character on your keyboard. The codes are given in decimal form, but inside computer's memory they are
+
+represented after conversion to binary form.
+
+
+Unit 2 — Binary System
+
+Code Character Description Code Character Description
+
+of, | | exclamation mark 63 question mark | § | eotarsign [| amend 2 | | tale quote
+
+dot Fie
+
+forward slash a
+
+rs ee econ 1 p=] equalsign 91 left/opening bracket
+
+
+Computer Science — 9
+
+Ke) aS
+
+tO
+
+WO WO | /O un Ww | N
+
+~N
+
+
+Table 2-5 ASCII Table
+
+To store name of our
+
+“Pakistan”,
+
+Example:
+
+country in computer's
+
+memory, we need to store code of each letter in one byte. As the word “Pakistan” contains 8 letters, so 8 bytes are for It is
+
+required storage.
+
+demonstrated in Table 2-6.
+
+Activity 2.6
+
+
+Human's View about Memory
+
+| P| 80 ~—|_:1010000 _ pita’ | 97 ~—_ 1100001 _ 107
+
+105
+
+115
+
+t 116 pita’ | 97 1100001 _ 110
+
+Table 2-6
+
+Code in Binary
+
+Code in DY =Yel faate)|
+
+Write your complete name and give its presentation in binary format.
+
+
+
+Unit 2 — Binary System
+
+2.3.3 Storage Device
+
+Any computing hardware that is used for storing, porting and extracting data, is called a storage device. It can hold or store information both temporarily and permanently. It can also be internal or external to a computer. An external storage device is a plug and play device, i.e., we just plug it to some port and start using it without turning off a computer. To attach an internal storage device (Hard disk or RAM) we need to turn off the computer. Internal storage devices are connected to some fixed slots.
+
+Examples: RAM, Hard disk, CD, USB Flash Drive, etc.
+
+Difference between memory and storage Table 2-7 shows the difference between memory and storage.
+
+Memory Storage
+
+Place where an application loads its data during | Usually the place where data is stored for long processing or short term.
+
+Temporary storage device Permanent storage device
+
+High accessing speed Low accessing speed It is called primary memory It is called secondary memory
+
+Table 2-7 Difference between Memory and Storage
+
+
+2.4 Measurement of Size of Computer Memory The smallest amount of data to be ee Ss
+
+stored in computer > NEMO is 4 Bit Smallest unit of data, can hold only 0 or 1. It is called a bit. A collection one value: 0 or 1 of eight bits is called a byte. At Byte Group of eight bits, enough space : to store single ASCII character least one byte is required to store Kilobyte 1KB = 1,024 bytes any piece of information in a Megabyte| 1MB= (1,024) KB or (1,024)’ bytes computer's storage. On_ both Gigabyte | 1GB= 1,024 MB or (1,024)’ bytes primary and secondary storage 1TB= 1,024 GB or (1,024)' bytes 1PB= 1,024 TB or (1,024)° bytes
+
+Table 2-8 of bytes. In Table 2-8 different Ne ais
+
+
+devices, data is stored in the form
+
+units of data are given.
+
+
+Computer Science — 9
+
+
+2.5 Boolean Algebra
+
+2.5.1 Boolean Proposition
+
+A proposition is a sentence that can either be true or false. For example, the following sentences are propositions.
+
+1. “Someone from our school can join Pakistani Cricket Team”
+
+2. “I will get A+ grade in board exam"
+
+3. “I want to excel in mathematics”
+
+4. “This year Pakistan Super League (PSL) final match will be played in Lahore”
+
+5. “I play chess”.
+
+But the following sentences are not propositions 1. How are you? 2. Close the door. 3. Is it hot outside?
+
+We can also assign some letter to a proposition, as shown in the following.
+
+1- P = “I play chess”. 2- Q = “IT want to excel in mathematics” Now, when we say P, it means that we are referring to proposition “I play
+
+chess”, and when we say Q, it means that we are referring to proposition “I want to excel in mathematics”.
+
+Do you know?
+
+True and False are called Boolean values. The idea was given by George Boole (2 November 1815 —8 December 1864) in his book “The Laws of Thought”.
+
+
+2.5.2 Truth Values
+
+Every proposition takes one of two values true or false, and these values are called the truth values. Truth value is given on the basis of truthfulness or falsity of a proposition.
+
+Example:
+
+Assume P = “Islamabad is the capital of Pakistan”. You can assign the truth
+
+
+
+Unit 2 — Binary System
+
+value true to this proposition. Now assume another proposition Q = “The sun rises in the west". The truth value for this proposition is false. If we have proposition R = “I have completed my homework", then the truth value depends on the person who is assigning it. If a person has completed his homework then he can assign truth value true, otherwise false.
+
+2.5.3 Logical Operators (AND, OR, NOT)
+
+Sometimes we assemble more than one propositions to make one proposition called a compound proposition. For example if we have the following two propositions:
+
+1. Today is Monday 2. Iam in-school
+
+Then “Today is Monday AND [am in school" is a compound proposition. Truth value of the compound proposition depends upon the truth values of the individual propositions and the logical operator used to connect the propositions. In this example “AND” is a logical operator. In the following, we discuss three most commonly used logical operators AND, OR and NOT.
+
+AND Operator (.): If we use “AND” operator to connect two or more propositions, then the compound proposition is true only if all the connected
+
+propositions are true. AND operator can also be denoted by a dot “.” symbol. It means that P AND Q may also be written as P.Q.
+
+OR Operator (+): We can also use “OR" operator to connect two or more propositions e.g. “Today is Monday OR I am in School”. In case of OR operator, the compound proposition is true if at least one proposition is true. In other words, the compound proposition is false only if all the propositions are false. OR operator can also be denoted by a plus “+” symbol. It means that P OR Q may also be written as P + Q.
+
+NOT Operator: The logical operator “NOT” is not a connector but it is used to negate a proposition. For example, if P = “Today is Monday” then NOT(P)
+
+means “Today is not Monday”. So, with NOT operator a True value becomes
+
+
+
+Computer Science — 9
+
+W wm
+
+false and vice versa. Not operator can also be denoted by a "4" symbol. It means that NOT(P) may also be written as =P.
+
+2.5.4 Truth Table
+
+A truth table is used to check whether a proposition is True or False. Usually it is used to check the truth value of a proposition where some logical operator is used. In the following, we discuss the truth tables for AND, OR and NOT operators.
+
+Truth Table for AND operator: The truth table for P AND Q is given in Table 2-9. The first two columns are showing all the possible combinations of truth values of propositions P and Q, the third column is showing the resultant truth value of P AND Q. Assume:
+
+P = Itis raining Q = Today is Sunday P AND Q = It is raining and today is Sunday
+
+If both P and Q are True then the P AND Q's also True, it means “It is raining on Sunday”. This situation is shown on Row 1 of Table 2-9. Suppose it is raining but not on Sunday. Then P is True and Q is False due to which P AND Q is also False (row 2 of Table 2-9). In row 3 of Table 2-9, P Table 2-9
+
+is False and Q is True. It means “It is not raining on Sunday” which results in False value of P AND Q. In the last row both P and Q are False, which means Tt is neither raining nor Sunday”. So, the proposition “It is raining and today is Sunday” is false (row 4 of Table 2-9).
+
+
+
+Truth Table for OR operator: For the same propositions P_ Q PANDQ
+
+and Q, let's see the truth table for the expression P OR Q. P OR Q = “It is raining or it is Sunday”. This compound proposition is False if it is not raining and today is not
+
+Sunday otherwise it is True as shown in Table 2-10. Table 2-10
+
+
+Unit 2 — Binary System
+
+
+
+Truth Table for NOT operator: We can also make truth table =p Xe) where NOT operator is used. Negation (also called NOT) is an
+
+operator that reverses the nature of a value, i.e., a value True becomes False and vice versa. The truth table for NOT ‘able2-41
+
+operator is shown in Table 2-11.
+
+Truth Table for complex Boolean expressions: We can make truth table for any combination of these operators. For NOT(P) Q NOT(P)AND Q
+
+example, if we need to make a truth table - of “It is not raining and today is Sunday”.
+
+It means the proposition NOT(P) AND Q.
+
+
+P T T F The truth table for this compound Table 2-12 proposition is shown Table 2-12.
+
+2.5.5 Laws of Boolean Algebra The laws of Boolean Algebra help us to simplify complex Boolean expressions. Some laws are discussed in the following.
+
+e Commutative Law Commutative Law states that the order of application of two separate propositions is not important. So,
+
+a) A.B=B8B.A (The order in which two variables are AND’ed makes no difference.)
+
+b) A+B=B+A _ (The order in which two variables are OR’ed makes no difference.)
+
+We can use truth tables (Table 2-13a, Table 2-13b) to verify this law for AND and OR operations respectively.
+
+
+Table 2-13a Table 2-13b
+
+
+Computer Science — 9
+
+
+We can observe from Table 2-13a that both the columns A-BandB-A contain same values in each row. Thus it verifies the commutative law for AND operation. Similarly we can verify for OR operation from Table 2.13b.
+
+e Associative Law This law is for several variables. According to this law there is no change in results if a grouping of expressions is changed. This law is quite same in case of AND and OR operators.
+
+a) (A+B)+C=A+(B+0) b) (A.B). C=A.(B. CO
+
+In order to verify the associative law for OR operation, we can observe the Truth Table presented in Table 2-14. Both columns (A+B)+C and A+(B+C) contain same values in each row. It verifies the associative law for OR
+
+
+
+
+operation. A B C A+B B+C (A+B)+C A+(B+C) F T T T T T T T T
+
+Table 2-14
+
+Similarly, we can observe Truth Table presented in Table 2-15 for verification of Associative Law for AND operation.
+
+-C (A-B)-C A-(B-C) F
+
+
+Table 2-15
+
+
+
+Unit 2 — Binary System e Distributive Law This law is discussed in two ways, 1.e., “AND over OR" and “OR over AND". ayA.(B+Q=(A.B)+(A. OC (AND over OR) b)A+(B. QO =(A+B).(A+O (OR over AND)
+
+We can verify the distributive law for (AND over OR) operation by using Table 2-16.
+
+ws + ‘om
+
+A-(B+C) A-B+A-C
+
+Activity 2.7
+
+Draw the truth table to verify A+ (B-C) = (A+ B): (A+ C0)
+
+
+e Identity Law If a variable is OR’ed with a False, the result is always equal to that variable. And if a variable is AND‘ed with a True, the result is always equal to that variable.
+
+a) A OR False = A, A variable OR’ed with False is always equal to that variable
+
+b) A AND True =A, A variable AND’ed with True is always equal to that variable
+
+2.5.6 Logical Expressions
+
+We get a logical expression when some logical operator is applied to the Boolean proposition(s). For example, P AND Q,=(P OR Q), P OR Q, etc., In the tables, Table 2-14, 2-15 and 2-16 the truth tables are according to some logical expressions.
+
+
+Computer Science — 9
+
+Do you know?
+
+By negating a negative proposition, we get a positive proposition. For example, P=It is sunny today =P=It is not sunny today 4 3P=Itis sunny today
+
+Q=lIt is not Friday today 4Q=It is Friday today 4 3Q=It is not Friday today
+
+SUMMARY
+
+Binary language consists of Os and 1s. Computer understands only binary language. Decimal number system has base 10 as it uses ten digits from 0 to 9. Hexadecimal system has total 16 numbers, i.e., 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, Ele Computer memory is a physical device capable of storing information temporarily or permanently. A device which holds the data as long as it has power supply connected to it and loses the memory when there is no power supply connected to it is called Volatile Memory or temporary memory. A device which can hold data even if it is not connected to any power source Is called Non Volatile Memory or permanent memory. A storage device is a hardware that is used for storing, porting and extracting data. Boolean states either can be True or False. A truth table is used to show whether the statement is true or false. Laws of Boolean algebra: Associative law
+
+(A+ B)+C=A+(B+C) Commutative law
+
+A+B=B+A Distributive law
+
+A + (B.C) = (A + B).(A + C) Identity law
+
+A+0O=A
+
+
+
+Unit 2 — Binary System
+
+im EXERCISE 2.1 Multiple Choice Questions 1, Expression (A + B)-(A + C) is equal to
+
+(1) A + (B.C) (il) A.B + A.C (ili) A.(B. C) (iv) A+(B+C) 2. The order of application of two separate terms is not important in (1) Associative Law (il) Commutative Law (III) Distributive Law (iv) Identity Law 3. “Is it cold outside” is (i) Boolean Proposition (il) Categorical proposition (iil) | Moral propositions (iv) | None of above 4. Number “17” is equal to in binary system. (1) 10000 (il) 10110 (111) 10001 (iv) 10100 5. 1 Petabyte is equal to (i) (1,024)* bytes (ii) (1,024)° bytes (iii) (1,024)° bytes (iv) (1,024)’ bytes 6. Hexadecimal system has total numbers. (i) 17 (ii) 16 (iil) 18 (iv) 15
+
+2.2. Answer the following questions. Convert (69610)39 to Hexadecimal.
+
+2 Differentiate between volatile and non-volatile memory.
+
+oe Store the word “Phone” in computer memory starting from address 7003 where each letter needs one byte to store in the memory.
+
+Differentiate between temporary and permanent storage. 5. Write the truth table for X AND Y where
+
+
+Computer Science — 9
+
+
+X = It is sunny Y = Today is Monday
+
+2.3 Fill in the Blanks
+
+Temporary memory is_____—s and permanent memory is Data to a processor is provided through 2 At least __——_sébytte is required to store any piece of information in a computer's memory. 4. is used to assemble more than one propositions into one proposition. S: In primary and secondary storages, data is stored in the form of 6. According to law there is no change in results if priority of
+
+expressions is changed.
+
+2.4 Perform the following conversions (ABCD)i6 to binary (0010110010001101001)> to hexadecimal
+
+Activity 2.8
+
+Teacher will display a chart where alphabets and their codes are written. Class is divided into two groups and each group writes at least 5 names in binary format. The famous names are selected from Pakistan Independence movement e.g., “Molana Muhammad Ali Johar”. Both groups exchange their data and produces original names. The group which deciphers the code to actual names in less time will win.
+
+
+
+Unit 3) Staal
+
+lalolamlaldaelelUredreya
+
+TaWncalcwmelaliommeal-mnillaver-laal-lale-) cme) mmeo)aal oli c=) am alcia\(ola qmr-lalemmer-l it~ communication are discussed. We can understand the basic (Xo) an} ole) al=1a] ame) mmr- me) a0] 0] 01 X=) am al=1AN'(old @umm-](o)ay-mmn ida mm<-10):4e-] olal (ere) arrangements of devices in a network. Communication model over the Internet is also discussed.
+
+
+Students’ Learning Outcomes
+
+1. Networks @ Defining Computer Network @ Describing physical structure of a network @ Understanding need of establishing a computer network @ Defining Client and Server
+
+2. Basics of Communication @ Explaining the following components of a communication system
+
+mM Sender
+
+mM Receiver m Message m Protocol
+
+mM Transmission Medium 3. Understanding Network Models m Defining TCP/IP m Describing functions of TCP/IP layers 4. Basics of Data Communications m Explaining why messages need to contain addressing information (sender/recipient identification) m Understanding the importance of addressing in telephone addressing and postal service. m Understanding request/response mechanism of the Internet. m Understand IP addressing. 5. Protocols in TCP/IP Suit m Understanding FTP, HTTP and SMTP protocols 6. Understanding the need for addressing m Understanding importance of addressing in data communication m Describing addressing in telephone and postal services.
+
+7. Understanding HTTP requests and their responses m Differentiating IPv4 and IPv6
+
+8. Routing m Understating functions of a router m Describing the routing process
+
+
+Computer Science — 9
+
+
+3.1 Computer Network
+
+In our daily life, we use computers to browse the Internet, send/receive emails, play online games, watch online videos, download music, take online courses, read daily newspapers, etc. All such activities require a computer connected with some other computer to make a computer network. They can be linked through a wire or wirelessly. A communication medium connecting multiple
+
+computers is also called a communication channel.
+
+Figure 3-1 Overview of a Computer Network
+
+
+Definition A computer network is a group of computer systems and other computing hardware devices linked together through communication channels. A network facilitates communication and_ resource-sharing among the connected devices as shown in Figure 3-1. Networks are connected together to make a larger network which is called network of networks. The Internet is coinsiderd as the most well known exampe of network of networks.
+
+
+
+3.1.1 Need of a Computer Network A computer network is established for the purpose of sharing resources.
+
+Examples of resource sharing are given below.
+
+e File sharing: Networking of computers helps a network user to share files. For example, if you need date sheet of your board examination, you can get the file through the Internet, without visiting BISE
+
+
+(Board of Intermediate and Secondary Education) office. Figure 3-2 File sharing
+
+Similarly, BISE requires your picture and your bio data for admission form. They can get all these files over a network. So, the file sharing is helpful to complete a task systematically as shown in Figure 3-2.
+
+Example: If all your school teachers want to prepare a combined result using computers, they can share files over a school network or the Internet.
+
+Moreover, sharing files with others who are living in a different city or even country is also much helpful and is done in the same way.
+
+e Hardware sharing: Users can share devices such as printers, scanners, CD-ROM drives, hard disk drives etc. For example, in an office,
+
+
+
+usually there are less number of printers and scanners than the available number of computers as shown in Figure 3-3. Using a network, these resources are shared to get a cost-efficient solution.
+
+Figure 3-3 Resource Sharing Example
+
+
+Computer Science — 9
+
+
+Application sharing
+
+Applications can be shared over the network. It means that more than one users may use the same application. For example, in a bank; cashier, manager, ATM (automated teller machine) (Figure 3-4) users use same application over the network. Bank balance updated at one point is updated for all branches immediately.
+
+
+Sharing a single Internet connection Figure 3-4 ATM Using a network at home or office, we can share one Internet connection with more than one user as shown in Figure 3-1.
+
+User communication
+
+Networks allow users to communicate using e-mail, newsgroups, and video conferencing etc. So, communication with many people sitting on different locations is possible due to a network.
+
+Example: A video conference
+
+
+comprises the technologies for the reception and transmission of audio- Figure 3-5 Video Conference
+
+video signals by users at different locations as shown in Figure 3-5.
+
+Increasing storage capacity
+
+Storage capacity means the limit to store data in a computer. If we connect our computer to another computer having more storage, then we can also use the disk space of that computer. In this way we can store and access files stored remotely. In this setup, a computer providing the storage is called file server and the computer accessing that space is called a workstation.
+
+Do you know?
+
+We can use services like DropBox and Google Drive to store our files remotely.
+
+
+
+3.1.2 Client Server
+
+A server provides a service and a client gets that service. A client application requests some services from another rT
+
+application which acts as a server. When ||II ; IVIIIII we access a website, we get contents on our screen served by a server. Our emails
+
+are also there on some server, and when
+
+
+we provide username and password, the
+
+- Figure 3-6 server verifies credentials and serves our Pisni Parga Communication
+
+email records. An email user in this example is a client as shown in Figure 3-6.
+
+A client is a process that accesses a service provided by a server. For example, to check email we use web browser as a client. The client provides a user interface to carry out actions, like giving username and password. It forwards requests to the server, which in return provides the required service. It is important to know whether a client is hardware or software. In general, a client is a hardware as shown in Figure 3-6 where a cell phone, laptop and desktop computers are shown as clients, but in particular the software running
+
+on that hardware is the process which makes it a client.
+
+A server is a physical computer dedicated to run services to serve the needs of its clients. Depending on the service that is running, it could be a file server,
+
+database server, print server, or a web server.
+
+3.2 Physical Structure of Networks
+
+Physical structure of networks can be classified in terms of type of connection
+
+and topology. In the following sections, we discuss these concepts in detail.
+
+3.2.1 Types of connection Two devices can communicate with each other when they are connected in
+
+some way to the same link at the same time. Point to point and multipoint are
+
+two possible types of connections.
+
+
+Computer Science — 9
+
+
+Point-to-point connection: A point-to-point connection is a direct link only between two devices, i.e., a sender and a receiver. For example, there is a point to point connection between a remote control and a TV.
+
+Multipoint connection: [In multipoint connection, there is a link between a sender and multiple receivers. So, more devices can share a single link. For example, in a Wi-Fi based network a single link is shared among multiple
+
+devices.
+
+3.2.2 Network topologies Topology of a network is a geometric representation of the relationship
+
+among the interconnected devices. The four basic network topologies are bus,
+
+star, ring and mesh.
+
+e Bus Topology A bus topology connects all devices of the network through a single common cable having exactly two end points as shown in Figure 3-7. This cable is called backbone of the topology. Bus
+
+
+topology offers a simple way to connect
+
+Figure 3-7 Bus Topology
+
+devices. All of the devices of the network are connected to a common transmission medium which has exactly two endpoints. In this simple form of networking, failure of any single device does not affect other devices connected with the cable. However, if there is some problem in the shared communication cable,
+
+then all other devices can stop functioning.
+
+e Star Topology A star topology connects all devices using point to point connections via cables to a central point as shown in Figure 3-8. The central point is known as a Hub or Switch. The central device controls all the traffic. Therefore,
+
+devices can transfer data to each other only through the central point. It is
+
+
+
+easy to install and reconfigure. Star topology consumes more cable than the bus topology, however, if there is some problem in a cable, then only the respective computer gets disconnected from the network. On the other hand, if there is some
+
+
+problem in the Hub or Switch, then
+
+whole network becomes dead. a
+
+: Figure 3-8 Star Topolo Ring Topology " iis
+
+A ring topology connects a computer with exactly two other computers forming a ring of computers as shown in Figure 3-9. A computer can send data to its immediate neighbour. A ring can be unidirectional or bidirectional. In a unidirectional ring topology, data is sent_ either clockwise or anticlockwise. In a bidirectional ring topology, data can travel in any. direction. Upon
+
+
+receiving data, a computer may pass ae data to its next neighbour. In this Figure 3-9 Ring Topology way, data reaches the desired destination. A failure of connection between two computers may down the whole network. Unlike star topology, it does not require a central device to manage the connectivity between the devices.
+
+Mesh topology
+
+Mesh topology connects all devices with each other through a direct link as shown in Figure 3-10. As compared to ring topology, data may reach its destination quickly. The = mesh
+
+
+
+Computer Science — 9
+
+
+topology is an expensive topology in terms of cable cost as it uses a lengthy cable to connect computers as compared to the cable used in other topologies. However, the mesh topology is more reliable as it offers point-to-point connection. It is also considered more secure as data travels only between a sender and a receiver.
+
+3.3 Basics of Data Communication
+
+Data communication refers to exchange of
+
+messages between sending and receiving z devices through some communication medium. These messages are actually the information which can be presented in
+
+{|
+
+Pr i
+
+
+a
+
+many forms like text, numbers, images, Figure 3-11 Sending/Receiving
+
+audio and video.
+
+In the following section, we discuss the components involved in sending/
+
+receiving messages over a network.
+
+3.3.1 Components of a Communication System A communication system is used to transfer data from one point to other. The
+
+process of data transmission has well defined steps and they are executed ina
+
+particular sequence. For example, if you want to send your picture from your
+
+computer or cell phone to someone else, you need a communication system.
+
+The main components of a communication system are discussed below.
+
+Sender Sender is a device that initiates the communication process. It sends messages consisting of text, numbers, pictures etc. It is also called source or transmitter. Normally, computer is used as a sender in a communication system.
+
+Receiver Receiver is a device that receives a message. It is also called sink. The
+
+receiver can be a computer, printer or another device. The receiver must
+
+
+
+be capable of accepting a message.
+
+Message Message is the data or information to be communicated. It may consist of text, numbers, pictures, sound, video or any combination of these.
+
+In a data communication system, a message is sent in the form of packets. Each message has two parts, i.e., payload and control information. Payload is the actual contents of a message whereas the control information contains information about the sender and the receiver. Control information is also called header of a message. It is just like writing a letter where we write a letter along with the information about its sender and receiver. In this example, your letter is the payload. It requires the control information in order to dispatch and get a reply.
+
+Example: Suppose you want to distribute your books of 8"" class to different people and it is possible that the recipient of a book may write you a letter of thanks. You put a label on each book containing the destination address without any further instructions, as shown in Figure 3-7. In this example the label is a header (also called control information) and book itself is a payload (also called message).
+
+Message
+
+
+Medium
+
+
+Sender Receiver Figure 3-12 Sending a Message Over Some Medium Protocol A protocol is a formal agreement between two parties. A network protocol is a formal arrangement between two computers to send and receive
+
+
+Computer Science — 9
+
+
+information. Very specifically, a network protocol defines a set of rules and procedures for communication between a sender and a receiver. Some protocols will be discussed in Section 3.4.1.
+
+e Transmission Medium Medium its the physical path that connects a sender and a receiver. It is used to transmit data. The medium can be a copper wire, a fibre optic cable, microwaves etc. It is also called a communication channel. Figure 3- 13 shows that a message is transmitted from a sender to a receiver through some transmission medium.
+
+
+Protocol
+
+
+——————— Receiver
+
+
+Medium Figure 3-13 Components of a Communication System. A device may use multiple channels at the same time. For example, if a cell
+
+phone Is connected with the Internet, it uses a data channel (3G/4G/LTE) for using the Internet services, and a voice channel for calling purpose.
+
+3.4 Computer Network Models
+
+The whole communication process is carried out in
+
+different layers, where each layer performs one or more specific tasks. The Internet also uses a_ layered communication model, called the Transmission Control
+
+Protocol/Internet Protocol (TCP/IP) model. The TCP/IP is a suit of protocols that provides end-to-end
+
+connectivity between devices. It consists of five layers Table 3-1
+
+
+as shown in Table 3-1.
+
+The concept of layering can be explained with post office example. Suppose you are in Lahore and want to write a letter to your friend in Islamabad. After
+
+
+
+writing the letter, you insert it in an envelope, write address of your friend on it and drop it in a mailbox. As there may be many people living at the same address, so you write the name of your friend on the envelope. Your nearest post office takes the letter to general post office in Lahore which sends the same to general postal office in Islamabad. Ultimately, the letter reaches at the address and then to your friend. Then, he/she can read the message and write a reply. Here we relate this example with the layered network model of TCP/IP. Assume that two persons are chatting using a computer network.
+
+Postal System
+
+In writing a letter, you consider only writing proper message without concerning about the names of the post office staff who will handle the envelope. Moreover, you do not need to know the details of the mail delivery system.
+
+You simply put it in an envelope and write the street address.
+
+You write sender and_ receiver information over the envelope and put it in the letterbox. If the address is incomplete, you may get your letter back. If everything is fine, you simply trust on the postal system.
+
+The name of the specific person is mentioned who can open and read the letter.
+
+Layered Network
+
+While chatting you are concerned only about the messages without bothering about the kind of network, i.e., wireless or wired. This is called application layer where you type a message and send on the network.
+
+The address of the receiving device is provided in the form of header before message content.
+
+Transport layer establishes connection between a client and a server. It tries to send message but if there is some error like your computer is disconnected from the network then it informs the application program. If the network is fine, then the application trusts the transport layer that the message will reach at its destination.
+
+At this stage, port number is added with message header for indication § of specific application at destination. A port number is used to identify the application which can accept a message.
+
+
+Computer Science — 9
+
+A letter is moved to other city (Islamabad in this example) by road or alr.
+
+Handling of letters is same either if they
+
+are letters with photographs, Eid card, or containing text, etc.
+
+Bikes or vans may carry your letter from letterbox to general post office.
+
+For your letter delivery, there is usage of roads, train tracks and may be airlines.
+
+A program running on the network layer moves the data to the other network. So, a chat message is transferred to other Wi-Fi router of your friend from where it is delivered to your friend and he/she can see it on screen.
+
+A network handles all messages in the same way either if they are emails, pictures, or voice messages etc.
+
+Data link layer sends a message to the server connected with sender. If you are chatting at home with a_ W/-Fi connection, then the data link layer sends message from your computer to the Wi-Fi router.
+
+Physical layer is about the physical medium used in communication, like cabling etc.
+
+
+Each layer adds some control information called header with the data received from the layer above it. The actual content of message called payload, is hidden inside the header at each layer, like a letter is hidden inside an envelope. This is called encapsulation.
+
+3.4.1 Protocols in TCP/IP Suit
+
+Each layer of TCP/IP model has its own protocol(s). Every protocol is designed to perform some specific task. Some of the most widely used application layer
+
+protocols are discussed below.
+
+e FTP File Transfer Protocol is the standard TCP/IP protocol
+
+
+which is used for the purpose of transferring files from one _ Figure 3-14 Transferring Files Over Network
+
+computer to another. For example, if we want to transfer a document file
+
+
+
+to a remote computer, then we can use this protocol as shown in Figure 3- 14.
+
+e HTTP Hypertext Transfer Protocol is a protocol used by Word Wide Web (WWW) to transfer webpages between a client and a web server. A web server is also called an HTTP server. We use this protocol while browsing Internet. For secure data transfer, we use HTTPS.
+
+e SMTP Simple Mail Transfer Protocol is a standard protocol to transmit emails.
+
+3.5 The Need for Addressing
+
+A packet is the unit of data sent from one device to another. It requires its destination address just like we write address on an envelope while sending a letter. An application running on the recipient side accepts packets and assembles them to show a meaningful information. If there are more than one applications ready to accept a packet, then a number called port number distinguishes the targeted application from the other applications. So, proper addressing is required for reliable data transfer.
+
+3.5.1 Importance of Addressing in Data Communication Before sending a message, source must know the destination address. Devices
+
+on a network need addresses in order to communicate with each other. So, giving an address to a message is the first step and the second step is to transmit the packet to its intended recipients.
+
+3.5.2 Mapping between Telephone Addressing and Network Addressing
+
+Suppose you want to make a phone call to your friend. Before calling, you need to know exact telephone address that is the telephone number of your friend. On the Internet, the telephone number corresponds to an IP address
+
+(Internet Protocol). Like a telephone number, all IP addresses are unique. Each
+
+
+
+Computer Science — 9
+
+device gets its own unique IP address when it gets connected to the Internet. If an IP address of a device is fixed in a network, it is called static IP address. Otherwise if each time a new connection is made a new IP address is assigned, it is called dynamic IP address.
+
+3.6 Sending HTTP Requests and Receiving HTTP Responses over the Internet
+
+The World Wide Web (WWW) is a system of Internet servers. Servers serve a request sent by a client. This request is called HTTP request. So, the communication between a server and a client is based on requests and their respective responses. Using a web browser when you type a URL (Uniform Resource Locator) like http://www.pakistan.gov.pk, you are sending a request. In its response you get the contents of website that may contain text, images, sounds, etc. These contents are embedded in an HTML (Hypertext Markup Language, discussed in Unit#5). In this case, your computer works as HTTP client, whereas the computer serving you a webpage Is called HTTP server or
+
+web server as shown in Figure 3-15.
+
+
+
+‘HTTP Request HTTP Response
+
+
+Web server
+
+Client Browser Figure 3-15 HTPP Request and Response
+
+Web browsers are used to access the World Wide Web in an easy manner. Web browsers and web servers function together as a client-server system. Client-server is a standard method for designing applications where data Is
+
+kept in central locations (server computers) and efficiently shared with any
+
+number of other computers (the clients) on request.
+
+
+
+3.6.1 Understand IP Addressing
+
+IP address stands for Internet Protocol address, it is a unique identifier that is
+
+associated with a device when it is connected to a network. An IP address is assigned by a Dynamic Host Configuration Protocol (DHCP) server. There are two standards of IP addressing, i.e., IPv4 and IPv6.
+
+Example:
+
+e IPv4 address is like: 172.16.54.1 e IPv6 address is like: 2001:db8:0:1234:0:567:8:1.
+
+When the Internet Protocol was originally designed, the standard was known as Internet Protocol Version 4 (IPv4). As shown in the above example, the IPv4 is divided in four groups separated by '.’ where each group can contain a decimal value from 0 to 255. We have already learnt in Unit#2 the conversion from decimal to binary and according to that (255),) = (11111111),. It shows that maximum 8 bits are required for every group of IPv4. So, in total 32 bits
+
+are required to store the whole IP address in IPv4 standard.
+
+Due to more and more devices connecting to the Internet, IPv4 addresses are running out. To accommodate the increase in devices, another standard of IP addressing is introduced which is called Internet Protocol Version 6 (IPv6). It consists of 128 bits. In IPv6, there are 8 groups separated by *:’, as shown in the above example. Each group can contain 4 hexadecimal digits. To store one hexadecimal digit, we need 4 bits. So, for a group in IPv6 we need 16 bits and for 8 groups total 128 bits are required.
+
+e 1 hexadecimal digit requires 4 bits
+
+e 4 hexadecimal digits require 16 bits
+
+e 1group has 4 hexadecimal digits, so each group requires 4 x 4 = 16 bits e 8 groups require 8 xX 16 = 128 bits.
+
+Do you know?
+
+Ipv6 was developed by the Internet Engineering Task Force (IETF). IPv6 became a Draft Standard in December 1998, and became an Internet Standard on 14 July 2017.
+
+
+Computer Science — 9
+
+
+Although IPv4 is still in use today and provides approximately 4.3 billion addresses, however this number is less than the population of the whole world We also know that nowadays many persons have more than one devices connected with the Internet at a time. IPv6 can allow up to 2°”
+
+addresses which is 7.9x 107° times more than the number of addresses in IPv4.
+
+3.7. Routing
+
+3.7.1 Understand a Router A router is a networking device that
+
+forwards data packets from one
+
+network to another. As the Internet is ||/###0eenennenennennes ca
+
+
+called network of networks, so a router ~
+
+also directs the traffic on the Internet. Figure 3-16 Router
+
+A router analyses the destination IP address of an incoming data packet, determines the best route to forward the packet, and then sends it accordingly. A router is usually placed at the meeting point of two or more
+
+networks.
+
+3.7.2 Routing in the Internet We get the Internet service from some Internet Service Provider (ISP). When we send a request from a device it reaches an ISP where router is installed.
+
+
+Figure 3-17 Usage of router
+
+
+
+The router forwards our request according to header of our message. For
+
+communication over the Internet, there may be hundreds of networks between the source and the destination. Hundreds of routers might forward a single packet as it moves from one network to the next on the way to its final destination. Figure 3-17 shows the usage of a router in the Internet.
+
+3.7.3 Routing Process Routing Is a process of taking data from one device and sending it to another
+
+device on a different network. Every data packet has two addresses; destination address and source address. Destination address is used to deliver the data packet at destination. Source address is used to identify the sender
+
+device.
+
+Consider the following example of IP routing (Figure 3-18)
+
+Host A
+
+
+Router
+
+Figure 3-18 Message Routing between Source and Destination
+
+
+Host A wants to communicate with host B, but host B is on another network. Host A is configured to send all packets destined for remote networks to the router. The router receives the packets, checks the routing table to see if it has an entry for the destination address. A routing table is used by routers to determine the path to the destination network. If the entry exists for the
+
+destination address, the router forwards the packet out of the appropriate
+
+interface port. If the router doesn’t find the entry, it discards the packet.
+
+
+Computer Science — 9
+
+SUMMARY
+
+A computer network, is a digital telecommunication network which allows nodes to share resources.
+
+A client computer is an individual computer that accesses the information and programs stored on a server as part of a network environment.
+
+A server is a computer program or a device that provides functionality for other programs or devices, called "clients".
+
+Sender is a device that initiates the communication process. It sends message consisting of text, numbers, pictures, etc.
+
+Receiver is a device that receives message. It is also known as sink.
+
+The message is the data or information to be communicated. Message is of various data types such as text, number, pictures, sound and video.
+
+Rules are defined for the communication between sender and receiver called protocol.
+
+Medium is the physical path that connects sender and receiver.
+
+IP stands for Internet Protocol and is an address used for identifying number that is associated with a specific computer when it connects to the Internet, it may be static or dynamic.
+
+A router is a networking device that forwards data packets from one network to another.
+
+Routing is a process of taking data from one device and sending it to another device on a different network.
+
+Network topology is the physical arrangements of devices and connecting lines.
+
+A network port is used to identify an application going to receive a message.
+
+TCP/IP is a stack of protocols and it has 5 layers.
+
+FTP is File Transfer Protocols which is used to transfer file over a network.
+
+A router directs messages on the Internet.
+
+For home user, the Internet service is provided by an ISP (Internet Service Provider).
+
+
+
+| SS | a
+
+3-1 Choose the correct option.
+
+1. The IPv4 address is made up of binary bits. (1) 31 (ii) 29 (iil) a2 (iv) 30 2. Routing is process of taking data from one device and sending it to another device in different : (1) Channel (iI) Network (111) Path (iv) Area 3. DHCP stands for (I) Data Hosting Computer Protocol (il) Dynamic Host Computer Protocol
+
+(iil) © Dynamic Host Configuration Protocol (iv) None of the above
+
+4. Communications protocols cover (1) Authentication (il) Error detection (i111) Correction (iv) Above all 5. The receiver must be capable of accepting the (1) Protocol (il) Message (iil) Address (iv) Information 3-2 ‘Fill in the blanks. 1. A is a computer device that accesses a service made available by a server. 2. allow users to communicate using e-mail, newsgroups, etc. Web browsers and web servers function together as a system. A protocol defines sand for communication between a sender and a receiver. oe Routers connect multiple together. Every data packet has an addresses. 7. IP addressing must be understood as part of the for conversations
+
+over the Internet.
+
+
+
+Computer Science — 9
+
+8. Email stands for ;
+
+9: In a computer network, devices are connected through communication 10. A accesses a service made available by a server.
+
+3-3 Write short answers.
+
+1. How client and server communicate with each other?
+
+2. What are the main components of communication?
+
+3: How telephone addressing relate with network addressing?
+
+4. What is the difference between static and dynamic IP?
+
+oe Define communication channel.
+
+6. Describe the working of web browser.
+
+Ti What is the difference between point-to-point and multipoint connection? 8. What is application sharing? Answer with the help of an example.
+
+9. What are the advantages and disadvantages of star topology over bus
+
+topology?
+
+-X =
+
+In a client server model, is client software or hardware? Give reasons to Support your answer.
+
+3.4 Answer the following questions.
+
+1. What is network topology? Describe bus, star, ring and mesh topologies with a diagram of each. What is TCP/IP? Describe its five layers with their functions.
+
+on What are the advantages and disadvantage of star topology over bus topology?
+
+4. What are the sizes of IPv4 and IPv6? Explain the method to calculate the size of these both standards.
+
+Activity
+
+Suppose your school receives 4 printers and 2 scanners. School administration is planning to install them over the network so that all school teachers and students can access them. You can make a diagrams similar to Figures 3-3 and 3-6 to propose the network where the printers and scanners can be used easily.
+
+
+ox 4 | Data and Privacy
+
+Short Introduction
+
+Data transfer is discussed in previous unit but this unit discusses “secure data transfer”. Data is converted to unreadable format before sending and again it is converted back to readable format when it reaches its destination. This unit discusses such type of conversions to secure the transferring of data. A computer is accessible to others if it is connected to a network. In this unit, security measures are discussed for sending sensitive data over a network.
+
+
+Students’ Learning Outcomes 1. Ethical issues related to security
+
+@ Understand ethical issues related to data security
+
+@ Understand that it is their responsibility to safeguard the privacy of others.
+
+2. Importance of data privacy @ = Explain privacy concerns that arise through the mass collection of data @ Analyze the personal privacy and security concerns that arise with any use of computational systems. 3. Simple Encryption @ ~=Explain why encryption is an important need for everyday life on the Internet. @® Crack a message encrypted with a Caesar cipher using a Caesar Cipher Widget @ Crack a message encrypted with random substitution using Frequency Analysis ®
+
+Explain the weaknesses and security flaws of substitution ciphers
+
+4. Encryption with Keys and passwords @ = Explain the relationship between cryptographic keys and passwords. @ ~=Explain in broad terms what makes a key difficult to “crack.”
+
+@ Reason about strong vs. weak passwords using a tool that shows password strength.
+
+@ Characteristics of good password 5. Cyber crime
+
+@ = Explain the characteristics of a phishing attack
+
+@ ~=Explain how a DoS (denial of service) attack
+
+
+
+Computer Science — 9
+
+Introduction Computers are ubiquitous and are widely used by people of almost all ages.
+
+Often we need to give our personal information to a computer e.g. while creating an email account, shopping online, visiting a hospital or taking admission in a school. We expect that provided information will not be shared with others. Protecting data from malicious users is called data privacy or information privacy.
+
+4.1 Ethical Issues Related to Security
+
+4.1.1 Understanding Ethical Issues Related to Data Security The foundation of all security systems is formed on ethical principles. If, we
+
+have data of others, it is our own ethical responsibility to keep it secure. Some of the data security issues are:
+
+e Confidentiality & Privacy e Fraud & Misuse
+
+e Patent
+
+e Copyright
+
+e Trade secrets
+
+e Sabotage
+
+e Confidentiality & Privacy To keep the data of others as confidential is indeed taking care of others.
+
+For example, if a bank shares the information about my _ banking transactions with my business competitors then it can harm my business. Similarly, phone companies are supposed to keep the invoices and bills as confidential. Keeping privacy and confidentiality has become difficult in this era of computers and Internet.
+
+Due to more usage of computers, a wide range of data is collected and stored. This data may be related to credit cards, organisational fund raising
+
+campaigns, opinion polls, shop at home services, driving licenses, arrest
+
+
+
+Unit 4 - Data and Privacy
+
+records and medical records. The potential threats to privacy include the improper use of computerized data. If a company sells email IDs and phone numbers to another company for marketing purpose, it breaches the confidentiality of data.
+
+Piracy
+
+Piracy means making illegal copies. It can be a book, software, movie, poetry, painting, house architecture or any other work protected by copyright law.
+
+Do you know?
+
+Open source software have no copyrights reservation. So, we
+
+
+can copy source code, modify it and can even sell it. Software piracy is the illegal ee
+
+copying, distribution, or Enter Product Key Code
+
+A Product Key Code is required to activate Bar Tender Si
+
+usage of software. Some
+
+software companies _ sell
+
+software with d confidential Enter the Product Key Code for the software Ee ee Sa text, called the key of that PJ LE Le
+
+softwa re. This key is This key is provided at the time of purchase of software
+
+provided to only’ those
+
+people who buy _ that ‘aeack [HEE] (Goncel) “Heb
+
+
+
+
+
+
+software. In this way illegal copies are stopped to be Figure 4-1 Activating the software installed as shown in Figure 4.1. Some people start searching for that key
+
+by using illegal means. This is called cracking the key. Types of software piracy include:
+
+e Softlifting: Borrowing and installing a copy of a software application
+
+from a colleague.
+
+
+Computer Science — 9
+
+
+e Client-server overuse: Installing more copies of the software than you
+
+have licenses for.
+
+e Hard-disk loading: Installing and selling unauthorized copies of
+
+software on refurbished or new computers. e Counterfeiting: Duplicating and selling software having copyright. e Online piracy: Typically involves downloading illegal software.
+
+The software industry is prepared to battle against software piracy. The courts are dealing with an increasing number of lawsuits concerning the
+
+protection of software.
+
+e Fraud & Misuse
+
+Using computers over the Internet, some unauthorized activities can take place. Some of these include theft of money by
+
+ju”
+
+electronic means, theft of services, and theft
+
+
+of valuable data. Sometimes, we receive an | — CN
+
+email asking us to click on a link to change Figure 4-2
+
+our password. When we click on the link, a webpage opens asking us to give our username and password. If we give our username and password,
+
+actually our password is stolen by some malicious user.
+
+Likewise, some emails try to fool us by stating that we have won a grand prize e.g. a car or a house. They ask us to pay a small amount as transfer fee to get that prize. Actually, it is just a way to fool people and get money from them.
+
+Sometimes, some malicious user disguises
+
+himself as our friend and tries to get some
+
+
+confidential information. This is called phishing. Figure 4-3
+
+
+Unit 4 - Data and Privacy
+
+
+Patent
+
+Patent is a way to protect an idea. If you are doing research in some field and you have an idea, then you must get patent for that idea. It gives you the right to exclude others from making or selling an invention using your idea.
+
+Example: If you are doing research in medical field and give a new idea to treat a particular disease, some pharmaceutical companies can make medicines on the basis of your idea. Ethically, they must seek your permission before making medicines using your idea. They should also pay a certain amount upon sale of the medicine. For this purpose, you must get a patent.
+
+Copyright Law
+
+Copyright is different from a patent as copyright law says that some idea or product cannot be copied. The rights are reserved for copying. Usually, if a product is copyright protected then we
+
+see a symbol of copyright as shown in Loi
+
+Figure 4.4. For example, the book you are Leo reading is copyright protected. So, making Figure 4-4 Copyright symbol its photocopy is illegal.
+
+Similarly, software products are mostly copyright protected. It means that we cannot copy them, like, MS Windows, MS Office etc. Copyright can deal with misappropriation of data, computer programs, documentation, or similar material.
+
+Trade Secrets Trade secrets are usually the secrets that are playing an important role for the
+
+success Of a company. They have a lot of value and usefulness for the company. Keeping trade secrets in the computer science field is very important when more than one software companies develop the same product but one of them takes lead. For example, there are many free email services but few of them have significant competitive advantage over others.
+
+77
+
+
+Computer Science — 9
+
+
+e Sabotage Sabotage is a serious attack on a computer system. Some malicious user
+
+can attack the system while sitting remotely. One can send virus with some free software. A virus is a computer program written with negative intentions. It can change/destroy an information or sabotage a precious data.
+
+4.1.2 Safeguarding Privacy of Others
+
+Did you notice the boards on roads about cameras watching you as shown in Figure 4-5? The purpose of such notices is to alarm you about your privacy and keep
+
+you within certain rules and regulations.
+
+
+Similarly, speed cameras are announced before taking your picture or recording Figure 4-5
+
+your video. These steps are just to safeguard your privacy. In the same way, when you give information to an organisation, it is the duty of that organisation to safeguard your privacy. Your information is stored in NADRA (National Database and Registration
+
+Authority) along with information of Do you know?
+
+your other family members. So, CCTV stands for Closed-Circuit Television.
+
+
+safeguarding this data is an ethical responsibility of NADRA.
+
+Most of the websites also declare their privacy policies (Figure 4-6), indicating what information they collect from you and your computer, and with whom they will share it. People usually do not read these policies. Most users mistakenly assume that their privacy is
+
+
+fully protected due to the privacy policy. Figure 4-6
+
+vk: )
+
+
+
+Unit 4 - Data and Privacy
+
+Actually, the website wants to inform you that how far they will go to safeguard your privacy.
+
+4.2 Importance of Data Privacy 4.2.1 Privacy Concerns that Arise Through the Mass Collection
+
+of Data Many organizations are keeping our data due
+
+to the computerized systems in-place. There can be more people/organizations having
+
+
+information about you than you think. For example: Figure 4-7
+
+e A hospital may have your birth record,
+
+e NADRA has your family information,
+
+e Your school has your record,
+
+e BISE (Board of Intermediate and Secondary Education), e Passport office if you have a passport,
+
+e Email service providers if you have email accounts,
+
+e Online social networking websites etc.
+
+There are companies interested in a lot more than just your name, address and other basic facts about your life. They want to know where you have travelled, what type of clothes you wear, how often you have been sick, if you buy a product then do you buy something else with that product or not and much more. Answers of these questions help them in decision making.
+
+Example: If you buy a packet of potato crisps, then you usually buy a drink as well. This information is useful for a shopping mall to increase its sales if it introduces new offers on both potato crisps and drinks.
+
+So, a piece of information can flow from one place to
+
+
+another without any intimation. It is due to mass
+
+collection of data. ‘Houess
+
+
+Computer Science — 9
+
+Do you know?
+
+There are certain companies, called data brokers, that solely exist to collect, aggregate, buy and sell consumer information.
+
+
+4.2.2 Analysing the Personal Privacy and Security Concerns
+
+that Arise with any use of Computational Systems With the advent of Internet, our computers are no longer stand-alone devices.
+
+In fact, now they are connected to millions of other computers in the world. Due to this connectivity, many security concerns also arise. Primarily, we want
+
+to secure our data according to the following three aspects.
+
+1- Confidentiality: It means that we want to keep our data as confidential. We do not want to share it with unintended persons.
+
+2- Integrity: It means that we want to keep the data correct. For example, we do not want that the website of our bank shows less account balance than it actually Is.
+
+3- Availability: It means that we want to have access to the data when we want. If data is not available when needed, then in some cases it becomes useless.
+
+All these aspects are important during the processing, storage and transmission of data
+
+in a computerized system.
+
+Computation is a general term for any type of information processing that can be represented mathematically. For example, your grade in 9th class will be computed according
+
+
+to your marks in every subject. Figure 4-9 In everyone's life there is stunning growth of usage of computational systems.
+
+This fact is behind raising concerns about privacy.
+
+
+
+Unit 4 - Data and Privacy
+
+When we surf the Internet, personal information is generated that may be of interest to businesses or people with malevolent aims. Companies want to read minds of Web surfers and sometimes they store some piece of information with the Web surfer, called cookies.
+
+Using “cookies,” companies are able to track purchases and gather personal data. They can use this information to target their marketing. It can be considered an invasion of their privacy.
+
+4.3 Simple Encryption Encryption is the process of Eiceypaon Decryption
+
+encoding data in such a way that
+
+only authorised person can read it.
+
+Encoding means conversion of the
+
+data to an unreadable format which
+
+
+is called ciphertext. A secret code Figure 4-10 Encryption - Decryption Process (called Key) is required to read the
+
+data as shown in Figure 4-10. A key Is just like a password.
+
+In ancient times when messages were carried by foot for miles, kings and rulers used to encrypt the letters they would send to allies. This helped to protect the secrecy of the message in case they were stolen.
+
+A computer expert who can steal data when it moves from one location to
+
+other, is called hacker. Encryption helps us to save data from hackers.
+
+Activity 4.1
+
+You can devise a technique to encrypt a text. Like you can write letters of each word in reverse order. For example, the text “I like my school” becomes “I ekil ym loohcs”. Another way is to put next letter in place of each letter, i.e., 'a' become 'b', 'b' becomes 'c' and 'z' becomes ‘a’. So, in
+
+this way, “Tlike my school” becomes “J mjlf nz tdippm”. Using your own technique encrypt the
+
+names of cities in Pakistan and give the key to your friends to identify those names.
+
+
+Computer Science — 9
+
+Activity 4.2
+
+If you hold up a script to a mirror, the writing looks reversed. You can easily write notes and other things to look like mirror writing. Get a sheet of thin white or light coloured paper. With a dark marker, write something on one side. Make sure you write it thick and dark enough so that it will show through the other side. Flip over the paper and trace what you wrote. You'll be tracing it backwards. It should come out like how you would see your regular writing if you were to hold it up to a mirror. For fun, write down different words, or write a note to someone,
+
+then reverse it and send it to them.
+
+
+4.3.1 Importance of Encryption for Everyday Life on the
+
+Internet Encryption is one of the most important
+
+methods for providing data security. In everyday life on the Internet, vast amounts of personal information are stored on multiple places. So, it is important to know
+
+
+how to keep data private. Encryption is | important because it allows you to secure | Figure 4-11
+
+data from illegal access. Importance of encryption can be described in the following three points.
+
+1. Protection from Hackers Hackers don’t just steal information; they can also alter the data to commit fraud. For example, in a bank transaction of online money transfer, they can fraud by changing the target account number.
+
+2. Encryption Protects Privacy
+
+
+Encryption is used to protect sensitive data, including personal information for
+
+
+
+individuals. This helps to ensure privacy
+
+and minimising the opportunities for
+
+surveillance by criminals. Figure 4-12
+
+
+
+Unit 4 - Data and Privacy
+
+3. Encryption Protects Data across Devices Multiple (and mobile) devices are a big part of our lives, and transferring data from device to device is a risky proposition. Encryption technology can help protect stored data across all devices, even during transfer. Additional security measures like advanced authentication help deter unauthorized users.
+
+4.3.2 Substitution Cipher Methods
+
+Substitution Cipher methods are the methods of encryption in which the characters of original text are replaced by some other characters. This substitution is done by a fixed predefined system. In the following we discuss two commonly used substitution ciphers.
+
+4.3.2.1 Caesar Cipher
+
+Caesar was a Roman politician and military general who played a critical role in the rise of the Roman Empire. Caesar used this method of encryption for sending messages to his soldiers and generals. This is the reason for calling this method as Caesar Cipher. In this method, we replace each alphabet in the plaintext by another alphabet. The replacing alphabet is some fixed number of steps to the left or right of original alphabet in the sequence of alphabets.
+
+Example 1: A three-character substitution to the right results in the following
+
+transformation of the standard English alphabet:
+
+Initial alphabets: ABCDEFGHUKLMNOPQRSTUVWXYZ Encryption alphabets: DEFGHUKLMNOPQRSTUVWXYZABC
+
+Within this substitution scheme, the plaintext PAKISTAN would be encrypted into the ciphertext SDNLVWDQ.
+
+Example 2: A five-character substitution to the right results in the following transformation of the standard English alphabet:
+
+Initial alphabets: ABCDEFGHUKLMNOPQRSTUVWXYZ Encryption alphabets: FGHUKLMNOPQRSTUVWXYZABCDE
+
+Within this substitution scheme, the plaintext PAKISTAN would be encrypted into the ciphertext UFPNXYFS.
+
+
+Computer Science — 9
+
+Activity 4.3
+
+Use a three-character substitution to the left for encrypting the plaintext PAKISTAN into ciphertext.
+
+4.3.2.2 Vigenere Cipher
+
+Vigenere cipher is another substitution cipher, which uses a table known as
+
+
+Vigenere Cipher table for substituting the letters of plaintext.
+
+Vigenere Cipher Table: The table is shown in Table 4-1. The table consists of 26 rows and 26 columns, where the 1* row contains the original alphabets from A — Z. In each subsequent row the alphabet is shifted by one letter to the right. All the columns are labeled by alphabets from A — Z, and all the rows are also labeled by alphabets from A — Z.
+
+N
+
+S
+
+Z Zz 8 | Ea 0) Ee Q PR Fa a /U Vv
+
+=< |C
+
+Y
+
+
+Unit 4 — Data and Privacy
+
+
+Vigenere Cipher Method: In this method, we have a substitution key that is combined with the plaintext to generate the ciphertext. We encrypt each letter of the plaintext by finding that letter in column labels of the Vigenere table (Table 4-1) and in that column, we find a letter that is in front of the row label for the respective letter of the key. We continue this process until all the text is finished.
+
+Example: Let's assume that we want to encrypt “PAKISTAN” with the help of substitution key “ZINDABAD". We find ‘P’ (first letter of plaintext) in column labels and ‘Z’ (first letter of substitution key) in row labels. We can observe that the row and the column meet at letter ‘O' as marked with yellow colour in Table 4-1. So, the letter ‘P’ is converted to ‘O’. Similarly, we find the letter ‘A’ in column labels which is the first column (marked with green colour) in Table 4- 1. and we find the letter ‘I’ in the row labels. Row and the column meet at the letter ‘T’. So, ‘A’ is replaced with 'T’.
+
+In this way the word “PAKISTAN” is converted to cypher text “OIXLSUAQ" as shown in Table 4-2.
+
+Column Label
+
+Row Label Common Letter
+
+
+Table 4-2
+
+Important Note: If the key has less number of letters, then we repeat the letters of that key from beginning. For example, to encrypt the text “PAKISTAN” having 8 letters with the key “BEAUTY” having 6 letters, we repeat the letters of the key to make them equal in length to the given plaintext. So, the key becomes “BEAUTYBE” having same number of letters and this key is called intertm ciphertext.
+
+Activity 4.4
+
+Prepare a chart for the sports you likes the most. In the chart, write names of your favourite
+
+players in plaintext as well as in ciphertext. You can use some key of your own choice.
+
+
+Computer Science — 9
+
+
+4.3.3 Using Vigenere Cipher Widget
+
+There is a widget available at the website: https://studio.code.org/s/vigenere/stage/1/puzzle/1
+
+It is called Vigenere Cipher Encryption Widget. It shows animation of the encryption and decryption of plaintext by using Vigenere Cipher method according to a given key. Screenshot of this widget is shown in Figure 4-13. You can type text on upper left corner and provide a key for encryption. Press the “Encrypt” button and then click on * to see the animation of encryption. Both the buttons are marked with red circles in Figure 4-13. Similarly, we can decrypt a ciphertext to see the original message.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+; ABCDEFGHIJ)KLMNOPQRSTUVWXYZ Cipher AlalBi cid) E]E]G H]1 JT KILI MIN] ole] olrisitiulviwixlylz Enter your text message (140 Chars) CD) GENE Gh cell Ta MNS OH PS Q] ERS) Sal TI SUs Va WI YlleZ, IGA CiC/D/E;FIGI HIT) J} K/L) MIN/O;P]Q/)Ris|T] Ul Vv) wix|y|z|AlB
+
+IF_ONLY_THIS_MESSAGE_COULD_BE_A SECRET pipletrlGlasi li ikluiMiniolplolristtlulviwixlylzlale|c E/EJFIG/HIT|J/K/LI/MIN|O/P]Q/RiS|T/UlV|wix]¥/z}a/B}C|D FIFIG/H/T/J/K/LIMINIO;P/Q>R|SI|TIU/Vi WX] ¥|Z/AlB/C{D/E GIG/H/T/J/KILIM/N/O]P/Q>RIS{|T|U)Viwixl¥|Z/AlB/C/D/E|F
+
+Enter your secret key ee Re MN CIPS POUR ES RUN Va WA vale Zo As) BC Dy Felis eG MY_SECRET_KEY T/T} JEK{LIMIN| OF PL Q;RIS|T Ul Vi WEX|YIZ/A/BIC|DIE|EIGIH Ji JIKI L/MIN] OF P]Q;RiS|T/ ULV) wix]¥/z}a]B/ Cc] D/E]F/G]H 1
+
+EG KIKI L/MINJO;P/Q;)RIS|TIUIVIWX/Y|ZIA|BICID/E]F/G]HI IJ CEnerypt >) Decrypt | /C |(>)| 1 | pr |i LiL| MIN) OF P/Q) Ris|TlUlVi/Wix]¥}Zz]AlBiC|D/E]FIGIH/1/J|K Encryption speed MIMINIO/P/Q|RIS|TIUIVIWXIY/ZIAIBIC/D/E|F/GIH/I]J/ KIL Slow "| Fast NINJolPloirRis/tiulviwixly|zjaleBlclovelele}Hyr/s} Ky LIM Result O/O/P/QiRiS|TIUlViw)X/¥{/Z/AlB/C/DIE|FIG)H/1/J/K{IL| MIN P/P/Q|)R/S|T/UIVI/WXIY|Z/A/B/CID/E/FIG/H/1]J/ K/L) MIN| oO
+
+Key QiaiR/siT/Ulviwxly|Z/AlB/C/D/E/FI GH} 1] J / K/L] MIN] O}P Riris|tiulviwixiyizialelclolelrlciHirls KILI Miniolplo Sis|T/ ULV) WX|Y|Z/A/B/C/D/E/FIG/H}1]J/ K/L] MIN] O; P|] Q/R Plaint text TITIUIVIWIX/Y/Z/AIBICID/E]FIG]HIT/J I K/L] MIN|O}P]Q]RIS ululviwix[y[z[alelclolele[clnfr ly [k[t[m[nlolelalris|t Grea VIVIWXIY/ZFA/BICIDIETFIG/HIT[J I KILI MIN] O}P]Q)R|S|Ttfu | WIWXTY|Z/AIB/C/DIE/FEIGIH/T/J/KIL|M) NiO] P}Q}R/s|Ttj uly CS ——esesSsSsSsSC*SS:TC OPES [vizio chore te telat (i xiulminfole olalsitiulviw Y/YIZ/A/BIC/D/E;FIG/H/1]J/ K/L) MIN] O}P]Q/ R/S] T}Ul Vv] WX
+
+_ Finished! @ Z\Z/A/B/C/DIE|F/GIHIT/J|K/L/MIN/O]P/Q>R|S|T|U/V| Ww xly
+
+
+Figure 4-13 vigenere cipher widget
+
+e Practical to Decrypt a message To decrypt a message, we find the letters of key in the rows of Vigenere
+
+table and then in that row we locate the letter of encrypted text. When the
+
+letter is found we take the column heading for that letter as decrypted letter. For example, to decrypt “OIXLSUAQ” with key “ZINDABAD" we find
+
+
+
+Unit 4 —- Data and Privacy
+
+the row for the letter ‘Z’ and in that rows we find the letter ‘O’ where we
+
+can identify the column heading, i.e., ‘P’ in this case. Similarly, we continue
+
+with each letter of the cypher text and decrypt the cypher text.
+
+Do you know?
+
+Gaius Julius Caesar was bornin July 13, 100 BC, Rome, Italy and was assassinated on March 15, 44 BC.
+
+His famous quotes are:
+
+1) Experience is the teacher of all things. 2) Men freely believe that which they desire
+
+
+4.3.4 Encrypted with Random Substitution using Frequency
+
+Analysis
+
+Messages encrypted with the Caesar cipher are very easy to crack. What if
+
+instead of shifting the whole alphabet, we map every letter of the alphabet to
+
+a random different letter of the alphabet? This is called a random substitution
+
+cipher. Message: @
+
+asdf |kj qwert poiuy zxcv mnb III kkk jjj m asdf |kj qwert poiuy zxcv mnb III kkk jjj m asdf |kj qwert poiuy zxcv mnb III kkk jjj m asdf |kj qwert poiuy zxcv mnb III kkk jjj m asdf |kj qwert poiuy zxcv mnb III kkk jjj m asdf |kj qwert poiuy zxcv mnb III kkk jjj m asdf |kj qwert poiuy zxcv mnb III kkk jjj m asdf |kj qwert poiuy zxcv mnb Ill kkk jjj m asdf |kj qwert poiuy zxcv mnb III kkk jjj m
+
+Original Message | Standard English an
+
+Letter Frequencies
+
+3 xs Frequency
+
+8% 6% 4% 2% 0% A
+
+Original: Maps to: 0% 2%
+
+
+
+Figure 4-14 Random Substitution using Frequency Analysis Widget
+
+We can visit the website:
+
+https://studio.code.org/s/frequency_analysis/stage/1/puzzle/1 to view the
+
+widget for this purpose. It’s screenshot is shown in Figure 4-14.
+
+|
+
+
+
+Computer Science — 9
+
+In this version of the tool, you'll be interacting more with the graphs that show letter frequency.
+
+Activity 4.5
+
+Load the Sample message (hard) from the message dropdown. This will load a message that has been encrypted with a random substitution cipher.
+
+You will crack the message by guessing what each letter of the alphabet contained in the original ciphertext should be changed to. You can do so by dragging the blue letters of the alphabet directly underneath the orange letter you want to change in the original ciphertext. Letters that have been changed using your guesses will no longer be highlighted orange in the message window on the left.
+
+Play with some of the sorting options available in the Random substitution cipher tab to get different views on the letter frequencies in the input text as well as standard English text.
+
+Do you know?
+
+'E' is the most common letter used in the English language?
+
+
+May be the most common letter in your encrypted text maps to the letter 'E’, but may be not! You'll have to do a bit of guess and check to see if that substitution makes sense.
+
+In cryptanalysis, frequency analysis is the study of the frequency of letters or groups of letters in a ciphertext. The method is used as an aid to breaking classical ciphers.
+
+4.3.5 Weaknesses and Security Flaws of Substitution Ciphers e The simplest of all substitution ciphers are those in which the cipher
+
+alphabet is merely a cyclical shift of the plaintext alphabet. The explanation for this weakness is that the frequency distributions of symbols in the plaintext and in the ciphertext are identical, only the symbols having been relabelled
+
+e Another major problem with simple substitution ciphers is that the frequencies of letters are not masked at all.
+
+88
+
+
+Unit 4 —- Data and Privacy
+
+
+4.4 Encryption with Keys and Passwords 4.4.1 Relationship between Cryptographic Keys and Passwords
+
+Passwords are used for authentication to enter a Password?
+
+system whereas cryptographic keys are used to ep £ read an encrypted message. So, with respect to computer security a "key" is not synonymous with "password". It is also possible that a password can be used as a key. The basic difference between Figure 4-15
+
+these two is that a password is generated, read, remembered, and reproduced for a human use while a key is used by the software or human to process a
+
+message by using that key and the cryptographic algorithm.
+
+
+Do you know Captcha?
+
+We can write a program that can access a website and give it a password. It can be used to hack a password if the program keeps trying different password for long time. Moreover, a program can also add unnecessary data by filling a form again and again. To ¢
+
+avoid this situation only humans are allowed to use a system
+
+instead of a computer program. So, a picture is shown on a
+
+website whenever there is a form and you are asked to read
+
+that image and fill a field. The image contains text in irregular
+
+form which is readable for human but not easily for a machine.
+
+
+Some server computers store key on our computers when we access them first time. For later use, the same key is used on our behalf but without any action from our side.
+
+4.4.2 Characteristics of a Good Password
+
+A good password should be difficult to guess or crack. It helps to prevent unauthorized people from accessing files, programs, and other resources. A good password:
+
+e is at least eight characters long
+
+doesn't contain your user name, real name, kid’s name or company name doesn't contain a complete word
+
+is significantly different from previous passwords
+
+contains uppercase letters, lowercase letters, numbers, and symbols
+
+
+Computer Science — 9
+
+Activity 4.6
+
+All students go to computer laboratory and access the following website: https://howsecureismypassword.net/
+
+Notice the time a computer can find your password. Screenshot of this utility is shown in Figure. Class teacher can point out some other same type of utilities.
+
+HOW SECURE IS MY PASSWORD?
+
+It would take a computer about
+
+5 SECONDS
+
+to crack you password
+
+
+4.5 Cybercrime
+
+The Internet is an amazing tool for communication, allowing users to connect instantly over great distances. Unfortunately, the same communication is also a great tool for criminals. A crime in which computer network or devices are
+
+used is called a cybercrime. For example:
+
+e Identity Theft
+
+One common form of cybercrime is identity theft. Hackers may use fake
+
+emails to trap someone to give passwords and account information.
+
+e Transaction Fraud Simple financial fraud is another common crime in the
+
+online arena. A scammer may offer an item for sale through
+
+
+an auction site with no intention of delivering once he/she
+
+an item for sale using a stolen credit card. It is also possible Figure 4-16
+
+receives payment. Alternatively, a criminal might purchase
+
+
+Unit 4 - Data and Privacy
+
+
+to buy something from own credit card but then reporting the card stolen. This is a transactional fraud if the cardholder claims chargeback.
+
+e Advance Fee Fraud Sometimes the hackers congratulate you upon winning a big prize and ask
+
+you pay a small amount in advance, so that the prize can be dispatched. This is a common type of cybercrime. The lure of easy wealth has found many victims of these frauds.
+
+e Hacking
+
+Another cybercrime is the practice of hacking, illegally accessing someone else's computer. This happens mostly
+
+when you download some file from
+
+
+internet and execute it without knowing details. A software installed in your Figure 4-17 computer connects someone else to your computer without your permission. The aim is to gather information about a person or organization sometimes without their knowledge. This type of software is called spyware as shown in Figure 4-17.
+
+e Piracy Piracy is also a type of a cybercrime. Details about piracy already discussed in Section 4.1.1.
+
+Do you know?
+
+National Response Centre for Cyber Crime (NR3C) is a law enforcement agency of Pakistan dedicated to fight cybercrime. It is working under FIA (Federal Investigation Agency) and its website is available at ray th DEVOTED VOLUNTEERS TO HELP
+
+http://www.nr3c.gov.pk. (Screenshot in PRS Fn Fn) Peete F DAIVEN CAIME
+
+Figure)
+
+
+Computer Science — 9
+
+Activity 4.7
+
+Find the categories of cybercrime at http://www.nr3c.gov.pk and make notes about each. Teacher can make groups of students and ask each group to make chart on
+
+
+each category.
+
+4.5.1 Characteristics of a Phishing Attack Phishing is the fraudulent attempt by
+
+sending emails to obtain sensitive information such as usernames, password and credit card details.
+
+
+e Characteristics of Phishing ft ° Figure 4-18 Emails 1. It normally appears as an important notice, urgent update or alert. The subject of such email is set in a way that the email recipient believes that the email has come from a trusted source.
+
+Examples: a. “Someone tried to open your account. Change your password Immediately”
+
+oO
+
+Official Data Breach Notification
+
+Packet Delivery at your Home Address
+
+oO”
+
+IT Reminder: Your Password Expires in Less Than 24 Hours
+
+?
+
+Change of Password Required Immediately f. Revised Vacation & Sick Time Policy g. Email Account Updates
+
+2. It sometimes contains messages that sound attractive rather than
+
+threatening e.g. promising the recipients a prize or a reward.
+
+3. It normally uses forged sender's address. For example,
+
+admin@facebook.com, info@gmail.com etc. You can also open an
+
+
+Unit 4 —- Data and Privacy
+
+
+email if it is from principal@yourschool.edu.pk. In email there can be some link that has no relation with your school. So, while filling online forms, take care of the URL (Uniform Resource Locator) appearing in
+
+the address bar of the web browser.
+
+4. It usually takes contents such as logos, images from the actual website to make the fraudulent email look like a genuine email.
+
+5. It may contain a form for the recipient to fill in personal/financial information and let recipient submit it. This information is submitted to a different database.
+
+e Characteristics of a Phishing Website 1. It looks like original due to same contents such as images, texts, logos,
+
+colour scheme etc.
+
+2. It may contain actual links to web contents of the legitimate website such as contact us, privacy or disclaimer to trick the visitors.
+
+3. It may use similar name as that of the actual website.
+
+4. It may use forms to collect visitors' information where these forms are similar to those in the legitimate website.
+
+4.5.1 DoS (Denial of Service) Attack
+
+In computing, a denial-of-service attack (DoS attack) is a cyber-attack to make a machine or network resource unavailable. It means a service is denied. For example, if you want to visit a website but someone else is already sending too many requests to the same website using computer programs, then you may not be able to access that website. This type of attack is shown in Figure 4-19. It is just like a robot is sending many requests in small amount of time, but for a user, either the service becomes very slow or it is denied. So, by flooding the targeted machine or resource with superfluous requests is an attempt to overload the system. It may also cause shutting down a machine or
+
+network.
+
+
+
+Computer Science — 9
+
+
+Attacker machine running client program
+
+
+Hardler Hardler Hardler Hardler
+
+
+
+Compromiser
+
+
+Compromiser Comprom\\er Compromiser
+
+Internet
+
+
+iS
+
+Targeted Server(s)
+
+Figure 4-19 Dos Attack
+
+DoS attackers often target web servers of high-profile organizations such as banking, commerce, and media companies, or government and _ trade organizations. Though DoS attacks do not typically result in the theft or loss of significant information or other assets, they can cost the victim a great deal of
+
+time and money.
+
+
+Unit 4 —- Data and Privacy
+
+SUMMARY
+
+We need to be careful by sending data over the internet.
+
+Every organization to whom the data is entrusted, it is their responsibility regarding confidentiality and privacy of the data.
+
+Piracy means making illegal and unauthorized copies of the software without owner's permission.
+
+Softlifting is called borrowing and installing a copy of a software application from a colleague.
+
+Client-server overuse is installing more copies of the software than you have licenses for.
+
+Hard-disk loading means installing and selling unauthorized copies of software on refurbished or new computers.
+
+Counterfeiting is called duplicating and selling copyrighted programs.
+
+Using computer for the purpose of some unauthorized activities is called fraud or misuse.
+
+Promises made by a software developer is known as warranty or liability.
+
+Patent can protect an idea so that it won't be misuse and the owner will attain its full rights.
+
+To protect value and usefulness we may imply trade secrets.
+
+The computer can be attacked while sitting remotely, in this way sensitive information will be sabotaged.
+
+Encoding means conversion of the data to an unreadable format which is called
+
+ciphertext. Key is needed to read it.
+
+Passwords are used for authentication to enter a system.
+
+A crime in which computer network or devices are used is called a cybercrime. Illegally accessing someone else's computer is called hacking.
+
+Denial-of-Service attack (DoS attack) is a cyber-attack to make a machine or network resource unavailable for a user.
+
+
+
+Computer Science — 9
+
+i” 4-1 1.
+
+Choose the correct option. Which of the following doesn't includes the types of software
+
+piracy? (1) Softlifiting (il) Liability (iil) Client server overuse (iii) Online piracy
+
+Which of the following is not a cybercrime? (1) Hacking (il) Phishing crime (iil) Identity Theft (iv) Decryption
+
+Which of the following is not the characteristics of phishing emails?
+
+(1) Official data breach notification
+
+(il) Email account update
+
+(iii) IT reminder
+
+(iv) Similar domain of actual website
+
+Which of the following is not characteristics of phishing website? (1) Similar domain of actual website
+
+(il) Using of forms to collect visitors
+
+(iii) = Actual link to web content
+
+(iv) | Email account updates
+
+Which of the following is not a characteristics of good password? (i) Is eight characters long
+
+(il) Doesn't contains username
+
+(iil) | Contains uppercase letters
+
+(iv) | Password is your name only
+
+Fill in the blanks: Making illegal copies of software is called is a general term for any type of information processing
+
+that can be represented mathematically.
+
+
+
+Unit 4 - Data and Privacy
+
+3. is the process of encoding data. When a key has less number of character than the text to encrypt, then repeating letters of the key is called
+
+Dy is a cyber attack to make machine or network resource unavailable for a user.
+
+4-3 Answer the following questions. Define cypher text. Why do we need an installation key whereas a software can be protected with a password? 3. Define Denial of Service. Give a reason to add captcha on websites. 5. What is Patent, and why do we need to register it?
+
+Activity 4.8
+
+Teacher will divide a class in groups and each group has maximum 4 students. Student will make a key having maximum 5 letters and write 4 words in cypher text with respect to that key. Each encrypted text has at most 10 letters. Teacher will collect these papers from students and divide them randomly to groups and they will be asked to decrypt. The winner will be the
+
+
+group which decrypts the text first.
+
+
+Unit 5 Designing Website
+
+lille mlaltcelelered rela HTML | ~ Internet surfing is part of almost everyone’s life and we use it for online
+
+shopping, social networking, checking results, sending/receiving emails </> etc. In this unit, the techniques to develop a simple website are discussed.
+
+
+Students’ Learning Outcomes 1. Introduction to HTML @ Define Hypertext Markup Language (HTML) @ Explain the steps involved to: m Create and save an HTML file m Display a webpage @ Identify the tags used to mark-up HTML elements @ Identify the following elements: m HTML m Head section m Body section 2. Text Formatting @ Describe the steps involved to: m Specify a page title m Create a paragraph m Insert line breaks m Insert spaces m Add headings/sub-headings @ Identify the text formatting tags used to format the text in various font styles, colours and sizes @ Use appropriate text formatting tags to define: m Font size Font colour Font face Bold text Italic text
+
+Underline text
+
+
+Unit 5 — Designing Website
+
+
+3. Creating Lists @ Differentiate among unordered list, ordered list, definition list and nested list @ Create: m Unordered list m Ordered list m Definition list
+
+m Nested list 4. Images and Backgrounds @ Add:
+
+m Animage m Border to the image @ Specify: m Width of the image m Height of the image m An alternate text for the image m Applying Background and Foreground colours to a webpage @ Assign a background image to the webpage 5. Hyperlinks @ Define a hyperlink @ Create a hyperlink to a webpage @ Define an anchor @ Create an anchor to hyperlink within a webpage @ Create a graphical hyperlink 6. Creating Tables @ Create a table in the webpage @ Apply the following table attributes: m Border m Colspan
+
+m Rowspan
+
+
+
+Computer Science — 9
+
+5.1 Introduction to HTML
+
+When you send request to a web server through a web browser to access a webpage, you get HTML as a response from there. The web browser understands the HTML and displays contents of the webpage. HTML tells the browser how the contents are structured inside a webpage.
+
+5.1.1 Definition
+
+HyperText Markup Language (HTML) is a simple language to create webpages.
+
+There are two important terms that you need to understand in the name HTML.
+
+1- Hypertext
+
+2- Markup Language Hypertext The term Hypertext is used due to the special text in a webpage called hyperlinks. By clicking on these links you can move from one webpage to another. Hyperlinks are used to navigate on the World Wide Web (WWW).
+
+Markup Language A webpage consists of a series of elements which are represented by tags.
+
+For example, if you need a paragraph of text on your webpage, you use it as: <p> Some Text Here </p>
+
+Here <p> shows marking of paragraph opening tag and </p> means marking of paragraph closing tag as shown in Figure 5-1. Due to marking of each element, it is called a markup language.
+
+<p> Iama student <\p> Opening tag Closing tag <P> Iam in class 9 <\P> <P> My cat is very grumpy'</p> Le
+
+<P> Iam in computer section <\p> Content
+
+
+<p> Ihave a computer <\P> Element
+
+Figure 5-1 Example of Tag in HTML
+
+
+Unit 5 — Designing Website
+
+Do you know?
+
+HTML is not case sensitive. It means that a tag written uppercase is not different from the one written in lowercase. For example, the paragraph tag p can be written as <p> or <P>. So, all of the following lines have same effect.
+
+
+5.1.2 Creating First Webpage and Displaying it
+
+To create a webpage, you need a text editor, a software to edit text in a file. In MS Windows, you can use Notepad and in Mac you use TextEdit. You can follow these four steps to create your first webpage.
+
+<IDOCTYPE html>
+
+Step 1. Open text editor. a <body>
+
+Step 2. Write some HTML content, as shown in
+
+<h1> My First Heading </hn1>
+
+<p> My First paragraph. </p> Figure 5-2. </body>
+
+</html>
+
+
+Step 3. Save the HTML Page
+
+a eee 5-2 a of HTML with extension .hAtm or |
+
+<a
+
+.Atml as shown in Figure File name: findextm | htm findextm | 5-3. Save as type
+
+
+©) Browse Folders Encoding: UTF-8 Vv
+
+Step 4. — In order to view your first Regula 5-3 saving HTML file
+
+webpage, just double
+
+click the HTML file you DY index.htm < > C [Bifile:/c:/Usersimyuser/Desktop/index.ntm a
+
+saved in step 3. A web My First Heading
+
+browser is automatically
+
+My First paragraph. opened to show your webpage as shown in
+
+Figure 5-4.
+
+
+Figure 5-4 My First webpage
+
+5.1.3 Identifying the Tags Used to Markup HTML Elements There are two types of tags in an HTML document.
+
+1- Paired Tags 2- Singular Tags
+
+
+Computer Science — 9
+
+
+Paired Tags Most of the tags in HTML are paired tags. They consist of a start tag, an end tag and contents between them. Following is the general structure of paired tags: <tagname> Contents </tagname> For example, tag p to create a paragraph in HTML document Is a paired tag. <p> I study in 9th class. </p>
+
+Singular Tags
+
+Some tags do not have closing tags and they are called singular tags or empty tags. They are simply written as <tagname>. For example, <br> for line break, <hr> to insert a horizontal line.
+
+5.1.4 Attributes in HTML Tags
+
+Attributes are the properties associated with tags. They provide some information with respect to a specific tag. Each attribute is given a value. Generally, a tag with attributes is written as:
+
+<tagname attributel="value” attribute2="value’” ..... attributeN="value">
+
+For example, <p align = “center"> Content </p> shows the content of a paragraph at centre with respect to left and right margins.
+
+5.1.5 Main Sections in a Webpage, HTML, HEAD and BODY e HTML: The HTML document begins cht with the tag <html> and ends with a </html>. It is the top level tag that tt contains the whole contents of a
+
+
+</title>
+
+F~.. <inead> webpage.
+
+An HTML document primarily consists
+
+Contents of my First webpage
+
+of two sections.
+
+1- Head Section 2- Body Section
+
+</body>
+
+</html>
+
+Figure 5-5 Sections of a Webpage
+
+These sections are shown in Figure 5-5, and explained in the following.
+
+
+
+Unit 5 — Designing Website
+
+e Head Section: Head section typically defines the document title, styles and other information about the whole document. Head section starts with <head> tag and ends with </head>. To specify title of the webpage, you use <title> tag inside <head> </head> tags. Figure 5-5 shows an example, where we set the title of the webpage as “Welcome to class 9 of my school" by writing it inside <title> </title> tags.
+
+e Body Section: Body section contains the actual contents of a webpage that are visible inside a webpage. This section starts with <body> tag and ends with </body>.
+
+Activity 5.1
+
+Create a webpage having title “Information about Pakistan”.
+
+
+Save the webpage with name “Pakistan.html”.
+
+5.2 Text Formatting
+
+5.2.1 Content Formatting in HTML
+
+HTML defines special elements for defining text with a special meaning. Here
+
+is the description about performing various content formatting tasks in HTML.
+
+e Creating a paragraph: The <p> tag marks starting of a paragraph, and </p> tag marks closing of the paragraph. The text inside <p> </p> tags is actual contents of the paragraph.
+
+e Insert line breaks: The <br> element inserts a line break without starting a new paragraph. For example, <p>This is<br>a paragraph</p> displays text in two lines, as following.
+
+This is a paragraph e Insert spaces: If you insert multiple spaces in a text, HTML only considers
+
+one space and ignores the others. For example, <p> I _ study in 9th class. </p> generates the following output.
+
+I study in 9th class.
+
+
+Computer Science — 9
+
+
+You can see that HTML has ignored the multiple spaces inside the text. In order to insert spaces you need to write "&nbsp;" where the space is needed. For example, <p> I study &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Snbsp; in 9°" class. </p> generates the following output.
+
+I study in 9th class.
+
+In order to add two spaces, you can use "&ensp;". e Add headings/sub-headings: Headings are defined with the | "@@¢ing 1
+
+<hl> to <h6> tags. <hl> defines the most important peas Heading 3
+
+heading. <h6> defines the least important heading. For | Heading 4
+
+example, <hl>Heading 1</hl> <h2> Heading 2 </h2 » | treading s <h3> Heading 3 </h3> <h4> Heading 4 </h4> <h5> | Heading 6
+
+Heading 5 </h5> <h6> Heading 6 </h6> produces the Figure 5-6 Headings
+
+
+output shown in Figure 5-6.
+
+Activity 5.2
+
+In the file “Pakistan.html", create a first level heading “Pakistan”. Inside this heading, write a paragraph about Pakistan.
+
+
+5.2.2 Identify the Text Formatting Tags
+
+The <font> tag specifies the font styles, font size, and colour of text. You can use color attribute of the <font> tag to specify the colour of text. For specifying the size of text, size attribute is used. Similarly, face attribute is used to set the font style of text. For example, <font color="red" size="5" face="verdana"> Some Text</font>.
+
+Below are some examples for usage of <font> tag, along with their output.
+
+MY | ole (<M Yal yo) of 1s
+
+<font color="red">This is some text! </font> This is some text! <font size="5" color="blue">This is some text! </font> This is some text!
+
+<font face="verdana">This is some text! </font> This-is sone taut!
+
+
+Unit 5 — Designing Website
+
+Important Note
+
+In HTML, you write US English so you use “color” instead of “colour” which is used in British English.
+
+Important Note
+
+The <font> tag is deprecated in HTMLS, the latest version of HTML. HTML uses tags like <b>, <i>, <u> to make text bold, italic or underline
+
+respectively. Below are some examples for usage of these tags, along with
+
+their outputs.
+
+HTML Code Snippet <b>This text is bold</b> This text is bold <i>This text is italic</i> This text is italic This is an <u>underline text</u> This is an underline text
+
+
+5.3 Creating Lists
+
+Sometimes, you need to provide information in the form of lists e.g. list of subjects, list of teachers, list of friends etc. In the following, we study what
+
+type of lists are available in HTML and how to create them.
+
+5.3.1 Types of Lists There are following three types of lists in HTML:
+
+e Unordered List In an unordered list, the order of the list items is not important. In other words, shuffling of items in an unordered list has no effect. For example, list of cities in Pakistan. An unordered list is created inside the <ul> </ul> tags. Each
+
+list item is added with <li> tag, as shown below.
+
+MY | ole (<M Yaly 0) oli
+
+<li>Item</li> <li>Item</li> <li>Item</li>
+
+<li>Item</li>
+
+
+
+Computer Science — 9
+
+Ordered List An ordered list keeps each list item with an order number. If you change the
+
+order, the meaning of the whole list may also change. For example, if your teacher makes a list of students with respect to their marks then definitely order will matter.
+
+An ordered list starts with <ol> and ends with </ol> tag. Each list item Starts with <li> tag, as shown below.
+
+W]e ole (<M yal yo) of 11
+
+<li>First item</li> . First item <li>Second item</li> . Second item <li>Third item</li> . Third men <li>Fourth item</li> - Fourth item
+
+
+Definition List There is another type of list, called “Definition list” or “Description list”. It is
+
+used when you need to show some terms and their descriptions. For example, if you want to write names of subjects you are studying in 9" class along with their introduction then this type of list is helpful. The <dl> tag is used to define the description list, the <dt> tag specifies the term, and the <dd> tag describes that term as shown in the following example.
+
+MY | Mi ole (MY al yo) of 13
+
+<dt>Coffee</dt> Coffee <dd>- black hot drink</dd> - black hot drink <dt>Milk</dt> Milk
+
+<dd>- white cold drink</dd> - white cold drink
+
+
+Nested Lists In a list, a list item can contain another list. Such list is called a nested list. It is
+
+useful for situations where you have multiple options for a single item in a list e.g. for writing table of contents that contain sub-sections. For example, see the following code snippet and its output.
+
+
+Unit 5 — Designing Website
+
+HTML Code Snippet
+
+<ul> <li>Coffee</li> <li>Tea e Coffee <ul> e Tea <li>Black Coffee </li> o Black Coffee
+
+o Green tea
+
+<\|i> </\i> li>Green tea</li 5 nik
+
+</ul> </li> <li> Milk</li> </ul>
+
+Activity 5.3
+
+In the file “Pakistan.html"”, create a list of provinces of Pakistan, and in each province make a list of at least 5 cities.
+
+
+5.4 Images and Backgrounds In a webpage, images are added with the <img> tag in HTML. The <img> tag
+
+is an empty tag but it contains attributes of an image. For example, the sre
+
+attribute specifies the URL (web address) of the image. <img src="url" >
+
+e Adding an Image Images can improve the design and the appearance of a webpage. In HTML, images are added with the <img> tag. The attributes “width” and “height” can be used to specify the width and height of the image respectively. The “border” attribute can be used to specify the border size around the image. The alt attribute provides an alternate text for an image,
+
+if the image is not displayed due to any reason.
+
+Example:
+
+<img src="https://www.publicdomainpictures.net/ pictures/180000/ velka/tree-1465369020Wxg.jpg" border="2" width="200" height="200" alt="A Green Tree'>
+
+
+The output is shown in Figure 5-7. Figure 5-7 HTML image
+
+ney,
+
+
+Computer Science — 9
+
+= ee ee a a - nico i —
+
+
+Applying Background and Foreground Colours to a Webpage
+
+The bgcolor attribute of <body> tag specifies the background colour of a document and text attribute specifies the foreground text colour of the webpage. These attributes are no longer supported in HTML5.
+
+See the following example: Hello world!
+
+<body bgcolor="#E6E6FA" text="red"> <h1>Hello world! </h1> </body>
+
+The output is shown in Figure 5-8.
+
+Figure 5-8 bgcolor Assign a background image to the webpage
+
+The background attribute of the <body> tag specifies the background image of a document or webpage. See the following example: <body background="myimage.jpg">. The output is shown in Figure 5-9.
+
+Ci nti ae | = ia] x
+
+
+— ——————
+
+Figure 5-9 Background image
+
+Activity 5.4
+
+In the file “Pakistan.html", set the background colour to Green, and set the foreground text colour to white.
+
+
+
+Unit 5 — Designing Website
+
+5.5 Define a Hyperlink
+
+Hyperlink is such an icon, graphic, or text in a webpage, that when clicked,
+
+takes you to some other webpage.
+
+5.5.1 Create a hyperlink to a webpage
+
+The <a> tag is used to create a hyperlink in a webpage. The href attribute is used to specify the URL of the linked webpage. For example, <a href="http://www. google.com">Visit www.google.com </a> makes the text “Visit www.google.com” a hyperlink. If you click on this text in the webpage, it
+
+takes you to the website www.google.com.
+
+Activity 5.5
+
+In the file “Pakistan.html”, create a hyperlink to the article about Pakistan at Wikipedia. The article can be found at URL: “https://en.wikipedia.org/wiki/Pakistan”.
+
+
+5.5.2 Define an anchor Anchor links allow you to go from one part of the same page to another part.
+
+Both hyperlinks and anchors are defined by the HTML anchor element <a>.
+
+5.5.3 Create an anchor to hyperlink within a webpage Suppose you have an html page with a lot of text, and after reaching bottom
+
+of the page, user needs to scroll up to reach the top of page. You can add a link at the bottom of page that takes the user directly to the top of page. For
+
+this purpose, you need to follow these steps.
+
+1- Create an anchor at the top of page, and give it a name, eg. <a
+
+name= ‘top’ ></a>
+
+2- Create an anchor link at the bottom of page that uses href attribute to link
+
+to the anchor created in 1° step. Name of the anchor should be preceded
+
+by # sign in the href attribute, e.g. <a href="#top”>Go to top</a>
+
+
+
+Computer Science — 9
+
+You can give any name to an Top of page! anchor, and then use the same Thies Gp obtiepacewilitert name with preceding # sign to move to that anchor. This is shown in Figure 5-10 and Figure
+
+a= LL.
+
+
+Figure 5-10 Anchor example
+
+In Figure 5-11, by clicking the “Go to top” link you will jump back to
+
+End of page!
+
+the top of the page
+
+This is end of the page with text.
+
+Go to top
+
+
+Figure 5-11 Anchor link example
+
+5.5.4 Create a graphical hyperlink
+
+You can also use an image as a hyperlink, by using the <img> tag inside the
+
+<a></a> tags. We can see this in the following example. An image that is a hyperlink:
+
+<a href="https://www.google.com"> <img src="smiley.gif" alt="Go to google!" width="50" height="50" border="1">
+
+</a>
+
+The output is shown in Figure 5-12. An image that is a hyperlink
+
+Figure 5-12
+
+
+5.6 Creating Tables In HTML, a table is defined with the <table> tag. Each table row is defined
+
+with the <tr> tag. A table header is defined with the <th> tag. A table data or cell is defined with the <td> tag.
+
+
+
+Unit 5 — Designing Website
+
+See the following example with output (Figure 5-13):
+
+<table > <tr> <th>Firstname</th> <th>Lastname</th> <th>Age</th> </tr> <tr> <td>Ali</td><td>Ahmed </td> <td>50</td> </tr> <tr> <td>Usman</td><td>Ali</td> <td>60</td> </tr> </table>
+
+
+Figure 5-13 Table tag output Apply the following table attributes:
+
+e colspan: To make a cell soan more than one columns, colspan attribute is used. See the following example with output (Figure 5-14):
+
+<table> <tr> <th>Name</th> <th colspan="2">Telephone</th> </tr> <tr> <td> Ali Anmed</td> <td>5557785412</td> <td>5557785545 </td> </tr> </table>
+
+Cell that is spans two columns
+
+Ali Ahmed 557785412 5557785545
+
+Figure 5-14 Col span output
+
+
+Computer Science — 9
+
+
+e rowspan: To make a cell span more than one row, rowspan attribute is used. See the following example with output (Figure 5-15):
+
+<table> <tr> <th>Name:</th> <td>Ali Anmed </td> </tr> <tr> <th rowspan="2">Telephone:</th> <td>5557785423 </td> </tr> <tr> <td>55577855456</td> </tr> </table>
+
+
+5557785425 Telephone: 55577855456
+
+Figure 5-15 Row span output
+
+Activity 5.6
+
+In the file “Pakistan.html”, create a table that shows the population of largest cities in different provinces of Pakistan. Your table should be structured as follows.
+
+Province city, | Population Khyber Pakhtunkhwa
+
+Punjab flare Faisalabad pe Rawalpindi po
+
+Gujranwala
+
+Sindh Hyderabad
+
+
+Unit 5 — Designing Website
+
+SUMMARY
+
+HTML is Hypertext Markup Language and its purpose is to create a webpage.
+
+A website consist of webpages.
+
+The head element is a container for metadata.
+
+The visible part of the HTML document is between <body> and </body>.
+
+Text formatting refers to the attributes of text other than the actual text itself.
+
+There are different types of lists in HTML such as unordered, ordered, and description lists.
+
+Hyperlink is an icon, graphic, or text in a document by which you move around on the other documents
+
+To move from one part of the same page to the other page we use anchor.
+
+In HTML the <table> tag defines table.
+
+
+| BR[EXERCISE,
+
+5.1 Choose the correct option.
+
+1. An individual list item can contain another entire list called (1) Ordered list (il) Unordered list (iil) Nested list (iv) Definition list 2. HTML is nota language. (i) Programing (il) Markup (iii) § Bothi and il (iv) None of above 3. Webpages can be created and modified by using : (1) Notepad ++ (ii) Notepad (iil) = TextEdit (iv) All of above 4. An HTML element usually consists of a tags. (1) Start (iI) End (iii) Start and End (iv) None of above
+
+
+
+Computer Science — 9
+
+5.
+
+10.
+
+The element is a container for metadata (data about data). (1) <body> (il) <head> (111) <title> (iv) <html> To save the HTML Page, you can use as file extension. (1) htm (il) html (il) = =xhtml (iv) Both i and i There are of headings in HTML document. (i) 4 (il) 5 (iil) 6 (iv) 1 tag is used to display data in tabular form. (1) td (il) table (il) str (iv) th A hyperlink can be applied to (1) image (il) text (iil) Both | and ti In “body” tag is used to make a picture of a background image of a webpage?. (1) bg (il) background (iil) bgiamge (iv) Both | and ti
+
+Fill in the blanks. make a cell soan more than one row.
+
+By clicking on special text called which bring you to the next page.
+
+The ___ attribute specifies the foreground colour of the webpage.
+
+In HTML, images are defined with the tag.
+
+refers to the way tags are used to define the page layout and elements within the page. HTML is a computer language which is used to create tag makes the enclosed text bold Tags and text that are not directly displayed on the page are written in section.
+
+tag is used for inserting a line break.
+
+
+
+Unit 5 — Designing Website
+
+attribute is used with img tag to display the text if image could not load in browser. Give short answers. Differentiate between ordered and unordered list. Describe the basic text formatting tags. What is difference between hyperlink and anchor? Create a basic table with following attributes: e colspan e rowspan Explain the steps involved to create a HTML page. Write the output of the following HTML
+
+<html> <head> <title> My Webpage</title> </head> <body> <ol> <li> Sports <dl> <dt>Cricket</dt> <dd>Each team has 11 players</dd> <dt>Badminton</dt> <dd>Each team has 1 or 2 players</dd> <dt>Chess</dt> <dd>Each team has exactly 1 player</dd> </dl> </li> <li> Cities of Pakistan <dl> <dt>Lahore</dt> <dd>Capital of Punjab</dd> <dt>Karachi</dt> <dd>Capital of Sindh</dd> <dt>Peshawar</dt> <dd>Capital of Khyber Pakhtunkhwa</dd> <dt>Quetta</dt> <dd>Capital of Balochistan</dd>
+
+</dl> </li> </ol> </body> </html>
+
+
+Computer Science — 9
+
+
+5.5 Write HTML to get the following output a Algorithms Plain Interest Calculation This algorithm takes number of years, amount and interest rate as input and produces total plain interest Start Input numbers years, amount, rate Set Plain Interest to years * (amount*rate/100) Print Plain Interest 5. Stop Acceleration Calculation This algorithm takes mass and force as input and produces acceleration 1. Start Input numbers mass, force Set Acc to force/mass Print Acc Stop
+
+oN
+
+tg YY
+
+Activity 5.7
+
+Create a webpage showing the subjects you are studying in 9th class and the professions you can join if you become expert in that subject. Display each profession with the image of some famous personality in that field. For example, in the field of computer science, you can display
+
+" “
+
+image of Bill Gates and possible professions are, “Software Developer”, “Database
+
+mou most
+
+Administrator”, “Network Administrator”, “Software Architect”, etc.
+
+You can display the subjects as ordered list while the professions can be displayed as sub-list.
+
+
+
+Answers, Glossary and Index
+
+
+ee 6. IP
+
+NJ
+
+Choose the correct option. (ii) (iil) (i) (i) (ii) Fill in the blanks. analyse steps. symbols, text decision making. Verification
+
+ae eo eS ee Ww
+
+2.1 Multiple Choice Questions
+
+L (i)
+
+y) (ii)
+
+3, (i)
+
+4. (iii
+
+5. (iil)
+
+6. (il)
+
+2.3 Fill in the Blanks
+
+1. volatile , non-volatile 2. RAM
+
+3. one
+
+4. compound proposition oe bytes
+
+6. Associative
+
+3-1 Choose the correct option. 1 (iil)
+
+2. (iI)
+
+oF (iil)
+
+4. (iv)
+
+5. (iI)
+
+3-2 Fill in the blanks.
+
+dg client.
+
+2: Mail server
+
+3. client/server.
+
+4. rules and regulations. 5. networks.
+
+7. protocol.
+
+8. electronic mail. 9. channels.
+
+10. client.
+
+i] any
+
+Choose the correct option.
+
+(i)
+
+(iv)
+
+(iil)
+
+(iil)
+
+(iv) Fill in the blanks: Piracy. Computation. Encryption. Interim cypher text. Denial of Service
+
+URWNPWORWNeE NJ
+
+[=
+
+Choose the correct option. (ill) (i) (iv) (iil) (il) (iv) (iil) (ii) (iil) (il) Fill in the blanks. rowspan hyperlink text <img> A markup language a webpage <b> <head> <br> alt
+
+FP WOcmOnN nDUOBRWNHO FP UI NS
+
+oe SoU ee SP
+
+— oO
+
+
+Computer Science — 9
+
+Algorithm Set of steps written in textual form to solve a problem
+
+
+
+
+Application layer A layer used by some application to send/receive data over a network
+
+Binary system A number system where there are only 1s and Os
+
+Bus topology All devices are connected with each using a single common cable
+
+Caesar Caesar was a Roman politician and a military general
+
+
+Client computer A computer that gets some service from some other computer. For example, if you are using a web browser then your computer is working as client that moment.
+
+
+Cookies Information sent by a webserver and stored by a web browser.
+
+
+Data communication A process to exchange data between two devices
+
+
+File sharing Sending or receiving files using some network of devices
+
+
+Hacking Accessing a computer without informing its owner.
+
+
+Giving data to a computer
+
+
+IPv6 Internet Protocol version 6. It is a set of numbers to identify a device over a network. IPv4 has size 128 bits.
+
+
+PNA] Mm Cl (okt-lavar-licels ivel=>.¢
+
+
+Non-volatile A memory that stores data even it is not connected to power memory
+
+
+To see data on an output device, like printer, monitor, speaker etc.
+
+
+
+Phishing attack Sending email to someone to get his/her passwords and other sensitive information.
+
+
+Planning a solution Finding the right strategy for problem solving
+
+
+Port number If a computer A sends many messages to computer B and there are many applications on the computer B which can receive a message, then port number added by the computer A will distinguishes the specific application.
+
+A proposition is evaluated in a truth value, i.e., either true or false
+
+
+Pictorial representation
+
+
+A router is used for forwarding data from one network to some other network.
+
+a ¥ 2
+
+: re °
+
+=" a me}
+
+0 ° ° =
+
+< ,
+
+xo] er,
+
+© re)
+
+5
+
+
+Softlifting Borrowing a software from someone and installing on a computer with paying
+
+
+Storage device A device used to store data. For example hard disk, flash drive etc.
+
+
+
+
+Date used to determine whether a proposed solution if correct or not
+
+
+= + > © Lae ped 2. : a = re} = | @ oF
+
+A network of networks
+
+
+Computer Science — 9
+
+
+
+Truth value A value that is either true or false
+
+Verification Verification means to test if the solution is actually solving the same problem for which it was designed
+
+Volatile memory A memory that stores data when connected to power
+
+Wi-Fi It is technology used to make a network of devices wirelessly
+
+
+
+
+
+
+adcressng 5465677002002 54,65,°67, 71,72
+
+Algorithm, 1, 14, 15, 16, 17, 18, 19, 21, 22, 23, 24, 25, 27, 28, 29, 30, 32, 89, 116, 118
+
+Anchor, 99, 109, 110, 113
+
+Applications, 54, 65, 66, 118 Associative, 33, 48, 50
+
+Binary, 33, 34, 35, 36, 37, 38, 39, 40, 50, 52, 67, 118, Bit, 33, 43, 67, 88, 118
+
+Boolean Algebra, 33, 44, 47, 50
+
+Boolean Proposition, 33, 44, 49
+
+Border, 99, 107, 110
+
+Byte, 33, 42, 43, 118
+
+Candid solutions, 3, 5
+
+Captcha, 97
+
+Ciphertext, 81, 83, 85, 86, 88, 95
+
+Colspan, 99, 111, 115
+
+Communication, 53, 54, 56, 58, 60, 61, 62, 64, 65, 66, 69, 70, 90, 118
+
+Commutative, 33, 47, 48, 50
+
+Computer network, 53, 54, 55, 62, 63, 70, 90, 95 Confidentiality, 74, 75, 80, 95
+
+Conversion, 33, 35, 37, 38, 40, 68, 73, 81, 95, 118 Counterfeiting, 76, 95
+
+Cyber attack, 93, 95
+
+Cybercrime, 90, 91, 118
+
+Cypher text, 85, 88
+
+Data Representation, 40
+
+data storage, 33, 41
+
+Decimal, 33, 34, 35, 36, 37, 40, 50, 68, 118 Distributive, 33, 49, 50
+
+Encoding, 81, 95
+
+Encoding data, 81
+
+F
+
+Flowchart, 1, 6, 7, 8, 9, 10, 11, 14, 18, 23, 29, 32, 118 Flowchart Symbols, 1, 8,
+
+Gigabyte, 33
+
+hacking, 91, 95, 118 Hard-disk loading, 76, 95 Hardware, 43, 50, 54,55, 58
+
+Hexadecimal, 33, 34, 36, 37, 38, 39, 50, 67, 118
+
+HTML, 66, 98, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 112, 113, 119 Hyperlink, 99, 100, 109, 110
+
+Identity, 33, 49, 50, 90
+
+Image, 60, 66, 93, 99, 107, 108, 110
+
+Internet, 33, 53, 54, 55, 56, 62, 63, 66, 67, 68, 69, 70, 71, 73, 74, 76, 80, 81, 82, 90, 91, 95, 98, 118, 119
+
+Kilobyte, 33
+
+Liability, 95
+
+List, 3,4, 6,27, 28, 35, 99,105, 106, 113 Logical expressions, 33, 49
+
+Logical Operators, 33, 45
+
+Megabyte, 33
+
+Memory, 8, 9, 17, 18, 19, 20, 21, 22, 33,39, 40, 42, 43, 50, 118, 119
+
+Message, 25, 29, 53, 60, 61, 62, 63, 64, 65, 69, 70, 73, 81, 83, 84, 86, 87, 89, 92, 118
+
+Metadata, 113
+
+Networks, 53, 54, 56,57, 59, 61, 63, 67, 68, 69,119 Non-volatile Memory, 39, 40 Number systems, 33, 34, 35
+
+Online piracy, 76
+
+Passwords, 73, 89, 90, 95, 118
+
+Patent, 74, 77,95, 97, 118
+
+Petabyte, 33, 43
+
+Piracy, 75, 76, 91, 95, 118
+
+Postal Services, 53
+
+Problem, 1, 2, 3, 4, 5, 6, 7, 8, 15, 16, 21, 22, 23, 24, 25, 26, 29, 35, 58, 59, 88, 118, 119
+
+privacy, 73, 74, 78, 79, 80, 81, 82, 93, 95
+
+Problem analysis, 3
+
+Protocol,53, 61, 62, 64, 65, 67, 70, 118, 119
+
+Receiver, 53, 58, 60, 61, 62, 63, 70, Recipients, 65, 92
+
+Router, 53, 64, 68, 69, 70, 119 Routing, 53, 68, 69, 70
+
+Rowspan, 99, 112
+
+
+Computer Science — 9
+
+= Sender, 53, 58, 60, 61, 62, 63, 64, 69, 70, 92
+
+Server, 53, 56, 57, 63, 64, 65, 66, 67, 70, 76, 89, 94, 95, 100, 118, 119
+
+Service, 53, 57,62, 68, 70, 74, 76, 77, 79, 93, 95, 118, 119
+
+Softlifting, 75, 95, 119
+
+Source, 3, 40, 50, 54, 55, 60, 65, 66, 69, 78, 89, 92, 93, 95
+
+Storage capacity, 56
+
+Storage Device, 33, 43, 50, 119,
+
+eS eee) table, 1, 8,17, 27, 28, 29, 33, 35, 36, 37, 38, 40, 42, 43, 46, 47, 48, 49, 50, 51, 62, 69, 84, 85, 86, 99, 106, 110, Li AL2, 113, 119
+
+Telephone, 53, 65,111, 112, 118
+
+Terabyte, 33, 43
+
+Test cases, 1
+
+Test data, 1, 24, 25, 26, 29, 119
+
+Testing, 1, 24, 25, 29, 119
+
+Text formatting, 98, 103, 104, 113
+
+Textedit, 105
+
+Trace table, 1,27, 28, 29,119
+
+Trade secrets, 76, 77, 95
+
+Transmission Medium, 53, 58, 62
+
+Truth tables, 33, 46, 47,49
+
+Truth values, 33, 44, 45, 46,
+
+
+User communication, 56
+
+verification, 1, 26, 27, 29, 48, 119 Volatile memory, 39, 40, 50,119 Validation, 1, 26, 27, 29, 119
+
+Warranty, 95 Webpage, 65, 66, 76, 98, 99, 100, 101, 102, 103, 107, 108,109,113
