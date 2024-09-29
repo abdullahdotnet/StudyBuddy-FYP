@@ -108,7 +108,7 @@ const Login = () => {
               className="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#f4cbb3] focus:border-transparent"
             />
             <a
-              href="/forgot-password"
+              href="/reset-password"
               className="text-sm text-gray-500 mt-2 inline-block"
             >
               Forgot Password?

@@ -16,6 +16,8 @@ import Extras from "../pages/Extras/Extras";
 import Extra2 from "../pages/Extras/Extras2";
 import Login from "../pages/Login/Login";
 import Signup from "../pages/Signup/Signup";
+import ResetPasswordEmail from "../pages/ResetPassword/EmailPage";
+import ResetPasswordNew from "../pages/ResetPassword/NewPassPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,6 +40,8 @@ const router = createBrowserRouter(
       <Route path="/" element={<NoNavbarLayout />}>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="reset-password" element={<ResetPasswordEmail />} />
+        <Route path="reset-password/:uid/:token" element={<ResetPasswordNew />} />
       </Route>
     </>
   )
