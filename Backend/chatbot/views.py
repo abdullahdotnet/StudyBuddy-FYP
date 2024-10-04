@@ -106,6 +106,8 @@ compression_retriever = create_compression_retriever(llm, vector_store)
 # Define the system prompt for contextualized conversation
 system_prompt = (
     "Act as a conversational assistant similar to ChatGPT. Engage in natural dialogue and answer questions based on the context provided through the chat history or retrieved using Retrieval-Augmented Generation (RAG). If the relevant context is not found either in the conversation or via RAG, respond by stating that the information is unavailable or ask for more clarification from the user. Do not provide speculative or out-of-context information. Always ensure responses are precise and contextually relevant."
+    "\n\n"
+    "{context}"
 )
 
 # Create the RAG chain
@@ -113,15 +115,18 @@ rag_chain = create_rag_chain(llm, compression_retriever, system_prompt)
 
 
 @api_view(['POST'])
-def AskQuery(request):
+def ask_query(request):
+
+    global chat_history
     # Parse the input query
     query = request.data.get('query')
+    print(query)
     if not query:
         return Response({"error": "Query parameter is missing."}, status=400)
-    
+    print(query)
     # Run the RAG pipeline
     result = rag_chain.invoke({"input": query, "chat_history": chat_history})
-
+    print(query)
     # Append the user query and the system response to the chat history
     chat_history.extend(
         [
@@ -129,12 +134,12 @@ def AskQuery(request):
             AIMessage(content=result["answer"]),
         ]
     )
-    
+    print(result['answer'])
     # Return the response
     return Response({
         "query": query,
         "answer": result["answer"],
-        "context": result.get("context", "No context provided"),
+        "context": [result.get("context", "No context provided")],
         "chat_history": [msg.content for msg in chat_history]
     })
 
