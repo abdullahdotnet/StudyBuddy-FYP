@@ -26,7 +26,7 @@ import os
 from langchain.schema import Document
 
 def load_documents():
-    loader = TextLoader("9thComputerScience_cleaned.txt")
+    loader = TextLoader("E:\\University\\Final Year Project\\StudyBuddy-FYP\\Backend\\LLMs\\LearningChatBot\\resources\\9thComputerScience_cleaned.txt",encoding='utf-8')
     documents = loader.load()
     return documents
 
@@ -66,12 +66,14 @@ def create_compression_retriever(llm, vector_store):
     compressor = LLMChainExtractor.from_llm(llm)
     compression_retriever = ContextualCompressionRetriever(
         base_compressor=compressor,
-        base_retriever=vector_store.as_retriever(search_kwargs={"k": 10}),
+        base_retriever=vector_store.as_retriever(search_kwargs={"k": 1}),
     )
     return compression_retriever
 
 # Create the history-aware retriever
 def create_history_aware_retriever(llm, retriever, system_prompt):
+
+    
     contextualize_q_prompt = ChatPromptTemplate.from_messages(
         [
             ("system", system_prompt),
@@ -86,6 +88,9 @@ def create_history_aware_retriever(llm, retriever, system_prompt):
 
 # Create the RAG chain
 def create_rag_chain(llm, retriever, system_prompt):
+    print("inside rag chain",'system prompt = ',system_prompt)
+
+    print('='*20)
     # Define the question-answering prompt
     qa_prompt = ChatPromptTemplate.from_messages(
         [
@@ -94,6 +99,12 @@ def create_rag_chain(llm, retriever, system_prompt):
             ("human", "{input}"),
         ]
     )
+    print("inside rag chain",qa_prompt)
+    print('='*20)
     question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
+    print("question_answer_chain generated")
+    print('='*20)
     rag_chain = create_retrieval_chain(retriever, question_answer_chain)
+    print("rag_chain generated")
+    print('='*20)
     return rag_chain
