@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const getuserdata = async () => {
@@ -30,6 +31,7 @@ const Login = () => {
   };
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (!email || !password) {
       return handleError("Please fill in all fields");
     }
@@ -120,7 +122,7 @@ const Login = () => {
             type="submit"
             className="w-full bg-[#f4cbb3] hover:bg-[#f0b490] text-white py-3 rounded-md text-lg focus:outline-none transition duration-300"
           >
-            Login
+            {loading ? "Logging In..." : "Login"}
           </button>
         </form>
         <ToastContainer />
