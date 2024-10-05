@@ -6,6 +6,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const messageEndRef = useRef(null);
+  const textareaRef = useRef(null);
 
   // Dummy responses
   const generateDummyResponse = () => {
@@ -30,12 +31,24 @@ const Chatbot = () => {
     }, 500);
 
     setInput(""); // Clear input field
+    textareaRef.current.style.height = "auto"; // Reset height to auto for re-calculation
+    textareaRef.current.style.overflow = "hidden"; // Hide scrollbar
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); // Prevents adding a new line
       handleSendMessage();
     }
+  };
+
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+
+    // Auto-resize logic
+    textareaRef.current.style.height = "auto"; // Reset height
+    textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 96)}px`; // Grow up to 3 lines max
+    textareaRef.current.style.overflow = textareaRef.current.scrollHeight > 96 ? "auto" : "hidden"; // Show scrollbar if content exceeds 3 lines
   };
 
   useEffect(() => {
@@ -43,14 +56,15 @@ const Chatbot = () => {
   }, [messages]);
 
   return (
-    <div className="flex flex-col mt-20 mx-auto"> {/* Ensure no overlap with the navbar */}
+    <div className="flex flex-col mt-20 mx-auto">
       
       {/* Messages Section */}
       <div className="flex-grow p-6 overflow-auto">
         <div className="flex flex-col space-y-4">
           {messages.map((msg, index) => (
             <div key={index} className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}>
-              <div className={`${msg.isUser ? 'bg-gray-100' : 'bg-white'} p-4 rounded-lg shadow-md max-w-xs`}>
+              <div className={`${msg.isUser ? 'bg-gray-100' : 'bg-white'} p-4 rounded-lg shadow-md max-w-xs whitespace-pre-wrap`}>
+                {/* Add "whitespace-pre-wrap" to preserve line breaks */}
                 <p className={`${msg.isUser ? 'text-gray-800' : 'text-gray-800'}`}>{msg.text}</p>
               </div>
             </div>
@@ -65,13 +79,15 @@ const Chatbot = () => {
           <button className="mr-4">
             <FontAwesomeIcon icon={faUpload} size="lg" className="text-orange-400 hover:text-orange-600" />
           </button>
-          <input
-            type="text"
-            className="flex-grow p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+          <textarea
+            ref={textareaRef}
+            className="flex-grow p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none overflow-hidden"
             placeholder="Type your message..."
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={handleInputChange}
             onKeyPress={handleKeyPress}
+            rows={1}
+            style={{ maxHeight: "96px" }} // Maximum height set to 3 lines
           />
           <button className="ml-4" onClick={handleSendMessage}>
             <FontAwesomeIcon icon={faPaperPlane} size="lg" className="text-orange-400 hover:text-orange-600" />
@@ -83,23 +99,3 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
-
-
-{/* <div className="p-6 bg-white border-t fixed bottom-3 w-fill-available mr-10">
-<div className="flex items-center">
-  <button className="mr-4">
-    <FontAwesomeIcon icon={faUpload} size="lg" className="text-orange-400 hover:text-orange-600" />
-  </button>
-  <input
-    type="text"
-    className="flex-grow p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-    placeholder="Type your message..."
-    value={input}
-    onChange={(e) => setInput(e.target.value)}
-    onKeyPress={handleKeyPress}
-  />
-  <button className="ml-4" onClick={handleSendMessage}>
-    <FontAwesomeIcon icon={faPaperPlane} size="lg" className="text-orange-400 hover:text-orange-600" />
-  </button>
-</div>
-</div> */}
