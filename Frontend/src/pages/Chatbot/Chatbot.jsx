@@ -38,15 +38,15 @@ const Chatbot = () => {
     }
   };
 
-  // useEffect(() => {
-  //   messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  // }, [messages]);
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   return (
-    <div className="flex flex-col border-double border-4 border-indigo-600"> {/* Ensure no overlap with the navbar */}
+    <div className="flex flex-col mt-20 mx-auto"> {/* Ensure no overlap with the navbar */}
       
       {/* Messages Section */}
-      <div className="flex-grow p-6 overflow-auto mb-20">
+      <div className="flex-grow p-6 overflow-auto">
         <div className="flex flex-col space-y-4">
           {messages.map((msg, index) => (
             <div key={index} className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}>
@@ -60,7 +60,7 @@ const Chatbot = () => {
       </div>
 
       {/* Fixed Input Section */}
-      <div className="p-4 bg-white border-t fixed bottom-3 w-fill-available border-gray-300">
+      <div className="p-6 bg-white border-t fixed bottom-3 w-fill-available mr-12">
         <div className="flex items-center">
           <button className="mr-4">
             <FontAwesomeIcon icon={faUpload} size="lg" className="text-orange-400 hover:text-orange-600" />
@@ -83,3 +83,23 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+
+
+{/* <div className="p-6 bg-white border-t fixed bottom-3 w-fill-available mr-10">
+<div className="flex items-center">
+  <button className="mr-4">
+    <FontAwesomeIcon icon={faUpload} size="lg" className="text-orange-400 hover:text-orange-600" />
+  </button>
+  <input
+    type="text"
+    className="flex-grow p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+    placeholder="Type your message..."
+    value={input}
+    onChange={(e) => setInput(e.target.value)}
+    onKeyPress={handleKeyPress}
+  />
+  <button className="ml-4" onClick={handleSendMessage}>
+    <FontAwesomeIcon icon={faPaperPlane} size="lg" className="text-orange-400 hover:text-orange-600" />
+  </button>
+</div>
+</div> */}
