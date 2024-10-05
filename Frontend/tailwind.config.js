@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      width: {
+        'fill-available': '-webkit-fill-available',
+      },
       colors:{
         customDarkOrange: '#ff703c',
         customeLightOrange: '#FFCBA4'

@@ -38,15 +38,15 @@ const Chatbot = () => {
     }
   };
 
-  useEffect(() => {
-    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  // useEffect(() => {
+  //   messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  // }, [messages]);
 
   return (
-    <div className="flex flex-col h-screen pt-16 bg-gray-100"> {/* Ensure no overlap with the navbar */}
+    <div className="flex flex-col border-double border-4 border-indigo-600"> {/* Ensure no overlap with the navbar */}
       
       {/* Messages Section */}
-      <div className="flex-grow overflow-y-auto p-6">
+      <div className="flex-grow p-6 overflow-auto mb-20">
         <div className="flex flex-col space-y-4">
           {messages.map((msg, index) => (
             <div key={index} className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}>
@@ -60,7 +60,7 @@ const Chatbot = () => {
       </div>
 
       {/* Fixed Input Section */}
-      <div className="p-4 bg-white border-t border-gray-300">
+      <div className="p-4 bg-white border-t fixed bottom-3 w-fill-available border-gray-300">
         <div className="flex items-center">
           <button className="mr-4">
             <FontAwesomeIcon icon={faUpload} size="lg" className="text-orange-400 hover:text-orange-600" />
