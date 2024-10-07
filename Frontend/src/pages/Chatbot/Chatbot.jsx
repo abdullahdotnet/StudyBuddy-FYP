@@ -5,34 +5,42 @@ import { faPaperPlane, faUpload } from '@fortawesome/free-solid-svg-icons';
 const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // Loading state for API
   const messageEndRef = useRef(null);
   const textareaRef = useRef(null);
-
-  // Dummy responses
-  const generateDummyResponse = () => {
-    const responses = [
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
-      "I understand your question! Let's dive into it.",
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
-      "Okay, here's some information that should help."
-    ];
-    return responses[Math.floor(Math.random() * responses.length)];
-  };
 
   const handleSendMessage = () => {
     if (!input.trim()) return;
 
     const userMessage = { text: input, isUser: true };
     setMessages((prev) => [...prev, userMessage]);
+    setIsLoading(true); // Start loading
 
-    const botMessage = { text: generateDummyResponse(), isUser: false };
-    setTimeout(() => {
-      setMessages((prev) => [...prev, botMessage]);
-    }, 500);
+    // API call simulation
+    fetch("http://127.0.0.1:8000/api/chatbot/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query: input }), // Send the query
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const botMessage = { text: data.answer, isUser: false }; // API response as bot message
+
+        setMessages((prev) => [...prev, botMessage]);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        const errorMessage = { text: "Oops! Something went wrong.", isUser: false };
+        setMessages((prev) => [...prev, errorMessage]);
+      })
+      .finally(() => {
+        setIsLoading(false); // End loading
+      });
 
     setInput(""); // Clear input field
-    textareaRef.current.style.height = "auto"; // Reset height to auto for re-calculation
-    textareaRef.current.style.overflow = "hidden"; // Hide scrollbar
+    textareaRef.current.style.height = "auto"; // Reset height
   };
 
   const handleKeyPress = (e) => {
@@ -64,11 +72,18 @@ const Chatbot = () => {
           {messages.map((msg, index) => (
             <div key={index} className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}>
               <div className={`${msg.isUser ? 'bg-gray-100' : 'bg-white'} p-4 rounded-lg shadow-md ${msg.isUser ? 'max-w-[70%]' : 'max-w-[90%]'} whitespace-pre-wrap`}>
-                {/* Add "whitespace-pre-wrap" to preserve line breaks */}
                 <p className={`${msg.isUser ? 'text-gray-800' : 'text-gray-800'}`}>{msg.text}</p>
               </div>
             </div>
           ))}
+          {/* Loading Indicator */}
+          {isLoading && (
+            <div className="flex justify-start">
+              <div className="bg-white p-4 rounded-lg shadow-md max-w-[90%] text-gray-800">
+                <p>Buddy is thinking. Dont worry: I will blow your mind</p>
+              </div>
+            </div>
+          )}
           <div ref={messageEndRef} />
         </div>
       </div>
