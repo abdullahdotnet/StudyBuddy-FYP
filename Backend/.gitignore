@@ -167,3 +167,7 @@ cython_debug/
 # VS code
 .vscode
 credentials.*
+
+# Large Files
+cs9.pdf
+cs10.pdf
