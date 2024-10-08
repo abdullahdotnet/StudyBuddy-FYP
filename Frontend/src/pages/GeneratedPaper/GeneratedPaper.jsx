@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 function GeneratedPaper() {
   const [file, setFile] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState(''); // State for success message
+  const [successMessage, setSuccessMessage] = useState('');
+  const fileInputRef = useRef(null); // To access the file input programmatically
 
   // Handle file upload
   const handleFileUpload = (event) => {
@@ -36,8 +37,13 @@ function GeneratedPaper() {
     setSuccessMessage(''); // Clear previous success message
   };
 
+  // Trigger file input on button click
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+  };
+
   // Handle form submission or any additional logic with the file
-  const handleUploadClick = () => {
+  const handleFileSubmit = () => {
     if (!file) {
       setErrorMessage('No file uploaded. Please upload a file first.');
       setSuccessMessage('');
@@ -68,22 +74,32 @@ function GeneratedPaper() {
         </p>
       </div>
 
-      {/* File input */}
-      <div className="mb-4">
-        <input
-          type="file"
-          accept=".pdf, .jpg, .jpeg, .png"
-          onChange={handleFileUpload}
-          className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-        />
-        {/* Error message */}
-        {errorMessage && <p className="text-red-600 mt-2">{errorMessage}</p>}
-      </div>
+      {/* Hidden file input */}
+      <input
+        type="file"
+        accept=".pdf, .jpg, .jpeg, .png"
+        onChange={handleFileUpload}
+        ref={fileInputRef}
+        className="hidden" // Hide the input field
+      />
 
-      {/* Button to trigger upload */}
+      {/* Button to trigger file browsing */}
       <div className="flex justify-center w-full">
         <button
-          onClick={handleUploadClick}
+          onClick={handleButtonClick}
+          className="bg-customDarkTeal text-white font-bold py-2 px-4 rounded transition-all hover:bg-customLightTeal hover:text-black"
+        >
+          Browse and Upload Paper
+        </button>
+      </div>
+
+      {/* Error message */}
+      {errorMessage && <p className="text-red-600 mt-2">{errorMessage}</p>}
+
+      {/* Button to submit the selected file */}
+      <div className="flex justify-center w-full mt-4">
+        <button
+          onClick={handleFileSubmit}
           className="bg-customDarkTeal text-white font-bold py-2 px-4 rounded transition-all hover:bg-customLightTeal hover:text-black"
         >
           Upload Paper
