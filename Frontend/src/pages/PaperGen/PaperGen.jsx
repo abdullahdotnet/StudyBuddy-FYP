@@ -22,7 +22,7 @@ const PaperGen = () => {
     setGeneratedPaper(null); // Reset previous paper
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/test-session/board-paper-generate");
+      const response = await fetch("http://127.0.0.1:8000/api/test-session/board-paper-generate/");
       const data = await response.json();
 
       if (response.ok) {
