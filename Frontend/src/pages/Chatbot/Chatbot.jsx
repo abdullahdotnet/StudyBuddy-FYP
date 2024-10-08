@@ -1,87 +1,111 @@
-import React, { useState, useRef, useEffect } from 'react';
-// import { FaPaperPlane } from 'react-icons/fa';
-import { postData } from '../../services/apiService';
-
-// const dummyResponses = {
-//   "hello": "Hi there! How can I help you today?",
-//   "how are you": "I'm just a bot, but I'm doing great! How about you?",
-//   "i am good": "That's great to hear! How can I assist you today?",
-//   "i am working on chatbot creation": "That's awesome! I'm a chatbot too! 😄",
-//   "bye": "Goodbye! Have a great day!"
-// };
+import React, { useState, useEffect, useRef } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaperPlane, faUpload } from '@fortawesome/free-solid-svg-icons';
 
 const Chatbot = () => {
-  const [messages, setMessages] = useState([]);  // handling chat messages
-  const [input, setInput] = useState('');   // handling user input
-  const [response, setResponse] = useState('');   // handling rerendering errors
-  const messagesEndRef = useRef(null);    // for scrolling to the bottom of the chat
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // Loading state for API
+  const messageEndRef = useRef(null);
+  const textareaRef = useRef(null);
 
-  // Extracting the result part from the response
-  const formatResponse = (response) => {
-    const resultStart = response.indexOf('Result:') + 'Result:'.length;
-    const resultEnd = response.indexOf('\n\n', resultStart);
-    // Extract and return the result part, trimming any extra whitespace
-    return response.substring(resultStart, resultEnd).trim();
+  const handleSendMessage = () => {
+    if (!input.trim()) return;
+
+    const userMessage = { text: input, isUser: true };
+    setMessages((prev) => [...prev, userMessage]);
+    setIsLoading(true); // Start loading
+
+    // API call simulation
+    fetch("http://127.0.0.1:8000/api/chatbot/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query: input }), // Send the query
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const botMessage = { text: data.answer, isUser: false }; // API response as bot message
+
+        setMessages((prev) => [...prev, botMessage]);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        const errorMessage = { text: "Oops! Something went wrong.", isUser: false };
+        setMessages((prev) => [...prev, errorMessage]);
+      })
+      .finally(() => {
+        setIsLoading(false); // End loading
+      });
+
+    setInput(""); // Clear input field
+    textareaRef.current.style.height = "auto"; // Reset height
   };
 
-  const handleSend = async () => {
-    if (input.trim() === '') return;
-    // Calling the API to get the response
-    const getResponse = async () => {
-      const { data, error } = await postData('/api/chatbot/', { query: input });
-      if (error) {
-        setResponse("Some error has happened so the response is not available");
-        return error;
-      } else {
-        setResponse(data);
-        return data.response;
-      }
-    };
-
-
-    const newMessages = [...messages, { type: 'user', text: input }];
-    setMessages(newMessages);
-
-    // getting the response and formatting it
-    const apiResponse = await getResponse();
-    const formattedResponse = formatResponse(apiResponse) || dummyResponses[input.toLowerCase()] || "I'm sorry, I don't understand that";
-
-    setMessages([...newMessages, { type: 'bot', text: formattedResponse }]);
-    setInput('');
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); // Prevents adding a new line
+      handleSendMessage();
+    }
   };
 
-  // To scroll to the bottom of the chat
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+
+    // Auto-resize logic
+    textareaRef.current.style.height = "auto"; // Reset height
+    textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 96)}px`; // Grow up to 3 lines max
+    textareaRef.current.style.overflow = textareaRef.current.scrollHeight > 96 ? "auto" : "hidden"; // Show scrollbar if content exceeds 3 lines
+  };
+
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   return (
-    <div className="flex justify-center items-center h-screen ">
-      <div className="bg-white w-2/3 p-4 rounded-lg shadow-lg">
-        <div className="h-96 overflow-y-auto mb-4">
+    <div className="flex flex-col mt-20 mx-auto">
+      
+      {/* Messages Section */}
+      <div className="flex-grow p-6 overflow-auto">
+        <div className="flex flex-col space-y-4">
           {messages.map((msg, index) => (
-            <div key={index} className={`mb-2 ${msg.type === 'user' ? 'text-right' : 'text-left'}`}>
-              <div className={`inline-block p-2 rounded-lg ${msg.type === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-black'}`}>
-                {msg.text}
+            <div key={index} className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}>
+              <div className={`${msg.isUser ? 'bg-gray-100' : 'bg-white'} p-4 rounded-lg shadow-md ${msg.isUser ? 'max-w-[70%]' : 'max-w-[90%]'} whitespace-pre-wrap`}>
+                <p className={`${msg.isUser ? 'text-gray-800' : 'text-gray-800'}`}>{msg.text}</p>
               </div>
             </div>
           ))}
-          <div ref={messagesEndRef} />
+          {/* Loading Indicator */}
+          {isLoading && (
+            <div className="flex justify-start">
+              <div className="bg-white p-4 rounded-lg shadow-md max-w-[90%] text-gray-800">
+                <p>Buddy is thinking. Dont worry: I will blow your mind</p>
+              </div>
+            </div>
+          )}
+          <div ref={messageEndRef} />
         </div>
-        <div className="flex">
-          <input
-            type="text"
-            className="flex-grow p-2 border rounded-l-lg focus:outline-none"
+      </div>
+
+      {/* Fixed Input Section */}
+      <div className="p-6 bg-white border-t fixed bottom-3 w-fill-available mr-12">
+        <div className="flex items-center">
+          <button className="mr-4">
+            <FontAwesomeIcon icon={faUpload} size="lg" className="text-orange-400 hover:text-orange-600" />
+          </button>
+          <textarea
+            ref={textareaRef}
+            className="flex-grow p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 resize-none"
+            placeholder="Type your message..."
             value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleSend()}
+            onChange={handleInputChange}
+            onKeyPress={handleKeyPress}
+            rows={1}
+            style={{ maxHeight: "96px", overflow: "hidden" }} // Maximum height set to 3 lines, hide scrollbar initially
           />
-          <button
-            className="bg-blue-500 text-white p-2 rounded-r-lg"
-            onClick={handleSend}
-          >
-            send
-            {/* <FaPaperPlane /> */}
+          <button className="ml-4" onClick={handleSendMessage}>
+            <FontAwesomeIcon icon={faPaperPlane} size="lg" className="text-orange-400 hover:text-orange-600" />
           </button>
         </div>
       </div>
