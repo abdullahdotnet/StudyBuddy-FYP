@@ -274,7 +274,7 @@ def initialize_llm(model_name="llama-3.1-70b-versatile", temperature=0):
 
 
 # Load your document
-documents = load_documents("D:\\project\\StudyBuddy-FYP\\Backend\\chatbot\\9thComputerScience_cleaned.txt")
+documents = load_documents("C:\\Users\\anast\\Documents\\PUCIT\\Projects\\StudyBuddy-FYP\\Backend\\chatbot\\9thComputerScience_cleaned.txt")
 # documents = load_documents("9thComputerScience_cleaned.txt")
 
 # Split the text into smaller chunks
