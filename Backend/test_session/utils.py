@@ -59,10 +59,10 @@ def initialize_chain():
     """
     global qa_chain
     if qa_chain is None:
-        past_paper_folder = "E:\\University\\Final Year Project\\StudyBuddy-FYP\\Backend\\test_session\\sub_output_pdfs"  # Folder containing past paper PDFs
+        past_paper_folder = "C:\\Users\\anast\\Documents\\PUCIT\\Projects\\StudyBuddy-FYP\\Backend\\chatbot\\llms\\enhancement in evaluation and paper generation mcqs\\sub_output_pdfs"  # Folder containing past paper PDFs
         past_paper_paths = get_pdf_files_from_folder(past_paper_folder)
     
-        subject_book_paths = ["E:\\University\\Final Year Project\\StudyBuddy-FYP\\Backend\\test_session\\cs9.pdf"]  # Add your subject book PDFs here
+        subject_book_paths = ["C:\\Users\\anast\\Documents\\PUCIT\\Projects\\StudyBuddy-FYP\\Backend\\chatbot\\llms\\enhancement in evaluation and paper generation mcqs\\cs9.pdf"]  # Add your subject book PDFs here
 
         qa_chain = create_qa_system(past_paper_paths, subject_book_paths)
 
@@ -80,5 +80,3 @@ def generate_question_paper(num_questions):
         response = qa_chain.run(prompt)
         questions.append(response)
     return questions
-
-
