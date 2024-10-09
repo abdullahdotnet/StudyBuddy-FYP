@@ -274,7 +274,9 @@ def initialize_llm(model_name="llama-3.1-70b-versatile", temperature=0):
 
 
 # Load your document
-documents = load_documents("E:\\University\\Final Year Project\\StudyBuddy-FYP\\Backend\\chatbot\\9thComputerScience_cleaned.txt")
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+book_file_path = os.path.join(BASE_DIR, 'chatbot\\9thComputerScience_cleaned.txt')  # Remove leading backslash
+documents = load_documents(book_file_path)
 # documents = load_documents("9thComputerScience_cleaned.txt")
 
 # Split the text into smaller chunks

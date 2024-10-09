@@ -57,13 +57,14 @@ def initialize_chain():
     """
     Initialize the QA chain and store it in a global variable for reuse.
     """
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
     global qa_chain
     if qa_chain is None:
-        past_paper_folder = "E:\\University\\Final Year Project\\StudyBuddy-FYP\\Backend\\test_session\\sub_output_pdfs"  # Folder containing past paper PDFs
+        past_paper_folder = os.path.join(BASE_DIR, 'test_session\\sub_output_pdfs')  
         past_paper_paths = get_pdf_files_from_folder(past_paper_folder)
-    
-        subject_book_paths = ["E:\\University\\Final Year Project\\StudyBuddy-FYP\\Backend\\test_session\\cs9.pdf"]  # Add your subject book PDFs here
-
+        book1 = os.path.join(BASE_DIR, 'test_session\\cs9.pdf')  # Add your subject book PDFs here
+        subject_book_paths = [book1]  # Add your subject book PDFs here
         qa_chain = create_qa_system(past_paper_paths, subject_book_paths)
 
 def generate_question_paper(num_questions):
