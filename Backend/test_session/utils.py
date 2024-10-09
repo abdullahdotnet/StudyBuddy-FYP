@@ -8,9 +8,52 @@ from langchain.chains import RetrievalQA
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 
-# Global variable to hold the initialized chain
+# Global variables and functions to persist things across requests 
 qa_chain = None
+embeddings = None
+llm_model = None
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PAST_PAPER_FOLDER = os.path.join(BASE_DIR, 'test_session\\sub_output_pdfs')
+BOOK1_PATH = os.path.join(BASE_DIR, 'test_session\\cs9.pdf')
 
+def get_embeddings_model():
+    global embeddings
+    if embeddings is None:
+        embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    return embeddings
+
+def create_or_load_chroma(texts, persist_dir="chroma_db"):
+    # Check if the persist directory already exists
+    if os.path.exists(persist_dir):
+        # Load the existing Chroma vector store from disk
+        db = Chroma(persist_directory=persist_dir, embedding_function=get_embeddings_model())
+    else:
+        # Create a new Chroma vector store and persist it
+        db = Chroma.from_texts(texts, get_embeddings_model(), persist_directory=persist_dir)
+        db.persist()  # No arguments needed for persist()
+    return db
+
+def extract_or_load_pdf_text(pdf_path, cache_dir="pdf_cache"):
+    os.makedirs(cache_dir, exist_ok=True)
+    cache_file = os.path.join(cache_dir, os.path.basename(pdf_path) + ".txt")
+    if os.path.exists(cache_file):
+        # Load cached text if available
+        with open(cache_file, 'r', encoding='utf-8') as f:
+            return f.read()
+    else:
+        # Extract and save text if not cached
+        text = extract_text_from_pdf(pdf_path)
+        with open(cache_file, 'w', encoding='utf-8') as f:
+            f.write(text)
+        return text
+
+def get_llm_model():
+    global llm_model
+    if llm_model is None:
+        llm_model = ChatGroq(model="llama-3.1-70b-versatile", temperature=0.7)
+    return llm_model
+
+# Normal code
 def initialize_groq():
     load_dotenv()
     GROQ_API_KEY = os.getenv("GROQ_API_KEY")
@@ -26,23 +69,21 @@ def extract_text_from_pdf(pdf_path):
 def create_qa_system(past_paper_paths, subject_book_paths):
     all_texts = ""
     for pdf_path in past_paper_paths + subject_book_paths:
-        pdf_text = extract_text_from_pdf(pdf_path)
+        pdf_text = extract_or_load_pdf_text(pdf_path)
         all_texts += pdf_text + "\\n"
 
     text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     texts = text_splitter.split_text(all_texts)
 
     # Ensure the embedding model matches the Chroma collection's dimensionality
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")  # Use a model with 384-dim embeddings
-    db = Chroma.from_texts(texts, embeddings)  # Ensure this aligns with the embedding dimensionality
+    embeddings = get_embeddings_model()  # Use a model with 384-dim embeddings
+    db = create_or_load_chroma(texts)  # Ensure this aligns with the embedding dimensionality
 
-    llm = ChatGroq(
-        model="llama-3.1-70b-versatile",
-        temperature=0.7,
-    )
+    llm = get_llm_model()
 
     qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=db.as_retriever(search_kwargs={"k": 3}))
     return qa
+
 def get_pdf_files_from_folder(folder_path):
     """
     Returns a list of PDF file paths from the specified folder.
@@ -57,13 +98,13 @@ def initialize_chain():
     """
     Initialize the QA chain and store it in a global variable for reuse.
     """
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
     global qa_chain
+    global PAST_PAPER_FOLDER
+    global BOOK1_PATH
     if qa_chain is None:
-        past_paper_folder = os.path.join(BASE_DIR, 'test_session\\sub_output_pdfs')  
+        past_paper_folder = PAST_PAPER_FOLDER  
         past_paper_paths = get_pdf_files_from_folder(past_paper_folder)
-        book1 = os.path.join(BASE_DIR, 'test_session\\cs9.pdf')  # Add your subject book PDFs here
+        book1 = BOOK1_PATH  # Add your subject book PDFs here
         subject_book_paths = [book1]  # Add your subject book PDFs here
         qa_chain = create_qa_system(past_paper_paths, subject_book_paths)
 
