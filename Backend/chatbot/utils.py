@@ -343,45 +343,75 @@ def initialize_question_answer_chain():
     global llm, qa_prompt, question_answer_chain
     question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)
 
-def initialize_chain():
-    initialize_embeddings_model()
-    initialize_documents()
-    initialize_text_splitter()
-    intialize_split_docs()
-    # print(split_docs[10])
-    # Create embeddings and store them
-    # initialize_embedded_docs()
-    initialize_vector_store()
-    initialize_chat_llm()
-    initialize_retriever()
-    initialize_contextualize_q_system_prompt()
-    initialize_contextualize_q_prompt()
-    initialize_history_aware_retriever()
-    initialize_system_prompt()
-    initialize_qa_prompt()
-    initialize_question_answer_chain()
+# def initialize_chain():
+#     initialize_embeddings_model()
+#     initialize_documents()
+#     initialize_text_splitter()
+#     intialize_split_docs()
+#     # print(split_docs[10])
+#     # Create embeddings and store them
+#     # initialize_embedded_docs()
+#     initialize_vector_store()
+#     initialize_chat_llm()
+#     initialize_retriever()
+#     initialize_contextualize_q_system_prompt()
+#     initialize_contextualize_q_prompt()
+#     initialize_history_aware_retriever()
+#     initialize_system_prompt()
+#     initialize_qa_prompt()
+#     initialize_question_answer_chain()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 book_file_path = os.path.join(BASE_DIR, 'chatbot\\9thComputerScience_cleaned.txt')  # Remove leading backslash
-documents = None
-text_splitter = None
-split_docs = None
-vector_store = None
-embedded_docs = None
-llm = None
-retriever = None
-contextualize_q_system_prompt = None
-contextualize_q_prompt = None
-history_aware_retriever = None
-system_prompt = None
-qa_prompt = None
-question_answer_chain = None
+# documents = None
+# text_splitter = None
+# split_docs = None
+# vector_store = None
+# embedded_docs = None
+# llm = None
+# retriever = None
+# contextualize_q_system_prompt = None
+# contextualize_q_prompt = None
+# history_aware_retriever = None
+# system_prompt = None
+# qa_prompt = None
+# question_answer_chain = None
 
+# def create_rag_chain():
+#     global embedding_model, book_file_path, documents, text_splitter, split_docs, vector_store, embedded_docs, llm, retriever, contextualize_q_system_prompt, contextualize_q_prompt, history_aware_retriever, system_prompt, qa_prompt, question_answer_chain
+#     if history_aware_retriever is None:     # if the embedding_model is not loaded, it means the chain is not initialized, so initializing all the things for the first time
+#         initialize_chain()
+#     rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
+#     return rag_chain
+
+class RAGChainInitializer:
+    _instance = None
+    _rag_chain = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(RAGChainInitializer, cls).__new__(cls)
+        return cls._instance
+
+    def initialize_chain(self):
+        if self._rag_chain is None:
+            initialize_embeddings_model()
+            initialize_documents()
+            initialize_text_splitter()
+            intialize_split_docs()
+            initialize_vector_store()
+            initialize_chat_llm()
+            initialize_retriever()
+            initialize_contextualize_q_system_prompt()
+            initialize_contextualize_q_prompt()
+            initialize_history_aware_retriever()
+            initialize_system_prompt()
+            initialize_qa_prompt()
+            initialize_question_answer_chain()
+            self._rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
+        return self._rag_chain
+
+# usage
 def create_rag_chain():
-    global embedding_model, book_file_path, documents, text_splitter, split_docs, vector_store, embedded_docs, llm, retriever, contextualize_q_system_prompt, contextualize_q_prompt, history_aware_retriever, system_prompt, qa_prompt, question_answer_chain
-    if history_aware_retriever is None:     # if the embedding_model is not loaded, it means the chain is not initialized, so initializing all the things for the first time
-        initialize_chain()
-    rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
-    return rag_chain
-
-
+    initializer = RAGChainInitializer()
+    return initializer.initialize_chain()

@@ -151,41 +151,44 @@ from langchain_core.messages import AIMessage, HumanMessage     # for messages i
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from .utils import create_rag_chain
-rag_chain = create_rag_chain()
+from langchain_core.messages import AIMessage, HumanMessage
+# Initialize the RAG chain and chat history only once
+rag_chain = None
+chat_history = []
 
-chat_history = []   # List of messages in the chat history
+class ChatQueryView(APIView):
+    def post(self, request):
+        # Get the query from the request
+        query = request.data.get('query')
+        if not query:
+            return Response({"error": "Query parameter is missing."}, status=400)
 
-@api_view(['POST'])
-def ask_query(request):
+        # Get user or session-specific chat history (could be replaced with session/user logic)
+        # user_id = request.data.get('user_id', 'default_user')  # Adjust based on user/session logic
+        # chat_history = chat_histories.get(user_id, [])
 
-    global chat_history
-    global rag_chain
+        # Initialize the RAG chain if it's not created already
+        rag_chain = create_rag_chain()
 
-    # Parse the input query
-    query = request.data.get('query')
-    print(query)
-    if not query:
-        return Response({"error": "Query parameter is missing."}, status=400)
-    print(query)
-    # Run the RAG pipeline
-    result = rag_chain.invoke({"input": query, "chat_history": chat_history})
-    print(query)
-    # Append the user query and the system response to the chat history
-    chat_history.extend(
-        [
+        # Run the RAG chain and get the result
+        result = rag_chain.invoke({"input": query, "chat_history": chat_history})
+
+        # Append user query and system response to chat history
+        chat_history.extend([
             HumanMessage(content=query),
             AIMessage(content=result["answer"]),
-        ]
-    )
-    print(result['answer'])
-    # Return the response
-    return Response({
-        "query": query,
-        "answer": result["answer"],
-        "context": [result.get("context", "No context provided")],
-        "chat_history": [msg.content for msg in chat_history]
-    })
+        ])
 
+        # Store updated chat history
+        # chat_histories[user_id] = chat_history
 
-
+        # Return the response
+        return Response({
+            "query": query,
+            "answer": result["answer"],
+            "context": [result.get("context", "No context provided")],
+            "chat_history": [msg.content for msg in chat_history]
+        })
