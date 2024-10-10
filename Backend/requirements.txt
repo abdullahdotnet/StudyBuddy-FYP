@@ -15,3 +15,5 @@ langchain-groq
 sentence-transformers
 youtube-transcript-api
 reportlab
+PyPDF2
+
