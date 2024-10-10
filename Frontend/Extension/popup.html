@@ -215,6 +215,21 @@
         width: 15px;
         height: 15px;
       }
+
+      #loginContainer {
+        display: none; 
+        text-align: center;
+      }
+      .back-btn {
+        margin-top: 10px;
+        padding: 8px 10px;
+        font-size: 12px;
+        background-color: #ff6f3c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
     </style>
 
     <!-- Add jsPDF from CDN -->
@@ -223,25 +238,40 @@
   <body>
     <h3>StudyBuddy Notepad</h3>
 
-    <div class="button-container">
-      <button id="summaryBtn">Summarize</button>
-      <button id="clearBtn">Clear</button>
-      <button id="saveBtn">Save PDF</button>
+    <div id="mainContent">
+      <div class="button-container">
+        <button id="summaryBtn">Summarize</button>
+        <button id="clearBtn">Clear</button>
+        <button id="saveBtn">Save PDF</button>
+      </div>
+
+      <div class="input-container">
+        <input type="text" id="noteInput" placeholder="Add a note" />
+        <button id="addNoteBtn">
+          <img src="./plus.png" alt="" />
+        </button>
+        <button id="screenshotBtn">
+          <img src="./camera.png" alt="" />
+        </button>
+      </div>
+
+      <h4>Screenshots & Notes</h4>
+      <div id="screenshotNoteContainer"></div>
+      <div id="summaryResult" style="white-space: pre-wrap"></div>
+
+      <!-- Button to navigate to the login page -->
+      <button id="loginBtn">Login</button>
     </div>
 
-    <div class="input-container">
-      <input type="text" id="noteInput" placeholder="Add a note" />
-      <button id="addNoteBtn">
-        <img src="./plus.png" alt="" />
-      </button>
-      <button id="screenshotBtn">
-        <img src="./camera.png" alt="" />
-      </button>
-    </div>
+    <!-- Login section -->
+    <div id="loginContainer">
+      <h4>Login</h4>
+      <input type="email" placeholder="Email" id="emailInput" />
+      <input type="password" placeholder="Password" id="passwordInput" />
+      <button id="submitLogin">Submit</button>
 
-    <h4>Screenshots & Notes</h4>
-    <div id="screenshotNoteContainer"></div>
-    <div id="summaryResult" style="white-space: pre-wrap"></div>
+      <button id="backBtn" class="back-btn">Back</button>
+    </div>
 
     <script src="popup.js"></script>
   </body>
