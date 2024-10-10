@@ -79,7 +79,7 @@ function GeneratedPaper() {
         </div>
       ) : (
         <div>
-          <div className="w-full text-justify mb-6">
+          <div className="w-full mb-6">
             <FormatPaper paper={generatedData} />
           </div>
           <div className="flex justify-center w-full">
