@@ -10,6 +10,7 @@ urlpatterns = [
     path('api/', include('youtube.urls')),
     path('api/user/', include('account.urls')),
     path('api/test-session/', include('test_session.urls')),
+    path('api/extension/', include('extension.urls')),
     
 ]
 
