@@ -3,7 +3,7 @@ import os
 import PyPDF2
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import Chroma
-from langchain.text_splitter import CharacterTextSplitter
+from langchain.text_splitter import CharacterTextSplitter,RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
@@ -124,3 +124,20 @@ def generate_question_paper(num_questions):
     return questions
 
 
+def create_evaluation_qa_system(question_paper):
+
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+    texts = text_splitter.split_text(question_paper)
+
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-mpnet-base-v2")
+    db = Chroma.from_texts(texts, embeddings)
+
+    llm = ChatGroq(
+        model="llama-3.1-70b-versatile",
+        temperature=0.2,
+        max_tokens=1000,  # Limit token generation
+    )
+
+    qa = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=db.as_retriever(search_kwargs={"k": 2}))
+
+    return qa
