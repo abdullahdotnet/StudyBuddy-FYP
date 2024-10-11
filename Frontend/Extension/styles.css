@@ -34,7 +34,7 @@
   }
 
   #summaryResult::-webkit-scrollbar-thumb {
-    background-color: #fd7e14; /* Orange color for the scrollbar thumb */
+    background-color: #FF6F3C; /* Orange color for the scrollbar thumb */
     border-radius: 20px; /* Rounded corners */
     border: 2px solid #f4f4f9; /* Adds padding around the thumb */
   }
@@ -47,7 +47,7 @@
   /* For Firefox */
   #summaryResult {
     scrollbar-width: thin; /* Sets a thinner scrollbar */
-    scrollbar-color: #fd7e14 #f4f4f9; /* Orange thumb color and light track color */
+    scrollbar-color: #FF6F3C #f4f4f9; /* Orange thumb color and light track color */
   }
 
   body {
@@ -58,7 +58,7 @@
     margin: 0;
     padding: 20px;
     color: #333;
-    border-radius: 15px; /* Smooth rounded corners */
+    border-radius: 16px; /* Smooth rounded corners */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -74,7 +74,7 @@
   }
 
   button {
-    padding: 8px 10px;
+    padding: 8px 12px;
     font-size: 12px;
     font-weight: bold;
     border-radius: 5px;
@@ -94,11 +94,11 @@
   #summaryBtn,
   #clearBtn,
   #saveBtn {
-    background-color: #ff6f3c; /* Green for buttons */
+    background-color: #FF6F3C; /* Green for buttons */
     flex: 1;
-    margin-right: 5px;
-    border-radius: 5px;
-    margin-left: 5px;
+    margin-right: 4px;
+    border-radius: 4px;
+    margin-left: 4px;
   }
 
   #summaryBtn:hover,
@@ -116,11 +116,23 @@
     width: 80%;
   }
 
-  #addNoteBtn,
-  #screenshotBtn,
   #summaryBtn {
+    padding: 10px 16px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  #addNoteBtn{
+    padding: 10px 16px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    margin-right: 4px;
+  }
+  #screenshotBtn {
     padding: 10px 15px;
-    font-size: 14px;
+    font-size: 12px;
     display: flex;
     align-items: center;
   }
@@ -146,16 +158,21 @@
   input[type="text"] {
     flex-grow: 1;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px 0 0 5px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
     font-size: 14px;
     outline: none;
+    margin-right: 4px;
+  }
+
+  input[type="text"]:focus {
+    border-color: #05eaa7;
   }
 
   h4 {
     font-size: 16px;
     color: #555;
-    border-bottom: 2px solid #ff6f3c; /* Orange underline */
+    border-bottom: 2px solid #FF6F3C; /* Orange underline */
     padding-bottom: 5px;
     margin-bottom: 10px;
   }
@@ -188,13 +205,13 @@
   .screenshot {
     width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 4px;
     border: 1px solid #ddd;
     margin-bottom: 10px;
   }
 
   .note {
-    font-size: 14px;
+    font-size: 16px;
     color: #555;
   }
 
@@ -204,20 +221,24 @@
   }
 
   img {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
   }
 
   #loginContainer {
+    margin-top: 8px;
     display: none; 
     text-align: center;
   }
   .loginInputs{
-    padding: 4px 12px;
+    padding: 8px 12px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    outline: none;
   }
 
-  .loginInputs:active{
-    outline: 2px solid #05eaa7;
+  .loginInputs:focus{
+    border-color: #05eaa7;
   }
 
   #emailInput{
@@ -226,13 +247,16 @@
 
   .back-btn {
     margin-top: 12px;
-    padding: 8px 12px;
     font-size: 12px;
-    background-color: #ff6f3c;
+    background-color: #FF6F3C;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+  }
+
+  .back-btn:hover {
+    background-color: #db6135;
   }
 
 
@@ -243,10 +267,13 @@
   }
 
   #loginBtn{
-    padding: 8px 12px;
     background-color: #05eaa7;
   }
 
   #submitLogin{
     background-color: #05eaa7;
+  }
+
+  #loginBtn:hover , #submitLogin:hover{
+    background-color: #03b17d;
   }
