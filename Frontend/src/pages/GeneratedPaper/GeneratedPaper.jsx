@@ -8,10 +8,12 @@ import FormatPaper from "../../components/FormatPaper/FormatPaper";
 import { CirclesWithBar } from "react-loader-spinner";
 
 function GeneratedPaper() {
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]); // Store multiple files
   const [loading, setLoading] = useState(false);
   const [generatedData, setGeneratedData] = useState("");
-  const [uploadedFileName, setUploadedFileName] = useState("");
+  const [uploadedFileNames, setUploadedFileNames] = useState([]); // Store file names
+  const [submitting, setSubmitting] = useState(false); // State for submit loading
+  const [evaluationResult, setEvaluationResult] = useState(null); // Store evaluation result
 
   const fileInputRef = useRef(null);
   const { subjectName } = useParams();
@@ -44,15 +46,48 @@ function GeneratedPaper() {
 
   const handleFileUpload = (event) => {
     try {
-    const uploadedFile = event.target.files[0];
-    setFile(uploadedFile);
-    console.log(file);
-    setUploadedFileName(uploadedFile.name);
-    handleSuccess(`File uploaded successfully`);
-    }
-    catch (err) {
+      const uploadedFiles = Array.from(event.target.files); // Convert to array
+      setFiles(uploadedFiles);
+      const fileNames = uploadedFiles.map((file) => file.name);
+      setUploadedFileNames(fileNames);
+      handleSuccess(`${fileNames.length} files uploaded successfully`);
+    } catch (err) {
       console.error(err);
       handleError("An error occurred. Please try again.");
+    }
+  };
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    setEvaluationResult(null); // Reset the result before submission
+
+    const formData = new FormData();
+    formData.append("paper_text", generatedData); // Append paper_text
+    files.forEach((file) => {
+      formData.append("answer_images", file); // Append each file as answer_images
+    });
+
+    try {
+      const response = await fetch(
+        "http://127.0.0.1:8000/api/test-session/evaluate-paper/",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const result = await response.json();
+      if (response.ok) {
+        handleSuccess("Paper evaluated successfully!");
+        setEvaluationResult(result); // Store the result
+      } else {
+        handleError("Failed to submit paper for evaluation. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      handleError("An error occurred while submitting the paper.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -82,26 +117,68 @@ function GeneratedPaper() {
           <div className="w-full mb-6">
             <FormatPaper paper={generatedData} />
           </div>
-          <div className="flex justify-center w-full">
+
+          {/* Buttons Section */}
+          <div className="flex justify-center w-full space-x-4"> {/* Use space-x-4 to add spacing */}
             <input
               type="file"
               accept=".pdf, .jpg, .jpeg, .png"
+              multiple // Allow multiple file selection
               onChange={handleFileUpload}
               ref={fileInputRef}
               className="hidden"
             />
             <button
               onClick={() => fileInputRef.current.click()}
-              className="bg-customDarkTeal text-white font-bold py-2 px-4 rounded transition-all hover:bg-customLightTeal hover:text-black"
+              className="bg-customDarkTeal text-white font-bold py-2 px-4 rounded transition-all hover:bg-customLightTeal hover:text-black w-48" // Fixed width for buttons
             >
-              Browse and Upload Paper
+              Browse and Upload Papers
             </button>
-            {uploadedFileName && (
-              <p className="ml-4 text-gray-800 mt-2">
-                Uploaded File: {uploadedFileName}
-              </p>
-            )}
+
+            <button
+              onClick={handleSubmit}
+              disabled={submitting || files.length === 0}
+              className={`bg-customDarkTeal text-white font-bold py-2 px-4 rounded transition-all w-48 ${ // Fixed width for buttons
+                submitting
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:bg-customLightTeal hover:text-black"
+              }`}
+            >
+              {submitting ? "Submitting..." : "Submit for Evaluation"}
+            </button>
           </div>
+
+          {/* Uploaded files list with better styling */}
+          {uploadedFileNames.length > 0 && (
+            <div className="mt-4 p-4 bg-gray-100 rounded-md shadow-md w-full">
+              <h3 className="text-lg font-semibold text-gray-800">Uploaded Files:</h3>
+              <ul className="list-disc ml-6 mt-2">
+                {uploadedFileNames.map((fileName, index) => (
+                  <li key={index} className="text-gray-700">{fileName}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Display evaluation result */}
+          {evaluationResult && (
+            <div className="mt-6">
+              <h2 className="text-xl font-bold mb-4">Evaluation Result:</h2>
+              <div className="space-y-4">
+                {evaluationResult.results.map((result, index) => (
+                  <div
+                    key={index}
+                    className="bg-white shadow-md rounded-lg p-4 border border-gray-200"
+                  >
+                    <h3 className="text-lg font-semibold mb-2">
+                      Question {result.question_number}
+                    </h3>
+                    <p className="text-gray-700">{result.evaluation}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
