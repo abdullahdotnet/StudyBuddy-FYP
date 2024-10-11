@@ -201,7 +201,7 @@ function clearAllScreenshotsAndNotes() {
 
 
 
-// Save screenshots and notes as PDF using jsPDF
+// Save screenshots and notes as PDF using jsPDF and optionally upload the file
 async function saveAsPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
@@ -297,12 +297,41 @@ async function saveAsPDF() {
       doc.text(summaryLines, 10, 20);
     }
 
-    // Save the PDF
+    // Generate the PDF file
+    const pdfFile = doc.output('blob');
     const fileName = `${videoTitle}.pdf`;
-    doc.save(fileName);
+
+    // Check if access token exists in localStorage
+    const accessToken = localStorage.getItem('access');
+
+    if (accessToken) {
+      // If access token exists, upload the PDF using the token
+      const formData = new FormData();
+      formData.append('file', pdfFile, fileName);
+
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/extension/upload/', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${accessToken}`, // Pass the JWT token here
+          },
+          body: formData,
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          console.log('File uploaded successfully:', result);
+        } else {
+          console.error('Failed to upload file:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error uploading file:', error);
+      }
+    } 
+      // just download the PDF
+      doc.save(fileName);
   });
 }
-
 
 // Utility function to convert image URL to Data URL
 function convertImageToDataUrl(url, callback) {
