@@ -1,5 +1,3 @@
-# views.py
-from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -7,10 +5,20 @@ from .utils import generate_question_paper, initialize_chain,create_evaluation_q
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import status
 import pytesseract
-from pdf2image import convert_from_path
-from PIL import Image
-import os
-import tempfile
+import logging
+import gc
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.parsers import MultiPartParser, FormParser
+from django.core.files.storage import default_storage
+from langchain_groq import ChatGroq
+from langchain.chains import RetrievalQA
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+import cv2
+
+
 # Initialize the chain when the server starts
 initialize_chain()
 
@@ -27,21 +35,7 @@ class BoardPaperGenerationView(APIView):
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-import os
-import logging
-import gc
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework.parsers import MultiPartParser, FormParser
-from django.core.files.storage import default_storage
-from langchain_groq import ChatGroq
-from langchain.chains import RetrievalQA
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-import pytesseract
-import cv2
-from PIL import Image
+
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

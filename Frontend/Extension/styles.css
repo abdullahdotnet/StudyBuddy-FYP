@@ -1,0 +1,252 @@
+#screenshotNoteContainer::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+  }
+
+  #screenshotNoteContainer::-webkit-scrollbar-track {
+    background: #f4f4f9; /* Background of the track (empty space) */
+    border-radius: 20px;
+  }
+
+  #screenshotNoteContainer::-webkit-scrollbar-thumb {
+    background-color: #05eaa7; /* Green color for the scrollbar thumb */
+    border-radius: 20px; /* Rounded corners */
+    border: 2px solid #f4f4f9; /* Adds padding around the thumb */
+  }
+
+  #screenshotNoteContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #ddd; /* Darker shade when hovered */
+    border-radius: 20px;
+  }
+
+  /* For Firefox */
+  #screenshotNoteContainer {
+    scrollbar-width: thin; /* Sets a thinner scrollbar */
+    scrollbar-color: #05eaa7 #f4f4f9; /* Green thumb color and light track color */
+  }
+
+  #summaryResult::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+  }
+
+  #summaryResult::-webkit-scrollbar-track {
+    background: #f4f4f9; /* Background of the track (empty space) */
+    border-radius: 20px;
+  }
+
+  #summaryResult::-webkit-scrollbar-thumb {
+    background-color: #fd7e14; /* Orange color for the scrollbar thumb */
+    border-radius: 20px; /* Rounded corners */
+    border: 2px solid #f4f4f9; /* Adds padding around the thumb */
+  }
+
+  #summaryResult::-webkit-scrollbar-thumb:hover {
+    background-color: #ddd; /* Darker shade when hovered */
+    border-radius: 20px;
+  }
+
+  /* For Firefox */
+  #summaryResult {
+    scrollbar-width: thin; /* Sets a thinner scrollbar */
+    scrollbar-color: #fd7e14 #f4f4f9; /* Orange thumb color and light track color */
+  }
+
+  body {
+    overflow: hidden; /* Ensure no overflow breaks the rounded corners */
+    width: 320px;
+    font-family: "Roboto", sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    border-radius: 15px; /* Smooth rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+  }
+
+  h3 {
+    background: linear-gradient(to right, #05EAA7 0%, #FF6F3C 80%, #FF6F3C 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-size: 2em; /* Adjust font size as needed */
+  }
+
+  button {
+    padding: 8px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Button container for summary, clear, save */
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  #summaryBtn,
+  #clearBtn,
+  #saveBtn {
+    background-color: #ff6f3c; /* Green for buttons */
+    flex: 1;
+    margin-right: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+  }
+
+  #summaryBtn:hover,
+  #clearBtn:hover,
+  #saveBtn:hover {
+    background-color: #db6135;
+  }
+
+  .button-container button:last-child {
+    margin-right: 0; /* Removes the extra margin on the last button */
+  }
+
+  #clearBtn,
+  #saveBtn {
+    width: 80%;
+  }
+
+  #addNoteBtn,
+  #screenshotBtn,
+  #summaryBtn {
+    padding: 10px 15px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+
+  #screenshotBtn:hover {
+    border-color: #6c757d;
+    background-color: #05eaa7; /* Grey background when hovered */
+    transition: background-color 0.3s ease;
+  }
+
+  #addNoteBtn:hover {
+    border-color: #6c757d;
+    background-color: #05eaa7; /* Grey background when hovered */
+    transition: background-color 0.3s ease;
+  }
+
+  .input-container {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+    outline: none;
+  }
+
+  h4 {
+    font-size: 16px;
+    color: #555;
+    border-bottom: 2px solid #ff6f3c; /* Orange underline */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+
+  #screenshotNoteContainer {
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #summaryResult {
+    margin-top: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .screenshot-note {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+
+  .screenshot {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+  }
+
+  .note {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .timestamp {
+    font-size: 12px;
+    color: #999;
+  }
+
+  img {
+    width: 15px;
+    height: 15px;
+  }
+
+  #loginContainer {
+    display: none; 
+    text-align: center;
+  }
+  .loginInputs{
+    padding: 4px 12px;
+  }
+
+  .loginInputs:active{
+    outline: 2px solid #05eaa7;
+  }
+
+  #emailInput{
+    margin-bottom: 12px;
+  }
+
+  .back-btn {
+    margin-top: 12px;
+    padding: 8px 12px;
+    font-size: 12px;
+    background-color: #ff6f3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+
+  #loginBtnContainer{
+    display: flex;
+    justify-content: center;
+    padding-top: 12px;
+  }
+
+  #loginBtn{
+    padding: 8px 12px;
+    background-color: #05eaa7;
+  }
+
+  #submitLogin{
+    background-color: #05eaa7;
+  }
