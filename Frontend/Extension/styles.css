@@ -272,6 +272,7 @@
 
   #submitLogin{
     background-color: #05eaa7;
+    margin-right: 12px;
   }
 
   #loginBtn:hover , #submitLogin:hover{
