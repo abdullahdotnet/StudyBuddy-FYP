@@ -329,7 +329,7 @@ async function saveAsPDF() {
       }
     } 
       // just download the PDF
-      doc.save(fileName);
+    doc.save(fileName);
   });
 }
 
