@@ -57,7 +57,7 @@ class YoutubeSummaryView(APIView):
         )
 
         if response.status_code == status.HTTP_200_OK:
-            return response.json().get('response')
+            return response.json().get('answer')
 
         return Response(
             {'error': 'Failed to generate summarization'},
