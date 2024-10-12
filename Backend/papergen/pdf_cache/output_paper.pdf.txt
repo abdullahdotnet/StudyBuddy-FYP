@@ -1,0 +1,37 @@
+mils
+AN) Write short answers to any FOUR (4) questions 8
+If} Define identifier. -
+Write the general structure for the initializing a variable
+- at the time of declaration. ?
+iit] Describe text editor.:
+What is assignment operator?
+lv| Define arithmetic operators. ?
+Wl Evaluate the following expression :
+32/4 * 3+ 9%4 + (3 *2) .
+Write short answers to any FOUR (4) questions: 8
+aii What is the output of following code :
+. int a = 10;
+| if(at10°4 = = 100)
+printf ("yes");
+else
+ak Ne gai
+[ii] Identify ?? <= 4 code: ie
+Write syntax of array declaration.
+Write short answers to any FOUR (4) questions: 8
+Why return keyword is used in function?
+What is meant by return type of a function?
+Briefly explain function call. Ce
+Write down structure of function definition. > /
+Find error(s) in the following code:
+for (int'l = 0, i < 20; i ++)
+printf ("%d \n", i);Write out put of the following code:
+int sum = 0, P;
+for(P = 1; P< = 20; P =P + 2)
+sum = sum + 2: ae coi
+- printf (?sum-= %d" jou
+Note: Atte adam 2) questi sriestions.
+5] Ee one and float data type in C-language. 8
+@\3]V Explain printf () and scanf () functions with the help of
+. Suitable amele 8
+[QZ] Write a program that print the table of 5 using ?for? loop
+in C-language. 8
