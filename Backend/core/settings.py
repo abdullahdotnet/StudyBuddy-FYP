@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'chatbot.apps.ChatbotConfig',
     'youtube.apps.YoutubeConfig',
     'account.apps.AccountConfig',
-
+    'papergen.apps.PapergenConfig',
 ]
 
 MIDDLEWARE = [
