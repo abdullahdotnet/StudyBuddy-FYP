@@ -176,4 +176,4 @@ cs10.pdf
 media/userspace/*
 
 # chroma db
-chroma_db/
+chroma_db/*

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ExtensionConfig(AppConfig):
+class UserspaceConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'extension'
+    name = 'userspace'

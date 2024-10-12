@@ -6,8 +6,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from django.core.files.storage import default_storage
-from .models import UserSpace
+from .models import FilesLink
 import jwt
+from rest_framework.permissions import IsAuthenticated
 
 class FileUploadAPIView(APIView):
     parser_classes = (MultiPartParser, FormParser)
@@ -43,6 +44,31 @@ class FileUploadAPIView(APIView):
         full_file_path = default_storage.save(file_path, file)
 
         # Save the file path and user ID in the UserSpace model
-        UserSpace.objects.create(user_id=user_id, file_path=full_file_path)
+        FilesLink.objects.create(user_id=user_id, file_path=full_file_path)
 
         return Response({'status': 'file uploaded', 'file_path': full_file_path}, status=status.HTTP_200_OK)
+    
+class UserFilesAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        # Extract the JWT token from headers
+        user_token = request.headers.get('Authorization')
+        if not user_token:
+            return Response({'error': 'Authorization token is missing'}, status=status.HTTP_401_UNAUTHORIZED)
+
+        # Decode the JWT token to get the user ID
+        try:
+            payload = jwt.decode(user_token.split(' ')[1], settings.SECRET_KEY, algorithms=['HS256'])
+            user_id = payload['user_id']
+        except (jwt.ExpiredSignatureError, jwt.InvalidTokenError, KeyError):
+            return Response({'error': 'Invalid token'}, status=status.HTTP_401_UNAUTHORIZED)
+
+        # Query the FilesLink model to get all file links for the user
+        file_links = FilesLink.objects.filter(user_id=user_id).values('file_path')
+
+        # Return the list of file links
+        if not file_links:
+            return Response({'message': 'No files found for this user'}, status=status.HTTP_404_NOT_FOUND)
+
+        return Response({'file_links': list(file_links)}, status=status.HTTP_200_OK)
