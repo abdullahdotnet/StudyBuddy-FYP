@@ -171,3 +171,8 @@ credentials.*
 # Large Files
 cs9.pdf
 cs10.pdf
+
+# user uploaded files
+media/userspace/*
+
+chroma_db/*
