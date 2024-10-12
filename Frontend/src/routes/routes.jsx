@@ -21,6 +21,7 @@ import ResetPasswordNew from "../pages/ResetPassword/NewPassPage";
 import PaperGen from "../pages/PaperGen/PaperGen";
 import GeneratedPaper from "../pages/GeneratedPaper/GeneratedPaper";
 import UserSpace from "../pages/UserSpace/UserSpace";
+import ObjectivePaperGen from "../pages/PaperGen/ObjectivePaperGen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -40,6 +41,7 @@ const router = createBrowserRouter(
         <Route path="/papergen" element={<PaperGen />} />
         <Route path="/generated-paper/:subjectName" element={<GeneratedPaper />} />
         <Route path="/user-space" element={<UserSpace />} />
+        <Route path="/papergen/mcqs" element={<ObjectivePaperGen />} />
         <Route path="*" element={<h1>Page Not found</h1>} />
       </Route>
 

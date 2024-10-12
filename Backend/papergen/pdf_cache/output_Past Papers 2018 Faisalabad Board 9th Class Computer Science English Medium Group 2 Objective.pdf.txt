@@ -1,0 +1,37 @@
+(in Words):
+Maximum Marks: 10 OBJECTIVE TYPE Time Allowed : 15 Minutes
+TAN ISNTCATON :
+0)
+9)
+9)
+©
+1 @ @
+20 @
+3 @®@
+4 @®@
+NOTE:Four possible answers A, B, Cand D to each question are given. The choice which you
+think is correct, {ill that circle in front of that question with Marker or Pen ink. Cutting or
+filling two or more circles will result in zero mark in that question.
+Qt (10)
+1. How many bytes can be stored in a sector?
+(A) 16 (B) 256 (C) 512 (D) 1024, K\\
+2. Unicode is: © C0 \
+(A) 16-bitcode ? (B) 32-bitcode 0 Oi SG-bit'cade\, | ~~ (D) 64-bit code
+3. A boolean function with, (our. cles Will have:
+(A) ery \ vf chelates (C) 24 maxterms ? (D) 32 maxterms
+4 pos) VS |
+y)
+(A) is an operating system ~? (B) is not an operating system
+(C) has graphical ruser interftice (D¥ is a compiler
+5. Control panel allows to customtize which features?
+(A) Appearance ? (B) Themes (C) Hardware components (1) All of these6. Fourth generation computers used:
+(A) Vacuum tube (B) Integrated circuit (C) Transistor © (1D) Microprocessor
+7, Which is an input device?
+(A) Scanner (B) Speaker (C) Printer (D) Plotter
+8. The port that sends many bits at a time:
+(A) Serial -(B) Parallel (C) USB (D) Plotter
+9. It eonverts scanned text into a text file: |
+(A) HDD (B) FDD (C) CRT (D) OCR
+1). MB stands for:
+(A) Megabyte (B) Megabit (C) Mechanical base ([ a hs
+?n1-

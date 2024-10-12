@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'youtube.apps.YoutubeConfig',
     'account.apps.AccountConfig',
     'userspace.apps.UserspaceConfig',
-
+    'papergen.apps.PapergenConfig',
 ]
 
 MIDDLEWARE = [
