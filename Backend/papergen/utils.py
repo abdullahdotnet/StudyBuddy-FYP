@@ -171,3 +171,55 @@ def split_questions(text):
         questions.append(current_question)
 
     return questions
+
+
+def evaluate_mcq_answer(question):
+    global qa_chain
+
+    if qa_chain is None:
+        initialize_groq()
+        initialize_chain()
+
+    if qa_chain is None:
+        raise Exception("QA Chain has not been initialized.")
+
+    prompt = f"""
+    Referring to Multiple Choice Question, details are:
+    {question}
+
+    Criteria:
+    1. Correctness: Is the answer correct? (1 point if correct, 0 if incorrect)
+    2. Validity: Is the response a valid option (A, B, C, or D)?
+
+    Instructions:
+    - Assign 1 point if the answer is correct and valid, 0 points otherwise.
+    - Provide a brief explanation (1-2 sentences) for the score.
+    - If the response is invalid, explain why and assign 0 points.
+
+    Format your response as follows:
+    Score: [0 or 1]
+    Explanation: [Your brief explanation]
+
+    Limit your entire response to 50 words.
+    """
+
+    try:
+        evaluation = qa_chain.run(prompt)
+        return evaluation
+    except Exception as e:
+        return f"Error: {e}"
+
+
+def evaluate_mcq_chain(questions):
+    evaluation = []
+    for question in questions:
+        question_id = question["id"]
+        response = evaluate_mcq_answer(question)
+        result = response.split("\n")
+        evaluation.append({
+            "question_id": question_id,
+            "score": result[0].replace("Score: ", ""),
+            "explanation": result[1].replace("Explanation: ", "")
+        })
+
+    return evaluation
