@@ -310,7 +310,7 @@ async function saveAsPDF() {
       formData.append('file', pdfFile, fileName);
 
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/extension/upload/', {
+        const response = await fetch('http://127.0.0.1:8000/api/userspace/upload/', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${accessToken}`, // Pass the JWT token here
