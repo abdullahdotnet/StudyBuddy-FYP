@@ -22,6 +22,7 @@ import PaperGen from "../pages/PaperGen/PaperGen";
 import GeneratedPaper from "../pages/GeneratedPaper/GeneratedPaper";
 import ObjectivePaperGen from "../pages/PaperGen/ObjectivePaperGen";
 
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
