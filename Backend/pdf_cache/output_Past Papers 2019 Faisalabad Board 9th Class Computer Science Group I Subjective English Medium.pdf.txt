@@ -1,0 +1,18 @@
+R
+FAISALABAD see D oa
+ne What is super computer?
+(iv) What is translator?
+Win) (vi) What is meant by serial port?
+Ve Short Answers of any four part. (4%2=8)
+(i) What is monitor resolution? (ii) On which basis secondary storage are categorized?
+(iii) Compare main memory and secondary memory.{iv) What is parity bit?
+(v) What is meant by processing? (vi) Describe octal number system.
+4. Write short Answers of any four part. (4%2=8)
+(i) What is meant by Boolean Algebra? (ii) What is meant by application software?
+(iii) What is graphical user interface? (iv) What is meant by folder?
+(v) What is meant by antivirus? (vi) What'is meant by hardware compatibility?
+S (SUBUEGTIVE(bartdll) py
+Attempet any two Questions. Each question has 8 marks. 8x2=16
+5. Write a short note on serial ports and parallel ports.
+6. Define keyboard. Explain how keyboard is classified.
+7. Create the truth tables of AND operations and OR operations.
