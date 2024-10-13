@@ -22,7 +22,7 @@ def get_embeddings_model():
         embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     return embeddings
 
-def create_or_load_chroma(texts, persist_dir="chroma_db"):
+def create_or_load_chroma(texts, persist_dir=os.path.join(BASE_DIR, r'test_session\\chroma_db')):
     # Check if the persist directory already exists
     if os.path.exists(persist_dir):
         # Load the existing Chroma vector store from disk
@@ -33,7 +33,7 @@ def create_or_load_chroma(texts, persist_dir="chroma_db"):
         db.persist()  # No arguments needed for persist()
     return db
 
-def extract_or_load_pdf_text(pdf_path, cache_dir="pdf_cache"):
+def extract_or_load_pdf_text(pdf_path, cache_dir=os.path.join(BASE_DIR, r"test_session\\pdf_cache")):
     os.makedirs(cache_dir, exist_ok=True)
     cache_file = os.path.join(cache_dir, os.path.basename(pdf_path) + ".txt")
     if os.path.exists(cache_file):

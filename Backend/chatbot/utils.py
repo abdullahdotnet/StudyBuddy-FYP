@@ -221,7 +221,7 @@ class CustomTextSplitter(RecursiveCharacterTextSplitter):
 
 # Create embeddings and handle storage
 def embed_documents(split_docs, embedding_model):
-    EMBEDDINGS_FOLDER = "embeddings"
+    EMBEDDINGS_FOLDER = "chatbot\\embeddings"
     EMBEDDINGS_FILE = os.path.join(EMBEDDINGS_FOLDER, "chatbot_embeddings01.pkl")
 
     if not os.path.exists(EMBEDDINGS_FOLDER):

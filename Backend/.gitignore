@@ -171,3 +171,13 @@ credentials.*
 # Large Files
 cs9.pdf
 cs10.pdf
+
+# User space files
+media/userspace/*
+
+# chroma db
+**/chroma_db/
+**/pdf_cache/
+**/vector_db/
+**/embeddings/
+*.sqlite3
