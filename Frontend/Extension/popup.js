@@ -201,7 +201,7 @@ function clearAllScreenshotsAndNotes() {
 
 
 
-// Save screenshots and notes as PDF using jsPDF
+// Save screenshots and notes as PDF using jsPDF and optionally upload the file
 async function saveAsPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
@@ -297,12 +297,41 @@ async function saveAsPDF() {
       doc.text(summaryLines, 10, 20);
     }
 
-    // Save the PDF
+    // Generate the PDF file
+    const pdfFile = doc.output('blob');
     const fileName = `${videoTitle}.pdf`;
+
+    // Check if access token exists in localStorage
+    const accessToken = localStorage.getItem('access');
+
+    if (accessToken) {
+      // If access token exists, upload the PDF using the token
+      const formData = new FormData();
+      formData.append('file', pdfFile, fileName);
+
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/userspace/upload/', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${accessToken}`, // Pass the JWT token here
+          },
+          body: formData,
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          console.log('File uploaded successfully:', result);
+        } else {
+          console.error('Failed to upload file:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error uploading file:', error);
+      }
+    } 
+      // just download the PDF
     doc.save(fileName);
   });
 }
-
 
 // Utility function to convert image URL to Data URL
 function convertImageToDataUrl(url, callback) {
@@ -319,3 +348,107 @@ function convertImageToDataUrl(url, callback) {
     callback(dataUrl);
   };
 }
+
+
+// Selecting necessary elements
+const loginBtn = document.getElementById('loginBtn');
+const backBtn = document.getElementById('backBtn');
+const mainContent = document.getElementById('mainContent');
+const loginContainer = document.getElementById('loginContainer');
+
+// Show the login page and hide the main content
+loginBtn.addEventListener('click', () => {
+  mainContent.style.display = 'none';
+  loginContainer.style.display = 'block';
+});
+
+// Go back to the main content and hide the login page
+backBtn.addEventListener('click', () => {
+  loginContainer.style.display = 'none';
+  mainContent.style.display = 'block';
+});
+
+
+// Selecting necessary elements
+const emailInput = document.getElementById('emailInput');
+const passwordInput = document.getElementById('passwordInput');
+const submitLogin = document.getElementById('submitLogin');
+
+// API endpoint for login
+const apiUrl = 'http://127.0.0.1:8000/api/user/login/';
+
+// Handle the login submission
+submitLogin.addEventListener('click', async () => {
+  const email = emailInput.value;
+  const password = passwordInput.value;
+
+  // Create the request body
+  const requestBody = {
+    email: email,
+    password: password,
+  };
+
+  try {
+    // Send the POST request to the API
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    });
+
+    // Parse the JSON response
+    const data = await response.json();
+
+    if (response.ok) {
+      // Successfully logged in, store tokens in Chrome's local storage
+      const refreshToken = data.token.refresh;
+      const accessToken = data.token.access;
+      alert('Login successful, tokens saved 1.');
+      // Store tokens using chrome.storage.local
+      // chrome.storage.local.set({ refreshToken, accessToken }, () => {
+      //   console.log('Tokens saved successfully!');
+      //   alert('Login successful, tokens saved 2.');
+      // });
+      localStorage.setItem('refresh',refreshToken);
+      localStorage.setItem('access',accessToken);
+      setTimeout(() => {
+        console.log("tooooooooookens",localStorage.getItem('refresh'));
+      },2000);
+
+      // Optionally, you can redirect or switch views after successful login
+      mainContent.style.display = 'block';
+      loginContainer.style.display = 'none';
+    } else {
+      // Handle login errors (e.g., wrong credentials)
+      alert(data.msg || 'Login failed. Please check your credentials.');
+    }
+  } catch (error) {
+    console.error('Error during login:', error);
+    alert('An error occurred while logging in. Please try again.');
+  }
+});
+
+
+// chrome.storage.local.get(['refreshToken', 'accessToken'], (result) => {
+//   console.log('Tokens retrieved:', result);
+//   const refreshToken = result.refreshToken;
+//   const accessToken = result.accessToken;
+
+//   // Use the tokens for subsequent requests
+//   if (accessToken) {
+//     // Make API requests with the access token
+//     fetch('http://127.0.0.1:8000/api/protected-route/', {
+//       method: 'GET',
+//       headers: {
+//         'Authorization': `Bearer ${accessToken}`,
+//       },
+//     })
+//       .then((response) => response.json())
+//       .then((data) => console.log('Protected data:', data))
+//       .catch((error) => console.error('Error fetching protected data:', error));
+//   } else {
+//     console.error('No access token found.');
+//   }
+// });

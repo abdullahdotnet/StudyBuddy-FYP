@@ -6,12 +6,16 @@ export default {
   ],
   theme: {
     extend: {
+      width: {
+        'fill-available': '-webkit-fill-available',
+      },
       colors:{
-        customDarkOrange: '#ff703c',
-        customeLightOrange: '#FFCBA4'
+        customDarkOrange: '#FF703C',
+        customLightOrange: '#FFCBA4',
+        customDarkTeal: '#05EAA7',
+        customLightTeal: '#DDFFF5',
       }
     },
   },
   plugins: [],
-}
-
+};
