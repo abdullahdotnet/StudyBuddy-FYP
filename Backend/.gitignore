@@ -172,7 +172,12 @@ credentials.*
 cs9.pdf
 cs10.pdf
 
-# user uploaded files
+# User space files
 media/userspace/*
 
-chroma_db/*
+# chroma db
+**/chroma_db/
+**/pdf_cache/
+**/vector_db/
+**/embeddings/
+*.sqlite3
