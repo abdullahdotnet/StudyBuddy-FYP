@@ -1,8 +1,6 @@
-# myapp/urls.py
-
 from django.urls import path
-from . import views
+from .views import GenerateQuestionPaperAPIView
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('generate-entry-test/', GenerateQuestionPaperAPIView.as_view(), name='generate-entry-test')
 ]
