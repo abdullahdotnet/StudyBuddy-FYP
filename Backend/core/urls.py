@@ -11,7 +11,7 @@ urlpatterns = [
     path('api/user/', include('account.urls')),
     path('api/test-session/', include('test_session.urls')),
     path('api/userspace/', include('userspace.urls')),
-    path('api/test-session/', include('papergen.urls')),
+    path('api/papergen/', include('papergen.urls')),
 ]
 
 if settings.DEBUG:
