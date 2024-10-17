@@ -181,3 +181,10 @@ media/userspace/*
 **/vector_db/
 **/embeddings/
 *.sqlite3
+UHS_24.csv
+
+**/UHS_24_chroma_store/
+**/mcqs_output_pdfs/
+**/mcqs_input_pdfs/
+**/mcqs_answer_pdfs/
+**/mcqs_generation_pdfs/
