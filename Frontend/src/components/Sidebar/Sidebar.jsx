@@ -24,46 +24,52 @@ const Sidebar = () => {
           {/* Navigation Items */}
           <ul>
             <Link to="/dashboard">
-            <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
-              <img src={HomeIcon} alt="Dashboard" className="mr-4" />
-              {isOpen && <span>Dashboard</span>}
-            </li>
+              <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
+                <img src={HomeIcon} alt="Dashboard" className="mr-4" />
+                {isOpen && <span>Dashboard</span>}
+              </li>
             </Link>
             <Link to="/chatbot">
-            <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
-              <img src={ConvIcon} alt="Chat" className="mr-4 w-9" />
-              {isOpen && <span>Chat</span>}
-            </li>
+              <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
+                <img src={ConvIcon} alt="Chat" className="mr-4 w-9" />
+                {isOpen && <span>Chat</span>}
+              </li>
+            </Link>
+            <Link to='/entry-test'>
+              <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
+                <img src={BagIcon} alt="Extras" className="mr-4" />
+                {isOpen && <span>Entry Test</span>}
+              </li>
             </Link>
             <Link to="/resources">
-            <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
-              <img src={DocIcon} alt="Resources" className="mr-4" />
-              {isOpen && <span>Resources</span>}
-            </li>
+              <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
+                <img src={DocIcon} alt="Resources" className="mr-4" />
+                {isOpen && <span>Resources</span>}
+              </li>
             </Link>
             <Link to="/todo">
-            <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
-              <img src={ChatIcon} alt="To Do" className="mr-4" />
-              {isOpen && <span>To Do</span>}
-            </li>
+              <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
+                <img src={ChatIcon} alt="To Do" className="mr-4" />
+                {isOpen && <span>To Do</span>}
+              </li>
             </Link>
             <Link to="/extension">
-            <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
-              <img src={CategoryIcon} alt="Extension" className="mr-4" />
-              {isOpen && <span>Extension</span>}
-            </li>
+              <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
+                <img src={CategoryIcon} alt="Extension" className="mr-4" />
+                {isOpen && <span>Extension</span>}
+              </li>
             </Link>
             <Link to="/books">
-            <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
-              <img src={BagIcon} alt="Books" className="mr-4" />
-              {isOpen && <span>Books</span>}
-            </li>
+              <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
+                <img src={BagIcon} alt="Books" className="mr-4" />
+                {isOpen && <span>Books</span>}
+              </li>
             </Link>
             <Link to='/extras'>
-            <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
-              <img src={BagIcon} alt="Extras" className="mr-4" />
-              {isOpen && <span>Extras</span>}
-            </li>            
+              <li className="mb-4 flex items-center text-black hover:bg-[#F24E1E] p-2 rounded transition-colors cursor-pointer">
+                <img src={BagIcon} alt="Extras" className="mr-4" />
+                {isOpen && <span>Extras</span>}
+              </li>
             </Link>
           </ul>
         </div>

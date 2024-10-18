@@ -363,19 +363,19 @@ def initialize_question_answer_chain():
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 book_file_path = os.path.join(BASE_DIR, 'chatbot\\9thComputerScience_cleaned.txt')  # Remove leading backslash
-# documents = None
-# text_splitter = None
-# split_docs = None
-# vector_store = None
-# embedded_docs = None
-# llm = None
-# retriever = None
-# contextualize_q_system_prompt = None
-# contextualize_q_prompt = None
-# history_aware_retriever = None
-# system_prompt = None
-# qa_prompt = None
-# question_answer_chain = None
+documents = None
+text_splitter = None
+split_docs = None
+vector_store = None
+embedded_docs = None
+llm = None
+retriever = None
+contextualize_q_system_prompt = None
+contextualize_q_prompt = None
+history_aware_retriever = None
+system_prompt = None
+qa_prompt = None
+question_answer_chain = None
 
 # def create_rag_chain():
 #     global embedding_model, book_file_path, documents, text_splitter, split_docs, vector_store, embedded_docs, llm, retriever, contextualize_q_system_prompt, contextualize_q_prompt, history_aware_retriever, system_prompt, qa_prompt, question_answer_chain

@@ -1,5 +1,5 @@
 %PDF-1.4
-%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+%ï¿½ï¿½ï¿½ï¿½ ReportLab Generated PDF document http://www.reportlab.com
 1 0 obj
 <<
 /F1 2 0 R /F2 3 0 R
@@ -42,7 +42,11 @@ endobj
 endobj
 7 0 obj
 <<
+<<<<<<< HEAD
+/Author (\(anonymous\)) /CreationDate (D:20241015083153+05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20241015083153+05'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+=======
 /Author (\(anonymous\)) /CreationDate (D:20241015202743-05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20241015202743-05'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+>>>>>>> 3ea3171b765855d4976dc04f35a350cac58c897f
   /Subject (\(unspecified\)) /Title (\(anonymous\)) /Trapped /False
 >>
 endobj
