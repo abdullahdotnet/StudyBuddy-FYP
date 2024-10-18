@@ -44,7 +44,7 @@ class GenerateQuestionPaperAPIView(APIView):
             # Load all data from input_data folder
             data_folder = os.path.join(BASE_DIR, 'entrytest/input_data')
             data = load_data_from_files(data_folder)
-
+            
             # Sample questions for each subject
             biology_questions = data[data['Subject'] == 'Biology'].sample(n=subjects_questions["Biology"])
             chemistry_questions = data[data['Subject'] == 'Chemistry'].sample(n=subjects_questions["Chemistry"])
@@ -59,7 +59,6 @@ class GenerateQuestionPaperAPIView(APIView):
             ])
             # Assign sequential IDs to the questions
             combined_questions['ID'] = range(1, len(combined_questions) + 1)
-            print(combined_questions)
             # Convert to a list of dictionaries for the response
             mcq_paper = []
             answer_map = {
