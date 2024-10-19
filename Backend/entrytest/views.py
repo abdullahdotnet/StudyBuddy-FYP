@@ -3,8 +3,10 @@ from rest_framework.response import Response
 from rest_framework import status
 import os
 import pandas as pd
+import json
+import math
 from dotenv import load_dotenv
-from .utils import get_pdf_files_from_folder
+from .utils import generate_mcqs
 
 # Load environment variables
 load_dotenv()
@@ -30,6 +32,14 @@ def load_data_from_files(folder_path):
 
 class GenerateQuestionPaperAPIView(APIView):
 
+    import os
+import pandas as pd
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
+class GenerateQuestionPaperAPIView(APIView):
+
     def get(self, request):
         try:
             # Define the number of questions for each subject
@@ -51,23 +61,54 @@ class GenerateQuestionPaperAPIView(APIView):
             physics_questions = data[data['Subject'] == 'Physics'].sample(n=subjects_questions["Physics"])
             english_questions = data[data['Subject'] == 'English'].sample(n=subjects_questions["English"])
             logical_reasoning_questions = data[data['Subject'] == 'Logical Reasoning'].sample(n=subjects_questions["Logical Reasoning"])
-            # Combine the sampled questions while maintaining subject order
+            
+            # Get new Biology MCQs as a list of JSON strings
+            selected_biology_questions = biology_questions.sample(n=5).reset_index(drop=True)
+            new_biology_mcqs = generate_mcqs("Biology", selected_biology_questions)  # This returns a list of JSON strings
+            print("=="*10)
+            print("New Biology MCQs:", new_biology_mcqs)
+
+            # Parse the JSON strings and replace the selected rows in the biology_questions DataFrame
+            for i in range(5):
+                # Parse the JSON string into a dictionary
+                new_mcq = json.loads(new_biology_mcqs[i])
+                print(f"New MCQ generated{i}", '='*10)
+                print(new_mcq)
+                # Ensure proper column-wise replacement
+                biology_questions.at[selected_biology_questions.index[i], 'Question'] = new_mcq['question']
+                biology_questions.at[selected_biology_questions.index[i], 'Option 1'] = new_mcq['options'][0]
+                biology_questions.at[selected_biology_questions.index[i], 'Option 2'] = new_mcq['options'][1]
+                biology_questions.at[selected_biology_questions.index[i], 'Option 3'] = new_mcq['options'][2]
+                biology_questions.at[selected_biology_questions.index[i], 'Option 4'] = new_mcq['options'][3]
+                biology_questions.at[selected_biology_questions.index[i], 'Answers'] = new_mcq['answer']
+            print("Outside 01","=="*10)
+            # Combine the modified biology questions with other subjects
             combined_questions = pd.concat([
                 biology_questions, chemistry_questions, 
                 physics_questions, english_questions, 
                 logical_reasoning_questions
             ])
+            print("Outside 02","=="*10)
+            
             # Assign sequential IDs to the questions
             combined_questions['ID'] = range(1, len(combined_questions) + 1)
+            print("Outside 03","=="*10)
             # Convert to a list of dictionaries for the response
             mcq_paper = []
             answer_map = {
-                    'A': 0,
-                    'B': 1,
-                    'C': 2,
-                    'D': 3
-                }
-            for _, item in combined_questions.iterrows():
+                'A': 0,
+                'B': 1,
+                'C': 2,
+                'D': 3
+            }
+            print("Combined Questions","=="*10)
+            print(len(combined_questions))
+            
+            for idx, item in combined_questions.iterrows():
+                # Check if the question was generated
+                print(f"Outside 04 {idx}","=="*10)
+                print(item)
+                generated_flag = 1 if item['Subject'] == "Biology" and idx in selected_biology_questions.index else 0
                 mcq_paper.append({
                     "id": item['ID'],
                     "question": item['Question'],
@@ -79,7 +120,14 @@ class GenerateQuestionPaperAPIView(APIView):
                     ],
                     "subject": item['Subject'],
                     "answer": answer_map[item['Answers']],
+                    "generated": generated_flag  # Add the generated flag
                 })
+            # Replace NaN values in 'subject' with an empty string
+            for mcq in mcq_paper:
+                if isinstance(mcq.get('subject'), float) and math.isnan(mcq['subject']):
+                    mcq['subject'] = ''
+            print("Combined Questions","=="*10)
+            print(mcq_paper)
 
             return Response({"mcq_paper": mcq_paper}, status=status.HTTP_200_OK)
 
