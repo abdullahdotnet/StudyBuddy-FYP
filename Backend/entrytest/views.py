@@ -34,10 +34,10 @@ class GenerateQuestionPaperAPIView(APIView):
         try:
             # Define the number of questions for each subject
             subjects_questions = {
-                "Biology": 68,
-                "Chemistry": 54,
-                "Physics": 54,
-                "English": 18,
+                "Biology": 10,
+                "Chemistry": 10,
+                "Physics": 10,
+                "English": 10,
                 "Logical Reasoning": 6
             }
 

@@ -190,3 +190,5 @@ UHS_24.csv
 **/mcqs_generation_pdfs/
 **/books/
 **/input_data/*
+**/ocrbooks/*
+**/bio_emdeddings/*

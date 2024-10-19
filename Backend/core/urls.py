@@ -14,7 +14,7 @@ urlpatterns = [
     path('api/papergen/', include('papergen.urls')),
     path('api/test-session/', include('papergen.urls')),
     path('api/entrytest/', include('entrytest.urls')),
-    path('api/ocr/', include('core_utils.urls'))
+    path('api/', include('core_utils.urls'))
 ]
 
 if settings.DEBUG:
