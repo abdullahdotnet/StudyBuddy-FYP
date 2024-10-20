@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const ObjectivePaperGen = () => {
+  const { grade, subject } = useParams();
   const [questions, setQuestions] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [loading, setLoading] = useState(false);
@@ -13,7 +15,7 @@ const ObjectivePaperGen = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch("http://localhost:8000/api/test-session/generate-paper/", {
+        const response = await fetch(`http://localhost:8000/api/board/generate-objective/${grade}/${subject}/`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
         });
@@ -31,7 +33,7 @@ const ObjectivePaperGen = () => {
     };
 
     fetchQuestions();
-  }, []);
+  }, [grade, subject]);
 
   const handleOptionChange = (questionId, option) => {
     setSelectedAnswers((prevAnswers) => ({
@@ -51,7 +53,7 @@ const ObjectivePaperGen = () => {
     }));
 
     try {
-      const response = await fetch("http://localhost:8000/api/test-session/evaluate-paper/", {
+      const response = await fetch(`http://localhost:8000/api/board/evaluate-objective/${grade}/${subject}/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ questions: formattedQuestions }),
