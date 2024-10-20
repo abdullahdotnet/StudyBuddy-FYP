@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.idea*
 
 # C extensions
 *.so
@@ -188,3 +189,8 @@ UHS_24.csv
 **/mcqs_input_pdfs/
 **/mcqs_answer_pdfs/
 **/mcqs_generation_pdfs/
+**/books/
+**/input_data/*
+**/ocrbooks/*
+**/bio_emdeddings/*
+
