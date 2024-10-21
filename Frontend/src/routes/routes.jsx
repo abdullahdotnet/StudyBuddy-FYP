@@ -22,6 +22,8 @@ import PaperGen from "../pages/PaperGen/PaperGen";
 import GeneratedPaper from "../pages/GeneratedPaper/GeneratedPaper";
 import UserSpace from "../pages/UserSpace/UserSpace";
 import ObjectivePaperGen from "../pages/PaperGen/ObjectivePaperGen";
+import EntryTest from "../pages/EntryTest/EntryTest";
+import MockTest from "../components/EntryTest/MockTest/MockTest";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -42,6 +44,9 @@ const router = createBrowserRouter(
         <Route path="/board/objective/:grade/:subject" element={<ObjectivePaperGen />} />
         <Route path="/generated-paper/:subjectName" element={<GeneratedPaper />} />
         <Route path="/user-space" element={<UserSpace />} />
+        <Route path="/entry-test" element={<EntryTest />} />
+        <Route path="/entry-test/test" element={<MockTest />} />
+        <Route path="/entry-test/book-wise/" element={<h1>This feature will be available soon</h1>} />
         <Route path="*" element={<h1>Page Not found</h1>} />
       </Route>
 

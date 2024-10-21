@@ -15,7 +15,9 @@ const ObjectivePaperGen = () => {
       setLoading(true);
       setError(null);
       try {
+
         const response = await fetch(`http://localhost:8000/api/board/generate-objective/${grade}/${subject}/`, {
+
           method: "POST",
           headers: { "Content-Type": "application/json" },
         });
@@ -53,7 +55,9 @@ const ObjectivePaperGen = () => {
     }));
 
     try {
+
       const response = await fetch(`http://localhost:8000/api/board/evaluate-objective/${grade}/${subject}/`, {
+
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ questions: formattedQuestions }),

@@ -13,6 +13,8 @@ urlpatterns = [
     path('api/userspace/', include('userspace.urls')),
     path('api/board/', include('papergen.urls')),
     path('api/entrytest/', include('entrytest.urls'))
+    path('api/', include('core_utils.urls'))
+
 ]
 
 if settings.DEBUG:
