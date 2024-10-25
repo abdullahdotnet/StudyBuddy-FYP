@@ -1,5 +1,32 @@
 document.addEventListener('DOMContentLoaded', restoreScreenshotsAndNotes);
 
+
+function convertSecondsToHMS(totalSeconds) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = Math.floor(totalSeconds % 60);
+
+  // Prepare the formatted components
+  const paddedHours = String(hours).padStart(2, '0');
+  const paddedMinutes = String(minutes).padStart(2, '0');
+  const paddedSeconds = String(seconds).padStart(2, '0');
+
+  // Construct the result based on what's present
+  let result = '';
+
+  if (hours > 0) {
+    result += `${paddedHours}:`;
+  }
+  
+  if (minutes > 0 || hours > 0) { // Show minutes if there are hours or if minutes are > 0
+    result += `${paddedMinutes}:`;
+  }
+
+  result += paddedSeconds; // Always show seconds
+
+  return result;
+}
+
 document.getElementById('screenshotBtn').addEventListener('click', async () => {
   takeScreenshot();
 });
@@ -171,7 +198,7 @@ function addScreenshotToPopup(screenshotUrl, time) {
 
   const timestamp = document.createElement('p');
   timestamp.classList.add('timestamp');
-  timestamp.textContent = `Time: ${time.toFixed(2)} seconds`;
+  timestamp.textContent = convertSecondsToHMS(time);
   div.appendChild(timestamp);
 
   screenshotNoteContainer.appendChild(div);
@@ -193,7 +220,7 @@ function addNoteToPopup(note, time) {
 
   const timestamp = document.createElement('p');
   timestamp.classList.add('timestamp');
-  timestamp.textContent = `Time: ${time.toFixed(2)} seconds`;
+  timestamp.textContent = `${convertSecondsToHMS(time)}`;
   div.appendChild(timestamp);
 
   screenshotNoteContainer.appendChild(div);
