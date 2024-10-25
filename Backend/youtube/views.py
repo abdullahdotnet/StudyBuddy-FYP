@@ -31,9 +31,12 @@ class YoutubeSummaryView(APIView):
         try:
             transcription, video_id = transcribe(youtube_url)
             summarization = self._get_summarization(transcription)
+            bullets = self._get_summary_bullets(transcription)
             print(summarization)
-            path = f'./media/pdfs/{video_id}.pdf'
-            pdf = generate_pdf(youtube_url, summarization, filename=path)
+            print("="*20)
+            print("Bullets",bullets)
+            # path = f'./media/pdfs/{video_id}.pdf'
+            # pdf = generate_pdf(youtube_url, summarization, filename=path)
 
             return JsonResponse(
                 {
@@ -41,6 +44,7 @@ class YoutubeSummaryView(APIView):
                     'pdf_path': f'/Backend/media/pdfs/{video_id}.pdf',
                     'youtube_url': youtube_url,
                     'summary': summarization,
+                    'bullets':bullets
                 },
                 status=status.HTTP_200_OK
             )
@@ -53,6 +57,22 @@ class YoutubeSummaryView(APIView):
             url=self.CHATBOT_URL,
             json={
                 'query': f'Generate summarization for the provided transcription in headings and paragraphs: {transcription}'
+            }
+        )
+
+        if response.status_code == status.HTTP_200_OK:
+            return response.json().get('answer')
+
+        return Response(
+            {'error': 'Failed to generate summarization'},
+            status=status.HTTP_500_INTERNAL_SERVER_ERROR
+        )
+    
+    def _get_summary_bullets(self, transcription):
+        response = requests.post(
+            url=self.CHATBOT_URL,
+            json={
+                'query': f'Provide 5 bullets points without description for provided transcription: {transcription}'
             }
         )
 
