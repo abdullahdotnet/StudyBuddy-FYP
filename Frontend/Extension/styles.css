@@ -7,7 +7,7 @@
   }
 
   #screenshotNoteContainer::-webkit-scrollbar-track {
-    background: #f4f4f9; /* Background of the track (empty space) */
+    background: #05eaa7; /* Background of the track (empty space) */
     border-radius: 20px;
   }
 
@@ -229,7 +229,7 @@
 }
 
 #summaryBullets::before {
-  content: "🔹 Bullet Points"; /* Icon and title */
+  content: "🔹 Key Points in Video"; /* Icon and title */
   font-weight: bold;
   color: #007acc;
   display: block;
@@ -275,6 +275,34 @@
 #summaryAndBulletContainer::-webkit-scrollbar-thumb:hover {
   background-color: #707070;
 }
+
+/* Style for the unordered list inside #summaryBullets */
+#summaryBullets ul.styled-bullets {
+  padding-left: 5px;
+  list-style-type: none; /* Remove default bullets */
+  margin: 0;
+}
+
+/* Style for each list item */ 
+#summaryBullets ul.styled-bullets li {
+  position: relative;
+  padding-left: 10px; /* Space for custom bullet icon */
+  margin-bottom: 8px;
+  font-size: 1em;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Custom bullet icon */
+#summaryBullets ul.styled-bullets li::before {
+  content: "•"; /* Custom bullet character */
+  position: absolute;
+  left: 0;
+  color: #007acc; /* Bullet color */
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
 
 /* Animation Keyframes */
 @keyframes fadeInLeft {
