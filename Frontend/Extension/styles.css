@@ -64,7 +64,7 @@
     -moz-border-radius: 15px;
   }
 
-  h3 {
+  #mainHeading {
     background: linear-gradient(to right, #05EAA7 0%, #FF6F3C 80%, #FF6F3C 100%);
     background-clip: text;
     -webkit-background-clip: text;
