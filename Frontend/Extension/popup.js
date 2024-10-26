@@ -141,6 +141,7 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
 
         // Get the summary from the response
         const data = await response.json();
+        console.log(data);
         saveSummaryToLocalStorage(data.summary,data.bullets);
 
         // Display the summary in the popup as HTML

@@ -41,7 +41,9 @@ class YoutubeSummaryView(APIView):
             # Generate summarization with Groq
             summarization = self._get_summarization(transcription)
             print(summarization)
-            
+            bullets = self._get_summary_bullets(summarization)
+            print(">>"*10)
+            print(bullets)
             # Generate PDF with summary
             # path = f'./media/pdfs/{video_id}.pdf'
             # pdf = generate_pdf(youtube_url, summarization, filename=path)
@@ -52,6 +54,7 @@ class YoutubeSummaryView(APIView):
                     # 'pdf_path': f'/Backend/media/pdfs/{video_id}.pdf',
                     'youtube_url': youtube_url,
                     'summary': summarization,
+                    'bullets': bullets
                 },
                 status=status.HTTP_200_OK
             )
@@ -68,7 +71,7 @@ class YoutubeSummaryView(APIView):
                     {"role": "system", "content": "You are a helpful assistant."},
                     {
                         "role": "user",
-                        "content": f"Summarize the following transcription without any extra thing: {transcription}"
+                        "content": f"Summarize the following transcription of video: {transcription}"
                     }
                 ],
                 temperature=0.5,
@@ -82,3 +85,27 @@ class YoutubeSummaryView(APIView):
         except Exception as e:
             print(f"Error generating summary with Groq: {e}")
             return "Failed to generate summary."
+        
+    def _get_summary_bullets(self, summarization):
+        try:
+            chat_completion = client.chat.completions.create(
+                model="llama-3.1-70b-versatile",
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant."},
+                    {
+                        "role": "user",
+                        "content": f"Write 3 to 5 bullet points summarizing the following text: {summarization}"
+                    }
+                ],
+                temperature=0.5,
+                # max_tokens=1024,
+                top_p=1,
+                stream=False
+            )
+            # Extract the summary text from the response
+            return chat_completion.choices[0].message.content
+        
+        except Exception as e:
+            print(f"Error generating summary with Groq: {e}")
+            return "Failed to generate summary."
+
