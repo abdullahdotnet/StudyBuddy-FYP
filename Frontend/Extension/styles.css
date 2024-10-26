@@ -200,6 +200,10 @@
     margin-bottom: 15px;
     border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
+    margin-bottom: 10px; /* Space between notes */
+    max-width: 100%; /* Prevent the note from exceeding the container width */
+    word-wrap: break-word; /* Break long words */
+    white-space: normal; 
   }
 
   .screenshot {
@@ -213,6 +217,7 @@
   .note {
     font-size: 16px;
     color: #555;
+    margin: 0;
   }
 
   .timestamp {
@@ -278,3 +283,4 @@
   #loginBtn:hover , #submitLogin:hover{
     background-color: #03b17d;
   }
+  

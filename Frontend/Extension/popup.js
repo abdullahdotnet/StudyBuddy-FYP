@@ -1,6 +1,45 @@
 document.addEventListener('DOMContentLoaded', restoreScreenshotsAndNotes);
 
+
+function convertSecondsToHMS(totalSeconds) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = Math.floor(totalSeconds % 60);
+
+  // Prepare the formatted components
+  const paddedHours = String(hours).padStart(2, '0');
+  const paddedMinutes = String(minutes).padStart(2, '0');
+  const paddedSeconds = String(seconds).padStart(2, '0');
+
+  // Construct the result based on what's present
+  let result = '';
+
+  if (hours > 0) {
+    result += `${paddedHours}:`;
+  }
+  
+  if (minutes > 0 || hours > 0) { // Show minutes if there are hours or if minutes are > 0
+    result += `${paddedMinutes}:`;
+  }
+
+  result += paddedSeconds; // Always show seconds
+
+  return result;
+}
+
 document.getElementById('screenshotBtn').addEventListener('click', async () => {
+  takeScreenshot();
+});
+document.addEventListener('keydown', (event) => {
+  // Check if Ctrl (or Command on Mac) + S is pressed
+  if ((event.ctrlKey || event.metaKey) && event.key === 's') {
+    event.preventDefault(); // Prevent default save dialog
+    takeScreenshot(); // Call the screenshot function
+  }
+});
+
+
+function takeScreenshot() {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     chrome.runtime.sendMessage({ action: 'takeScreenshot', tabId: tabs[0].id }, (response) => {
       if (response.error) {
@@ -12,9 +51,13 @@ document.getElementById('screenshotBtn').addEventListener('click', async () => {
       }
     });
   });
+}
+document.getElementById('addNoteBtn').addEventListener('click', async () => {
+  addNote();
 });
 
-document.getElementById('addNoteBtn').addEventListener('click', async () => {
+// Function to add a note
+function addNote() {
   const note = document.getElementById('noteInput').value;
 
   if (!note) {
@@ -34,15 +77,27 @@ document.getElementById('addNoteBtn').addEventListener('click', async () => {
     });
   });
 
+  // Clear the input field after adding the note
   document.getElementById('noteInput').value = ''; 
+}
+
+// Add event listener for the Enter key
+document.getElementById('noteInput').addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault(); // Prevent the default action (form submission, etc.)
+    addNote(); // Call the addNote function
+  }
 });
+
 
 document.getElementById('clearBtn').addEventListener('click', clearAllScreenshotsAndNotes);
 document.getElementById('saveBtn').addEventListener('click', saveAsPDF);
 
 
-function saveSummaryToLocalStorage(summary) {
+function saveSummaryToLocalStorage(summary,bullets) {
   localStorage.setItem('summary', summary);
+  localStorage.setItem('bullets', bullets);
+
 }
 
 function formatSummaryToHTML(summaryText) {
@@ -86,14 +141,15 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
 
         // Get the summary from the response
         const data = await response.json();
-        saveSummaryToLocalStorage(data.summary);
+        saveSummaryToLocalStorage(data.summary,data.bullets);
 
         // Display the summary in the popup as HTML
         summaryResult.innerHTML = formatSummaryToHTML(data.summary);
+        summaryBullets.innerHTML = formatSummaryToHTML(data.bullets);
 
         // Save the summary to localStorage
-        localStorage.setItem('youtubeSummary', data.summary);
-
+        // localStorage.setItem('youtubeSummary', data.summary);
+        // localStorage.setItem('youtubeSummaryBullets', data.bullets);
       } catch (error) {
         console.error('Error fetching summary:', error);
         summaryResult.innerText = 'Failed to fetch summary.';
@@ -122,15 +178,33 @@ function addScreenshotToPopup(screenshotUrl, time) {
   const img = document.createElement('img');
   img.src = screenshotUrl;
   img.classList.add('screenshot');
+  
+  // Wait for the image to load before scrolling
+  img.onload = () => {
+    screenshotNoteContainer.scrollTo({
+      top: screenshotNoteContainer.scrollHeight,
+      behavior: 'smooth'
+    });
+
+    if (outerScrollContainer) {
+      outerScrollContainer.scrollTo({
+        top: outerScrollContainer.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  };
+  
   div.appendChild(img);
 
   const timestamp = document.createElement('p');
   timestamp.classList.add('timestamp');
-  timestamp.textContent = `Time: ${time.toFixed(2)} seconds`;
+  timestamp.textContent = convertSecondsToHMS(time);
   div.appendChild(timestamp);
 
   screenshotNoteContainer.appendChild(div);
 }
+
+
 
 // Function to add a note to the popup in real-time
 function addNoteToPopup(note, time) {
@@ -138,7 +212,7 @@ function addNoteToPopup(note, time) {
 
   const div = document.createElement('div');
   div.classList.add('screenshot-note');
-
+  
   const noteElement = document.createElement('p');
   noteElement.classList.add('note');
   noteElement.textContent = note;
@@ -146,11 +220,18 @@ function addNoteToPopup(note, time) {
 
   const timestamp = document.createElement('p');
   timestamp.classList.add('timestamp');
-  timestamp.textContent = `Time: ${time.toFixed(2)} seconds`;
+  timestamp.textContent = `${convertSecondsToHMS(time)}`;
   div.appendChild(timestamp);
 
   screenshotNoteContainer.appendChild(div);
+
+  // Scroll to the newly added note
+  screenshotNoteContainer.scrollTo({
+    top: screenshotNoteContainer.scrollHeight,
+    behavior: 'smooth' // Enables smooth scrolling
+  });
 }
+
 
 // Save screenshot and note to localStorage
 function saveScreenshotToLocalStorage(screenshotUrl, time) {
@@ -170,6 +251,7 @@ function restoreScreenshotsAndNotes() {
   const savedScreenshots = JSON.parse(localStorage.getItem('screenshots')) || [];
   const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
   const savedSummary = localStorage.getItem('summary') || '';
+  const savedBullets = localStorage.getItem('bullets') || '';
 
   savedScreenshots.forEach((screenshot) => {
     addScreenshotToPopup(screenshot.screenshotUrl, screenshot.time);
@@ -181,7 +263,8 @@ function restoreScreenshotsAndNotes() {
 
   // Restore the summary if it exists
   if (savedSummary) {
-    document.getElementById('summaryResult').innerText = savedSummary;
+    document.getElementById('summaryResult').innerHTML = formatSummaryToHTML(savedSummary);
+    document.getElementById('summaryBullets').innerHTML = formatSummaryToHTML(savedBullets);
   }
 }
 
@@ -191,12 +274,14 @@ function restoreScreenshotsAndNotes() {
 function clearAllScreenshotsAndNotes() {
   // Clear the popup
   document.getElementById('screenshotNoteContainer').innerHTML = '';
-  document.getElementById('summaryResult').innerHTML = ''; // Clear the summary from the UI
+  document.getElementById('summaryResult').innerHTML = '';
+  document.getElementById('summaryBullets').innerHTML = '' // Clear the summary from the UI
   
   // Clear from localStorage
   localStorage.removeItem('screenshots');
   localStorage.removeItem('notes');
-  localStorage.removeItem('summary'); // Clear the summary from localStorage
+  localStorage.removeItem('summary');
+  localStorage.removeItem('bullets') // Clear the summary from localStorage
 }
 
 
