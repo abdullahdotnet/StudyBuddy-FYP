@@ -1,3 +1,7 @@
+#screenshotNoteContainer{
+  margin-top: 15px;
+}
+
 #screenshotNoteContainer::-webkit-scrollbar {
     width: 8px; /* Set the width of the scrollbar */
   }
@@ -186,7 +190,116 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
-  #summaryResult {
+/* Container styling */
+#summaryAndBulletContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background-color: #fefefe; /* Off-white for a soft feel */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  margin-top: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  font-family: 'Roboto', sans-serif; /* Modern font */
+}
+
+/* Shared section styling */
+#summaryBullets, #summaryResult {
+  padding: 16px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Soft gradient */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.5); /* Dual shadow for a lifted effect */
+  line-height: 1.6;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add a scale and glow on hover */
+#summaryBullets:hover, #summaryResult:hover {
+  transform: scale(1.03);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.5); /* Enhanced shadow on hover */
+}
+
+/* Bullet points section */
+#summaryBullets {
+  border-left: 6px solid #007acc;
+  animation: fadeInLeft 0.5s ease;
+}
+
+#summaryBullets::before {
+  content: "🔹 Bullet Points"; /* Icon and title */
+  font-weight: bold;
+  color: #007acc;
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ddd; /* Separator line */
+  padding-bottom: 4px;
+}
+
+/* Summary section */
+#summaryResult {
+  border-left: 6px solid #28a745;
+  animation: fadeInRight 0.5s ease;
+}
+
+#summaryResult::before {
+  content: "📄 Summary"; /* Icon and title */
+  font-weight: bold;
+  color: #28a745;
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+}
+
+/* Custom scrollbar styling */
+#summaryAndBulletContainer::-webkit-scrollbar {
+  width: 8px;
+}
+
+#summaryAndBulletContainer::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 5px;
+}
+
+#summaryAndBulletContainer::-webkit-scrollbar-thumb {
+  background-color: #a0a0a0;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+#summaryAndBulletContainer::-webkit-scrollbar-thumb:hover {
+  background-color: #707070;
+}
+
+/* Animation Keyframes */
+@keyframes fadeInLeft {
+  from {
+      opacity: 0;
+      transform: translateX(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+      opacity: 0;
+      transform: translateX(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+  /* #summaryAndBulletContainer {
     margin-top: 20px;
     max-height: 400px;
     overflow-y: auto;
@@ -194,6 +307,16 @@
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  } */
+
+  #summaryResult {
+    /* margin-top: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
   }
 
   .screenshot-note {
