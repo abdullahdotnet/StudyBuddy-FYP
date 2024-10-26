@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YouTube Screenshot & Note</title>
-    <link rel="stylesheet" href="styles.css" />
 
-    <!-- Add jsPDF from CDN -->
-    <script src="libs/jspdf.umd.min.js"></script>
-  </head>
-  <body>
-    <h3 id="mainHeading">StudyBuddy Notepad</h3>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Screenshot & Note</title>
+  <link rel="stylesheet" href="styles.css" />
 
-    <div id="mainContent">
-      <div class="button-container">
-        <button id="summaryBtn">Summarize</button>
-        <button id="clearBtn">Clear</button>
-        <button id="saveBtn">Save PDF</button>
-      </div>
+  <!-- Add jsPDF from CDN -->
+  <script src="libs/jspdf.umd.min.js"></script>
+</head>
 
-      <div class="input-container">
-        <input type="text" id="noteInput" placeholder="Add a note" />
-        <button id="addNoteBtn">
-          <img src="./plus.png" alt="" />
-        </button>
-        <button id="screenshotBtn">
-          <img src="./camera.png" alt="" />
-        </button>
-      </div>
+<body>
+  <h3 id="mainHeading">StudyBuddy Notepad</h3>
 
-      <!-- <h4>Screenshots & Notes</h4> -->
-      
-      <div id="screenshotNoteContainer"></div>
-      <!-- <div id="summaryBullets" style="white-space: pre-wrap"></div> -->
+  <div id="mainContent">
+    <div class="button-container">
+      <button id="summaryBtn">Summarize</button>
+      <button id="clearBtn">Clear</button>
+      <button id="saveBtn">Save PDF</button>
+    </div>
+
+    <div class="input-container">
+      <input type="text" id="noteInput" placeholder="Add a note" />
+      <button id="addNoteBtn">
+        <img src="./plus.png" alt="" />
+      </button>
+      <button id="screenshotBtn">
+        <img src="./camera.png" alt="" />
+      </button>
+    </div>
+
+    <!-- <h4>Screenshots & Notes</h4> -->
+
+    <div id="summaryAndBulletContainer">
+      <div id="summaryBullets" style="white-space: pre-wrap"></div>
       <div id="summaryResult" style="white-space: pre-wrap"></div>
-
-      <!-- Button to navigate to the login page -->
-      <div id="loginBtnContainer">
-        <button id="loginBtn" class="">Login</button>
-      </div>
     </div>
+    <div id="screenshotNoteContainer"></div>
 
-    <!-- Login section -->
-    <div id="loginContainer">
-      <h4>Login</h4>
-      <input type="email" placeholder="Email" id="emailInput" class="loginInputs"/>
-      <input type="password" placeholder="Password" id="passwordInput" class="loginInputs" />
-      <div>
-        <button id="submitLogin">Submit</button>
-        <button id="backBtn" class="back-btn">Back</button>
-      </div>
+    <!-- Button to navigate to the login page -->
+    <div id="loginBtnContainer">
+      <button id="loginBtn" class="">Login</button>
     </div>
+  </div>
 
-    <script src="popup.js"></script>
-  </body>
+  <!-- Login section -->
+  <div id="loginContainer">
+    <h4>Login</h4>
+    <input type="email" placeholder="Email" id="emailInput" class="loginInputs" />
+    <input type="password" placeholder="Password" id="passwordInput" class="loginInputs" />
+    <div>
+      <button id="submitLogin">Submit</button>
+      <button id="backBtn" class="back-btn">Back</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
 </html>
