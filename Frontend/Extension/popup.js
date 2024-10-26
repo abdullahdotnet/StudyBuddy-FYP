@@ -95,8 +95,8 @@ document.getElementById('saveBtn').addEventListener('click', saveAsPDF);
 
 
 function saveSummaryToLocalStorage(summary,bullets) {
-  localStorage.setItem('summary', summary);
-  localStorage.setItem('bullets', bullets);
+  localStorage.setItem('summary', summary+'\n'+bullets);
+  
 
 }
 
@@ -145,8 +145,12 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
         saveSummaryToLocalStorage(data.summary,data.bullets);
 
         // Display the summary in the popup as HTML
-        summaryResult.innerHTML = formatSummaryToHTML(data.summary);
-        summaryBullets.innerHTML = formatSummaryToHTML(data.bullets);
+        summaryResult.innerHTML = `
+            ${data.bullets}
+            <hr style="margin: 15px 0; border: 1px solid #ddd;"> 
+            ${formatSummaryToHTML(data.summary)}
+          `;
+        // summaryBullets.innerHTML = formatSummaryToHTML(data.bullets);
 
         // Save the summary to localStorage
         // localStorage.setItem('youtubeSummary', data.summary);
@@ -252,7 +256,7 @@ function restoreScreenshotsAndNotes() {
   const savedScreenshots = JSON.parse(localStorage.getItem('screenshots')) || [];
   const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
   const savedSummary = localStorage.getItem('summary') || '';
-  const savedBullets = localStorage.getItem('bullets') || '';
+  // const savedBullets = localStorage.getItem('bullets') || '';
 
   savedScreenshots.forEach((screenshot) => {
     addScreenshotToPopup(screenshot.screenshotUrl, screenshot.time);
@@ -265,7 +269,8 @@ function restoreScreenshotsAndNotes() {
   // Restore the summary if it exists
   if (savedSummary) {
     document.getElementById('summaryResult').innerHTML = formatSummaryToHTML(savedSummary);
-    document.getElementById('summaryBullets').innerHTML = formatSummaryToHTML(savedBullets);
+                                                
+    // document.getElementById('summaryBullets').innerHTML = formatSummaryToHTML(savedBullets);
   }
 }
 

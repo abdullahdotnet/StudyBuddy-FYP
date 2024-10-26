@@ -40,6 +40,7 @@ class YoutubeSummaryView(APIView):
             
             # Generate summarization with Groq
             summarization = self._get_summarization(transcription)
+            bullets = self._get_bullets(transcription)
             print(summarization)
             bullets = self._get_summary_bullets(summarization)
             print(">>"*10)
@@ -54,6 +55,7 @@ class YoutubeSummaryView(APIView):
                     # 'pdf_path': f'/Backend/media/pdfs/{video_id}.pdf',
                     'youtube_url': youtube_url,
                     'summary': summarization,
+                    'bullets': bullets
                     'bullets': bullets
                 },
                 status=status.HTTP_200_OK
