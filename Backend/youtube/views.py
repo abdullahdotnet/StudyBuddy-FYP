@@ -73,10 +73,10 @@ class YoutubeSummaryView(APIView):
                     {"role": "system", "content": "You are a helpful assistant."},
                     {
                         "role": "user",
-                        "content": f"Summarize the following transcription of video: {transcription}"
+                        "content": f"Summarize the following transcription of video such that the user gets the full story of the video. Don't write any starting line just start providing the summary of the video. Transcription: {transcription}"
                     }
                 ],
-                temperature=0.5,
+                temperature=0.2,
                 # max_tokens=1024,
                 top_p=1,
                 stream=False
@@ -96,10 +96,10 @@ class YoutubeSummaryView(APIView):
                     {"role": "system", "content": "You are a helpful assistant."},
                     {
                         "role": "user",
-                        "content": f"Write 3 to 5 bullet points summarizing the following text: {summarization}"
+                        "content": f"Write 4 to 5 bullet points summarizing the following text. They should be just heading like things without description. Dont write any starting line, just write key points : {summarization}"
                     }
                 ],
-                temperature=0.5,
+                temperature=0.1,
                 # max_tokens=1024,
                 top_p=1,
                 stream=False
