@@ -1,194 +1,244 @@
-#screenshotNoteContainer{
+#screenshotNoteContainer {
   margin-top: 15px;
 }
 
 #screenshotNoteContainer::-webkit-scrollbar {
-    width: 8px; /* Set the width of the scrollbar */
-  }
+  width: 8px;
+  /* Set the width of the scrollbar */
+}
 
-  #screenshotNoteContainer::-webkit-scrollbar-track {
-    background: #05eaa7; /* Background of the track (empty space) */
-    border-radius: 20px;
-  }
+#screenshotNoteContainer::-webkit-scrollbar-track {
+  background: #05eaa7;
+  /* Background of the track (empty space) */
+  border-radius: 20px;
+}
 
-  #screenshotNoteContainer::-webkit-scrollbar-thumb {
-    background-color: #05eaa7; /* Green color for the scrollbar thumb */
-    border-radius: 20px; /* Rounded corners */
-    border: 2px solid #f4f4f9; /* Adds padding around the thumb */
-  }
+#screenshotNoteContainer::-webkit-scrollbar-thumb {
+  background-color: #05eaa7;
+  /* Green color for the scrollbar thumb */
+  border-radius: 20px;
+  /* Rounded corners */
+  border: 2px solid #f4f4f9;
+  /* Adds padding around the thumb */
+}
 
-  #screenshotNoteContainer::-webkit-scrollbar-thumb:hover {
-    background-color: #ddd; /* Darker shade when hovered */
-    border-radius: 20px;
-  }
+#screenshotNoteContainer::-webkit-scrollbar-thumb:hover {
+  background-color: #ddd;
+  /* Darker shade when hovered */
+  border-radius: 20px;
+}
 
-  /* For Firefox */
-  #screenshotNoteContainer {
-    scrollbar-width: thin; /* Sets a thinner scrollbar */
-    scrollbar-color: #05eaa7 #f4f4f9; /* Green thumb color and light track color */
-  }
+/* For Firefox */
+#screenshotNoteContainer {
+  scrollbar-width: thin;
+  /* Sets a thinner scrollbar */
+  scrollbar-color: #05eaa7 #f4f4f9;
+  /* Green thumb color and light track color */
+}
 
-  #summaryResult::-webkit-scrollbar {
-    width: 8px; /* Set the width of the scrollbar */
-  }
+#summaryResult::-webkit-scrollbar {
+  width: 8px;
+  /* Set the width of the scrollbar */
+}
 
-  #summaryResult::-webkit-scrollbar-track {
-    background: #f4f4f9; /* Background of the track (empty space) */
-    border-radius: 20px;
-  }
+#summaryResult::-webkit-scrollbar-track {
+  background: #f4f4f9;
+  /* Background of the track (empty space) */
+  border-radius: 20px;
+}
 
-  #summaryResult::-webkit-scrollbar-thumb {
-    background-color: #FF6F3C; /* Orange color for the scrollbar thumb */
-    border-radius: 20px; /* Rounded corners */
-    border: 2px solid #f4f4f9; /* Adds padding around the thumb */
-  }
+#summaryResult::-webkit-scrollbar-thumb {
+  background-color: #FF6F3C;
+  /* Orange color for the scrollbar thumb */
+  border-radius: 20px;
+  /* Rounded corners */
+  border: 2px solid #f4f4f9;
+  /* Adds padding around the thumb */
+}
 
-  #summaryResult::-webkit-scrollbar-thumb:hover {
-    background-color: #ddd; /* Darker shade when hovered */
-    border-radius: 20px;
-  }
+#summaryResult::-webkit-scrollbar-thumb:hover {
+  background-color: #ddd;
+  /* Darker shade when hovered */
+  border-radius: 20px;
+}
 
-  /* For Firefox */
-  #summaryResult {
-    scrollbar-width: thin; /* Sets a thinner scrollbar */
-    scrollbar-color: #FF6F3C #f4f4f9; /* Orange thumb color and light track color */
-  }
+/* For Firefox */
+#summaryResult {
+  scrollbar-width: thin;
+  /* Sets a thinner scrollbar */
+  scrollbar-color: #FF6F3C #f4f4f9;
+  /* Orange thumb color and light track color */
+}
 
-  body {
-    overflow: hidden; /* Ensure no overflow breaks the rounded corners */
-    width: 320px;
-    font-family: "Roboto", sans-serif;
-    background-color: #ffffff;
-    margin: 0;
-    padding: 20px;
-    color: #333;
-    border-radius: 16px; /* Smooth rounded corners */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-  }
+body {
+  overflow: hidden;
+  /* Ensure no overflow breaks the rounded corners */
+  width: 320px;
+  font-family: "Roboto", sans-serif;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+  border-radius: 16px;
+  /* Smooth rounded corners */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+}
 
-  #mainHeading {
-    background: linear-gradient(to right, #05EAA7 0%, #FF6F3C 80%, #FF6F3C 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-    font-size: 2em; /* Adjust font size as needed */
-  }
+#mainHeading {
+  background: linear-gradient(to right, #05EAA7 0%, #FF6F3C 80%, #FF6F3C 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-size: 2em;
+  /* Adjust font size as needed */
+}
 
-  button {
-    padding: 8px 12px;
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    color: white;
-    transition: background-color 0.3s ease;
-  }
+button {
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+}
 
-  /* Button container for summary, clear, save */
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
+/* Button container for summary, clear, save */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
 
-  #summaryBtn,
-  #clearBtn,
-  #saveBtn {
-    background-color: #FF6F3C; /* Green for buttons */
-    flex: 1;
-    margin-right: 4px;
-    border-radius: 4px;
-    margin-left: 4px;
-  }
+#summaryBtn,
+#clearBtn,
+#saveBtn {
+  background-color: #FF6F3C;
+  /* Green for buttons */
+  flex: 1;
+  margin-right: 4px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
 
-  #summaryBtn:hover,
-  #clearBtn:hover,
-  #saveBtn:hover {
-    background-color: #db6135;
-  }
+#summaryBtn:hover,
+#clearBtn:hover,
+#saveBtn:hover {
+  background-color: #db6135;
+}
 
-  .button-container button:last-child {
-    margin-right: 0; /* Removes the extra margin on the last button */
-  }
+.button-container button:last-child {
+  margin-right: 0;
+  /* Removes the extra margin on the last button */
+}
 
-  #clearBtn,
-  #saveBtn {
-    width: 80%;
-  }
+#clearBtn,
+#saveBtn {
+  width: 80%;
+}
 
-  #summaryBtn {
-    padding: 10px 16px;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-  }
+#summaryBtn {
+  padding: 10px 16px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
 
-  #addNoteBtn{
-    padding: 10px 16px;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    margin-right: 4px;
-  }
-  #screenshotBtn {
-    padding: 10px 15px;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-  }
+#addNoteBtn {
+  padding: 10px 16px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+}
 
-  #screenshotBtn:hover {
-    border-color: #6c757d;
-    background-color: #05eaa7; /* Grey background when hovered */
-    transition: background-color 0.3s ease;
-  }
+#screenshotBtn {
+  padding: 10px 15px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
 
-  #addNoteBtn:hover {
-    border-color: #6c757d;
-    background-color: #05eaa7; /* Grey background when hovered */
-    transition: background-color 0.3s ease;
-  }
+#screenshotBtn:hover {
+  border-color: #6c757d;
+  background-color: #05eaa7;
+  /* Grey background when hovered */
+  transition: background-color 0.3s ease;
+}
 
-  .input-container {
-    display: flex;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
+#addNoteBtn:hover {
+  border-color: #6c757d;
+  background-color: #05eaa7;
+  /* Grey background when hovered */
+  transition: background-color 0.3s ease;
+}
 
-  input[type="text"] {
-    flex-grow: 1;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    outline: none;
-    margin-right: 4px;
-  }
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
-  input[type="text"]:focus {
-    border-color: #05eaa7;
-  }
+input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  margin-right: 4px;
+}
 
-  h4 {
-    font-size: 16px;
-    color: #555;
-    border-bottom: 2px solid #FF6F3C; /* Orange underline */
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-  }
+input[type="text"]:focus {
+  border-color: #05eaa7;
+}
 
-  #screenshotNoteContainer {
-    max-height: 400px;
-    overflow-y: auto;
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
+textarea {
+  flex-grow: 1;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  outline: none;
+  margin-right: 4px;
+  resize: none; /* Prevent manual resizing */
+  overflow: scroll; /* Hide scrollbar */
+  max-height: 2em; /* Limit to approximately two lines */
+  line-height: 1.5em; /* Ensures two lines within 2em */
+  /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+  -webkit-appearance: none;
+}
+
+textarea::-webkit-scrollbar {
+  display: none; /* Hides scrollbar for WebKit */
+}
+
+textarea:focus {
+  border-color: #05eaa7;
+}
+
+h4 {
+  font-size: 16px;
+  color: #555;
+  border-bottom: 2px solid #FF6F3C;
+  /* Orange underline */
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+#screenshotNoteContainer {
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
 /* Container styling */
 #summaryAndBulletContainer {
@@ -196,30 +246,38 @@
   flex-direction: column;
   gap: 16px;
   padding: 20px;
-  background-color: #fefefe; /* Off-white for a soft feel */
+  background-color: #fefefe;
+  /* Off-white for a soft feel */
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* Subtle shadow */
   margin-top: 20px;
   max-height: 400px;
   overflow-y: auto;
-  font-family: 'Roboto', sans-serif; /* Modern font */
+  font-family: 'Roboto', sans-serif;
+  /* Modern font */
 }
 
 /* Shared section styling */
-#summaryBullets, #summaryResult {
+#summaryBullets,
+#summaryResult {
   padding: 16px;
   border-radius: 8px;
-  background: linear-gradient(145deg, #ffffff, #f0f0f0); /* Soft gradient */
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.5); /* Dual shadow for a lifted effect */
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  /* Soft gradient */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.5);
+  /* Dual shadow for a lifted effect */
   line-height: 1.6;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Add a scale and glow on hover */
-#summaryBullets:hover, #summaryResult:hover {
+#summaryBullets:hover,
+#summaryResult:hover {
   transform: scale(1.03);
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.5); /* Enhanced shadow on hover */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.5);
+  /* Enhanced shadow on hover */
 }
 
 /* Bullet points section */
@@ -229,13 +287,15 @@
 }
 
 #summaryBullets::before {
-  content: "🔹 Key Points in Video"; /* Icon and title */
+  content: "🔹 Key Points in Video";
+  /* Icon and title */
   font-weight: bold;
   color: #007acc;
   display: block;
   font-size: 1.1em;
   margin-bottom: 8px;
-  border-bottom: 1px solid #ddd; /* Separator line */
+  border-bottom: 1px solid #ddd;
+  /* Separator line */
   padding-bottom: 4px;
 }
 
@@ -246,7 +306,8 @@
 }
 
 #summaryResult::before {
-  content: "📄 Summary"; /* Icon and title */
+  content: "📄 Summary";
+  /* Icon and title */
   font-weight: bold;
   color: #28a745;
   display: block;
@@ -279,14 +340,16 @@
 /* Style for the unordered list inside #summaryBullets */
 #summaryBullets ul.styled-bullets {
   padding-left: 5px;
-  list-style-type: none; /* Remove default bullets */
+  list-style-type: none;
+  /* Remove default bullets */
   margin: 0;
 }
 
-/* Style for each list item */ 
+/* Style for each list item */
 #summaryBullets ul.styled-bullets li {
   position: relative;
-  padding-left: 10px; /* Space for custom bullet icon */
+  padding-left: 10px;
+  /* Space for custom bullet icon */
   margin-bottom: 8px;
   font-size: 1em;
   color: #333;
@@ -295,10 +358,12 @@
 
 /* Custom bullet icon */
 #summaryBullets ul.styled-bullets li::before {
-  content: "•"; /* Custom bullet character */
+  content: "•";
+  /* Custom bullet character */
   position: absolute;
   left: 0;
-  color: #007acc; /* Bullet color */
+  color: #007acc;
+  /* Bullet color */
   font-size: 1.2em;
   font-weight: bold;
 }
@@ -307,27 +372,29 @@
 /* Animation Keyframes */
 @keyframes fadeInLeft {
   from {
-      opacity: 0;
-      transform: translateX(-20px);
+    opacity: 0;
+    transform: translateX(-20px);
   }
+
   to {
-      opacity: 1;
-      transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
 @keyframes fadeInRight {
   from {
-      opacity: 0;
-      transform: translateX(20px);
+    opacity: 0;
+    transform: translateX(20px);
   }
+
   to {
-      opacity: 1;
-      transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-  /* #summaryAndBulletContainer {
+/* #summaryAndBulletContainer {
     margin-top: 20px;
     max-height: 400px;
     overflow-y: auto;
@@ -337,101 +404,105 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   } */
 
-  #summaryResult {
-    /* margin-top: 20px;
+#summaryResult {
+  /* margin-top: 20px;
     max-height: 400px;
     overflow-y: auto;
     background-color: white;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
-  }
+}
 
-  .screenshot-note {
-    margin-bottom: 15px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 10px; /* Space between notes */
-    max-width: 100%; /* Prevent the note from exceeding the container width */
-    word-wrap: break-word; /* Break long words */
-    white-space: normal; 
-  }
+.screenshot-note {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  /* Space between notes */
+  max-width: 100%;
+  /* Prevent the note from exceeding the container width */
+  word-wrap: break-word;
+  /* Break long words */
+  white-space: normal;
+}
 
-  .screenshot {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-  }
+.screenshot {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
 
-  .note {
-    font-size: 16px;
-    color: #555;
-    margin: 0;
-  }
+.note {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+}
 
-  .timestamp {
-    font-size: 12px;
-    color: #999;
-  }
+.timestamp {
+  font-size: 12px;
+  color: #999;
+}
 
-  img {
-    width: 16px;
-    height: 16px;
-  }
+img {
+  width: 16px;
+  height: 16px;
+}
 
-  #loginContainer {
-    margin-top: 8px;
-    display: none; 
-    text-align: center;
-  }
-  .loginInputs{
-    padding: 8px 12px;
-    border: 2px solid #ddd;
-    border-radius: 4px;
-    outline: none;
-  }
+#loginContainer {
+  margin-top: 8px;
+  display: none;
+  text-align: center;
+}
 
-  .loginInputs:focus{
-    border-color: #05eaa7;
-  }
+.loginInputs {
+  padding: 8px 12px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+}
 
-  #emailInput{
-    margin-bottom: 12px;
-  }
+.loginInputs:focus {
+  border-color: #05eaa7;
+}
 
-  .back-btn {
-    margin-top: 12px;
-    font-size: 12px;
-    background-color: #FF6F3C;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+#emailInput {
+  margin-bottom: 12px;
+}
 
-  .back-btn:hover {
-    background-color: #db6135;
-  }
+.back-btn {
+  margin-top: 12px;
+  font-size: 12px;
+  background-color: #FF6F3C;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: #db6135;
+}
 
 
-  #loginBtnContainer{
-    display: flex;
-    justify-content: center;
-    padding-top: 12px;
-  }
+#loginBtnContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+}
 
-  #loginBtn{
-    background-color: #05eaa7;
-  }
+#loginBtn {
+  background-color: #05eaa7;
+}
 
-  #submitLogin{
-    background-color: #05eaa7;
-    margin-right: 12px;
-  }
+#submitLogin {
+  background-color: #05eaa7;
+  margin-right: 12px;
+}
 
-  #loginBtn:hover , #submitLogin:hover{
-    background-color: #03b17d;
-  }
-  
+#loginBtn:hover,
+#submitLogin:hover {
+  background-color: #03b17d;
+}

@@ -40,7 +40,6 @@ class YoutubeSummaryView(APIView):
             print(transcription)
             # Generate summarization with Groq
             summarization = self._get_summarization(transcription)
-            bullets = self._get_bullets(transcription)
             print(summarization)
             bullets = self._get_summary_bullets(summarization)
             print(">>"*10)
@@ -109,4 +108,3 @@ class YoutubeSummaryView(APIView):
         except Exception as e:
             print(f"Error generating summary with Groq: {e}")
             return "Failed to generate summary."
-

@@ -238,6 +238,17 @@ function addNoteToPopup(note, time) {
 
   screenshotNoteContainer.appendChild(div);
 
+  const noteInput = document.getElementById("noteInput");
+
+  // Scroll the multi-line note input
+  noteInput.addEventListener("input", () => {
+      // If content exceeds the max height, scroll it within
+      if (noteInput.scrollHeight > noteInput.clientHeight) {
+          noteInput.scrollTop = noteInput.scrollHeight; // Scroll to the bottom
+      }
+  });
+
+
   // Scroll to the newly added note
   screenshotNoteContainer.scrollTo({
     top: screenshotNoteContainer.scrollHeight,
@@ -264,7 +275,7 @@ function restoreScreenshotsAndNotes() {
   const savedScreenshots = JSON.parse(localStorage.getItem('screenshots')) || [];
   const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
   const savedSummary = localStorage.getItem('summary') || '';
-  // const savedBullets = localStorage.getItem('bullets') || '';
+  const savedBullets = localStorage.getItem('bullets') || '';
 
   savedScreenshots.forEach((screenshot) => {
     addScreenshotToPopup(screenshot.screenshotUrl, screenshot.time);
