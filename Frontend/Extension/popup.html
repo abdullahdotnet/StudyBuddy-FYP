@@ -42,6 +42,7 @@
     <!-- Button to navigate to the login page -->
     <div id="loginBtnContainer">
       <button id="loginBtn" class="">Login</button>
+      <button id="chatBtn" class="button">Chat</button>
     </div>
   </div>
 
@@ -55,6 +56,19 @@
       <button id="backBtn" class="back-btn">Back</button>
     </div>
   </div>
+  
+  <div id="chatContainer" class="hidden">
+    <div id="chatHeader">
+      <h4>Chatbot</h4>
+      <button id="closeChat">✖</button>
+    </div>
+    <div id="chatMessages"></div>
+    <div id="chatInputContainer">
+      <input type="text" id="chatInput" placeholder="Type a message..." />
+      <button id="sendChatBtn">Send</button>
+    </div>
+  </div>
+
 
   <script src="popup.js"></script>
 </body>
