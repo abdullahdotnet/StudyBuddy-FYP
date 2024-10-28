@@ -5,7 +5,15 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .utils import transcribe, generate_pdf
 from .serializers import ImageDataSerializer
+from groq import Groq
+import dotenv
+import os
 
+# Load environment variables and initialize Groq client
+dotenv.load_dotenv()
+client = Groq(
+    api_key=os.environ.get("GROQ_API_KEY"),
+)
 
 class ImageDataView(APIView):
     def post(self, request, *args, **kwargs):
@@ -17,8 +25,6 @@ class ImageDataView(APIView):
 
 
 class YoutubeSummaryView(APIView):
-    CHATBOT_URL = 'http://localhost:8000/api/chatbot/'
-
     def post(self, request, *args, **kwargs):
         youtube_url = request.data.get('youtube_url')
 
@@ -29,18 +35,26 @@ class YoutubeSummaryView(APIView):
             )
 
         try:
+            # Transcribe the YouTube video
             transcription, video_id = transcribe(youtube_url)
+            print(transcription)
+            # Generate summarization with Groq
             summarization = self._get_summarization(transcription)
             print(summarization)
-            path = f'./media/pdfs/{video_id}.pdf'
-            pdf = generate_pdf(youtube_url, summarization, filename=path)
+            bullets = self._get_summary_bullets(summarization)
+            print(">>"*10)
+            print(bullets)
+            # Generate PDF with summary
+            # path = f'./media/pdfs/{video_id}.pdf'
+            # pdf = generate_pdf(youtube_url, summarization, filename=path)
 
             return JsonResponse(
                 {
                     'message': 'YouTube summary generated successfully.',
-                    'pdf_path': f'/Backend/media/pdfs/{video_id}.pdf',
+                    # 'pdf_path': f'/Backend/media/pdfs/{video_id}.pdf',
                     'youtube_url': youtube_url,
                     'summary': summarization,
+                    'bullets': bullets
                 },
                 status=status.HTTP_200_OK
             )
@@ -49,17 +63,48 @@ class YoutubeSummaryView(APIView):
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def _get_summarization(self, transcription):
-        response = requests.post(
-            url=self.CHATBOT_URL,
-            json={
-                'query': f'Generate summarization for the provided transcription in headings and paragraphs: {transcription}'
-            }
-        )
-
-        if response.status_code == status.HTTP_200_OK:
-            return response.json().get('answer')
-
-        return Response(
-            {'error': 'Failed to generate summarization'},
-            status=status.HTTP_500_INTERNAL_SERVER_ERROR
-        )
+        # Use Groq to create a chat completion request
+        try:
+            chat_completion = client.chat.completions.create(
+                model="llama-3.1-70b-versatile",
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant."},
+                    {
+                        "role": "user",
+                        "content": f"Summarize the following transcription of video such that the user gets the full story of the video. Don't write any starting line just start providing the summary of the video. Transcription: {transcription}"
+                    }
+                ],
+                temperature=0.2,
+                # max_tokens=1024,
+                top_p=1,
+                stream=False
+            )
+            # Extract the summary text from the response
+            return chat_completion.choices[0].message.content
+        
+        except Exception as e:
+            print(f"Error generating summary with Groq: {e}")
+            return "Failed to generate summary."
+        
+    def _get_summary_bullets(self, summarization):
+        try:
+            chat_completion = client.chat.completions.create(
+                model="llama-3.1-70b-versatile",
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant."},
+                    {
+                        "role": "user",
+                        "content": f"Write 4 to 5 bullet points summarizing the following text. They should be just heading like things without description. Dont write any starting line, just write key points : {summarization}"
+                    }
+                ],
+                temperature=0.1,
+                # max_tokens=1024,
+                top_p=1,
+                stream=False
+            )
+            # Extract the summary text from the response
+            return chat_completion.choices[0].message.content
+        
+        except Exception as e:
+            print(f"Error generating summary with Groq: {e}")
+            return "Failed to generate summary."
