@@ -491,6 +491,7 @@ img {
   display: flex;
   justify-content: center;
   padding-top: 12px;
+  gap: 10px;
 }
 
 #loginBtn {
@@ -505,4 +506,110 @@ img {
 #loginBtn:hover,
 #submitLogin:hover {
   background-color: #03b17d;
+}
+
+#chatContainer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hide the container initially */
+.hidden {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Chat header */
+#chatHeader {
+  background-color: #05eaa7;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px 12px 0 0;
+}
+
+#chatHeader h4 {
+  margin: 0;
+}
+
+/* Close button */
+#closeChat {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Chat messages area */
+#chatMessages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f0f0f0;
+  border-top: 1px solid #ddd;
+}
+
+/* Input area */
+#chatInputContainer {
+  display: flex;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+#chatInput {
+  flex-grow: 1;
+  padding: 8px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+}
+
+#sendChatBtn {
+  background-color: #05eaa7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-left: 8px;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
+}
+
+#sendChatBtn:hover {
+  background-color: #03b17d;
+}
+
+/* Chat message styling */
+.message {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.message.user {
+  background-color: #05eaa7;
+  color: white;
+  align-self: flex-end;
+}
+
+.message.bot {
+  background-color: #ddd;
+  align-self: flex-start;
 }

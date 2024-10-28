@@ -587,6 +587,61 @@ submitLogin.addEventListener('click', async () => {
   }
 });
 
+// Toggle chat container visibility
+const chatBtn = document.getElementById("chatBtn");
+const chatContainer = document.getElementById("chatContainer");
+const closeChat = document.getElementById("closeChat");
+
+chatBtn.addEventListener("click", () => {
+  chatContainer.classList.toggle("hidden");
+});
+
+closeChat.addEventListener("click", () => {
+  chatContainer.classList.add("hidden");
+});
+
+// Handle sending chat messages
+const sendChatBtn = document.getElementById("sendChatBtn");
+const chatInput = document.getElementById("chatInput");
+const chatMessages = document.getElementById("chatMessages");
+
+sendChatBtn.addEventListener("click", sendMessage);
+
+chatInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    sendMessage();
+  }
+});
+
+function sendMessage() {
+  const userMessage = chatInput.value.trim();
+  if (userMessage === "") return;
+
+  // Display user message
+  displayMessage(userMessage, "user");
+
+  // Clear input
+  chatInput.value = "";
+
+  // Simulate bot response
+  setTimeout(() => {
+    displayMessage("This is a bot response.", "bot");
+  }, 500);
+}
+
+function displayMessage(message, sender) {
+  const messageElement = document.createElement("div");
+  messageElement.classList.add("message", sender);
+  messageElement.textContent = message;
+  chatMessages.appendChild(messageElement);
+
+  // Scroll to the latest message
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+
+
+
 
 // chrome.storage.local.get(['refreshToken', 'accessToken'], (result) => {
 //   console.log('Tokens retrieved:', result);
