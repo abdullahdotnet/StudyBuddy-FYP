@@ -323,14 +323,47 @@ async function saveAsPDF() {
 
     // Add the video title at the top and make it clickable
     doc.setFontSize(14);
-    doc.setTextColor(0, 0, 255);
+    doc.setTextColor(0, 0, 0);
     doc.textWithLink(videoTitle, 10, y, { url: videoUrl });
     y += 10;
 
     const savedScreenshots = JSON.parse(localStorage.getItem('screenshots')) || [];
     const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
     const savedSummary = localStorage.getItem('summary') || '';
-
+    const savedBullets = localStorage.getItem('bullets') || '';
+    if (savedBullets) {
+      // Ensure enough space for two empty lines
+      if (y + 30 > pageHeight) { 
+          doc.addPage();
+          y = 10;
+      }
+  
+      // Add two empty lines for spacing
+      y += 20;
+  
+      // Add the "Key Points" heading
+      doc.setFontSize(16); // Larger font for the heading
+      doc.setFont('helvetica', 'bold');
+      doc.text('Key Points:', 10, y);
+      y += 10;
+  
+      // Process and add each bullet point
+      const bullets = savedBullets.split('\n'); // Split bullets by newline
+      doc.setFontSize(12); // Slightly smaller font for bullets
+  
+      bullets.forEach((bullet) => {
+          if (y + 10 > pageHeight) {
+              doc.addPage();
+              y = 10;
+          }
+          doc.text(`${bullet}`, 10, y); // Add each bullet point
+          y += 10;
+      });
+  
+      // Reset font to normal for the rest of the content
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(12);
+  }
     // Combine screenshots and notes into a single array and sort by timestamp
     const combinedContent = [];
 
@@ -343,6 +376,20 @@ async function saveAsPDF() {
     });
 
     combinedContent.sort((a, b) => a.data.time - b.data.time);
+
+    y += 20
+    // Add "Screenshots & Notes" heading with a proper line underneath
+    doc.setFontSize(16);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Screenshots & Notes', 10, y);
+    y += 10;
+    doc.setFontSize(12);
+    // Draw a horizontal line below the heading
+    doc.line(10, y, 200, y); // (x1, y1, x2, y2) coordinates for the line
+    y += 10; // Add spacing after the line
+
+    // Reset font to normal for the rest of the content
+    doc.setFont('helvetica', 'normal');
 
     // Process each item (note or screenshot) in the combined content
     for (const [index, item] of combinedContent.entries()) {
@@ -366,15 +413,15 @@ async function saveAsPDF() {
         y += 10;
 
       } else if (item.type === 'screenshot') {
-        const screenshotText = `Screenshot ${index + 1}`;
+        // const screenshotText = `Screenshot ${index + 1}`;
 
         if (y + 110 + 10 > pageHeight) {
           doc.addPage();
           y = 10;
         }
 
-        doc.text(screenshotText, 10, y);
-        y += 10;
+        // doc.text(screenshotText, 10, y);
+        // y += 10;
 
         await new Promise((resolve) => {
           convertImageToDataUrl(item.data.screenshotUrl, (dataUrl) => {
@@ -393,6 +440,7 @@ async function saveAsPDF() {
         });
       }
     }
+    
 
     // Add the summary at the end of the PDF
     if (savedSummary) {
