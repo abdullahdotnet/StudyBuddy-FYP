@@ -613,20 +613,60 @@ chatInput.addEventListener("keypress", (event) => {
   }
 });
 
+// function sendMessage() {
+//   const userMessage = chatInput.value.trim();
+//   if (userMessage === "") return;
+
+//   // Display user message
+//   displayMessage(userMessage, "user");
+
+//   // Clear input
+//   chatInput.value = "";
+
+//   // Simulate bot response
+//   setTimeout(() => {
+//     displayMessage("This is a bot response.", "bot");
+//   }, 500);
+// }
+
 function sendMessage() {
   const userMessage = chatInput.value.trim();
   if (userMessage === "") return;
 
-  // Display user message
   displayMessage(userMessage, "user");
-
-  // Clear input
   chatInput.value = "";
 
-  // Simulate bot response
-  setTimeout(() => {
-    displayMessage("This is a bot response.", "bot");
-  }, 500);
+  chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
+    let activeTab = tabs[0];
+    let youtubeUrl = activeTab.url;
+
+    if (youtubeUrl.includes("youtube.com/watch")) {
+      const data = {
+        youtube_url: youtubeUrl,
+        query: userMessage
+      };
+
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/yt-chat/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) throw new Error("Network response was not ok");
+
+        const result = await response.json();
+        displayMessage(result.response || "No response from the server", "bot");
+      } catch (error) {
+        console.error("Error:", error);
+        displayMessage("Sorry, there was an error. Please try again.", "bot");
+      }
+    } else {
+      displayMessage("Please open a YouTube video.", "bot");
+    }
+  });
 }
 
 function displayMessage(message, sender) {
