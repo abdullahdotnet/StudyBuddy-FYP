@@ -27,22 +27,27 @@ class ImageDataView(APIView):
 class YoutubeSummaryView(APIView):
     def post(self, request, *args, **kwargs):
         youtube_url = request.data.get('youtube_url')
+        transcription = request.data.get('transcription')
 
+        # Check if youtube_url and transcription are provided
         if not youtube_url:
             return Response(
                 {'youtube_url': ['This field is required.']},
                 status=status.HTTP_400_BAD_REQUEST
             )
+        
+        if not transcription:
+            return Response(
+                {'transcription': ['This field is required.']},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         try:
-            # Transcribe the YouTube video
-            transcription, video_id = transcribe(youtube_url)
-            print(transcription)
             # Generate summarization with Groq
             summarization = self._get_summarization(transcription)
             print(summarization)
             bullets = self._get_summary_bullets(summarization)
-            print(">>"*10)
+            print(">>" * 10)
             print(bullets)
             # Generate PDF with summary
             # path = f'./media/pdfs/{video_id}.pdf'
@@ -62,11 +67,13 @@ class YoutubeSummaryView(APIView):
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
     def _get_summarization(self, transcription):
         # Use Groq to create a chat completion request
         try:
             chat_completion = client.chat.completions.create(
-                model="llama-3.1-70b-versatile",
+                # model="llama-3.1-70b-versatile",
+                model="llama3-8b-8192",
                 messages=[
                     {"role": "system", "content": "You are a helpful assistant."},
                     {
