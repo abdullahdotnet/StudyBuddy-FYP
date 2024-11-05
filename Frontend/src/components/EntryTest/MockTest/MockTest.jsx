@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const MockTest = () => {
   const [questions, setQuestions] = useState([]); // State to hold fetched questions
   const [selectedOptions, setSelectedOptions] = useState({});
-  const [timeLeft, setTimeLeft] = useState(600); // 10 minutes countdown
+  const [timeLeft, setTimeLeft] = useState(1600); // 10 minutes countdown
   const [showResults, setShowResults] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [filter, setFilter] = useState('all'); // 'all', 'correct', 'wrong'

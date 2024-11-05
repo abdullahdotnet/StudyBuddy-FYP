@@ -17,7 +17,7 @@ function convertSecondsToHMS(totalSeconds) {
   if (hours > 0) {
     result += `${paddedHours}:`;
   }
-  
+
   if (minutes > 0 || hours > 0) { // Show minutes if there are hours or if minutes are > 0
     result += `${paddedMinutes}:`;
   }
@@ -44,7 +44,7 @@ function takeScreenshot() {
     chrome.runtime.sendMessage({ action: 'takeScreenshot', tabId: tabs[0].id }, (response) => {
       if (response.error) {
         console.error(response.error);
-        alert(response.error); 
+        alert(response.error);
       } else {
         addScreenshotToPopup(response.screenshotUrl, response.time);
         saveScreenshotToLocalStorage(response.screenshotUrl, response.time);
@@ -69,7 +69,7 @@ function addNote() {
     chrome.runtime.sendMessage({ action: 'addNote', note: note, tabId: tabs[0].id }, (response) => {
       if (response.error) {
         console.error(response.error);
-        alert(response.error); 
+        alert(response.error);
       } else {
         addNoteToPopup(response.note, response.time);
         saveNoteToLocalStorage(response.note, response.time);
@@ -78,7 +78,7 @@ function addNote() {
   });
 
   // Clear the input field after adding the note
-  document.getElementById('noteInput').value = ''; 
+  document.getElementById('noteInput').value = '';
 }
 
 // Add event listener for the Enter key
@@ -94,10 +94,22 @@ document.getElementById('clearBtn').addEventListener('click', clearAllScreenshot
 document.getElementById('saveBtn').addEventListener('click', saveAsPDF);
 
 
-function saveSummaryToLocalStorage(summary,bullets) {
+function saveSummaryToLocalStorage(summary, bullets) {
   localStorage.setItem('summary', summary);
   localStorage.setItem('bullets', bullets);
 
+}
+
+function formatBullets(bulletString) {
+  const bulletPoints = bulletString.split("\n"); // Split by line break
+
+  // Remove leading symbols and wrap in <li> tags
+  const formattedBullets = bulletPoints
+      .map(point => `<li>${point.replace(/^•\s*/, '').trim()}</li>`)
+      .join('');
+
+  // Return the formatted bullets wrapped in an unordered list
+  return `<ul class="styled-bullets">${formattedBullets}</ul>`;
 }
 
 function formatSummaryToHTML(summaryText) {
@@ -105,10 +117,10 @@ function formatSummaryToHTML(summaryText) {
 
   formattedSummary = formattedSummary.replace(/\n/g, '<br>');
 
-  formattedSummary = formattedSummary.replace(/-\s(.*?)<br>/g, '<li>$1</li>'); 
+  formattedSummary = formattedSummary.replace(/-\s(.*?)<br>/g, '<li>$1</li>');
   formattedSummary = formattedSummary.replace(/<br>\*\*Key Themes:\*\*<br>/g, '<br><strong>Key Themes:</strong><ul>');
-  formattedSummary = formattedSummary.replace(/<\/li><br>/g, '</li>'); 
-  formattedSummary += '</ul>';  
+  formattedSummary = formattedSummary.replace(/<\/li><br>/g, '</li>');
+  formattedSummary += '</ul>';
 
   return formattedSummary;
 }
@@ -123,7 +135,7 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
   summaryResult.innerHTML = ''; // Clear any previous summary result
 
   // Get the current active tab
-  chrome.tabs.query({ active: true, currentWindow: true }, async function(tabs) {
+  chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
     let activeTab = tabs[0];
     let youtubeUrl = activeTab.url;
 
@@ -141,12 +153,13 @@ document.getElementById('summaryBtn').addEventListener('click', async () => {
 
         // Get the summary from the response
         const data = await response.json();
-        saveSummaryToLocalStorage(data.summary,data.bullets);
+        console.log(data);
+        saveSummaryToLocalStorage(data.summary, data.bullets);
 
         // Display the summary in the popup as HTML
         summaryResult.innerHTML = formatSummaryToHTML(data.summary);
-        summaryBullets.innerHTML = formatSummaryToHTML(data.bullets);
-
+        summaryBullets.innerHTML = formatBullets(data.bullets)
+        
         // Save the summary to localStorage
         // localStorage.setItem('youtubeSummary', data.summary);
         // localStorage.setItem('youtubeSummaryBullets', data.bullets);
@@ -178,7 +191,7 @@ function addScreenshotToPopup(screenshotUrl, time) {
   const img = document.createElement('img');
   img.src = screenshotUrl;
   img.classList.add('screenshot');
-  
+
   // Wait for the image to load before scrolling
   img.onload = () => {
     screenshotNoteContainer.scrollTo({
@@ -193,7 +206,7 @@ function addScreenshotToPopup(screenshotUrl, time) {
       });
     }
   };
-  
+
   div.appendChild(img);
 
   const timestamp = document.createElement('p');
@@ -212,7 +225,7 @@ function addNoteToPopup(note, time) {
 
   const div = document.createElement('div');
   div.classList.add('screenshot-note');
-  
+
   const noteElement = document.createElement('p');
   noteElement.classList.add('note');
   noteElement.textContent = note;
@@ -224,6 +237,17 @@ function addNoteToPopup(note, time) {
   div.appendChild(timestamp);
 
   screenshotNoteContainer.appendChild(div);
+
+  const noteInput = document.getElementById("noteInput");
+
+  // Scroll the multi-line note input
+  noteInput.addEventListener("input", () => {
+      // If content exceeds the max height, scroll it within
+      if (noteInput.scrollHeight > noteInput.clientHeight) {
+          noteInput.scrollTop = noteInput.scrollHeight; // Scroll to the bottom
+      }
+  });
+
 
   // Scroll to the newly added note
   screenshotNoteContainer.scrollTo({
@@ -264,7 +288,7 @@ function restoreScreenshotsAndNotes() {
   // Restore the summary if it exists
   if (savedSummary) {
     document.getElementById('summaryResult').innerHTML = formatSummaryToHTML(savedSummary);
-    document.getElementById('summaryBullets').innerHTML = formatSummaryToHTML(savedBullets);
+    document.getElementById('summaryBullets').innerHTML = formatBullets(savedBullets);
   }
 }
 
@@ -276,7 +300,7 @@ function clearAllScreenshotsAndNotes() {
   document.getElementById('screenshotNoteContainer').innerHTML = '';
   document.getElementById('summaryResult').innerHTML = '';
   document.getElementById('summaryBullets').innerHTML = '' // Clear the summary from the UI
-  
+
   // Clear from localStorage
   localStorage.removeItem('screenshots');
   localStorage.removeItem('notes');
@@ -299,14 +323,47 @@ async function saveAsPDF() {
 
     // Add the video title at the top and make it clickable
     doc.setFontSize(14);
-    doc.setTextColor(0, 0, 255);
+    doc.setTextColor(0, 0, 0);
     doc.textWithLink(videoTitle, 10, y, { url: videoUrl });
     y += 10;
 
     const savedScreenshots = JSON.parse(localStorage.getItem('screenshots')) || [];
     const savedNotes = JSON.parse(localStorage.getItem('notes')) || [];
     const savedSummary = localStorage.getItem('summary') || '';
-
+    const savedBullets = localStorage.getItem('bullets') || '';
+    if (savedBullets) {
+      // Ensure enough space for two empty lines
+      if (y + 30 > pageHeight) { 
+          doc.addPage();
+          y = 10;
+      }
+  
+      // Add two empty lines for spacing
+      y += 20;
+  
+      // Add the "Key Points" heading
+      doc.setFontSize(16); // Larger font for the heading
+      doc.setFont('helvetica', 'bold');
+      doc.text('Key Points:', 10, y);
+      y += 10;
+  
+      // Process and add each bullet point
+      const bullets = savedBullets.split('\n'); // Split bullets by newline
+      doc.setFontSize(12); // Slightly smaller font for bullets
+  
+      bullets.forEach((bullet) => {
+          if (y + 10 > pageHeight) {
+              doc.addPage();
+              y = 10;
+          }
+          doc.text(`${bullet}`, 10, y); // Add each bullet point
+          y += 10;
+      });
+  
+      // Reset font to normal for the rest of the content
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(12);
+  }
     // Combine screenshots and notes into a single array and sort by timestamp
     const combinedContent = [];
 
@@ -319,6 +376,20 @@ async function saveAsPDF() {
     });
 
     combinedContent.sort((a, b) => a.data.time - b.data.time);
+
+    y += 20
+    // Add "Screenshots & Notes" heading with a proper line underneath
+    doc.setFontSize(16);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Screenshots & Notes', 10, y);
+    y += 10;
+    doc.setFontSize(12);
+    // Draw a horizontal line below the heading
+    doc.line(10, y, 200, y); // (x1, y1, x2, y2) coordinates for the line
+    y += 10; // Add spacing after the line
+
+    // Reset font to normal for the rest of the content
+    doc.setFont('helvetica', 'normal');
 
     // Process each item (note or screenshot) in the combined content
     for (const [index, item] of combinedContent.entries()) {
@@ -342,15 +413,15 @@ async function saveAsPDF() {
         y += 10;
 
       } else if (item.type === 'screenshot') {
-        const screenshotText = `Screenshot ${index + 1}`;
-        
+        // const screenshotText = `Screenshot ${index + 1}`;
+
         if (y + 110 + 10 > pageHeight) {
           doc.addPage();
           y = 10;
         }
 
-        doc.text(screenshotText, 10, y);
-        y += 10;
+        // doc.text(screenshotText, 10, y);
+        // y += 10;
 
         await new Promise((resolve) => {
           convertImageToDataUrl(item.data.screenshotUrl, (dataUrl) => {
@@ -369,6 +440,7 @@ async function saveAsPDF() {
         });
       }
     }
+    
 
     // Add the summary at the end of the PDF
     if (savedSummary) {
@@ -412,8 +484,8 @@ async function saveAsPDF() {
       } catch (error) {
         console.error('Error uploading file:', error);
       }
-    } 
-      // just download the PDF
+    }
+    // just download the PDF
     doc.save(fileName);
   });
 }
@@ -496,11 +568,11 @@ submitLogin.addEventListener('click', async () => {
       //   console.log('Tokens saved successfully!');
       //   alert('Login successful, tokens saved 2.');
       // });
-      localStorage.setItem('refresh',refreshToken);
-      localStorage.setItem('access',accessToken);
+      localStorage.setItem('refresh', refreshToken);
+      localStorage.setItem('access', accessToken);
       setTimeout(() => {
-        console.log("tooooooooookens",localStorage.getItem('refresh'));
-      },2000);
+        console.log("tooooooooookens", localStorage.getItem('refresh'));
+      }, 2000);
 
       // Optionally, you can redirect or switch views after successful login
       mainContent.style.display = 'block';
@@ -514,6 +586,101 @@ submitLogin.addEventListener('click', async () => {
     alert('An error occurred while logging in. Please try again.');
   }
 });
+
+// Toggle chat container visibility
+const chatBtn = document.getElementById("chatBtn");
+const chatContainer = document.getElementById("chatContainer");
+const closeChat = document.getElementById("closeChat");
+
+chatBtn.addEventListener("click", () => {
+  chatContainer.classList.toggle("hidden");
+});
+
+closeChat.addEventListener("click", () => {
+  chatContainer.classList.add("hidden");
+});
+
+// Handle sending chat messages
+const sendChatBtn = document.getElementById("sendChatBtn");
+const chatInput = document.getElementById("chatInput");
+const chatMessages = document.getElementById("chatMessages");
+
+sendChatBtn.addEventListener("click", sendMessage);
+
+chatInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    sendMessage();
+  }
+});
+
+// function sendMessage() {
+//   const userMessage = chatInput.value.trim();
+//   if (userMessage === "") return;
+
+//   // Display user message
+//   displayMessage(userMessage, "user");
+
+//   // Clear input
+//   chatInput.value = "";
+
+//   // Simulate bot response
+//   setTimeout(() => {
+//     displayMessage("This is a bot response.", "bot");
+//   }, 500);
+// }
+
+function sendMessage() {
+  const userMessage = chatInput.value.trim();
+  if (userMessage === "") return;
+
+  displayMessage(userMessage, "user");
+  chatInput.value = "";
+
+  chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
+    let activeTab = tabs[0];
+    let youtubeUrl = activeTab.url;
+
+    if (youtubeUrl.includes("youtube.com/watch")) {
+      const data = {
+        youtube_url: youtubeUrl,
+        query: userMessage
+      };
+
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/yt-chat/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (!response.ok) throw new Error("Network response was not ok");
+
+        const result = await response.json();
+        displayMessage(result.response || "No response from the server", "bot");
+      } catch (error) {
+        console.error("Error:", error);
+        displayMessage("Sorry, there was an error. Please try again.", "bot");
+      }
+    } else {
+      displayMessage("Please open a YouTube video.", "bot");
+    }
+  });
+}
+
+function displayMessage(message, sender) {
+  const messageElement = document.createElement("div");
+  messageElement.classList.add("message", sender);
+  messageElement.textContent = message;
+  chatMessages.appendChild(messageElement);
+
+  // Scroll to the latest message
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+
+
 
 
 // chrome.storage.local.get(['refreshToken', 'accessToken'], (result) => {
