@@ -36,9 +36,10 @@ function dashboard() {
       {/* <WelcomeQoute name={username} /> */}
       {/* <Tasks />
       <Activity />
-      <Notes /> */}
+       */}
       <TaskTable/>
       <Chats/>
+      <Notes />
       
     </div>
   );

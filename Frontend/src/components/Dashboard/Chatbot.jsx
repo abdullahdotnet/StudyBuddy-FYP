@@ -21,11 +21,11 @@ const Chats = () => {
       </div>
 
       {/* Chat Cards */}
-      <div className="flex space-x-4 overflow-x-auto">
+      <div className="flex justify-between space-x-4">
         {chatData.map((chat, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-64 p-4 bg-gray-50 text-center rounded-lg shadow-md"
+            className="flex-grow p-4 bg-white text-center rounded-lg shadow-md"
           >
             {chat}
           </div>
