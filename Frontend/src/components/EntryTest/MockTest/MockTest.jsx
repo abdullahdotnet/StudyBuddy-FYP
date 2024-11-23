@@ -13,21 +13,17 @@ const MockTest = () => {
   // Calculate the number of attempted questions
   const attemptedQuestions = Object.keys(selectedOptions).length;
 
-  // Fetch questions from API
-  useEffect(() => {
-    const fetchQuestions = async () => {
-      try {
-        const response = await fetch('http://127.0.0.1:8000/api/entrytest/generate-entry-test/');
-        const data = await response.json();
-        console.log(data.mcq_paper);        
-        setQuestions(data.mcq_paper); // Assuming the questions are in the "mcq_paper" field
-      } catch (error) {
-        console.error('Error fetching questions:', error);
-      }
-    };
-
-    fetchQuestions();
-  }, []); // Empty dependency array to run only on component mount
+  const fetchQuestions = async () => {
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/entrytest/generate-entry-test/');
+      const data = await response.json();
+      console.log(data.mcq_paper);        
+      setQuestions(data.mcq_paper); // Assuming the questions are in the "mcq_paper" field
+    } catch (error) {
+      console.error('Error fetching questions:', error);
+    }
+  };
+ // Empty dependency array to run only on component mount
 
   // Timer logic
   useEffect(() => {
@@ -78,6 +74,7 @@ const MockTest = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
+      <button onClick={fetchQuestions}>Generate Mock Test</button>
       {/* Timer and Attempted Questions Counter */}
       {!showResults && (
         <div className="flex justify-between items-center mb-6">
