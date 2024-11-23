@@ -22,8 +22,17 @@ const TaskTable = () => {
   };
 
   return (
-    <div className="w-full mt-10 p-4">
-  <h2 className="text-2xl font-bold mb-4">Tasks</h2>
+    <div className="w-full mt-3 p-4">
+    <div className="flex items-center justify-between mb-4">
+  <h2 className="text-2xl font-bold">Tasks</h2>
+  <a
+    href="#"
+    className="text-blue-600 hover:underline text-sm"
+  >
+    view all
+  </a>
+</div>
+
   <div className="overflow-x-auto">
     <table className="min-w-full border border-gray-300">
       <thead>
@@ -65,12 +74,7 @@ const TaskTable = () => {
       </tbody>
     </table>
   </div>
-  <a
-    href="#"
-    className="text-blue-600 hover:underline mt-4 inline-block text-sm"
-  >
-    view all
-  </a>
+  
 </div>
 
   )

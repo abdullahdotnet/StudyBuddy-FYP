@@ -99,7 +99,7 @@ const Chatbot = () => {
   }, [messages]);
 
   return (
-    <div className="flex flex-col mt-20 mx-auto">
+    <div className="flex flex-col mt-[calc(var(--navbar-height)+20px)] mx-auto ">
       
       {/* Messages Section */}
       <div className="flex-grow p-6 overflow-auto">
@@ -123,7 +123,7 @@ const Chatbot = () => {
             <div className="flex justify-start">
               <div className="bg-white p-4 rounded-lg max-w-[90%] text-gray-800 transition-all">
                 <p>Buddy is thinking ... </p>
-                </div>
+              </div>
             </div>
           )}
           <div ref={messageEndRef} />

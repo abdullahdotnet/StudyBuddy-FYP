@@ -33,7 +33,7 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path="/" element={<DashboardNav />}>
-        <Route path="chatbot" element={<Chatbot />} />
+        <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/avatar" element={<Avatar />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/dashboard" element={<Dashboard />} />

@@ -46,7 +46,7 @@ const HeroSection = () => {
     <section className="flex flex-col md:flex-row items-center justify-between p-11 bg-white h-full">
       {/* Left side: Text and button */}
       <div className="flex flex-col space-y-3 md:w-1/2 items-center">
-        <h1 className="rosario-font text-5xl font-bold text-gray-900 ">Genius Buddy</h1>
+        <h1 className="rosario-font text-5xl font-bold text-gray-900 ">StudyBuddy</h1>
         <p className="text-lg text-black">Your AI buddy for studies.</p>
         <button className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-[#05eaa530] via-[#ff703c1c] to-[#ff703c3f] rounded-full shadow-lg hover:shadow-xl transition-shadow"
         onClick={navigateToDashboard}

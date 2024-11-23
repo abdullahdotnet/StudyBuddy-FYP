@@ -20,8 +20,6 @@ const leaderboardData = [
   { rank: 3, name: "Abdullah Ghazi", score: 94 },
   { rank: 4, name: "Abdullah Ashfaq", score: 83 },
   { rank: 5, name: "Etisam ul Haq", score: 80 },
-  { rank: 6, name: "Etisam ul Haq", score: 80 },
-  { rank: 7, name: "Etisam ul Haq", score: 80 },
   { rank: 1543, name: "Etisam ul Haq", score: 80 },
 ];
 

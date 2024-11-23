@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <div className="text-2xl font-bold text-gray-900">
-            Genius Buddy
+            StudyBuddy
           </div>
           <ul className="hidden md:flex space-x-6">
             <li><a href="#features-section" className="text-gray-700 hover:text-customDarkOrange">Features</a></li>
@@ -17,12 +17,12 @@ const Navbar = () => {
           </ul>
           <div className="hidden md:flex space-x-4">
             <Link to="/login">
-              <button className="border border-green-500 text-green-500 py-2 px-4 rounded hover:bg-green-100">
+              <button className="border border-green-500 text-[#586380] py-2 px-4 rounded hover:bg-[#EDEFFF]">
                 Sign In
               </button>
             </Link>
             <Link to="/signup">
-              <button className="bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600">
+              <button className="bg-[#4255FF] text-white py-2 px-4 rounded hover:bg-[#4255EE]">
                 Join Now
               </button>
             </Link>

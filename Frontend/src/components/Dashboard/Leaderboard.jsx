@@ -2,7 +2,7 @@ import React from "react";
 
 const Leaderboard = ({ rankings }) => {
   return (
-    <div className="h-[286px] w-[356px] bg-white shadow-md rounded-lg p-4 flex flex-col">
+    <div className="h-[290px] w-[356px] bg-white shadow-md rounded-lg p-4 flex flex-col">
       <h2 className="text-lg font-bold mb-3">Leaderboard</h2>
       <div className="overflow-y-auto flex-grow">
         <table className="w-full text-left border-collapse">
