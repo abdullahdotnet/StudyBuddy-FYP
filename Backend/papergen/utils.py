@@ -3,8 +3,8 @@ import PyPDF2
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain.chains import RetrievalQA
-from langchain.vectorstores import Chroma
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
 
 
@@ -32,7 +32,7 @@ def get_llm_model():
     if llm_model is None:
         api_key = initialize_groq()
         llm_model = ChatGroq(
-            model="llama-3.1-70b-versatile",
+            model="llama3-8b-8192",
             api_key=api_key, temperature=0.7
         )
     return llm_model

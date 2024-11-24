@@ -72,6 +72,15 @@ const Sidebar = () => {
                 {isOpen && <span>Books</span>}
               </li>
             </Link>
+
+            {/* New Board Button */}
+            <Link to="/board">
+              <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">
+                <img src={DocIcon} alt="Board" className="mr-4" />
+                {isOpen && <span>Board</span>}
+              </li>
+            </Link>
+
             {/* <Link to='/extras'>
               <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">
                 <img src={BagIcon} alt="Extras" className="mr-4" />

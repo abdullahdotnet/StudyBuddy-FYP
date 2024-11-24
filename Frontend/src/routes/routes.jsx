@@ -21,10 +21,14 @@ import ResetPasswordNew from "../pages/ResetPassword/NewPassPage";
 import PaperGen from "../pages/PaperGen/PaperGen";
 import GeneratedPaper from "../pages/GeneratedPaper/GeneratedPaper";
 import UserSpace from "../pages/UserSpace/UserSpace";
-import ObjectivePaperGen from "../pages/PaperGen/ObjectivePaperGen";
 import EntryTest from "../pages/EntryTest/EntryTest";
 import MockTest from "../components/EntryTest/MockTest/MockTest";
 import ToDo from "../pages/ToDo/ToDo";
+import ObjectivePaperGen from "../pages/PaperGen/ObjectivePaperGen";
+import ClassSelection from "../pages/Board/ClassSelection";
+import PaperTypeSelection from "../pages/Board/PaperTypeSelection";
+import SubjectSelection from "../pages/Board/SubjectSelection";
+import SubjectivePaperGen from "../pages/Board/SubjectivePaperGen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,7 +53,16 @@ const router = createBrowserRouter(
         <Route path="/entry-test/test" element={<MockTest />} />
         <Route path="/todo" element={<ToDo />} />
         <Route path="/entry-test/book-wise/" element={<h1>This feature will be available soon</h1>} />
+        
+        <Route path="/board" element={<ClassSelection />} />
+        <Route path="/board/:classId/subjects" element={<SubjectSelection />} />
+        <Route path="/board/:classId/subject/:subjectId/paper-type" element={<PaperTypeSelection />} />
+        <Route path="/board/:classId/subject/:subjectId/subjective" element={<SubjectivePaperGen />} />
+        <Route path="/papergen/mcqs" element={<ObjectivePaperGen />} />
+        <Route path="/generated-paper/:subjectName" element={<GeneratedPaper />} />
         <Route path="*" element={<h1>Page Not found</h1>} />
+
+
       </Route>
 
       <Route path="/" element={<NoNavbarLayout />}>

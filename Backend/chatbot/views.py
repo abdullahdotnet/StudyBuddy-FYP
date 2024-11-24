@@ -125,9 +125,9 @@ import pickle
 import re
 
 # imports for creating pipeline for rag
-from langchain.embeddings import HuggingFaceEmbeddings      # for embeddings
-from langchain.vectorstores import Chroma                  # for vector store
-from langchain.document_loaders import TextLoader        # for loading text
+from langchain_community.embeddings import HuggingFaceEmbeddings      # for embeddings
+from langchain_community.vectorstores import Chroma                 # for vector store
+from langchain_community.document_loaders import TextLoader       # for loading text
 from langchain.text_splitter import RecursiveCharacterTextSplitter  # acting as base class for splitting text 
 from langchain_groq import ChatGroq                         # for initializing LLM from groq
 from langchain.schema import Document                   # converting simple text to document object
