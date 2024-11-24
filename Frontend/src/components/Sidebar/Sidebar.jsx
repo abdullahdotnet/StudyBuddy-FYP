@@ -7,6 +7,7 @@ import DocIcon from '../../assets/icons/Document.svg';
 import ConvIcon from '../../assets/icons/Conv.svg';
 import openArrow from '../../assets/icons/rightarrow.svg';
 import closeArrow from '../../assets/icons/leftarrow.png';
+import Todo from '../../assets/icons/todo.svg';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -55,7 +56,7 @@ const Sidebar = () => {
             </Link> */}
             <Link to="/todo">
               <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">
-                <img src={ChatIcon} alt="To Do" className="mr-4" />
+                <img src={Todo} alt="To Do" className="mr-4" />
                 {isOpen && <span>To Do</span>}
               </li>
             </Link>
