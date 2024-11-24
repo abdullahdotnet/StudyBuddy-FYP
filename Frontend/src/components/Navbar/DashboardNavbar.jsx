@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import StudentPic from '../../assets/images/students06.jpg'
+import logo from '../../assets/icons/logo.svg'
 
 const DashboardNavbar = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -13,16 +14,18 @@ const DashboardNavbar = () => {
         <nav className="bg-white">
             <div className="container mx-auto px-4 py-4">
                 <div className="flex justify-between items-center">
+                
+                    {/* <img src={logo} alt="Extras" className=''/> */}
                     <div className="text-2xl font-bold text-gray-900">
-                        Genius Buddy
+                        StudyBuddy
                     </div>
                     {/* Left side links */}
                     <div className="hidden md:flex space-x-6">
-                        <Link to="/home" className="text-gray-800 hover:text-customDarkOrange">Home</Link>
-                        <Link to="/faqs" className="text-gray-800 hover:text-customDarkOrange">FAQs</Link>
-                        <Link to="/notifications" className="text-gray-800 hover:text-customDarkOrange">Notifications</Link>
-                        <Link to="/contact" className="text-gray-800 hover:text-customDarkOrange">Contact</Link>
-                        <Link to="/about-us" className="text-gray-800 hover:text-customDarkOrange">About Us</Link>
+                        <Link to="/home" className="text-gray-800 hover:text-customDarkBlue">Home</Link>
+                        <Link to="/faqs" className="text-gray-800 hover:text-customDarkBlue">FAQs</Link>
+                        <Link to="/notifications" className="text-gray-800 hover:text-customDarkBlue">Notifications</Link>
+                        <Link to="/contact" className="text-gray-800 hover:text-customDarkBlue">Contact</Link>
+                        <Link to="/about-us" className="text-gray-800 hover:text-customDarkBlue">About Us</Link>
                     </div>
 
                     {/* Right side profile with dropdown */}

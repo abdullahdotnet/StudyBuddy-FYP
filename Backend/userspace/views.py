@@ -32,7 +32,7 @@ class FileUploadAPIView(APIView):
             return Response({'error': 'No file provided'}, status=status.HTTP_400_BAD_REQUEST)
 
         file = request.FILES['file']
-
+        filename = request.FILES['file'].name
         # Check if the file is a PDF
         if file.content_type != 'application/pdf':
             return Response({'error': 'Only PDF files are allowed'}, status=status.HTTP_400_BAD_REQUEST)
@@ -44,7 +44,7 @@ class FileUploadAPIView(APIView):
         full_file_path = default_storage.save(file_path, file)
 
         # Save the file path and user ID in the UserSpace model
-        FilesLink.objects.create(user_id=user_id, file_path=full_file_path)
+        FilesLink.objects.create(user_id=user_id, file_path=full_file_path,file_name=filename)
 
         return Response({'status': 'file uploaded', 'file_path': full_file_path}, status=status.HTTP_200_OK)
     
@@ -65,8 +65,8 @@ class UserFilesAPIView(APIView):
             return Response({'error': 'Invalid token'}, status=status.HTTP_401_UNAUTHORIZED)
 
         # Query the FilesLink model to get all file links for the user
-        file_links = FilesLink.objects.filter(user_id=user_id).values('file_path')
-
+        file_links = FilesLink.objects.filter(user_id=user_id).values('file_path','file_name')
+        print(file_links)
         # Return the list of file links
         if not file_links:
             return Response({'message': 'No files found for this user'}, status=status.HTTP_404_NOT_FOUND)

@@ -3,42 +3,41 @@ import React, { useState, useEffect } from 'react';
 const MockTest = () => {
   const [questions, setQuestions] = useState([]); // State to hold fetched questions
   const [selectedOptions, setSelectedOptions] = useState({});
-  const [timeLeft, setTimeLeft] = useState(1600); // 10 minutes countdown
+  const [timeLeft, setTimeLeft] = useState(600); // 10 minutes countdown
   const [showResults, setShowResults] = useState(false);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [filter, setFilter] = useState('all'); // 'all', 'correct', 'wrong'
   const [currentPage, setCurrentPage] = useState(1); // Pagination state
+  const [questionsLoaded, setQuestionsLoaded] = useState(false); // State to track if questions are loaded
   const questionsPerPage = 10;
 
   // Calculate the number of attempted questions
   const attemptedQuestions = Object.keys(selectedOptions).length;
 
-  // Fetch questions from API
-  useEffect(() => {
-    const fetchQuestions = async () => {
-      try {
-        const response = await fetch('http://127.0.0.1:8000/api/entrytest/generate-entry-test/');
-        const data = await response.json();
-        console.log(data.mcq_paper);        
-        setQuestions(data.mcq_paper); // Assuming the questions are in the "mcq_paper" field
-      } catch (error) {
-        console.error('Error fetching questions:', error);
-      }
-    };
+  const fetchQuestions = async () => {
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/entrytest/generate-entry-test/');
+      const data = await response.json();
+      console.log(data.mcq_paper);        
+      setQuestions(data.mcq_paper); 
+      setQuestionsLoaded(true); // Mark questions as loaded to start the timer
 
-    fetchQuestions();
-  }, []); // Empty dependency array to run only on component mount
+    } catch (error) {
+      console.error('Error fetching questions:', error);
+    }
+  };
+ // Empty dependency array to run only on component mount
 
   // Timer logic
   useEffect(() => {
-    if (timeLeft > 0 && !showResults) {
+    if (timeLeft > 0 && questionsLoaded && !showResults) {
       const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
       return () => clearTimeout(timer);
     } else if (timeLeft === 0 && !showResults) {
       alert('Your time is up!');
       handleSubmit();
     }
-  }, [timeLeft, showResults]);
+  }, [timeLeft, questionsLoaded, showResults]);
 
   const handleOptionChange = (questionId, optionIndex) => {
     setSelectedOptions({ ...selectedOptions, [questionId]: optionIndex });
@@ -81,7 +80,9 @@ const MockTest = () => {
       {/* Timer and Attempted Questions Counter */}
       {!showResults && (
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-3xl font-bold">Mock Test</h1>
+        {/* <h1 className="text-3xl font-bold">Mock Test</h1> */}
+        <div onClick={fetchQuestions} className='text-xl font-semibold bg-green-100 text-green-700 py-2 px-4 rounded shadow"'>
+          Generate Mock Test</div>
           <div className="text-xl font-semibold bg-blue-100 text-blue-700 py-2 px-4 rounded shadow">
             Time Left: {formatTime(timeLeft)}
           </div>

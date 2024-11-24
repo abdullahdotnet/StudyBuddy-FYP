@@ -20,8 +20,9 @@ from django.db import models
 #         return user
 
 class FilesLink(models.Model):
-    user_id = models.IntegerField()
-    file_path = models.CharField(max_length=255)
+    user_id = models.IntegerField()  # Default value for user_id
+    file_path = models.CharField(max_length=255)  # Default file path
+    file_name = models.CharField(max_length=255, default="filename")  # Default file name
 
     def __str__(self):
         return f"User {self.user_id} - {self.file_path}"

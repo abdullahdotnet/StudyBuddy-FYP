@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'userspace.apps.UserspaceConfig',
     'papergen.apps.PapergenConfig',
     'entrytest.apps.EntrytestConfig',
-    'core_utils.apps.CoreUtilsConfig'
+    'core_utils.apps.CoreUtilsConfig',
+    'todo.apps.TodoConfig',
 ]
 
 MIDDLEWARE = [

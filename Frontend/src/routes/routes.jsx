@@ -24,6 +24,7 @@ import UserSpace from "../pages/UserSpace/UserSpace";
 import ObjectivePaperGen from "../pages/PaperGen/ObjectivePaperGen";
 import EntryTest from "../pages/EntryTest/EntryTest";
 import MockTest from "../components/EntryTest/MockTest/MockTest";
+import ToDo from "../pages/ToDo/ToDo";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,7 +34,7 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path="/" element={<DashboardNav />}>
-        <Route path="chatbot" element={<Chatbot />} />
+        <Route path="/chatbot" element={<Chatbot />} />
         <Route path="/avatar" element={<Avatar />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/dashboard" element={<Dashboard />} />
@@ -46,6 +47,7 @@ const router = createBrowserRouter(
         <Route path="/user-space" element={<UserSpace />} />
         <Route path="/entry-test" element={<EntryTest />} />
         <Route path="/entry-test/test" element={<MockTest />} />
+        <Route path="/todo" element={<ToDo />} />
         <Route path="/entry-test/book-wise/" element={<h1>This feature will be available soon</h1>} />
         <Route path="*" element={<h1>Page Not found</h1>} />
       </Route>

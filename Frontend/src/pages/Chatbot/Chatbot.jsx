@@ -99,14 +99,14 @@ const Chatbot = () => {
   }, [messages]);
 
   return (
-    <div className="flex flex-col mt-20 mx-auto">
+    <div className="flex flex-col mt-[calc(var(--navbar-height)+20px)] mx-auto ">
       
       {/* Messages Section */}
       <div className="flex-grow p-6 overflow-auto">
         <div className="flex flex-col space-y-4">
           {messages.map((msg, index) => (
             <div key={index} className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'} text-lg`}>
-              <div className={`${msg.isUser ? 'bg-customLightTeal' : 'bg-white'} p-4 rounded-lg ${msg.isUser ? 'max-w-[70%]' : 'max-w-[90%]'} whitespace-pre-wrap`}>
+              <div className={`${msg.isUser ? 'bg-customLightBlue' : 'bg-white'} p-4 rounded-lg ${msg.isUser ? 'max-w-[70%]' : 'max-w-[90%]'} whitespace-pre-wrap`}>
                 <p className={`${msg.isUser ? 'text-gray-800' : 'text-gray-800'}`}>{msg.text}</p>
                 {msg.file && (
                   <p className="text-gray-800">
@@ -123,7 +123,7 @@ const Chatbot = () => {
             <div className="flex justify-start">
               <div className="bg-white p-4 rounded-lg max-w-[90%] text-gray-800 transition-all">
                 <p>Buddy is thinking ... </p>
-                </div>
+              </div>
             </div>
           )}
           <div ref={messageEndRef} />
@@ -134,7 +134,7 @@ const Chatbot = () => {
       <div className="p-6 bg-white border-t fixed bottom-3 w-fill-available mr-12">
         <div className="flex items-center">
           <button className="mr-4" onClick={handleUploadClick}>
-            <FontAwesomeIcon icon={faUpload} size="lg" className="text-customDarkOrange hover:text-orange-600" />
+            <FontAwesomeIcon icon={faUpload} size="lg" className="text-customDarkBlue hover:customDarkBlueHover" />
           </button>
           <input 
             type="file" 
@@ -144,7 +144,7 @@ const Chatbot = () => {
           />
           <textarea
             ref={textareaRef}
-            className="flex-grow p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-customDarkOrange resize-none"
+            className="flex-grow p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-customDarkBlue resize-none"
             placeholder="Type your message..."
             value={input}
             onChange={handleInputChange}
@@ -153,7 +153,7 @@ const Chatbot = () => {
             style={{ maxHeight: "96px", overflow: "hidden" }} 
           />
           <button className="ml-4" onClick={handleSendMessage}>
-            <FontAwesomeIcon icon={faPaperPlane} size="lg" className="text-customDarkOrange hover:text-orange-600" />
+            <FontAwesomeIcon icon={faPaperPlane} size="lg" className="text-customDarkBlue hover:customDarkBlueHover" />
           </button>
           {selectedFile && (
             <div className="ml-4 text-gray-800">
