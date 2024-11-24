@@ -24,11 +24,12 @@ import UserSpace from "../pages/UserSpace/UserSpace";
 import EntryTest from "../pages/EntryTest/EntryTest";
 import MockTest from "../components/EntryTest/MockTest/MockTest";
 import ToDo from "../pages/ToDo/ToDo";
-import ObjectivePaperGen from "../pages/PaperGen/ObjectivePaperGen";
+// import ObjectivePaperGen from "../pages/PaperGen/ObjectivePaperGen";
 import ClassSelection from "../pages/Board/ClassSelection";
 import PaperTypeSelection from "../pages/Board/PaperTypeSelection";
 import SubjectSelection from "../pages/Board/SubjectSelection";
 import SubjectivePaperGen from "../pages/Board/SubjectivePaperGen";
+import ObjectivePaperGen from "../pages/PaperGen/ObjectivePaperGen1";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
