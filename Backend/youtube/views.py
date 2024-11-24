@@ -108,12 +108,12 @@ class YoutubeSummaryView(APIView):
     def _get_summary_bullets(self, summarization):
         try:
             chat_completion = client.chat.completions.create(
-                model="llama-3.1-70b-versatile",
+                model="llama3-8b-8192",
                 messages=[
                     {"role": "system", "content": "You are a helpful assistant."},
                     {
                         "role": "user",
-                        "content": f"Write 4 to 5 bullet points summarizing the following text. They should be just heading like things without description. Dont write any starting line, just write key points : {summarization}"
+                        "content": f"Write 4 to 5 key take aways from the following context in the form of bullets.: {summarization}"
                     }
                 ],
                 temperature=0.1,

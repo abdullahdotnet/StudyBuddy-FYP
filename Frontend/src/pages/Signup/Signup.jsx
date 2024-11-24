@@ -85,7 +85,7 @@ const Signup = () => {
       {/* Signup Form */}
       <div className="w-full max-w-md mr-8 mb-8 md:mb-0">
         <h2 className="text-3xl font-bold mb-6 text-gray-800">
-          Sign Up for GENIUS BUDDY!
+          Sign Up for STUDY BUDDY!
         </h2>
         <form onSubmit={handleSignup}>
           {/* Full Name Input */}
@@ -190,7 +190,7 @@ const Signup = () => {
           {/* Signup Button */}
           <button
             type="submit"
-            className="w-full bg-[#f4cbb3] hover:bg-[#f0b490] text-white py-3 rounded-md text-lg focus:outline-none transition duration-300"
+            className="w-full bg-customDarkBlue hover:bg-customDarkBlueHover text-white py-3 rounded-md text-lg focus:outline-none transition duration-300"
           >
             {loading ? "Signing Up..." : "Sign Up"}
           </button>
@@ -200,7 +200,7 @@ const Signup = () => {
         {/* Login Link */}
         <p className="mt-6 text-gray-700 text-sm">
           Already have an account?{" "}
-          <a href="/login" className="text-[#f0b490] hover:underline">
+          <a href="/login" className="text-customDarkBlue hover:underline">
             Login
           </a>
         </p>

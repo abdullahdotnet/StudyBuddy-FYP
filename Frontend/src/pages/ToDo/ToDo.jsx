@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const API_URL = "http://localhost:8000/api/todo/tasks/";
 
-const ToDo = () => {
+const ToDo = ({ dashboard }) => {
     const [tasks, setTasks] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentTask, setCurrentTask] = useState(null);
     const [userId, setUserId] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchUserId(); // Get user ID after token is set
@@ -59,7 +61,9 @@ const ToDo = () => {
         setCurrentTask(task);
         setIsModalOpen(true);
     };
-
+    const handleViewAllClick = () => {
+        navigate('/todo'); // Programmatically route to /todo
+    };
     const saveTask = async () => {
         const accessToken = sessionStorage.getItem("accessToken");
         try {
@@ -123,12 +127,20 @@ const ToDo = () => {
         <div className="max-w-6xl mx-auto bg-white p-8 rounded-lg">
             <div className="rounded-t-lg flex justify-between items-center mb-8">
                 <h1 className="text-3xl font-semibold">To Do</h1>
-                <button
-                    onClick={openAddModal}
-                    className="px-6 py-2 bg-[#F24E1E] text-white rounded-lg"
-                >
-                    Add New Task
-                </button>
+                {dashboard ? (
+                    <button  onClick={handleViewAllClick}
+                        className="px-6 py-2 bg-[#4255FF] text-white rounded-lg "
+                    >
+                        View All
+                    </button>
+                ) : (
+                    <button
+                        onClick={openAddModal}
+                        className="px-6 py-2 bg-customDarkBlue hover:bg-customDarkBlueHover text-white rounded-lg"
+                    >
+                        Add New Task
+                    </button>
+                )}
             </div>
             <table className="w-full">
                 <thead className='bg-[#D4D4D4]'>

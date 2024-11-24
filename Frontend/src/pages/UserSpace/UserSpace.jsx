@@ -16,6 +16,7 @@ const UserSpace = () => {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log(response)
         setFileLinks(response.data.file_links);
       } catch (err) {
         setError('Failed to fetch files. Please try again.');
@@ -52,14 +53,14 @@ const UserSpace = () => {
                   className="w-16 h-16 mx-auto"
                 />
               </div>
-              <h4 className="text-lg font-semibold mb-4 text-gray-700">File {index + 1}</h4>
+              <h4 className="text-lg font-semibold mb-4 text-gray-700"> {file.file_name}</h4>
               <button
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300"
+                className="bg-customDarkBlue text-white px-4 py-2 rounded-lg hover:bg-customDarkBlueHover transition duration-300"
                 onClick={() =>
                   window.open(`http://localhost:8000/media/${file.file_path}`, '_blank')
                 }
               >
-                Open PDF
+                Open
               </button>
             </div>
           ))
