@@ -29,7 +29,7 @@ import ClassSelection from "../pages/Board/ClassSelection";
 import PaperTypeSelection from "../pages/Board/PaperTypeSelection";
 import SubjectSelection from "../pages/Board/SubjectSelection";
 import SubjectivePaperGen from "../pages/Board/SubjectivePaperGen";
-import ObjectivePaperGen from "../pages/PaperGen/ObjectivePaperGen1";
+import ObjectivePaperGen from "../pages/PaperGen/ObjectivePaperGen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

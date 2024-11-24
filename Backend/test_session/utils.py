@@ -1,8 +1,8 @@
 # utils.py
 import os
 import PyPDF2
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.vectorstores import Chroma
 from langchain.text_splitter import CharacterTextSplitter,RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
 from langchain_groq import ChatGroq
@@ -50,7 +50,7 @@ def extract_or_load_pdf_text(pdf_path, cache_dir=os.path.join(BASE_DIR, r"test_s
 def get_llm_model():
     global llm_model
     if llm_model is None:
-        llm_model = ChatGroq(model="llama-3.1-70b-versatile", temperature=0.7)
+        llm_model = ChatGroq(model="llama3-8b-8192", temperature=0.7)
     return llm_model
 
 # Normal code
@@ -133,7 +133,7 @@ def create_evaluation_qa_system(question_paper):
     db = Chroma.from_texts(texts, embeddings)
 
     llm = ChatGroq(
-        model="llama-3.1-70b-versatile",
+        model="llama3-8b-8192",
         temperature=0.2,
         max_tokens=1000,  # Limit token generation
     )
