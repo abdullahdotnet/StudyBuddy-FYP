@@ -7,24 +7,43 @@ const ToDo = () => {
     const [tasks, setTasks] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentTask, setCurrentTask] = useState(null);
+    const [userId, setUserId] = useState(null);
 
     useEffect(() => {
+        fetchUserId(); // Get user ID after token is set
         fetchTasks();
     }, []);
 
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const year = date.getFullYear();
-        return `${day}-${month}-${year}`;
+    const fetchUserId = async () => {
+        const accessToken = sessionStorage.getItem("accessToken");
+        try {
+            const response = await fetch("http://localhost:8000/api/user/profile", {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setUserId(data.id); // Assuming 'id' is the field for the user ID
+            } else {
+                console.error("Failed to fetch user data");
+            }
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+        }
     };
 
     const fetchTasks = async () => {
+        const accessToken = sessionStorage.getItem("accessToken");
         try {
-            const response = await axios.get(API_URL);
-            const sortedTasks = response.data
-                .sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+            const response = await axios.get(API_URL, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            const sortedTasks = response.data.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
             setTasks(sortedTasks);
         } catch (error) {
             console.error("Error fetching tasks:", error);
@@ -42,11 +61,26 @@ const ToDo = () => {
     };
 
     const saveTask = async () => {
+        const accessToken = sessionStorage.getItem("accessToken");
         try {
             if (currentTask.id) {
-                await axios.put(`${API_URL}${currentTask.id}/`, currentTask);
+                await axios.put(`${API_URL}${currentTask.id}/`, {
+                    ...currentTask,
+                    user: userId // Add user ID dynamically
+                }, {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                });
             } else {
-                await axios.post(API_URL, currentTask);
+                await axios.post(API_URL, {
+                    ...currentTask,
+                    user: userId // Add user ID dynamically
+                }, {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                });
             }
             setIsModalOpen(false);
             fetchTasks();
@@ -56,8 +90,13 @@ const ToDo = () => {
     };
 
     const deleteTask = async (id) => {
+        const accessToken = sessionStorage.getItem("accessToken");
         try {
-            await axios.delete(`${API_URL}${id}/`);
+            await axios.delete(`${API_URL}${id}/`, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
             fetchTasks();
         } catch (error) {
             console.error("Error deleting task:", error);
@@ -68,9 +107,16 @@ const ToDo = () => {
         const updatedTasks = tasks.map(task =>
             task.id === taskId ? { ...task, status: task.status === 'Completed' ? 'Pending' : 'Completed' } : task
         );
-        setTasks(updatedTasks); // assuming you are using useState to manage tasks
+        setTasks(updatedTasks);
     };
-    
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}-${month}-${year}`;
+    };
 
     // Tailwind and custom styles
     return (
@@ -110,10 +156,10 @@ const ToDo = () => {
                             <td className="text-left py-2">
                                 <span
                                     className={`px-4 py-2 rounded-full ${task.status === 'Completed'
-                                            ? 'text-[#00B17D] bg-[#C7FFEC]'
-                                            : task.status === 'Pending'
-                                                ? 'text-[#D1BC00] bg-[#FFF7B0]'
-                                                : 'text-[#EC3722] bg-[#FFC69B]'
+                                        ? 'text-[#00B17D] bg-[#C7FFEC]'
+                                        : task.status === 'Pending'
+                                            ? 'text-[#D1BC00] bg-[#FFF7B0]'
+                                            : 'text-[#EC3722] bg-[#FFC69B]'
                                         } shadow-md`}
                                 >
                                     {task.status}
@@ -137,7 +183,6 @@ const ToDo = () => {
                     ))}
                 </tbody>
             </table>
-
 
             {isModalOpen && (
                 <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
