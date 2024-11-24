@@ -41,6 +41,12 @@ const Sidebar = () => {
                 {isOpen && <span>Entry Test</span>}
               </li>
             </Link>
+            <Link to="/user-space">
+              <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">
+                <img src={HomeIcon} alt="Dashboard" className="mr-4" />
+                {isOpen && <span>Notes</span>}
+              </li>
+            </Link>
             {/* <Link to="/resources">
               <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">
                 <img src={DocIcon} alt="Resources" className="mr-4" />
