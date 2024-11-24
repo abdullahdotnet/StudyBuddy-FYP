@@ -11,7 +11,7 @@ const Chats = () => {
     <div className="w-full bg-white p-4 rounded-lg">
       {/* Header Section */}
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-bold">Chats</h2>
+        <h2 className="text-3xl font-semibold roboto-font">Chats</h2>
         <a
           href="#"
           className="text-sm text-gray-600 hover:text-gray-900 transition"
