@@ -128,15 +128,15 @@ const ToDo = ({ dashboard }) => {
             <div className="rounded-t-lg flex justify-between items-center mb-8">
                 <h1 className="text-3xl font-semibold">To Do</h1>
                 {dashboard ? (
-                    <button onClick={handleViewAllClick}
-                        className="px-6 py-2 bg-[#F24E1E] text-white rounded-lg"
+                    <button  onClick={handleViewAllClick}
+                        className="px-6 py-2 bg-[#4255FF] text-white rounded-lg "
                     >
                         View All
                     </button>
                 ) : (
                     <button
                         onClick={openAddModal}
-                        className="px-6 py-2 bg-[#F24E1E] text-white rounded-lg"
+                        className="px-6 py-2 bg-customDarkBlue hover:bg-customDarkBlueHover text-white rounded-lg"
                     >
                         Add New Task
                     </button>
