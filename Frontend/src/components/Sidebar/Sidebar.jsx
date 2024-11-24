@@ -21,7 +21,7 @@ const Sidebar = () => {
     <div className="relative h-screen flex roboto-font">
       {/* Sidebar */}
       <div classNa  me={`bg-white text-586380 flex flex-col justify-between transition-all duration-300 ${isOpen ? 'w-64' : 'w-0'} overflow-hidden relative`}>
-        <div className="p-4">
+        <div className="p-4 ">
           {/* Navigation Items */}
           <ul>
             <Link to="/dashboard">
