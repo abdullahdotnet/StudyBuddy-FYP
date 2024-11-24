@@ -2,7 +2,7 @@ import React from "react";
 
 const Leaderboard = ({ rankings }) => {
   return (
-    <div className="h-[290px] w-[356px] bg-white shadow-md rounded-lg p-4 flex flex-col">
+    <div className="h-[292px] w-[356px] bg-white shadow-md rounded-lg p-4 flex flex-col">
       <h2 className="text-lg font-bold mb-3">Leaderboard</h2>
       <div className="overflow-y-auto flex-grow">
         <table className="w-full text-left border-collapse">
@@ -24,6 +24,7 @@ const Leaderboard = ({ rankings }) => {
               <tr
                 key={index}
                 className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}
+                style={index === rankings.length - 1 ? { border: '1.5px solid #4255FF'} : {}}
               >
                 <td className="p-1 text-sm text-gray-700">{entry.rank}</td>
                 <td className="p-1 text-sm text-gray-700 truncate">

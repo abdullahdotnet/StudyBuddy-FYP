@@ -8,8 +8,10 @@ import Greeting from "../../components/Dashboard/Greeting";
 import Leaderboard from "../../components/Dashboard/Leaderboard";
 import Chats from "../../components/Dashboard/Chatbot";
 import ToDo from '../ToDo/ToDo';
+const username = sessionStorage.getItem("username");
+
 const user = {
-  name: "Anas",
+  name: username,
   quote:
     "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma",
   streak: 3,
@@ -21,11 +23,10 @@ const leaderboardData = [
   { rank: 3, name: "Abdullah Ghazi", score: 94 },
   { rank: 4, name: "Abdullah Ashfaq", score: 83 },
   { rank: 5, name: "Etisam ul Haq", score: 80 },
-  { rank: 1543, name: "Etisam ul Haq", score: 80 },
+  { rank: 1543, name: username, score: 35 },
 ];
 
 function dashboard() {
-  const username = sessionStorage.getItem("username");
   return (
     <div>
        <div className="h-[300px] bg-white p-6 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
