@@ -42,6 +42,12 @@ const Sidebar = () => {
                 {isOpen && <span>Entry Test</span>}
               </li>
             </Link>
+            <Link to="/board">
+              <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">
+                <img src={DocIcon} alt="Board" className="mr-4" />
+                {isOpen && <span>Board</span>}
+              </li>
+            </Link>
             <Link to="/user-space">
               <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">
                 <img src={HomeIcon} alt="Dashboard" className="mr-4" />
@@ -74,12 +80,7 @@ const Sidebar = () => {
             </Link>
 
             {/* New Board Button */}
-            <Link to="/board">
-              <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">
-                <img src={DocIcon} alt="Board" className="mr-4" />
-                {isOpen && <span>Board</span>}
-              </li>
-            </Link>
+            
 
             {/* <Link to='/extras'>
               <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">
