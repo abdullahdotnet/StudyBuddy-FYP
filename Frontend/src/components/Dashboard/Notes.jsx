@@ -33,7 +33,7 @@ const Notes = () => {
   return (
     <div className="p-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold">Notes</h2>
+        <h2 className="text-3xl font-semibold roboto-font">Notes</h2>
         <button  onClick={handleViewAllClick}
                         className="px-6 py-2 bg-customDarkBlue text-white rounded-lg hover:bg-customDarkBlueHover"
                     >

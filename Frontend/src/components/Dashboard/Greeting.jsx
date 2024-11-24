@@ -6,7 +6,7 @@ const Greeting = ({ name, quote, streak }) => {
       {/* Greeting */}
       <div>
         <h1 className="text-4xl font-bold">
-          Hi there, <span className="text-blue-600">{name}!</span>
+          Hi there, <span className="text-customDarkBlue">{name}!</span>
         </h1>
         <p className="text-gray-500 italic mt-2">{`"${quote}"`}</p>
       </div>
@@ -14,25 +14,10 @@ const Greeting = ({ name, quote, streak }) => {
       {/* Streak */}
       <div className="flex flex-col items-center mt-4">
         <div className="flex items-center text-lg font-medium text-gray-700">
-          <svg width="40" height="40" viewBox="0 0 39 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g filter="url(#filter0_d_486_3543)">
-              <path d="M30.8624 6.52687C31.9038 4.75092 31.2616 2.04173 29.7681 1.92613L18.1854 1.02957C17.872 1.00157 17.5532 1.10503 17.2596 1.32998C16.966 1.55493 16.7074 1.89382 16.5088 2.31405L5.91117 25.3163C5.07522 27.1279 5.76431 29.5224 7.15265 29.6298L13.0665 30.0876L5.74762 52.2421C4.7211 55.0363 6.69537 57.8176 8.31784 55.864L20.9665 39.3706L33.6151 22.8771L21.8029 21.9628L30.8624 6.52687Z" stroke="#4255FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" shape-rendering="crispEdges" />
-            </g>
-            <defs>
-              <filter id="filter0_d_486_3543" x="0.464844" y="0.0253906" width="38.1504" height="65.4932" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
-                <feOffset dy="4" />
-                <feGaussianBlur stdDeviation="2" />
-                <feComposite in2="hardAlpha" operator="out" />
-                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_486_3543" />
-                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_486_3543" result="shape" />
-              </filter>
-            </defs>
+          <svg width="40" height="40" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.26027 15.9996H1.76027C1.67615 15.9981 1.59377 15.9754 1.52076 15.9336C1.44774 15.8917 1.38646 15.8322 1.34259 15.7604C1.29872 15.6886 1.27367 15.6069 1.26977 15.5228C1.26587 15.4388 1.28324 15.3551 1.32027 15.2796L4.27527 9.49958H1.00027C0.910165 9.50034 0.821528 9.47672 0.743737 9.43124C0.665945 9.38576 0.601891 9.32011 0.558346 9.24121C0.514802 9.16232 0.493388 9.07313 0.496367 8.98307C0.499347 8.89301 0.52661 8.80542 0.575273 8.72958L5.91527 0.229582C5.95905 0.161259 6.0188 0.104617 6.08936 0.0645456C6.15992 0.0244744 6.23917 0.0021783 6.32027 -0.000417773H13.0353C13.1351 -0.00514122 13.2341 0.0201668 13.3194 0.0722398C13.4047 0.124313 13.4725 0.200761 13.5139 0.291717C13.5553 0.382672 13.5686 0.483961 13.5519 0.582509C13.5352 0.681058 13.4894 0.772343 13.4203 0.844582L8.89027 5.99958H11.5803C11.6755 6.00159 11.7682 6.03076 11.8474 6.08366C11.9266 6.13656 11.9891 6.21099 12.0274 6.29819C12.0658 6.38539 12.0784 6.48173 12.0639 6.57587C12.0493 6.67001 12.0082 6.75804 11.9453 6.82958L3.63027 15.8296C3.58398 15.8823 3.52711 15.9247 3.46336 15.954C3.39962 15.9832 3.33042 15.9988 3.26027 15.9996ZM2.59027 14.9996H3.04527L10.4303 6.99958H7.79527C7.69543 7.00431 7.59647 6.979 7.51115 6.92692C7.42584 6.87485 7.35809 6.7984 7.31665 6.70745C7.2752 6.61649 7.26197 6.5152 7.27866 6.41666C7.29535 6.31811 7.34119 6.22682 7.41027 6.15458L11.9403 0.999582H6.59527L1.88527 8.49958H5.10027C5.1844 8.50109 5.26678 8.5238 5.33979 8.56561C5.4128 8.60742 5.47408 8.66699 5.51795 8.73878C5.56183 8.81057 5.58687 8.89227 5.59078 8.97632C5.59468 9.06036 5.57731 9.14403 5.54027 9.21958L2.59027 14.9996Z" fill="#4255FF" />
           </svg>
-
-          {streak} Days Streak
+          <p class="italic text-3xl font-sans">{streak} Days Streak</p>
         </div>
       </div>
 
@@ -42,8 +27,8 @@ const Greeting = ({ name, quote, streak }) => {
           {["M", "T", "W", "T", "F", "S", "S"].map((day, index) => (
             <div
               key={index}
-              className={`w-8 h-8 flex items-center justify-center rounded-full ${index === 4 || index === 6 || index === 5
-                  ? "bg-blue-600 text-white"
+              className={`h-11 w-11 text-xl flex items-center justify-center rounded-full ${index === 4 || index === 6 || index === 5
+                  ? "bg-customDarkBlue text-white"
                   : "bg-gray-200 text-gray-500"
                 }`}
             >

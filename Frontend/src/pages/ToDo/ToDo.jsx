@@ -126,7 +126,7 @@ const ToDo = ({ dashboard }) => {
     return (
         <div className="max-w-6xl mx-auto bg-white p-8 rounded-lg">
             <div className="rounded-t-lg flex justify-between items-center mb-8">
-                <h1 className="text-3xl font-semibold">To Do</h1>
+                <h1 className="text-3xl font-semibold roboto-font">To Do</h1>
                 {dashboard ? (
                     <button  onClick={handleViewAllClick}
                         className="px-6 py-2 bg-[#4255FF] text-white rounded-lg "
