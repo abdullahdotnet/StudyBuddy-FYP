@@ -29,7 +29,7 @@ function dashboard() {
   return (
     <div>
        <div className="h-[300px] bg-white p-6 flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
-      <Greeting name={user.name} quote={user.quote} streak={user.streak} />
+      <Greeting name={username} quote={user.quote} streak={user.streak} />
       <Leaderboard rankings={leaderboardData} />
     </div>
       {/* <WelcomeQoute name={username} /> */}

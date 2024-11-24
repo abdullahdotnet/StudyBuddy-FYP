@@ -16,6 +16,7 @@ const UserSpace = () => {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log(response)
         setFileLinks(response.data.file_links);
       } catch (err) {
         setError('Failed to fetch files. Please try again.');
