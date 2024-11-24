@@ -1,8 +1,8 @@
 # utils.py
 import os
 import PyPDF2
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import Chroma
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
 from langchain.text_splitter import CharacterTextSplitter,RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
 from langchain_groq import ChatGroq
