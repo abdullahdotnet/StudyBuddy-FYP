@@ -7,6 +7,7 @@ import TaskTable from "../../components/Dashboard/TaskTable";
 import Greeting from "../../components/Dashboard/Greeting";
 import Leaderboard from "../../components/Dashboard/Leaderboard";
 import Chats from "../../components/Dashboard/Chatbot";
+import ToDo from '../ToDo/ToDo';
 const user = {
   name: "Anas",
   quote:
@@ -35,7 +36,7 @@ function dashboard() {
       {/* <Tasks />
       <Activity />
        */}
-      <TaskTable/>
+      <ToDo dashboard={true}/>
       <Chats/>
       <Notes />
       
