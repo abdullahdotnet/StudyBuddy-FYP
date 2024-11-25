@@ -239,7 +239,9 @@ class YoutubeChatView(APIView):
                 # Stream tokens
                 for chunk in LLM.stream(prompt):
                     if chunk.content:
-                        yield f"data: {chunk.content}\n\n"
+                        print(f"data: {chunk.content}",end=", ")
+                        print(len(chunk.content))
+                        yield f"data: {chunk.content}"
                 
                 yield "data: [DONE]\n\n"
 
