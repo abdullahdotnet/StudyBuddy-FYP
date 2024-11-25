@@ -13,7 +13,8 @@ from langchain.chains import RetrievalQA
 from langchain_community.vectorstores import Chroma    
 from langchain_community.embeddings import HuggingFaceEmbeddings      # for embeddings
 from langchain.text_splitter import CharacterTextSplitter
-
+from django.http import StreamingHttpResponse   # for streaming response
+import json
 
 
 
@@ -28,7 +29,8 @@ EMBEDDING_MODEL = HuggingFaceEmbeddings()
 LLM = ChatGroq(
     model="llama-3.1-70b-versatile",
     api_key=os.getenv("GROQ_API_KEY"),
-    temperature=0.2
+    temperature=0.2,
+    streaming=True
 )
 
 class ImageDataView(APIView):
@@ -170,15 +172,13 @@ class YoutubeChatView(APIView):
             qa = RetrievalQA.from_chain_type(
                 llm=LLM, chain_type="stuff", retriever=retriever
             )
-            response = qa.invoke(
-                f"""Provide a concise answer to the user's question (50-60 words max) based on the video content. Ensure the response is contextually accurate. 
-                If the user engages in greetings or casual chat unrelated to the video, respond in a professional tone.
 
-                User Query: {user_query}
-                Video Transcription: {transcription}
-                """
+            request.session['transcription'] = transcription
+            request.session['query'] = user_query
+            return Response(
+                {"message": "Data processed. Start streaming."},
+                status=status.HTTP_200_OK
             )
-            return Response({'response': response['result']}, status=status.HTTP_200_OK)
         
         except Exception as e:
             print(f"Error during chat processing: {e}")
@@ -186,3 +186,65 @@ class YoutubeChatView(APIView):
                 {"error": "Failed to process chat."},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+
+
+
+
+class YoutubeChatView(APIView):
+    def post(self, request, *args, **kwargs):
+        youtube_url = request.data.get('youtube_url')
+        user_query = request.data.get('query')
+
+        if not youtube_url or not user_query:
+            return Response(
+                {
+                    'youtube_url': ['This field is required.'],
+                    'query': ['This field is required.']
+                },
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        def generate_response():
+            try:
+                # Transcription and embedding logic remains the same
+                transcription, video_id = transcribe(youtube_url)
+                embeddings_path = f'./youtube/embeddings/{video_id}_embeddings'
+
+                if not os.path.exists(embeddings_path):
+                    text_splitter = CharacterTextSplitter(
+                        chunk_size=150, chunk_overlap=20
+                    )
+                    chunks = text_splitter.split_text(transcription)
+                    db = Chroma.from_texts(
+                        chunks, EMBEDDING_MODEL, persist_directory=embeddings_path
+                    )
+                    db.persist()
+                else:
+                    db = Chroma(
+                        persist_directory=embeddings_path,
+                        embedding_function=EMBEDDING_MODEL
+                    )
+
+                retriever = db.as_retriever(search_kwargs={"k": 3})
+                
+                # Use streaming LLM for token-by-token response
+                prompt = f"""Provide a concise answer to the user's question (50-60 words max) based on the video content. 
+                Ensure the response is contextually accurate. 
+                If the user engages in greetings or casual chat unrelated to the video, respond in a professional tone.
+
+                User Query: {user_query}
+                Video Transcription: {transcription}
+                """
+                
+                # Stream tokens
+                for chunk in LLM.stream(prompt):
+                    if chunk.content:
+                        yield f"data: {chunk.content}\n\n"
+                
+                yield "data: [DONE]\n\n"
+
+            except Exception as e:
+                print(f"Error during chat processing: {e}")
+                yield f"data: Error: {str(e)}\n\n"
+
+        return StreamingHttpResponse(generate_response(), content_type='text/event-stream')

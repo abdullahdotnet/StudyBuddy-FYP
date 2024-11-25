@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import StudentPic from '../../assets/images/students06.jpg'
-import logo from '../../assets/icons/logo.svg'
+import logo from '../../assets/images/studybuddy.svg'
 
 const DashboardNavbar = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
