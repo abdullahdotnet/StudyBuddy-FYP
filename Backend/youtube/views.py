@@ -241,7 +241,7 @@ class YoutubeChatView(APIView):
                     if chunk.content:
                         print(f"data: {chunk.content}",end=", ")
                         print(len(chunk.content))
-                        yield f"data: {chunk.content}"
+                        yield f"data: {chunk.content} \n\n"
                 
                 yield "data: [DONE]\n\n"
 
