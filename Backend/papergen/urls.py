@@ -1,16 +1,9 @@
 from django.urls import path
-from .views import (
-    SubjectListView,
-    ObjectivePaperView,
-    SubjectivePaperView,
-    FullBookPaperView,
-    ObjectiveEvaluationView,
-)
+from .views import SubjectListView, ObjectivePaperView, ObjectiveEvaluationView
 
 urlpatterns = [
-    path('subjects/', SubjectListView.as_view()),
-    path('generate-objective/<str:grade>/<str:subject>/', ObjectivePaperView.as_view()),
-    path('generate-subjective/<str:grade>/<str:subject>/', SubjectivePaperView.as_view()),
-    path('generate-full-paper/<str:grade>/<str:subject>/', FullBookPaperView.as_view()),
-    path('evaluate-objective/<str:grade>/<str:subject>/', ObjectiveEvaluationView.as_view()),
+    path('subjects/', SubjectListView.as_view(), name='subjects'),
+    path('generate-paper/', ObjectivePaperView.as_view(), name='objective_questions'),
+    path('evaluate-paper/', ObjectiveEvaluationView.as_view(), name='evaluate_questions'),
 ]
+
