@@ -41,8 +41,6 @@
 - **To-Do List**: Stay organized and manage tasks effectively.  
 - **Personal Data Space**: A secure place to store and manage study-related content.  
 
----
-
 ## 🛠️ Technology Stack  
 
 - **Backend**: Django  
@@ -54,8 +52,6 @@
   - **RAG (Retrieval-Augmented Generation)**: Combines retrieved knowledge with AI outputs for accurate responses.  
   - **HuggingFace Embeddings**: Enhances text representation and semantic understanding.  
   - **LLMs with Groq**: Powers querying, summarization, and feedback with optimized performance.  
-
----
 
 ## 🚀 Installation  
 
@@ -85,9 +81,8 @@
 4. Install the Chrome extension:  
    - Navigate to `chrome://extensions`.  
    - Enable "Developer mode."  
-   - Click "Load unpacked" and select the `Extension` folder.  
----
-
+   - Click "Load unpacked" and select the `Extension` folder.
+     
 ## 📄 License  
 
 The StudyBuddy platform, including its codebase and content, is protected under a restrictive license.  
@@ -98,8 +93,6 @@ The StudyBuddy platform, including its codebase and content, is protected under 
 3. Claiming this project or its derivatives as your own.  
 
 For further details, please see the [LICENSE](LICENSE) file.  
-
----
 
 ## 👥 Developers and Supervisors  
 
@@ -121,8 +114,6 @@ This platform was developed by a dedicated team of five developers under the gui
 |---------------------------|---------------------------------------------------------------------|  
 | **Dr. Kamran Malik**      | <a href="https://linkedin.com/in/muhammad-kamran-malik"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" /></a> |  
 | **Dr. Waheed Iqbal**      | <a href="https://linkedin.com/in/waheediqbal751"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" /></a> |  
-
---- 
 
 ## 🧑‍💻 Contact  
 
