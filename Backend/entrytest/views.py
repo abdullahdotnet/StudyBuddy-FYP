@@ -44,7 +44,7 @@ class GenerateQuestionPaperAPIView(APIView):
         try:
             # Define the number of questions for each subject
             subjects_questions = {
-                "Biology": 63,
+                "Biology": 68,
                 "Chemistry": 54,
                 "Physics": 54,
                 "English": 18,
@@ -62,26 +62,26 @@ class GenerateQuestionPaperAPIView(APIView):
             english_questions = data[data['Subject'] == 'English'].sample(n=subjects_questions["English"])
             logical_reasoning_questions = data[data['Subject'] == 'Logical Reasoning'].sample(n=subjects_questions["Logical Reasoning"])
             
-            # Get new Biology MCQs as a list of JSON strings
-            selected_biology_questions = biology_questions.sample(n=5).reset_index(drop=True)
-            new_biology_mcqs = generate_mcqs("Biology", selected_biology_questions)  # This returns a list of JSON strings
-            print("=="*10)
-            print("New Biology MCQs:", new_biology_mcqs)
+            # # Get new Biology MCQs as a list of JSON strings
+            # selected_biology_questions = biology_questions.sample(n=5).reset_index(drop=True)
+            # new_biology_mcqs = generate_mcqs("Biology", selected_biology_questions)  # This returns a list of JSON strings
+            # print("=="*10)
+            # print("New Biology MCQs:", new_biology_mcqs)
 
-            # Parse the JSON strings and replace the selected rows in the biology_questions DataFrame
-            for i in range(5):
-                # Parse the JSON string into a dictionary
-                new_mcq = json.loads(new_biology_mcqs[i])
-                print(f"New MCQ generated{i}", '='*10)
-                print(new_mcq)
-                # Ensure proper column-wise replacement
-                biology_questions.at[selected_biology_questions.index[i], 'Question'] = new_mcq['question']
-                biology_questions.at[selected_biology_questions.index[i], 'Option 1'] = new_mcq['options'][0]
-                biology_questions.at[selected_biology_questions.index[i], 'Option 2'] = new_mcq['options'][1]
-                biology_questions.at[selected_biology_questions.index[i], 'Option 3'] = new_mcq['options'][2]
-                biology_questions.at[selected_biology_questions.index[i], 'Option 4'] = new_mcq['options'][3]
-                biology_questions.at[selected_biology_questions.index[i], 'Answers'] = new_mcq['answer']
-            print("Outside 01","=="*10)
+            # # Parse the JSON strings and replace the selected rows in the biology_questions DataFrame
+            # for i in range(5):
+            #     # Parse the JSON string into a dictionary
+            #     new_mcq = json.loads(new_biology_mcqs[i])
+            #     print(f"New MCQ generated{i}", '='*10)
+            #     print(new_mcq)
+            #     # Ensure proper column-wise replacement
+            #     biology_questions.at[selected_biology_questions.index[i], 'Question'] = new_mcq['question']
+            #     biology_questions.at[selected_biology_questions.index[i], 'Option 1'] = new_mcq['options'][0]
+            #     biology_questions.at[selected_biology_questions.index[i], 'Option 2'] = new_mcq['options'][1]
+            #     biology_questions.at[selected_biology_questions.index[i], 'Option 3'] = new_mcq['options'][2]
+            #     biology_questions.at[selected_biology_questions.index[i], 'Option 4'] = new_mcq['options'][3]
+            #     biology_questions.at[selected_biology_questions.index[i], 'Answers'] = new_mcq['answer']
+            # print("Outside 01","=="*10)
             # Combine the modified biology questions with other subjects
             combined_questions = pd.concat([
                 biology_questions, chemistry_questions, 
@@ -108,7 +108,7 @@ class GenerateQuestionPaperAPIView(APIView):
                 # Check if the question was generated
                 print(f"Outside 04 {idx}","=="*10)
                 print(item)
-                generated_flag = 1 if item['Subject'] == "Biology" and idx in selected_biology_questions.index else 0
+                # generated_flag = 1 if item['Subject'] == "Biology" and idx in selected_biology_questions.index else 0
                 mcq_paper.append({
                     "id": item['ID'],
                     "question": item['Question'],
@@ -120,7 +120,7 @@ class GenerateQuestionPaperAPIView(APIView):
                     ],
                     "subject": item['Subject'],
                     "answer": answer_map[item['Answers']],
-                    "generated": generated_flag  # Add the generated flag
+                    # "generated": generated_flag  # Add the generated flag
                 })
             # Replace NaN values in 'subject' with an empty string
             for mcq in mcq_paper:

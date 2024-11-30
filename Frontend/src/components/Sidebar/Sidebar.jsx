@@ -21,7 +21,7 @@ const Sidebar = () => {
     <div className="relative h-screen flex roboto-font">
       {/* Sidebar */}
       <div classNa  me={`bg-white text-586380 flex flex-col justify-between transition-all duration-300 ${isOpen ? 'w-64' : 'w-0'} overflow-hidden relative`}>
-        <div className="p-4">
+        <div className="p-4 ">
           {/* Navigation Items */}
           <ul>
             <Link to="/dashboard">
@@ -40,6 +40,12 @@ const Sidebar = () => {
               <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">
                 <img src={BagIcon} alt="Extras" className="mr-4" />
                 {isOpen && <span>Entry Test</span>}
+              </li>
+            </Link>
+            <Link to="/board">
+              <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">
+                <img src={DocIcon} alt="Board" className="mr-4" />
+                {isOpen && <span>Board</span>}
               </li>
             </Link>
             <Link to="/user-space">
@@ -74,12 +80,7 @@ const Sidebar = () => {
             </Link>
 
             {/* New Board Button */}
-            <Link to="/board">
-              <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">
-                <img src={DocIcon} alt="Board" className="mr-4" />
-                {isOpen && <span>Board</span>}
-              </li>
-            </Link>
+            
 
             {/* <Link to='/extras'>
               <li className="mb-4 flex items-center text-586380 hover:bg-[#EDEFFF] p-2 rounded transition-colors cursor-pointer">

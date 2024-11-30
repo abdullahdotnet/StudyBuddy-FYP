@@ -124,7 +124,7 @@ const ToDo = ({ dashboard }) => {
 
     // Tailwind and custom styles
     return (
-        <div className="max-w-6xl mx-auto bg-white p-8 rounded-lg">
+        <div className="max-w-6xl bg-white p-8 rounded-lg">
             <div className="rounded-t-lg flex justify-between items-center mb-8">
                 <h1 className="text-3xl font-semibold roboto-font">To Do</h1>
                 {dashboard ? (
